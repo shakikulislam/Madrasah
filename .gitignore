@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/WindowsDesktop/bin/Debug
+/WindowsDesktop/obj/Debug
+/.vs/Madrasah/v16/.suo
