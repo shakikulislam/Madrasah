@@ -9,37 +9,80 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsDesktop.Theme;
 
 namespace WindowsDesktop
 {
     public partial class FrmMain : Form
     {
 
+        #region Variable
+
         private IconButton _currentBtn;
         private Panel _leftMenuBtnBorder;
         private Form _currentChildForm;
+
+        #endregion
 
         //Constructor
         public FrmMain()
         {
             InitializeComponent();
-            _leftMenuBtnBorder = new Panel();
-            _leftMenuBtnBorder.Size = new Size(7, 40);
+
+            _leftMenuBtnBorder = new Panel {Size = new Size(3, 40)};
             panelSideMenu.Controls.Add(_leftMenuBtnBorder);
             //MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
+
+            LoadTheme();
         }
 
-        // Structs
-        private struct RGBColors
+
+        // Drag Control
+        #region Drag Control
+
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
-            public static Color color1 = Color.FromArgb(127, 126, 241);
-            public static Color color2 = Color.FromArgb(249, 118, 176);
-            public static Color color3 = Color.FromArgb(253, 138, 114);
-            public static Color color4 = Color.FromArgb(95, 77, 221);
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        #endregion
 
         //Method
-        private void ActiveButton(object senderBtn, Color color)
+        #region Method
+
+        private void LoadTheme()
+        {
+            panelTitleBar.BackColor = SColor.MenuPanelBackColor;
+            panelSideMenu.BackColor = SColor.MenuPanelBackColor;
+            panelBody.BackColor = SColor.BackColor;
+            iconPictureBoxCurrentChild.BackColor = SColor.MenuPanelBackColor;
+            iconPictureBoxCurrentChild.IconColor = SColor.ForColor;
+            labelCurrentChild.BackColor = SColor.MenuPanelBackColor;
+            labelCurrentChild.ForeColor = SColor.ForColor;
+            
+            foreach (var iconButton in panelSideMenu.Controls.OfType<IconButton>())
+            {
+                iconButton.ForeColor = SColor.ForColor;
+                iconButton.IconColor = SColor.ForColor;
+                iconButton.BackColor = SColor.MenuPanelBackColor;
+            }
+
+            foreach (var iconButton in panelTitleBar.Controls.OfType<IconButton>())
+            {
+                iconButton.ForeColor = SColor.ForColor;
+                iconButton.IconColor = SColor.ForColor;
+                iconButton.BackColor = SColor.MenuPanelBackColor;
+            }
+        }
+
+        private void ActiveButton(object senderBtn)
         {
             if (senderBtn != null)
             {
@@ -47,15 +90,15 @@ namespace WindowsDesktop
 
                 // Active button
                 _currentBtn = (IconButton)senderBtn;
-                _currentBtn.BackColor = Color.FromArgb(37, 36, 81);
-                _currentBtn.ForeColor = color;
+                _currentBtn.BackColor = SColor.ActiveBackColor;
+                _currentBtn.ForeColor = SColor.ActiveForColor;
                 _currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                _currentBtn.IconColor = color;
+                _currentBtn.IconColor = SColor.ActiveForColor;
                 _currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 _currentBtn.ImageAlign = ContentAlignment.MiddleRight;
 
                 // Left border button
-                _leftMenuBtnBorder.BackColor = color;
+                _leftMenuBtnBorder.BackColor = SColor.ActiveForColor;
                 _leftMenuBtnBorder.Location = new Point(0, _currentBtn.Location.Y);
                 _leftMenuBtnBorder.Visible = true;
                 _leftMenuBtnBorder.BringToFront();
@@ -69,10 +112,10 @@ namespace WindowsDesktop
         {
             if (_currentBtn != null)
             {
-                _currentBtn.BackColor = Color.FromArgb(31, 30, 68);
-                _currentBtn.ForeColor = Color.White;
+                _currentBtn.BackColor = SColor.MenuPanelBackColor;
+                _currentBtn.ForeColor = SColor.ForColor;
                 _currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                _currentBtn.IconColor = Color.White; ;
+                _currentBtn.IconColor = SColor.ForColor;
                 _currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 _currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
@@ -85,7 +128,7 @@ namespace WindowsDesktop
                 // Open only home
                 _currentChildForm.Close();
             }
-
+            
             _currentChildForm = childForm;
 
             labelCurrentChild.Text = _currentChildForm.Text;
@@ -103,36 +146,7 @@ namespace WindowsDesktop
         }
         
 
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            ActiveButton(sender, RGBColors.color1);
-            OpenChildForm(new Form1());
-        }
-
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-            ActiveButton(sender, RGBColors.color2);
-            OpenChildForm(new Form2());
-        }
-
-        private void iconButton3_Click(object sender, EventArgs e)
-        {
-            ActiveButton(sender, RGBColors.color3);
-            OpenChildForm(new Form3());
-        }
-
-        // Drag Control
-        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-
-        [DllImport("user32.dll", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
+        #endregion
 
         private void iconButtonClose_Click(object sender, EventArgs e)
         {
@@ -141,19 +155,22 @@ namespace WindowsDesktop
 
         private void iconButtonMaximize_Click(object sender, EventArgs e)
         {
-            if (WindowState==FormWindowState.Normal) 
+            switch (this.WindowState)
             {
-                WindowState = FormWindowState.Maximized;
-                iconButtonMaximize.IconChar = IconChar.WindowRestore;
-                toolTipMain.SetToolTip(iconButtonMaximize, "Restore");
-            }
-            else if (WindowState == FormWindowState.Maximized)
-            {
-                WindowState = FormWindowState.Normal;
-                iconButtonMaximize.IconChar = IconChar.WindowMaximize;
-                toolTipMain.SetToolTip(iconButtonMaximize, "Maximize");
+                case FormWindowState.Normal:
+                    WindowState = FormWindowState.Maximized;
+                    iconButtonMaximize.IconChar = IconChar.WindowRestore;
+                    toolTipMain.SetToolTip(iconButtonMaximize, "Restore");
+                    break;
 
+                case FormWindowState.Maximized:
+                    WindowState = FormWindowState.Normal;
+                    iconButtonMaximize.IconChar = IconChar.WindowMaximize;
+                    toolTipMain.SetToolTip(iconButtonMaximize, "Maximize");
+                    break;
 
+                case FormWindowState.Minimized:
+                    break;
             }
         }
 
@@ -164,16 +181,27 @@ namespace WindowsDesktop
 
         private void FrmMain_Resize(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Normal)
+            switch (this.WindowState)
             {
-                iconButtonMaximize.IconChar = IconChar.WindowMaximize;
-                toolTipMain.SetToolTip(iconButtonMaximize, "Maximize");
+                case FormWindowState.Normal:
+                    iconButtonMaximize.IconChar = IconChar.WindowMaximize;
+                    toolTipMain.SetToolTip(iconButtonMaximize, "Maximize");
+                    break;
+
+                case FormWindowState.Maximized:
+                    iconButtonMaximize.IconChar = IconChar.WindowRestore;
+                    toolTipMain.SetToolTip(iconButtonMaximize, "Restore");
+                    break;
+
+                case FormWindowState.Minimized:
+                    break;
             }
-            else if (WindowState == FormWindowState.Maximized)
-            {
-                iconButtonMaximize.IconChar = IconChar.WindowRestore;
-                toolTipMain.SetToolTip(iconButtonMaximize, "Restore");
-            }
+        }
+
+        private void iconButtonStudent_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            OpenChildForm(new FrmStudent());
         }
     }
 }
