@@ -33,7 +33,6 @@ namespace WindowsDesktop
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButtonStudent = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panelLeftMenuLogo = new System.Windows.Forms.Panel();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.iconButtonMinimize = new FontAwesome.Sharp.IconButton();
@@ -43,14 +42,20 @@ namespace WindowsDesktop
             this.iconPictureBoxCurrentChild = new FontAwesome.Sharp.IconPictureBox();
             this.panelBody = new System.Windows.Forms.Panel();
             this.toolTipMain = new System.Windows.Forms.ToolTip(this.components);
+            this.panelFooter = new System.Windows.Forms.Panel();
+            this.labelOfficeName = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.iconButtonAddress = new FontAwesome.Sharp.IconButton();
             this.panelSideMenu.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxCurrentChild)).BeginInit();
+            this.panelFooter.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.panelSideMenu.Controls.Add(this.iconButtonAddress);
             this.panelSideMenu.Controls.Add(this.iconButton1);
             this.panelSideMenu.Controls.Add(this.iconButton3);
             this.panelSideMenu.Controls.Add(this.iconButtonStudent);
@@ -105,28 +110,6 @@ namespace WindowsDesktop
             this.iconButtonStudent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButtonStudent.UseVisualStyleBackColor = true;
             this.iconButtonStudent.Click += new System.EventHandler(this.iconButtonStudent_Click);
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.LandmarkFlag;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 143);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.iconButton1.Size = new System.Drawing.Size(159, 40);
-            this.iconButton1.TabIndex = 2;
-            this.iconButton1.Text = "Syllabus";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // panelLeftMenuLogo
             // 
@@ -236,12 +219,81 @@ namespace WindowsDesktop
             // 
             // panelBody
             // 
+            this.panelBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBody.Location = new System.Drawing.Point(159, 30);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(725, 454);
+            this.panelBody.Size = new System.Drawing.Size(725, 424);
             this.panelBody.TabIndex = 3;
+            // 
+            // panelFooter
+            // 
+            this.panelFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.panelFooter.Controls.Add(this.labelOfficeName);
+            this.panelFooter.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelFooter.Location = new System.Drawing.Point(159, 454);
+            this.panelFooter.Name = "panelFooter";
+            this.panelFooter.Size = new System.Drawing.Size(725, 30);
+            this.panelFooter.TabIndex = 4;
+            // 
+            // labelOfficeName
+            // 
+            this.labelOfficeName.AutoSize = true;
+            this.labelOfficeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOfficeName.ForeColor = System.Drawing.Color.White;
+            this.labelOfficeName.Location = new System.Drawing.Point(6, 9);
+            this.labelOfficeName.Name = "labelOfficeName";
+            this.labelOfficeName.Size = new System.Drawing.Size(35, 13);
+            this.labelOfficeName.TabIndex = 0;
+            this.labelOfficeName.Text = "label1";
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.LandmarkFlag;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 32;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 143);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.iconButton1.Size = new System.Drawing.Size(159, 40);
+            this.iconButton1.TabIndex = 2;
+            this.iconButton1.Text = "Syllabus";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // iconButtonAddress
+            // 
+            this.iconButtonAddress.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonAddress.FlatAppearance.BorderSize = 0;
+            this.iconButtonAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonAddress.ForeColor = System.Drawing.Color.White;
+            this.iconButtonAddress.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
+            this.iconButtonAddress.IconColor = System.Drawing.Color.White;
+            this.iconButtonAddress.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonAddress.IconSize = 32;
+            this.iconButtonAddress.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonAddress.Location = new System.Drawing.Point(0, 183);
+            this.iconButtonAddress.Name = "iconButtonAddress";
+            this.iconButtonAddress.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.iconButtonAddress.Size = new System.Drawing.Size(159, 40);
+            this.iconButtonAddress.TabIndex = 5;
+            this.iconButtonAddress.Text = "Address";
+            this.iconButtonAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonAddress.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonAddress.UseVisualStyleBackColor = true;
+            this.iconButtonAddress.Click += new System.EventHandler(this.iconButtonAddress_Click);
             // 
             // FrmMain
             // 
@@ -250,6 +302,7 @@ namespace WindowsDesktop
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(884, 484);
             this.ControlBox = false;
+            this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panelBody);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelSideMenu);
@@ -262,6 +315,8 @@ namespace WindowsDesktop
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxCurrentChild)).EndInit();
+            this.panelFooter.ResumeLayout(false);
+            this.panelFooter.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -270,7 +325,6 @@ namespace WindowsDesktop
 
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.Panel panelLeftMenuLogo;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButtonStudent;
         private System.Windows.Forms.Panel panelTitleBar;
@@ -281,6 +335,10 @@ namespace WindowsDesktop
         private FontAwesome.Sharp.IconButton iconButtonMaximize;
         private FontAwesome.Sharp.IconButton iconButtonClose;
         private System.Windows.Forms.ToolTip toolTipMain;
+        private System.Windows.Forms.Panel panelFooter;
+        private System.Windows.Forms.Label labelOfficeName;
+        private FontAwesome.Sharp.IconButton iconButtonAddress;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
 

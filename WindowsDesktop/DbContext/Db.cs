@@ -1,6 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.DbContext
@@ -41,11 +39,6 @@ namespace WindowsDesktop.DbContext
 
         public static void CloseConnection()
         {
-            try
-            {
-                dr.Close();
-            }
-            catch { }
 
             if (conn.State == ConnectionState.Open || conn.State == ConnectionState.Broken)
             {

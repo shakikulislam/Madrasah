@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsDesktop.DbContext;
 using WindowsDesktop.Theme;
 
 namespace WindowsDesktop
@@ -34,6 +35,7 @@ namespace WindowsDesktop
             //MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
 
             LoadTheme();
+            LoadOfficeInfo();
         }
 
 
@@ -59,14 +61,10 @@ namespace WindowsDesktop
 
         private void LoadTheme()
         {
-            panelTitleBar.BackColor = SColor.MenuPanelBackColor;
+            // Side menu panel
+            #region Side menu panel
+
             panelSideMenu.BackColor = SColor.MenuPanelBackColor;
-            panelBody.BackColor = SColor.BackColor;
-            iconPictureBoxCurrentChild.BackColor = SColor.MenuPanelBackColor;
-            iconPictureBoxCurrentChild.IconColor = SColor.ForColor;
-            labelCurrentChild.BackColor = SColor.MenuPanelBackColor;
-            labelCurrentChild.ForeColor = SColor.ForColor;
-            
             foreach (var iconButton in panelSideMenu.Controls.OfType<IconButton>())
             {
                 iconButton.ForeColor = SColor.ForColor;
@@ -74,12 +72,47 @@ namespace WindowsDesktop
                 iconButton.BackColor = SColor.MenuPanelBackColor;
             }
 
+            #endregion
+
+            // Top title panel
+            #region Top title panel
+
+            panelTitleBar.BackColor = SColor.MenuPanelBackColor;
+            iconPictureBoxCurrentChild.BackColor = SColor.MenuPanelBackColor;
+            iconPictureBoxCurrentChild.IconColor = SColor.ForColor;
+            labelCurrentChild.BackColor = SColor.MenuPanelBackColor;
+            labelCurrentChild.ForeColor = SColor.ForColor;
+
             foreach (var iconButton in panelTitleBar.Controls.OfType<IconButton>())
             {
                 iconButton.ForeColor = SColor.ForColor;
                 iconButton.IconColor = SColor.ForColor;
                 iconButton.BackColor = SColor.MenuPanelBackColor;
             }
+
+            #endregion
+
+            // Footer Panel
+            #region Footer Panel
+
+            panelFooter.BackColor = SColor.MenuPanelBackColor;
+
+            foreach (var label in panelFooter.Controls.OfType<Label>())
+            {
+                label.BackColor = SColor.MenuPanelBackColor;
+                label.ForeColor = SColor.ForColor;
+            }
+
+            #endregion
+
+
+            // Body panel
+            #region Body Panel
+
+            panelBody.BackColor = SColor.BackColor;
+            
+            #endregion
+
         }
 
         private void ActiveButton(object senderBtn)
@@ -141,10 +174,41 @@ namespace WindowsDesktop
             panelBody.Controls.Add(_currentChildForm);
             panelBody.Tag = _currentChildForm;
 
+
+            // Load Theme
+
+            #region Load Theme
+
+            foreach (var label in _currentChildForm.Controls.OfType<Label>())
+            {
+                label.BackColor = SColor.BackColor;
+                label.ForeColor = SColor.ForColor;
+            }
+
+            foreach (var textBox in _currentChildForm.Controls.OfType<TextBox>())
+            {
+                textBox.BorderStyle = BorderStyle.FixedSingle;
+                textBox.ForeColor = SColor.ForColor;
+                textBox.BackColor = SColor.TextFieldBackgroundColor;
+            }
+
+            foreach (var listView in _currentChildForm.Controls.OfType<ListView>())
+            {
+                listView.ForeColor = SColor.ForColor;
+                listView.BackColor = SColor.TextFieldBackgroundColor;
+            }
+            
+            #endregion
+
+
             _currentChildForm.Show();
 
         }
         
+        private void LoadOfficeInfo()
+        {
+            labelOfficeName.Text = GlobalSettings.OfficeInfo.Rows[0]["name"].ToString();
+        }
 
         #endregion
 
@@ -202,6 +266,12 @@ namespace WindowsDesktop
         {
             ActiveButton(sender);
             OpenChildForm(new FrmStudent());
+        }
+
+        private void iconButtonAddress_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            OpenChildForm(new FrmAddress());
         }
     }
 }

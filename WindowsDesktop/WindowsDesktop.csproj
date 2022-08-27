@@ -100,6 +100,12 @@
     </Compile>
     <Compile Include="DbContext\Db.cs" />
     <Compile Include="DbContext\GlobalSettings.cs" />
+    <Compile Include="FrmAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddress.Designer.cs">
+      <DependentUpon>FrmAddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     <Compile Include="Theme\SColor.cs" />
     <EmbeddedResource Include="Common\frmWaiting.resx">
       <DependentUpon>frmWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddress.resx">
+      <DependentUpon>FrmAddress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
