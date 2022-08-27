@@ -34,8 +34,8 @@ namespace WindowsDesktop
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(298, 172);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(583, 416);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(204, 107);
             this.button1.TabIndex = 0;
@@ -46,7 +46,7 @@ namespace WindowsDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(799, 535);
             this.Controls.Add(this.button1);
             this.Name = "FrmStudent";
             this.Text = "Student";
