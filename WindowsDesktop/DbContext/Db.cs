@@ -9,7 +9,8 @@ namespace WindowsDesktop.DbContext
         //private static string _server = "localhost";
         private static string _databaseName = "madrasah_db";
         private static string _userId = "shakikul";
-        private static string _password = "Shakikul@Alo77";
+        //private static string _password = "";
+        private static string _password = "Shakikul@77";
 
         private static string _connectionString = "Server=" + GlobalSettings.Server + ";Database=" + _databaseName + ";Uid=" + _userId + ";Pwd=" + _password;
 

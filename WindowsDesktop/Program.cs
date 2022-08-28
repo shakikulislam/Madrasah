@@ -38,12 +38,18 @@ namespace WindowsDesktop
                 {
                     GlobalSettings.OfficeInfo = Db.GetDataTable("SELECT * FROM s_offices WHERE status='A'");
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Could Not Connect To Server");
+                    MessageBox.Show(ex.ToString());
                     Application.Exit();
                     return;
                 }
+                //catch
+                //{
+                //    MessageBox.Show("Could Not Connect To Server");
+                //    Application.Exit();
+                //    return;
+                //}
 
                 waiting.Close();
                 Application.Run(new FrmMain());

@@ -105,7 +105,6 @@ namespace WindowsDesktop
 
             #endregion
 
-
             // Body panel
             #region Body Panel
 
@@ -196,6 +195,37 @@ namespace WindowsDesktop
             {
                 listView.ForeColor = SColor.ForColor;
                 listView.BackColor = SColor.TextFieldBackgroundColor;
+            }
+
+            // DataGridView
+            foreach (var gridView in _currentChildForm.Controls.OfType<DataGridView>())
+            {
+                gridView.BackgroundColor = SColor.ForColor;
+                gridView.RowsDefaultCellStyle.BackColor = SColor.ForColor;
+                gridView.RowsDefaultCellStyle.SelectionBackColor = SColor.MenuPanelBackColor;
+                gridView.RowsDefaultCellStyle.SelectionForeColor = SColor.ForColor;
+                gridView.ColumnHeadersDefaultCellStyle.BackColor = SColor.MenuPanelBackColor;
+                gridView.ColumnHeadersDefaultCellStyle.ForeColor = SColor.ForColor;
+                gridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = SColor.MenuPanelBackColor;
+                gridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = SColor.ForColor;
+                gridView.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+                gridView.RowsDefaultCellStyle.Font=new Font("Segoe UI", 10, FontStyle.Regular);
+                
+                gridView.AllowUserToAddRows = false;
+                gridView.AllowUserToDeleteRows = false;
+                gridView.EnableHeadersVisualStyles = false;
+                gridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                gridView.RowHeadersVisible = false;
+                gridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                gridView.ColumnHeadersHeight = 30;
+                gridView.MultiSelect = false;
+                gridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                gridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+                gridView.RowTemplate.Resizable = DataGridViewTriState.False;
+                gridView.RowTemplate.DividerHeight = 1;
+                gridView.RowTemplate.Height = 25;
+                gridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             }
             
             #endregion
