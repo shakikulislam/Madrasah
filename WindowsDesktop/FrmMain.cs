@@ -135,7 +135,7 @@ namespace WindowsDesktop
                 _leftMenuBtnBorder.Visible = true;
                 _leftMenuBtnBorder.BringToFront();
 
-                // Icon Current Child
+                // Current Child
                 iconPictureBoxCurrentChild.IconChar = _currentBtn.IconChar;
             }
         }
@@ -202,8 +202,8 @@ namespace WindowsDesktop
             {
                 gridView.BackgroundColor = SColor.ForColor;
                 gridView.RowsDefaultCellStyle.BackColor = SColor.ForColor;
-                gridView.RowsDefaultCellStyle.SelectionBackColor = SColor.MenuPanelBackColor;
-                gridView.RowsDefaultCellStyle.SelectionForeColor = SColor.ForColor;
+                gridView.RowsDefaultCellStyle.SelectionBackColor = SColor.ActiveBackColor;
+                gridView.RowsDefaultCellStyle.SelectionForeColor = SColor.ActiveForColor;
                 gridView.ColumnHeadersDefaultCellStyle.BackColor = SColor.MenuPanelBackColor;
                 gridView.ColumnHeadersDefaultCellStyle.ForeColor = SColor.ForColor;
                 gridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = SColor.MenuPanelBackColor;
@@ -213,6 +213,7 @@ namespace WindowsDesktop
                 
                 gridView.AllowUserToAddRows = false;
                 gridView.AllowUserToDeleteRows = false;
+                gridView.ShowEditingIcon = false;
                 gridView.EnableHeadersVisualStyles = false;
                 gridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 gridView.RowHeadersVisible = false;
