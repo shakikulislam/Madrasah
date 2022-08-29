@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsDesktop
+namespace WindowsDesktop.Students
 {
-    public partial class FrmStudent : Form
+    public partial class FrmAddNewStudent : Form
     {
-        public FrmStudent()
+        public FrmAddNewStudent()
         {
             InitializeComponent();
+        }
+
+        private void FrmAddNewStudent_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

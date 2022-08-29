@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using WindowsDesktop.DbContext;
+using WindowsDesktop.Theme;
 
 namespace WindowsDesktop
 {
@@ -16,11 +17,19 @@ namespace WindowsDesktop
         public FrmAddress()
         {
             InitializeComponent();
-
+            LoadThemeTemplate();
             LoadDivision();
+
         }
 
         // Method
+
+        private void LoadThemeTemplate()
+        {
+            ThemeTemplate.SLabel(panelAddress);
+            ThemeTemplate.STextBox(panelAddress);
+            ThemeTemplate.SDataGridView(flowLayoutPanelAddress);
+        }
 
         private void LoadDivision()
         {

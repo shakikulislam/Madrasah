@@ -1,15 +1,11 @@
 ﻿using FontAwesome.Sharp;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsDesktop.DbContext;
+using WindowsDesktop.Students;
 using WindowsDesktop.Theme;
 
 namespace WindowsDesktop
@@ -64,12 +60,12 @@ namespace WindowsDesktop
             // Side menu panel
             #region Side menu panel
 
-            panelSideMenu.BackColor = SColor.MenuPanelBackColor;
+            panelSideMenu.BackColor = STheme.SColor.MenuPanelBackColor;
             foreach (var iconButton in panelSideMenu.Controls.OfType<IconButton>())
             {
-                iconButton.ForeColor = SColor.ForColor;
-                iconButton.IconColor = SColor.ForColor;
-                iconButton.BackColor = SColor.MenuPanelBackColor;
+                iconButton.ForeColor = STheme.SColor.ForColor;
+                iconButton.IconColor = STheme.SColor.ForColor;
+                iconButton.BackColor = STheme.SColor.MenuPanelBackColor;
             }
 
             #endregion
@@ -77,17 +73,17 @@ namespace WindowsDesktop
             // Top title panel
             #region Top title panel
 
-            panelTitleBar.BackColor = SColor.MenuPanelBackColor;
-            iconPictureBoxCurrentChild.BackColor = SColor.MenuPanelBackColor;
-            iconPictureBoxCurrentChild.IconColor = SColor.ForColor;
-            labelCurrentChild.BackColor = SColor.MenuPanelBackColor;
-            labelCurrentChild.ForeColor = SColor.ForColor;
+            panelTitleBar.BackColor = STheme.SColor.MenuPanelBackColor;
+            iconPictureBoxCurrentChild.BackColor = STheme.SColor.MenuPanelBackColor;
+            iconPictureBoxCurrentChild.IconColor = STheme.SColor.ForColor;
+            labelCurrentChild.BackColor = STheme.SColor.MenuPanelBackColor;
+            labelCurrentChild.ForeColor = STheme.SColor.ForColor;
 
             foreach (var iconButton in panelTitleBar.Controls.OfType<IconButton>())
             {
-                iconButton.ForeColor = SColor.ForColor;
-                iconButton.IconColor = SColor.ForColor;
-                iconButton.BackColor = SColor.MenuPanelBackColor;
+                iconButton.ForeColor = STheme.SColor.ForColor;
+                iconButton.IconColor = STheme.SColor.ForColor;
+                iconButton.BackColor = STheme.SColor.MenuPanelBackColor;
             }
 
             #endregion
@@ -95,12 +91,12 @@ namespace WindowsDesktop
             // Footer Panel
             #region Footer Panel
 
-            panelFooter.BackColor = SColor.MenuPanelBackColor;
+            panelFooter.BackColor = STheme.SColor.MenuPanelBackColor;
 
             foreach (var label in panelFooter.Controls.OfType<Label>())
             {
-                label.BackColor = SColor.MenuPanelBackColor;
-                label.ForeColor = SColor.ForColor;
+                label.BackColor = STheme.SColor.MenuPanelBackColor;
+                label.ForeColor = STheme.SColor.ForColor;
             }
 
             #endregion
@@ -108,7 +104,7 @@ namespace WindowsDesktop
             // Body panel
             #region Body Panel
 
-            panelBody.BackColor = SColor.BackColor;
+            panelBody.BackColor = STheme.SColor.BackColor;
             
             #endregion
 
@@ -122,15 +118,15 @@ namespace WindowsDesktop
 
                 // Active button
                 _currentBtn = (IconButton)senderBtn;
-                _currentBtn.BackColor = SColor.ActiveBackColor;
-                _currentBtn.ForeColor = SColor.ActiveForColor;
+                _currentBtn.BackColor = STheme.SColor.ActiveBackColor;
+                _currentBtn.ForeColor = STheme.SColor.ActiveForColor;
                 _currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                _currentBtn.IconColor = SColor.ActiveForColor;
+                _currentBtn.IconColor = STheme.SColor.ActiveForColor;
                 _currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 _currentBtn.ImageAlign = ContentAlignment.MiddleRight;
 
                 // Left border button
-                _leftMenuBtnBorder.BackColor = SColor.ActiveForColor;
+                _leftMenuBtnBorder.BackColor = STheme.SColor.ActiveForColor;
                 _leftMenuBtnBorder.Location = new Point(0, _currentBtn.Location.Y);
                 _leftMenuBtnBorder.Visible = true;
                 _leftMenuBtnBorder.BringToFront();
@@ -144,10 +140,10 @@ namespace WindowsDesktop
         {
             if (_currentBtn != null)
             {
-                _currentBtn.BackColor = SColor.MenuPanelBackColor;
-                _currentBtn.ForeColor = SColor.ForColor;
+                _currentBtn.BackColor = STheme.SColor.MenuPanelBackColor;
+                _currentBtn.ForeColor = STheme.SColor.ForColor;
                 _currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                _currentBtn.IconColor = SColor.ForColor;
+                _currentBtn.IconColor = STheme.SColor.ForColor;
                 _currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 _currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
@@ -155,12 +151,8 @@ namespace WindowsDesktop
 
         private void OpenChildForm(Form childForm)
         {
-            if (_currentChildForm != null)
-            {
-                // Open only home
-                _currentChildForm.Close();
-            }
-            
+            CloseChildForm();
+
             _currentChildForm = childForm;
 
             labelCurrentChild.Text = _currentChildForm.Text;
@@ -172,75 +164,25 @@ namespace WindowsDesktop
 
             panelBody.Controls.Add(_currentChildForm);
             panelBody.Tag = _currentChildForm;
-
-
-            // Load Theme
-
-            #region Load Theme
-
-            foreach (var label in _currentChildForm.Controls.OfType<Label>())
-            {
-                label.BackColor = SColor.BackColor;
-                label.ForeColor = SColor.ForColor;
-            }
-
-            foreach (var textBox in _currentChildForm.Controls.OfType<TextBox>())
-            {
-                textBox.BorderStyle = BorderStyle.FixedSingle;
-                textBox.ForeColor = SColor.ForColor;
-                textBox.BackColor = SColor.TextFieldBackgroundColor;
-            }
-
-            foreach (var listView in _currentChildForm.Controls.OfType<ListView>())
-            {
-                listView.ForeColor = SColor.ForColor;
-                listView.BackColor = SColor.TextFieldBackgroundColor;
-            }
-
-            // DataGridView
-            foreach (var gridView in _currentChildForm.Controls.OfType<DataGridView>())
-            {
-                gridView.BackgroundColor = SColor.ForColor;
-                gridView.RowsDefaultCellStyle.BackColor = SColor.ForColor;
-                gridView.RowsDefaultCellStyle.SelectionBackColor = SColor.ActiveBackColor;
-                gridView.RowsDefaultCellStyle.SelectionForeColor = SColor.ActiveForColor;
-                gridView.ColumnHeadersDefaultCellStyle.BackColor = SColor.MenuPanelBackColor;
-                gridView.ColumnHeadersDefaultCellStyle.ForeColor = SColor.ForColor;
-                gridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = SColor.MenuPanelBackColor;
-                gridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = SColor.ForColor;
-                gridView.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
-                gridView.RowsDefaultCellStyle.Font=new Font("Segoe UI", 10, FontStyle.Regular);
-                
-                gridView.AllowUserToAddRows = false;
-                gridView.AllowUserToDeleteRows = false;
-                gridView.ShowEditingIcon = false;
-                gridView.EnableHeadersVisualStyles = false;
-                gridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                gridView.RowHeadersVisible = false;
-                gridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-                gridView.ColumnHeadersHeight = 30;
-                gridView.MultiSelect = false;
-                gridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-                gridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-                gridView.RowTemplate.Resizable = DataGridViewTriState.False;
-                gridView.RowTemplate.DividerHeight = 1;
-                gridView.RowTemplate.Height = 25;
-                gridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            }
             
-            #endregion
-
-
             _currentChildForm.Show();
 
+        }
+
+        private void CloseChildForm()
+        {
+            if (_currentChildForm != null)
+            {
+                // Open only home
+                _currentChildForm.Close();
+            }
         }
         
         private void LoadOfficeInfo()
         {
             labelOfficeName.Text = GlobalSettings.OfficeInfo.Rows[0]["name"].ToString();
         }
-
+        
         #endregion
 
         private void iconButtonClose_Click(object sender, EventArgs e)
@@ -296,13 +238,32 @@ namespace WindowsDesktop
         private void iconButtonStudent_Click(object sender, EventArgs e)
         {
             ActiveButton(sender);
-            OpenChildForm(new FrmStudent());
+            //OpenChildForm(new FrmStudent());
         }
 
         private void iconButtonAddress_Click(object sender, EventArgs e)
         {
             ActiveButton(sender);
             OpenChildForm(new FrmAddress());
+        }
+
+        private void iconButtonStudent_MouseHover(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            panelStudentSubMenu.Visible = true;
+        }
+
+        private void iconButtonStudent_MouseLeave(object sender, EventArgs e)
+        {
+            //DisableButton();
+            //panelStudentSubMenu.Visible = false;
+        }
+
+        private void iconButtonAddStudent_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            OpenChildForm(new FrmAddNewStudent());
+            panelStudentSubMenu.Visible = false;
         }
     }
 }

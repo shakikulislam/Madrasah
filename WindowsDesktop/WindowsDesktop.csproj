@@ -112,15 +112,16 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmStudent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmStudent.Designer.cs">
-      <DependentUpon>FrmStudent.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Theme\SColor.cs" />
+    <Compile Include="Students\FrmAddNewStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Students\FrmAddNewStudent.Designer.cs">
+      <DependentUpon>FrmAddNewStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Theme\STheme.cs" />
+    <Compile Include="Theme\ThemeTemplate.cs" />
     <EmbeddedResource Include="Common\frmWaiting.resx">
       <DependentUpon>frmWaiting.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,9 +130,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmStudent.resx">
-      <DependentUpon>FrmStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -143,6 +141,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Students\FrmAddNewStudent.resx">
+      <DependentUpon>FrmAddNewStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
