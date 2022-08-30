@@ -45,7 +45,7 @@ namespace WindowsDesktop
             }
         }
 
-        private void LoadDistrict()
+        private void dataGridViewDivision_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
@@ -53,11 +53,13 @@ namespace WindowsDesktop
                 dataGridViewDistrict.Tag = string.Empty;
                 dataGridViewUpazila.Tag = string.Empty;
                 dataGridViewUnion.Tag = string.Empty;
+                dataGridViewVillage.Tag = string.Empty;
 
                 textBoxDivision.Text = string.Empty;
                 textBoxDistrict.Text = string.Empty;
                 textBoxUpazila.Text = string.Empty;
                 textBoxUnion.Text = string.Empty;
+                textBoxVillage.Text = string.Empty;
 
                 dataGridViewDivision.Tag = dataGridViewDivision.SelectedRows[0].Cells["ColumnDivisionId"].Value;
 
@@ -74,27 +76,31 @@ namespace WindowsDesktop
                 dataGridViewDistrict.Tag = string.Empty;
                 dataGridViewUpazila.Tag = string.Empty;
                 dataGridViewUnion.Tag = string.Empty;
+                dataGridViewVillage.Tag = string.Empty;
 
                 textBoxDivision.Text = string.Empty;
                 textBoxDistrict.Text = string.Empty;
                 textBoxUpazila.Text = string.Empty;
                 textBoxUnion.Text = string.Empty;
+                textBoxVillage.Text = string.Empty;
 
                 //MessageBox.Show(ex.ToString());
             }
         }
-        
-        private void LoadUpazila()
+
+        private void dataGridViewDistrict_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
                 dataGridViewDistrict.Tag = string.Empty;
                 dataGridViewUpazila.Tag = string.Empty;
                 dataGridViewUnion.Tag = string.Empty;
+                dataGridViewVillage.Tag = string.Empty;
 
                 textBoxDistrict.Text = string.Empty;
                 textBoxUpazila.Text = string.Empty;
                 textBoxUnion.Text = string.Empty;
+                textBoxVillage.Text = string.Empty;
 
                 dataGridViewDistrict.Tag = dataGridViewDistrict.SelectedRows[0].Cells["ColumnDistrictId"].Value;
 
@@ -110,23 +116,26 @@ namespace WindowsDesktop
                 dataGridViewDistrict.Tag = string.Empty;
                 dataGridViewUpazila.Tag = string.Empty;
                 dataGridViewUnion.Tag = string.Empty;
+                dataGridViewVillage.Tag = string.Empty;
 
                 textBoxDistrict.Text = string.Empty;
                 textBoxUpazila.Text = string.Empty;
                 textBoxUnion.Text = string.Empty;
-
-                //MessageBox.Show(ex.ToString());
+                textBoxVillage.Text = string.Empty;
             }
         }
-        private void LoadUnion()
+
+        private void dataGridViewUpazila_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
                 dataGridViewUpazila.Tag = string.Empty;
                 dataGridViewUnion.Tag = string.Empty;
+                dataGridViewVillage.Tag = string.Empty;
 
                 textBoxUpazila.Text = string.Empty;
                 textBoxUnion.Text = string.Empty;
+                textBoxVillage.Text = string.Empty;
 
                 dataGridViewUpazila.Tag = dataGridViewUpazila.SelectedRows[0].Cells["ColumnUpazilaId"].Value;
 
@@ -141,27 +150,12 @@ namespace WindowsDesktop
             {
                 dataGridViewUpazila.Tag = string.Empty;
                 dataGridViewUnion.Tag = string.Empty;
+                dataGridViewVillage.Tag = string.Empty;
 
                 textBoxUpazila.Text = string.Empty;
                 textBoxUnion.Text = string.Empty;
-
-                //MessageBox.Show(ex.ToString());
+                textBoxVillage.Text = string.Empty;
             }
-        }
-        
-        private void dataGridViewDivision_SelectionChanged(object sender, EventArgs e)
-        {
-            LoadDistrict();
-        }
-
-        private void dataGridViewDistrict_SelectionChanged(object sender, EventArgs e)
-        {
-            LoadUpazila();
-        }
-
-        private void dataGridViewUpazila_SelectionChanged(object sender, EventArgs e)
-        {
-            LoadUnion();
         }
 
         private void dataGridViewUnion_SelectionChanged(object sender, EventArgs e)
@@ -169,17 +163,44 @@ namespace WindowsDesktop
             try
             {
                 dataGridViewUnion.Tag = string.Empty;
+                dataGridViewVillage.Tag = string.Empty;
+
                 textBoxUnion.Text = string.Empty;
+                textBoxVillage.Text = string.Empty;
 
                 dataGridViewUnion.Tag = dataGridViewUnion.SelectedRows[0].Cells["ColumnUnionId"].Value;
+
                 textBoxUnion.Text = dataGridViewUnion.SelectedRows[0].Cells["ColumnUnionName"].Value.ToString();
+
+                var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn " +
+                            "FROM s_villages where union_id=" + dataGridViewUnion.Tag + " ORDER BY name ASC";
+
+                dataGridViewVillage.DataSource = Db.GetDataTable(query);
             }
             catch (Exception ex)
             {
                 dataGridViewUnion.Tag = string.Empty;
-                textBoxUnion.Text = string.Empty;
+                dataGridViewVillage.Tag = string.Empty;
 
-                //MessageBox.Show(ex.ToString());
+                textBoxUnion.Text = string.Empty;
+                textBoxVillage.Text = string.Empty;
+            }
+        }
+
+        private void dataGridViewVillage_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridViewVillage.Tag = string.Empty;
+                textBoxVillage.Text = string.Empty;
+
+                dataGridViewVillage.Tag = dataGridViewVillage.SelectedRows[0].Cells["ColumnVillageId"].Value;
+                textBoxVillage.Text = dataGridViewVillage.SelectedRows[0].Cells["ColumnVillageName"].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                dataGridViewVillage.Tag = string.Empty;
+                textBoxVillage.Text = string.Empty;
             }
         }
     }

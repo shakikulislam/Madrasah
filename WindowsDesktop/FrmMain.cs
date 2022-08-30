@@ -250,20 +250,18 @@ namespace WindowsDesktop
         private void iconButtonStudent_MouseHover(object sender, EventArgs e)
         {
             ActiveButton(sender);
-            panelStudentSubMenu.Visible = true;
         }
 
         private void iconButtonStudent_MouseLeave(object sender, EventArgs e)
         {
-            //DisableButton();
-            //panelStudentSubMenu.Visible = false;
+            ActiveButton(sender);
+            OpenChildForm(new FrmStudent());
         }
 
         private void iconButtonAddStudent_Click(object sender, EventArgs e)
         {
             ActiveButton(sender);
             OpenChildForm(new FrmAddNewStudent());
-            panelStudentSubMenu.Visible = false;
         }
     }
 }

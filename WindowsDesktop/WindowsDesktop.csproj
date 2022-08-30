@@ -92,6 +92,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ElementsControl.cs" />
     <Compile Include="Common\frmWaiting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +121,12 @@
     <Compile Include="Students\FrmAddNewStudent.Designer.cs">
       <DependentUpon>FrmAddNewStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Students\FrmStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Students\FrmStudent.Designer.cs">
+      <DependentUpon>FrmStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Theme\STheme.cs" />
     <Compile Include="Theme\ThemeTemplate.cs" />
     <EmbeddedResource Include="Common\frmWaiting.resx">
@@ -143,6 +150,9 @@
     </Compile>
     <EmbeddedResource Include="Students\FrmAddNewStudent.resx">
       <DependentUpon>FrmAddNewStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Students\FrmStudent.resx">
+      <DependentUpon>FrmStudent.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

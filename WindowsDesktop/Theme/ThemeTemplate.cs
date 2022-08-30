@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using FontAwesome.Sharp;
 
 namespace WindowsDesktop.Theme
 {
@@ -15,6 +16,17 @@ namespace WindowsDesktop.Theme
                 label.Font= new Font(STheme.SFont.Font, STheme.SFont.Size);
             }
         }
+
+        public static void SLinkLabel(Control control)
+        {
+            foreach (var linkLabel in control.Controls.OfType<LinkLabel>())
+            {
+                linkLabel.ForeColor = STheme.SColor.ForColor;
+                linkLabel.BackColor = STheme.SColor.BackColor;
+                linkLabel.Font= new Font(STheme.SFont.Font, linkLabel.Font.Size);
+            }
+        }
+
         public static void STextBox(Control control)
         {
             foreach (var textBox in control.Controls.OfType<TextBox>())
@@ -24,7 +36,57 @@ namespace WindowsDesktop.Theme
                 textBox.BackColor = STheme.SColor.TextFieldBackgroundColor;
                 textBox.Font= new Font(STheme.SFont.Font, STheme.SFont.Size);
             }
+
+            foreach (var iconButton in control.Controls.OfType<IconButton>())
+            {
+                iconButton.BackColor = STheme.SColor.BackColor;
+                iconButton.ForeColor = STheme.SColor.ForColor;
+                iconButton.TextAlign = ContentAlignment.MiddleLeft;
+                iconButton.IconColor = STheme.SColor.ForColor;
+                iconButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+                iconButton.ImageAlign = ContentAlignment.MiddleLeft;
+            }
         }
+
+        public static void SComboBox(Control control)
+        {
+            foreach (var comboBox in control.Controls.OfType<ComboBox>())
+            {
+                comboBox.ForeColor = STheme.SColor.TextFieldForColor;
+                comboBox.BackColor = STheme.SColor.TextFieldBackgroundColor;
+                comboBox.Font= new Font(STheme.SFont.Font, STheme.SFont.Size);
+                comboBox.FlatStyle = FlatStyle.Standard;
+                comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+                comboBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
+        }
+
+        public static void SButton(Control control)
+        {
+            foreach (var button in control.Controls.OfType<Button>())
+            {
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = 1;
+                button.FlatAppearance.BorderColor = STheme.SColor.ForColor;
+                button.ForeColor = STheme.SColor.ForColor;
+                button.BackColor = STheme.SColor.BackColor;
+                button.Font = new Font(STheme.SFont.Font, STheme.SFont.Size + 2, FontStyle.Regular);
+            }
+        }
+
+        public static void SDateTimePicker(Control control)
+        {
+            foreach (var dateTimePicker in control.Controls.OfType<DateTimePicker>())
+            {
+                dateTimePicker.CustomFormat = "dd-MMM-yyyy";
+                dateTimePicker.Format = DateTimePickerFormat.Custom;
+                dateTimePicker.ForeColor = STheme.SColor.ForColor;
+                dateTimePicker.BackColor = STheme.SColor.BackColor;
+                dateTimePicker.Font = new Font(STheme.SFont.Font, STheme.SFont.Size, FontStyle.Regular);
+                dateTimePicker.CalendarFont = new Font(STheme.SFont.Font, STheme.SFont.Size, FontStyle.Regular);
+            }
+        }
+
         public static void SDataGridView(Control control)
         {
             // DataGridView
@@ -38,7 +100,7 @@ namespace WindowsDesktop.Theme
                 gridView.ColumnHeadersDefaultCellStyle.ForeColor = STheme.SColor.ForColor;
                 gridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = STheme.SColor.BackColor;
                 gridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = STheme.SColor.ForColor;
-                gridView.ColumnHeadersDefaultCellStyle.Font = new Font(STheme.SFont.Font, STheme.SFont.Size+2, STheme.SFont.Style);
+                gridView.ColumnHeadersDefaultCellStyle.Font = new Font(STheme.SFont.Font, STheme.SFont.Size+2, FontStyle.Bold);
                 gridView.RowsDefaultCellStyle.Font = new Font(STheme.SFont.Font,STheme.SFont.Size);
 
                 gridView.AllowUserToAddRows = false;

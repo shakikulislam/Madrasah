@@ -28,7 +28,6 @@ namespace WindowsDesktop.Theme
         {
             public static FontFamily Font = new FontFamily(FontName= "Segoe UI");
             public static float Size = 10;
-            public static FontStyle Style = FontStyle.Bold;
         }
     }
 }

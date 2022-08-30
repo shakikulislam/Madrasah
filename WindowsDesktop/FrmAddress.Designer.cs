@@ -38,33 +38,41 @@ namespace WindowsDesktop
             this.textBoxUpazila = new System.Windows.Forms.TextBox();
             this.textBoxUnion = new System.Windows.Forms.TextBox();
             this.dataGridViewDivision = new System.Windows.Forms.DataGridView();
-            this.dataGridViewDistrict = new System.Windows.Forms.DataGridView();
-            this.dataGridViewUpazila = new System.Windows.Forms.DataGridView();
-            this.dataGridViewUnion = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanelAddress = new System.Windows.Forms.FlowLayoutPanel();
             this.ColumnDivisionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDivisionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDivisionNameEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDivisionNameBn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewDistrict = new System.Windows.Forms.DataGridView();
             this.ColumnDistrictId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDistrictEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDistrictBn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewUpazila = new System.Windows.Forms.DataGridView();
             this.ColumnUpazilaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUpazilaName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUpazilaEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUpazilaBn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewUnion = new System.Windows.Forms.DataGridView();
             this.ColumnUnionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUnionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUnionEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUnionBn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanelAddress = new System.Windows.Forms.FlowLayoutPanel();
             this.panelAddress = new System.Windows.Forms.Panel();
+            this.dataGridViewVillage = new System.Windows.Forms.DataGridView();
+            this.ColumnVillageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnVillageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnVillageEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnVillageBn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxVillage = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDivision)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDistrict)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUpazila)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUnion)).BeginInit();
             this.flowLayoutPanelAddress.SuspendLayout();
             this.panelAddress.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVillage)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxDivision
@@ -158,61 +166,6 @@ namespace WindowsDesktop
             this.dataGridViewDivision.TabIndex = 22;
             this.dataGridViewDivision.SelectionChanged += new System.EventHandler(this.dataGridViewDivision_SelectionChanged);
             // 
-            // dataGridViewDistrict
-            // 
-            this.dataGridViewDistrict.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDistrict.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnDistrictId,
-            this.ColumnDistrictName,
-            this.ColumnDistrictEn,
-            this.ColumnDistrictBn});
-            this.dataGridViewDistrict.Location = new System.Drawing.Point(221, 3);
-            this.dataGridViewDistrict.Name = "dataGridViewDistrict";
-            this.dataGridViewDistrict.Size = new System.Drawing.Size(212, 200);
-            this.dataGridViewDistrict.TabIndex = 23;
-            this.dataGridViewDistrict.SelectionChanged += new System.EventHandler(this.dataGridViewDistrict_SelectionChanged);
-            // 
-            // dataGridViewUpazila
-            // 
-            this.dataGridViewUpazila.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUpazila.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnUpazilaId,
-            this.ColumnUpazilaName,
-            this.ColumnUpazilaEn,
-            this.ColumnUpazilaBn});
-            this.dataGridViewUpazila.Location = new System.Drawing.Point(439, 3);
-            this.dataGridViewUpazila.Name = "dataGridViewUpazila";
-            this.dataGridViewUpazila.Size = new System.Drawing.Size(212, 200);
-            this.dataGridViewUpazila.TabIndex = 24;
-            this.dataGridViewUpazila.SelectionChanged += new System.EventHandler(this.dataGridViewUpazila_SelectionChanged);
-            // 
-            // dataGridViewUnion
-            // 
-            this.dataGridViewUnion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUnion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnUnionId,
-            this.ColumnUnionName,
-            this.ColumnUnionEN,
-            this.ColumnUnionBn});
-            this.dataGridViewUnion.Location = new System.Drawing.Point(657, 3);
-            this.dataGridViewUnion.Name = "dataGridViewUnion";
-            this.dataGridViewUnion.Size = new System.Drawing.Size(212, 200);
-            this.dataGridViewUnion.TabIndex = 25;
-            this.dataGridViewUnion.SelectionChanged += new System.EventHandler(this.dataGridViewUnion_SelectionChanged);
-            // 
-            // flowLayoutPanelAddress
-            // 
-            this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewDivision);
-            this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewDistrict);
-            this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewUpazila);
-            this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewUnion);
-            this.flowLayoutPanelAddress.Controls.Add(this.panelAddress);
-            this.flowLayoutPanelAddress.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanelAddress.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanelAddress.Name = "flowLayoutPanelAddress";
-            this.flowLayoutPanelAddress.Size = new System.Drawing.Size(910, 377);
-            this.flowLayoutPanelAddress.TabIndex = 26;
-            // 
             // ColumnDivisionId
             // 
             this.ColumnDivisionId.DataPropertyName = "id";
@@ -244,6 +197,20 @@ namespace WindowsDesktop
             this.ColumnDivisionNameBn.Name = "ColumnDivisionNameBn";
             this.ColumnDivisionNameBn.ReadOnly = true;
             this.ColumnDivisionNameBn.Visible = false;
+            // 
+            // dataGridViewDistrict
+            // 
+            this.dataGridViewDistrict.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDistrict.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnDistrictId,
+            this.ColumnDistrictName,
+            this.ColumnDistrictEn,
+            this.ColumnDistrictBn});
+            this.dataGridViewDistrict.Location = new System.Drawing.Point(221, 3);
+            this.dataGridViewDistrict.Name = "dataGridViewDistrict";
+            this.dataGridViewDistrict.Size = new System.Drawing.Size(212, 200);
+            this.dataGridViewDistrict.TabIndex = 23;
+            this.dataGridViewDistrict.SelectionChanged += new System.EventHandler(this.dataGridViewDistrict_SelectionChanged);
             // 
             // ColumnDistrictId
             // 
@@ -277,6 +244,20 @@ namespace WindowsDesktop
             this.ColumnDistrictBn.ReadOnly = true;
             this.ColumnDistrictBn.Visible = false;
             // 
+            // dataGridViewUpazila
+            // 
+            this.dataGridViewUpazila.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUpazila.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnUpazilaId,
+            this.ColumnUpazilaName,
+            this.ColumnUpazilaEn,
+            this.ColumnUpazilaBn});
+            this.dataGridViewUpazila.Location = new System.Drawing.Point(439, 3);
+            this.dataGridViewUpazila.Name = "dataGridViewUpazila";
+            this.dataGridViewUpazila.Size = new System.Drawing.Size(212, 200);
+            this.dataGridViewUpazila.TabIndex = 24;
+            this.dataGridViewUpazila.SelectionChanged += new System.EventHandler(this.dataGridViewUpazila_SelectionChanged);
+            // 
             // ColumnUpazilaId
             // 
             this.ColumnUpazilaId.DataPropertyName = "id";
@@ -308,6 +289,20 @@ namespace WindowsDesktop
             this.ColumnUpazilaBn.Name = "ColumnUpazilaBn";
             this.ColumnUpazilaBn.ReadOnly = true;
             this.ColumnUpazilaBn.Visible = false;
+            // 
+            // dataGridViewUnion
+            // 
+            this.dataGridViewUnion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUnion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnUnionId,
+            this.ColumnUnionName,
+            this.ColumnUnionEN,
+            this.ColumnUnionBn});
+            this.dataGridViewUnion.Location = new System.Drawing.Point(657, 3);
+            this.dataGridViewUnion.Name = "dataGridViewUnion";
+            this.dataGridViewUnion.Size = new System.Drawing.Size(212, 200);
+            this.dataGridViewUnion.TabIndex = 25;
+            this.dataGridViewUnion.SelectionChanged += new System.EventHandler(this.dataGridViewUnion_SelectionChanged);
             // 
             // ColumnUnionId
             // 
@@ -341,8 +336,24 @@ namespace WindowsDesktop
             this.ColumnUnionBn.ReadOnly = true;
             this.ColumnUnionBn.Visible = false;
             // 
+            // flowLayoutPanelAddress
+            // 
+            this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewDivision);
+            this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewDistrict);
+            this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewUpazila);
+            this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewUnion);
+            this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewVillage);
+            this.flowLayoutPanelAddress.Controls.Add(this.panelAddress);
+            this.flowLayoutPanelAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelAddress.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanelAddress.Name = "flowLayoutPanelAddress";
+            this.flowLayoutPanelAddress.Size = new System.Drawing.Size(910, 547);
+            this.flowLayoutPanelAddress.TabIndex = 26;
+            // 
             // panelAddress
             // 
+            this.panelAddress.Controls.Add(this.textBoxVillage);
+            this.panelAddress.Controls.Add(this.label1);
             this.panelAddress.Controls.Add(this.textBoxDivision);
             this.panelAddress.Controls.Add(this.textBoxUnion);
             this.panelAddress.Controls.Add(this.label5);
@@ -351,10 +362,75 @@ namespace WindowsDesktop
             this.panelAddress.Controls.Add(this.textBoxDistrict);
             this.panelAddress.Controls.Add(this.label7);
             this.panelAddress.Controls.Add(this.label8);
-            this.panelAddress.Location = new System.Drawing.Point(3, 209);
+            this.panelAddress.Location = new System.Drawing.Point(221, 209);
             this.panelAddress.Name = "panelAddress";
-            this.panelAddress.Size = new System.Drawing.Size(325, 150);
+            this.panelAddress.Size = new System.Drawing.Size(325, 200);
             this.panelAddress.TabIndex = 26;
+            // 
+            // dataGridViewVillage
+            // 
+            this.dataGridViewVillage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewVillage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnVillageId,
+            this.ColumnVillageName,
+            this.ColumnVillageEn,
+            this.ColumnVillageBn});
+            this.dataGridViewVillage.Location = new System.Drawing.Point(3, 209);
+            this.dataGridViewVillage.Name = "dataGridViewVillage";
+            this.dataGridViewVillage.Size = new System.Drawing.Size(212, 200);
+            this.dataGridViewVillage.TabIndex = 27;
+            this.dataGridViewVillage.SelectionChanged += new System.EventHandler(this.dataGridViewVillage_SelectionChanged);
+            // 
+            // ColumnVillageId
+            // 
+            this.ColumnVillageId.DataPropertyName = "id";
+            this.ColumnVillageId.HeaderText = "ID";
+            this.ColumnVillageId.Name = "ColumnVillageId";
+            this.ColumnVillageId.ReadOnly = true;
+            this.ColumnVillageId.Visible = false;
+            // 
+            // ColumnVillageName
+            // 
+            this.ColumnVillageName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnVillageName.DataPropertyName = "bnen";
+            this.ColumnVillageName.HeaderText = "Village";
+            this.ColumnVillageName.Name = "ColumnVillageName";
+            this.ColumnVillageName.ReadOnly = true;
+            // 
+            // ColumnVillageEn
+            // 
+            this.ColumnVillageEn.DataPropertyName = "name";
+            this.ColumnVillageEn.HeaderText = "EN";
+            this.ColumnVillageEn.Name = "ColumnVillageEn";
+            this.ColumnVillageEn.ReadOnly = true;
+            this.ColumnVillageEn.Visible = false;
+            // 
+            // ColumnVillageBn
+            // 
+            this.ColumnVillageBn.DataPropertyName = "name_bn";
+            this.ColumnVillageBn.HeaderText = "BN";
+            this.ColumnVillageBn.Name = "ColumnVillageBn";
+            this.ColumnVillageBn.ReadOnly = true;
+            this.ColumnVillageBn.Visible = false;
+            // 
+            // textBoxVillage
+            // 
+            this.textBoxVillage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxVillage.Location = new System.Drawing.Point(73, 138);
+            this.textBoxVillage.Name = "textBoxVillage";
+            this.textBoxVillage.ReadOnly = true;
+            this.textBoxVillage.Size = new System.Drawing.Size(223, 25);
+            this.textBoxVillage.TabIndex = 23;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 142);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 17);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Village";
             // 
             // FrmAddress
             // 
@@ -372,6 +448,7 @@ namespace WindowsDesktop
             this.flowLayoutPanelAddress.ResumeLayout(false);
             this.panelAddress.ResumeLayout(false);
             this.panelAddress.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVillage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -407,5 +484,12 @@ namespace WindowsDesktop
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUnionEN;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUnionBn;
         private System.Windows.Forms.Panel panelAddress;
+        private System.Windows.Forms.DataGridView dataGridViewVillage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVillageId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVillageName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVillageEn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVillageBn;
+        private System.Windows.Forms.TextBox textBoxVillage;
+        private System.Windows.Forms.Label label1;
     }
 }
