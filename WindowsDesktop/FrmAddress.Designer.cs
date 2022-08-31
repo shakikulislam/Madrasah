@@ -58,12 +58,12 @@ namespace WindowsDesktop
             this.ColumnUnionEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUnionBn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanelAddress = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelAddress = new System.Windows.Forms.Panel();
             this.dataGridViewVillage = new System.Windows.Forms.DataGridView();
             this.ColumnVillageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnVillageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnVillageEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnVillageBn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelAddress = new System.Windows.Forms.Panel();
             this.textBoxVillage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDivision)).BeginInit();
@@ -71,8 +71,8 @@ namespace WindowsDesktop
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUpazila)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUnion)).BeginInit();
             this.flowLayoutPanelAddress.SuspendLayout();
-            this.panelAddress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVillage)).BeginInit();
+            this.panelAddress.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxDivision
@@ -338,6 +338,7 @@ namespace WindowsDesktop
             // 
             // flowLayoutPanelAddress
             // 
+            this.flowLayoutPanelAddress.AutoScroll = true;
             this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewDivision);
             this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewDistrict);
             this.flowLayoutPanelAddress.Controls.Add(this.dataGridViewUpazila);
@@ -349,23 +350,6 @@ namespace WindowsDesktop
             this.flowLayoutPanelAddress.Name = "flowLayoutPanelAddress";
             this.flowLayoutPanelAddress.Size = new System.Drawing.Size(910, 547);
             this.flowLayoutPanelAddress.TabIndex = 26;
-            // 
-            // panelAddress
-            // 
-            this.panelAddress.Controls.Add(this.textBoxVillage);
-            this.panelAddress.Controls.Add(this.label1);
-            this.panelAddress.Controls.Add(this.textBoxDivision);
-            this.panelAddress.Controls.Add(this.textBoxUnion);
-            this.panelAddress.Controls.Add(this.label5);
-            this.panelAddress.Controls.Add(this.textBoxUpazila);
-            this.panelAddress.Controls.Add(this.label6);
-            this.panelAddress.Controls.Add(this.textBoxDistrict);
-            this.panelAddress.Controls.Add(this.label7);
-            this.panelAddress.Controls.Add(this.label8);
-            this.panelAddress.Location = new System.Drawing.Point(221, 209);
-            this.panelAddress.Name = "panelAddress";
-            this.panelAddress.Size = new System.Drawing.Size(325, 200);
-            this.panelAddress.TabIndex = 26;
             // 
             // dataGridViewVillage
             // 
@@ -413,6 +397,23 @@ namespace WindowsDesktop
             this.ColumnVillageBn.ReadOnly = true;
             this.ColumnVillageBn.Visible = false;
             // 
+            // panelAddress
+            // 
+            this.panelAddress.Controls.Add(this.textBoxVillage);
+            this.panelAddress.Controls.Add(this.label1);
+            this.panelAddress.Controls.Add(this.textBoxDivision);
+            this.panelAddress.Controls.Add(this.textBoxUnion);
+            this.panelAddress.Controls.Add(this.label5);
+            this.panelAddress.Controls.Add(this.textBoxUpazila);
+            this.panelAddress.Controls.Add(this.label6);
+            this.panelAddress.Controls.Add(this.textBoxDistrict);
+            this.panelAddress.Controls.Add(this.label7);
+            this.panelAddress.Controls.Add(this.label8);
+            this.panelAddress.Location = new System.Drawing.Point(221, 209);
+            this.panelAddress.Name = "panelAddress";
+            this.panelAddress.Size = new System.Drawing.Size(325, 200);
+            this.panelAddress.TabIndex = 26;
+            // 
             // textBoxVillage
             // 
             this.textBoxVillage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -446,9 +447,9 @@ namespace WindowsDesktop
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUpazila)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUnion)).EndInit();
             this.flowLayoutPanelAddress.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVillage)).EndInit();
             this.panelAddress.ResumeLayout(false);
             this.panelAddress.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVillage)).EndInit();
             this.ResumeLayout(false);
 
         }

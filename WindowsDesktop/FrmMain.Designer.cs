@@ -31,6 +31,7 @@ namespace WindowsDesktop
         {
             this.components = new System.ComponentModel.Container();
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.iconButtonAddStudent = new FontAwesome.Sharp.IconButton();
             this.iconButtonAddress = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
@@ -46,7 +47,6 @@ namespace WindowsDesktop
             this.toolTipMain = new System.Windows.Forms.ToolTip(this.components);
             this.panelFooter = new System.Windows.Forms.Panel();
             this.labelOfficeName = new System.Windows.Forms.Label();
-            this.iconButtonAddStudent = new FontAwesome.Sharp.IconButton();
             this.panelSideMenu.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxCurrentChild)).BeginInit();
@@ -64,8 +64,29 @@ namespace WindowsDesktop
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(160, 484);
+            this.panelSideMenu.Size = new System.Drawing.Size(160, 655);
             this.panelSideMenu.TabIndex = 0;
+            // 
+            // iconButtonAddStudent
+            // 
+            this.iconButtonAddStudent.FlatAppearance.BorderSize = 0;
+            this.iconButtonAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonAddStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonAddStudent.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
+            this.iconButtonAddStudent.IconColor = System.Drawing.Color.Black;
+            this.iconButtonAddStudent.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonAddStudent.IconSize = 32;
+            this.iconButtonAddStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonAddStudent.Location = new System.Drawing.Point(3, 229);
+            this.iconButtonAddStudent.Name = "iconButtonAddStudent";
+            this.iconButtonAddStudent.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.iconButtonAddStudent.Size = new System.Drawing.Size(160, 40);
+            this.iconButtonAddStudent.TabIndex = 4;
+            this.iconButtonAddStudent.Text = "Add Student";
+            this.iconButtonAddStudent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonAddStudent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonAddStudent.UseVisualStyleBackColor = true;
+            this.iconButtonAddStudent.Click += new System.EventHandler(this.iconButtonAddStudent_Click);
             // 
             // iconButtonAddress
             // 
@@ -265,7 +286,7 @@ namespace WindowsDesktop
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelBody.Location = new System.Drawing.Point(159, 30);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(725, 424);
+            this.panelBody.Size = new System.Drawing.Size(725, 595);
             this.panelBody.TabIndex = 3;
             // 
             // panelFooter
@@ -273,7 +294,7 @@ namespace WindowsDesktop
             this.panelFooter.Controls.Add(this.labelOfficeName);
             this.panelFooter.Cursor = System.Windows.Forms.Cursors.Default;
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(160, 454);
+            this.panelFooter.Location = new System.Drawing.Point(160, 625);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Size = new System.Drawing.Size(724, 30);
             this.panelFooter.TabIndex = 4;
@@ -289,32 +310,11 @@ namespace WindowsDesktop
             this.labelOfficeName.TabIndex = 0;
             this.labelOfficeName.Text = "label1";
             // 
-            // iconButtonAddStudent
-            // 
-            this.iconButtonAddStudent.FlatAppearance.BorderSize = 0;
-            this.iconButtonAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonAddStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonAddStudent.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
-            this.iconButtonAddStudent.IconColor = System.Drawing.Color.Black;
-            this.iconButtonAddStudent.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonAddStudent.IconSize = 32;
-            this.iconButtonAddStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonAddStudent.Location = new System.Drawing.Point(3, 229);
-            this.iconButtonAddStudent.Name = "iconButtonAddStudent";
-            this.iconButtonAddStudent.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.iconButtonAddStudent.Size = new System.Drawing.Size(160, 40);
-            this.iconButtonAddStudent.TabIndex = 4;
-            this.iconButtonAddStudent.Text = "Add Student";
-            this.iconButtonAddStudent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonAddStudent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonAddStudent.UseVisualStyleBackColor = true;
-            this.iconButtonAddStudent.Click += new System.EventHandler(this.iconButtonAddStudent_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 484);
+            this.ClientSize = new System.Drawing.Size(884, 655);
             this.ControlBox = false;
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panelBody);

@@ -27,6 +27,17 @@ namespace WindowsDesktop.Theme
             }
         }
 
+        public static void SRichTextBox(Control control)
+        {
+            foreach (var richTextBox in control.Controls.OfType<RichTextBox>())
+            {
+                richTextBox.BorderStyle = BorderStyle.FixedSingle;
+                richTextBox.ForeColor = STheme.SColor.TextFieldForColor;
+                richTextBox.BackColor = STheme.SColor.TextFieldBackgroundColor;
+                richTextBox.Font= new Font(STheme.SFont.Font, STheme.SFont.Size);
+            }
+        }
+
         public static void STextBox(Control control)
         {
             foreach (var textBox in control.Controls.OfType<TextBox>())
