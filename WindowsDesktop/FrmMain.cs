@@ -57,8 +57,8 @@ namespace WindowsDesktop
 
         private void LoadTheme()
         {
-            // Side menu panel
-            #region Side menu panel
+            // Left Side menu panel
+            #region Left Side menu panel
 
             panelSideMenu.BackColor = STheme.SColor.MenuPanelBackColor;
             foreach (var iconButton in panelSideMenu.Controls.OfType<IconButton>())
@@ -85,6 +85,20 @@ namespace WindowsDesktop
                 iconButton.IconColor = STheme.SColor.ForColor;
                 iconButton.BackColor = STheme.SColor.MenuPanelBackColor;
             }
+
+            #endregion
+
+            // Top divider panel
+            #region Top divider panel
+
+            panelTopDivider.BackColor = STheme.SColor.BackColor;
+
+            #endregion
+
+            // Right panel
+            #region Right panel
+
+            panelRight.BackColor = STheme.SColor.BackColor;
 
             #endregion
 
@@ -246,22 +260,17 @@ namespace WindowsDesktop
             ActiveButton(sender);
             OpenChildForm(new FrmAddress());
         }
-
-        private void iconButtonStudent_MouseHover(object sender, EventArgs e)
-        {
-            ActiveButton(sender);
-        }
-
-        private void iconButtonStudent_MouseLeave(object sender, EventArgs e)
-        {
-            ActiveButton(sender);
-            OpenChildForm(new FrmStudent());
-        }
-
+        
         private void iconButtonAddStudent_Click(object sender, EventArgs e)
         {
             ActiveButton(sender);
             OpenChildForm(new FrmAddNewStudent());
+        }
+
+        private void iconButtonAcademic_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            OpenChildForm(new FrmAcademic());
         }
     }
 }

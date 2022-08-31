@@ -42,7 +42,7 @@ namespace WindowsDesktop.Students
             this.iconButtonAddStudent.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonAddStudent.IconSize = 32;
             this.iconButtonAddStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonAddStudent.Location = new System.Drawing.Point(320, 205);
+            this.iconButtonAddStudent.Location = new System.Drawing.Point(291, 52);
             this.iconButtonAddStudent.Name = "iconButtonAddStudent";
             this.iconButtonAddStudent.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.iconButtonAddStudent.Size = new System.Drawing.Size(160, 40);

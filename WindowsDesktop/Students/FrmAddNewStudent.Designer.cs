@@ -30,6 +30,21 @@ namespace WindowsDesktop.Students
         private void InitializeComponent()
         {
             this.groupBoxGuardianInformation = new System.Windows.Forms.GroupBox();
+            this.labelGuardianInfoName = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.comboBoxGrdAddressVillage = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxGrdAddressUnion = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBoxGrdAddressUpazila = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxGrdAddressDistrict = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxGrdAddressDivision = new System.Windows.Forms.ComboBox();
             this.buttonGuardianBack = new System.Windows.Forms.Button();
             this.buttonGuardianNext = new System.Windows.Forms.Button();
             this.textBox13 = new System.Windows.Forms.TextBox();
@@ -71,21 +86,10 @@ namespace WindowsDesktop.Students
             this.linkLabelAddNewClass = new System.Windows.Forms.LinkLabel();
             this.buttonAcademicBack = new System.Windows.Forms.Button();
             this.buttonAcademicNext = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBoxAddress = new System.Windows.Forms.GroupBox();
+            this.labelAddressName = new System.Windows.Forms.Label();
+            this.buttonAddressBack = new System.Windows.Forms.Button();
+            this.buttonAddressNext = new System.Windows.Forms.Button();
             this.checkBoxSameAsPresentAddress = new System.Windows.Forms.CheckBox();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.textBoxPerAddressDetails = new System.Windows.Forms.TextBox();
@@ -115,10 +119,6 @@ namespace WindowsDesktop.Students
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.comboBoxPreAddressDivision = new System.Windows.Forms.ComboBox();
-            this.buttonAddressBack = new System.Windows.Forms.Button();
-            this.buttonAddressNext = new System.Windows.Forms.Button();
-            this.labelAddressName = new System.Windows.Forms.Label();
-            this.labelGuardianInfoName = new System.Windows.Forms.Label();
             this.groupBoxGuardianInformation.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
             this.groupBoxAcademicInformation.SuspendLayout();
@@ -132,16 +132,16 @@ namespace WindowsDesktop.Students
             this.groupBoxGuardianInformation.Controls.Add(this.textBox1);
             this.groupBoxGuardianInformation.Controls.Add(this.label17);
             this.groupBoxGuardianInformation.Controls.Add(this.label18);
-            this.groupBoxGuardianInformation.Controls.Add(this.comboBox6);
+            this.groupBoxGuardianInformation.Controls.Add(this.comboBoxGrdAddressVillage);
             this.groupBoxGuardianInformation.Controls.Add(this.label6);
-            this.groupBoxGuardianInformation.Controls.Add(this.comboBox3);
+            this.groupBoxGuardianInformation.Controls.Add(this.comboBoxGrdAddressUnion);
             this.groupBoxGuardianInformation.Controls.Add(this.label7);
-            this.groupBoxGuardianInformation.Controls.Add(this.comboBox4);
+            this.groupBoxGuardianInformation.Controls.Add(this.comboBoxGrdAddressUpazila);
             this.groupBoxGuardianInformation.Controls.Add(this.label5);
-            this.groupBoxGuardianInformation.Controls.Add(this.comboBox2);
+            this.groupBoxGuardianInformation.Controls.Add(this.comboBoxGrdAddressDistrict);
             this.groupBoxGuardianInformation.Controls.Add(this.label4);
             this.groupBoxGuardianInformation.Controls.Add(this.label3);
-            this.groupBoxGuardianInformation.Controls.Add(this.comboBox1);
+            this.groupBoxGuardianInformation.Controls.Add(this.comboBoxGrdAddressDivision);
             this.groupBoxGuardianInformation.Controls.Add(this.buttonGuardianBack);
             this.groupBoxGuardianInformation.Controls.Add(this.buttonGuardianNext);
             this.groupBoxGuardianInformation.Controls.Add(this.textBox13);
@@ -161,13 +161,149 @@ namespace WindowsDesktop.Students
             this.groupBoxGuardianInformation.Controls.Add(this.textBox8);
             this.groupBoxGuardianInformation.Controls.Add(this.textBox9);
             this.groupBoxGuardianInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxGuardianInformation.Location = new System.Drawing.Point(84, 81);
+            this.groupBoxGuardianInformation.Location = new System.Drawing.Point(84, 36);
             this.groupBoxGuardianInformation.Name = "groupBoxGuardianInformation";
             this.groupBoxGuardianInformation.Size = new System.Drawing.Size(594, 618);
             this.groupBoxGuardianInformation.TabIndex = 0;
             this.groupBoxGuardianInformation.TabStop = false;
             this.groupBoxGuardianInformation.Text = "Guardian Information";
             this.groupBoxGuardianInformation.Visible = false;
+            // 
+            // labelGuardianInfoName
+            // 
+            this.labelGuardianInfoName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelGuardianInfoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGuardianInfoName.Location = new System.Drawing.Point(6, 27);
+            this.labelGuardianInfoName.Name = "labelGuardianInfoName";
+            this.labelGuardianInfoName.Size = new System.Drawing.Size(582, 33);
+            this.labelGuardianInfoName.TabIndex = 85;
+            this.labelGuardianInfoName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(352, 446);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(156, 17);
+            this.linkLabel1.TabIndex = 52;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Add or Update Address";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(133, 489);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(428, 51);
+            this.textBox1.TabIndex = 51;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(133, 469);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(196, 17);
+            this.label17.TabIndex = 49;
+            this.label17.Text = "Details (house #/road # etc...)";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(133, 422);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(50, 17);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "Village";
+            // 
+            // comboBoxGrdAddressVillage
+            // 
+            this.comboBoxGrdAddressVillage.FormattingEnabled = true;
+            this.comboBoxGrdAddressVillage.Location = new System.Drawing.Point(133, 442);
+            this.comboBoxGrdAddressVillage.Name = "comboBoxGrdAddressVillage";
+            this.comboBoxGrdAddressVillage.Size = new System.Drawing.Size(209, 24);
+            this.comboBoxGrdAddressVillage.TabIndex = 46;
+            this.comboBoxGrdAddressVillage.SelectedIndexChanged += new System.EventHandler(this.comboBoxGrdAddressVillage_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(352, 375);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 17);
+            this.label6.TabIndex = 45;
+            this.label6.Text = "Union";
+            // 
+            // comboBoxGrdAddressUnion
+            // 
+            this.comboBoxGrdAddressUnion.FormattingEnabled = true;
+            this.comboBoxGrdAddressUnion.Location = new System.Drawing.Point(352, 395);
+            this.comboBoxGrdAddressUnion.Name = "comboBoxGrdAddressUnion";
+            this.comboBoxGrdAddressUnion.Size = new System.Drawing.Size(209, 24);
+            this.comboBoxGrdAddressUnion.TabIndex = 44;
+            this.comboBoxGrdAddressUnion.SelectedIndexChanged += new System.EventHandler(this.comboBoxGrdAddressUnion_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(133, 375);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 17);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Upazila";
+            // 
+            // comboBoxGrdAddressUpazila
+            // 
+            this.comboBoxGrdAddressUpazila.FormattingEnabled = true;
+            this.comboBoxGrdAddressUpazila.Location = new System.Drawing.Point(133, 395);
+            this.comboBoxGrdAddressUpazila.Name = "comboBoxGrdAddressUpazila";
+            this.comboBoxGrdAddressUpazila.Size = new System.Drawing.Size(209, 24);
+            this.comboBoxGrdAddressUpazila.TabIndex = 42;
+            this.comboBoxGrdAddressUpazila.SelectedIndexChanged += new System.EventHandler(this.comboBoxGrdAddressUpazila_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(352, 328);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 17);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "District";
+            // 
+            // comboBoxGrdAddressDistrict
+            // 
+            this.comboBoxGrdAddressDistrict.FormattingEnabled = true;
+            this.comboBoxGrdAddressDistrict.Location = new System.Drawing.Point(352, 348);
+            this.comboBoxGrdAddressDistrict.Name = "comboBoxGrdAddressDistrict";
+            this.comboBoxGrdAddressDistrict.Size = new System.Drawing.Size(209, 24);
+            this.comboBoxGrdAddressDistrict.TabIndex = 40;
+            this.comboBoxGrdAddressDistrict.SelectedIndexChanged += new System.EventHandler(this.comboBoxGrdAddressDistrict_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(133, 328);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 17);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "Division";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 328);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 17);
+            this.label3.TabIndex = 38;
+            this.label3.Text = "Guardian Address";
+            // 
+            // comboBoxGrdAddressDivision
+            // 
+            this.comboBoxGrdAddressDivision.FormattingEnabled = true;
+            this.comboBoxGrdAddressDivision.Location = new System.Drawing.Point(133, 348);
+            this.comboBoxGrdAddressDivision.Name = "comboBoxGrdAddressDivision";
+            this.comboBoxGrdAddressDivision.Size = new System.Drawing.Size(209, 24);
+            this.comboBoxGrdAddressDivision.TabIndex = 36;
+            this.comboBoxGrdAddressDivision.SelectedIndexChanged += new System.EventHandler(this.comboBoxGrdAddressDivision_SelectedIndexChanged);
             // 
             // buttonGuardianBack
             // 
@@ -544,127 +680,6 @@ namespace WindowsDesktop.Students
             this.buttonAcademicNext.UseVisualStyleBackColor = true;
             this.buttonAcademicNext.Click += new System.EventHandler(this.buttonAcademicNext_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(133, 348);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(209, 24);
-            this.comboBox1.TabIndex = 36;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 328);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 17);
-            this.label3.TabIndex = 38;
-            this.label3.Text = "Guardian Address";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(133, 328);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 17);
-            this.label4.TabIndex = 39;
-            this.label4.Text = "Division";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(352, 328);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 17);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "District";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(352, 348);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(209, 24);
-            this.comboBox2.TabIndex = 40;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(352, 375);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 17);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "Union";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(352, 395);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(209, 24);
-            this.comboBox3.TabIndex = 44;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(133, 375);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 17);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "Upazila";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(133, 395);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(209, 24);
-            this.comboBox4.TabIndex = 42;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(133, 469);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(196, 17);
-            this.label17.TabIndex = 49;
-            this.label17.Text = "Details (house #/road # etc...)";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(133, 422);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(50, 17);
-            this.label18.TabIndex = 47;
-            this.label18.Text = "Village";
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(133, 442);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(209, 24);
-            this.comboBox6.TabIndex = 46;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(133, 489);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(428, 51);
-            this.textBox1.TabIndex = 51;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(352, 446);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(156, 17);
-            this.linkLabel1.TabIndex = 52;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Add or Update Address";
-            // 
             // groupBoxAddress
             // 
             this.groupBoxAddress.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -701,13 +716,45 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(103, 118);
+            this.groupBoxAddress.Location = new System.Drawing.Point(103, 63);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 619);
             this.groupBoxAddress.TabIndex = 3;
             this.groupBoxAddress.TabStop = false;
             this.groupBoxAddress.Text = "Address";
             this.groupBoxAddress.Visible = false;
+            // 
+            // labelAddressName
+            // 
+            this.labelAddressName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelAddressName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAddressName.Location = new System.Drawing.Point(6, 26);
+            this.labelAddressName.Name = "labelAddressName";
+            this.labelAddressName.Size = new System.Drawing.Size(582, 33);
+            this.labelAddressName.TabIndex = 84;
+            this.labelAddressName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonAddressBack
+            // 
+            this.buttonAddressBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonAddressBack.Location = new System.Drawing.Point(133, 570);
+            this.buttonAddressBack.Name = "buttonAddressBack";
+            this.buttonAddressBack.Size = new System.Drawing.Size(160, 38);
+            this.buttonAddressBack.TabIndex = 83;
+            this.buttonAddressBack.Text = "Back";
+            this.buttonAddressBack.UseVisualStyleBackColor = true;
+            this.buttonAddressBack.Click += new System.EventHandler(this.buttonAddressBack_Click);
+            // 
+            // buttonAddressNext
+            // 
+            this.buttonAddressNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonAddressNext.Location = new System.Drawing.Point(302, 570);
+            this.buttonAddressNext.Name = "buttonAddressNext";
+            this.buttonAddressNext.Size = new System.Drawing.Size(160, 38);
+            this.buttonAddressNext.TabIndex = 82;
+            this.buttonAddressNext.Text = "Next";
+            this.buttonAddressNext.UseVisualStyleBackColor = true;
+            this.buttonAddressNext.Click += new System.EventHandler(this.buttonAddressNext_Click);
             // 
             // checkBoxSameAsPresentAddress
             // 
@@ -764,6 +811,7 @@ namespace WindowsDesktop.Students
             this.comboBoxPerAddressVillage.Size = new System.Drawing.Size(209, 24);
             this.comboBoxPerAddressVillage.TabIndex = 76;
             this.comboBoxPerAddressVillage.ValueMember = "id";
+            this.comboBoxPerAddressVillage.SelectedIndexChanged += new System.EventHandler(this.comboBoxPerAddressVillage_SelectedIndexChanged);
             // 
             // label33
             // 
@@ -783,6 +831,7 @@ namespace WindowsDesktop.Students
             this.comboBoxPerAddressUnion.Size = new System.Drawing.Size(209, 24);
             this.comboBoxPerAddressUnion.TabIndex = 74;
             this.comboBoxPerAddressUnion.ValueMember = "id";
+            this.comboBoxPerAddressUnion.SelectedIndexChanged += new System.EventHandler(this.comboBoxPerAddressUnion_SelectedIndexChanged);
             // 
             // label34
             // 
@@ -802,6 +851,7 @@ namespace WindowsDesktop.Students
             this.comboBoxPerAddressUpazila.Size = new System.Drawing.Size(209, 24);
             this.comboBoxPerAddressUpazila.TabIndex = 72;
             this.comboBoxPerAddressUpazila.ValueMember = "id";
+            this.comboBoxPerAddressUpazila.SelectedIndexChanged += new System.EventHandler(this.comboBoxPerAddressUpazila_SelectedIndexChanged);
             // 
             // label35
             // 
@@ -821,6 +871,7 @@ namespace WindowsDesktop.Students
             this.comboBoxPerAddressDistrict.Size = new System.Drawing.Size(209, 24);
             this.comboBoxPerAddressDistrict.TabIndex = 70;
             this.comboBoxPerAddressDistrict.ValueMember = "id";
+            this.comboBoxPerAddressDistrict.SelectedIndexChanged += new System.EventHandler(this.comboBoxPerAddressDistrict_SelectedIndexChanged);
             // 
             // label36
             // 
@@ -849,6 +900,7 @@ namespace WindowsDesktop.Students
             this.comboBoxPerAddressDivision.Size = new System.Drawing.Size(209, 24);
             this.comboBoxPerAddressDivision.TabIndex = 67;
             this.comboBoxPerAddressDivision.ValueMember = "id";
+            this.comboBoxPerAddressDivision.SelectedIndexChanged += new System.EventHandler(this.comboBoxPerAddressDivision_SelectedIndexChanged);
             // 
             // linkLabel2
             // 
@@ -895,6 +947,7 @@ namespace WindowsDesktop.Students
             this.comboBoxPreAddressVillage.Size = new System.Drawing.Size(209, 24);
             this.comboBoxPreAddressVillage.TabIndex = 62;
             this.comboBoxPreAddressVillage.ValueMember = "id";
+            this.comboBoxPreAddressVillage.SelectedIndexChanged += new System.EventHandler(this.comboBoxPreAddressVillage_SelectedIndexChanged);
             // 
             // label21
             // 
@@ -985,57 +1038,15 @@ namespace WindowsDesktop.Students
             this.comboBoxPreAddressDivision.ValueMember = "id";
             this.comboBoxPreAddressDivision.SelectedIndexChanged += new System.EventHandler(this.comboBoxPreAddressDivision_SelectedIndexChanged);
             // 
-            // buttonAddressBack
-            // 
-            this.buttonAddressBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonAddressBack.Location = new System.Drawing.Point(133, 570);
-            this.buttonAddressBack.Name = "buttonAddressBack";
-            this.buttonAddressBack.Size = new System.Drawing.Size(160, 38);
-            this.buttonAddressBack.TabIndex = 83;
-            this.buttonAddressBack.Text = "Back";
-            this.buttonAddressBack.UseVisualStyleBackColor = true;
-            this.buttonAddressBack.Click += new System.EventHandler(this.buttonAddressBack_Click);
-            // 
-            // buttonAddressNext
-            // 
-            this.buttonAddressNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonAddressNext.Location = new System.Drawing.Point(302, 570);
-            this.buttonAddressNext.Name = "buttonAddressNext";
-            this.buttonAddressNext.Size = new System.Drawing.Size(160, 38);
-            this.buttonAddressNext.TabIndex = 82;
-            this.buttonAddressNext.Text = "Next";
-            this.buttonAddressNext.UseVisualStyleBackColor = true;
-            this.buttonAddressNext.Click += new System.EventHandler(this.buttonAddressNext_Click);
-            // 
-            // labelAddressName
-            // 
-            this.labelAddressName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelAddressName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAddressName.Location = new System.Drawing.Point(6, 26);
-            this.labelAddressName.Name = "labelAddressName";
-            this.labelAddressName.Size = new System.Drawing.Size(582, 33);
-            this.labelAddressName.TabIndex = 84;
-            this.labelAddressName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelGuardianInfoName
-            // 
-            this.labelGuardianInfoName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelGuardianInfoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGuardianInfoName.Location = new System.Drawing.Point(6, 27);
-            this.labelGuardianInfoName.Name = "labelGuardianInfoName";
-            this.labelGuardianInfoName.Size = new System.Drawing.Size(582, 33);
-            this.labelGuardianInfoName.TabIndex = 85;
-            this.labelGuardianInfoName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FrmAddNewStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(704, 749);
-            this.Controls.Add(this.groupBoxAddress);
+            this.ClientSize = new System.Drawing.Size(704, 692);
             this.Controls.Add(this.groupBoxAcademicInformation);
             this.Controls.Add(this.groupBoxGuardianInformation);
+            this.Controls.Add(this.groupBoxAddress);
             this.Controls.Add(this.groupBoxPersonalInformation);
             this.Name = "FrmAddNewStudent";
             this.Text = "Add New Student";
@@ -1095,18 +1106,18 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Button buttonGuardianNext;
         private System.Windows.Forms.LinkLabel linkLabelAddNewClass;
         private System.Windows.Forms.Label labelAcademicStudentName;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxGrdAddressDivision;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxGrdAddressDistrict;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxGrdAddressUnion;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBoxGrdAddressUpazila;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBoxGrdAddressVillage;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.GroupBox groupBoxAddress;

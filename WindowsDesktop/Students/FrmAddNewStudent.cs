@@ -16,11 +16,10 @@ namespace WindowsDesktop.Students
 
             LoadTheme(groupBoxPersonalInformation);
 
-            LoadDivision(comboBoxPreAddressDivision);
-            LoadDivision(comboBoxPerAddressDivision);
+            LoadDivision();
         }
 
-        private void LoadTheme(Control control)
+        private static void LoadTheme(Control control)
         {
             ThemeTemplate.SLabel(control);
             ThemeTemplate.SLinkLabel(control);
@@ -31,15 +30,27 @@ namespace WindowsDesktop.Students
             ThemeTemplate.SComboBox(control);
         }
 
-        private void LoadDivision(ComboBox comboBox)
+        private void LoadDivision()
         {
             try
             {
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_divisions ORDER BY name ASC";
-                comboBox.DataSource = null;
-                comboBox.DisplayMember = "name";
-                comboBox.ValueMember = "id";
-                comboBox.DataSource = Db.GetDataTable(query);
+                var dt= Db.GetDataTable(query);
+
+                comboBoxPreAddressDivision.DataSource = null;
+                comboBoxPreAddressDivision.DisplayMember = "name";
+                comboBoxPreAddressDivision.ValueMember = "id";
+                comboBoxPreAddressDivision.DataSource = dt;
+
+                comboBoxPerAddressDivision.DataSource = null;
+                comboBoxPerAddressDivision.DisplayMember = "name";
+                comboBoxPerAddressDivision.ValueMember = "id";
+                comboBoxPerAddressDivision.DataSource = dt;
+
+                comboBoxGrdAddressDivision.DataSource = null;
+                comboBoxGrdAddressDivision.DisplayMember = "name";
+                comboBoxGrdAddressDivision.ValueMember = "id";
+                comboBoxGrdAddressDivision.DataSource = dt;
             }
             catch
             {
@@ -163,8 +174,11 @@ namespace WindowsDesktop.Students
                 comboBoxPreAddressUpazila.DataSource = null;
                 comboBoxPreAddressUnion.DataSource = null;
                 comboBoxPreAddressVillage.DataSource = null;
-                
-                LoadDistrict(comboBoxPreAddressDistrict,comboBoxPreAddressDivision.SelectedValue.ToString());
+
+                var id = comboBoxPreAddressDivision.SelectedValue == null
+                    ? "0"
+                    : comboBoxPreAddressDivision.SelectedValue.ToString();
+                LoadDistrict(comboBoxPreAddressDistrict,id);
             }
             catch
             {
@@ -183,7 +197,10 @@ namespace WindowsDesktop.Students
                 comboBoxPreAddressUnion.DataSource = null;
                 comboBoxPreAddressVillage.DataSource = null;
 
-                LoadUpazila(comboBoxPreAddressUpazila, comboBoxPreAddressDistrict.SelectedValue.ToString());
+                var id = comboBoxPreAddressDistrict.SelectedValue == null
+                    ? "0"
+                    : comboBoxPreAddressDistrict.SelectedValue.ToString();
+                LoadUpazila(comboBoxPreAddressUpazila, id);
             }
             catch
             {
@@ -199,8 +216,10 @@ namespace WindowsDesktop.Students
             {
                 comboBoxPreAddressUnion.DataSource = null;
                 comboBoxPreAddressVillage.DataSource = null;
-
-                LoadUnion(comboBoxPreAddressUnion, comboBoxPreAddressUpazila.SelectedValue.ToString());
+                var id = comboBoxPreAddressUpazila.SelectedValue == null
+                    ? "0"
+                    : comboBoxPreAddressUpazila.SelectedValue.ToString();
+                LoadUnion(comboBoxPreAddressUnion, id);
             }
             catch
             {
@@ -214,12 +233,206 @@ namespace WindowsDesktop.Students
             try
             {
                 comboBoxPreAddressVillage.DataSource = null;
+                var id = comboBoxPreAddressUnion.SelectedValue == null
+                    ? "0"
+                    : comboBoxPreAddressUnion.SelectedValue.ToString();
+                LoadVillage(comboBoxPreAddressVillage, id);
+            }
+            catch (Exception)
+            {
+                comboBoxPreAddressVillage.DataSource = null;
+            }
+        }
 
-                LoadVillage(comboBoxPreAddressVillage, comboBoxPreAddressUnion.SelectedValue.ToString());
+        private void comboBoxPreAddressVillage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch (Exception)
+            {
+                //
+            }
+        }
+
+        private void comboBoxPerAddressDivision_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                comboBoxPerAddressDistrict.DataSource = null;
+                comboBoxPerAddressUpazila.DataSource = null;
+                comboBoxPerAddressUnion.DataSource = null;
+                comboBoxPerAddressVillage.DataSource = null;
+
+                var id = comboBoxPerAddressDivision.SelectedValue == null
+                    ? "0"
+                    : comboBoxPerAddressDivision.SelectedValue.ToString();
+                LoadDistrict(comboBoxPerAddressDistrict, id);
             }
             catch
             {
-                comboBoxPreAddressVillage.DataSource = null;
+                comboBoxPerAddressDistrict.DataSource = null;
+                comboBoxPerAddressUpazila.DataSource = null;
+                comboBoxPerAddressUnion.DataSource = null;
+                comboBoxPerAddressVillage.DataSource = null;
+            }
+        }
+
+        private void comboBoxPerAddressDistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                comboBoxPerAddressUpazila.DataSource = null;
+                comboBoxPerAddressUnion.DataSource = null;
+                comboBoxPerAddressVillage.DataSource = null;
+
+                var id = comboBoxPerAddressDistrict.SelectedValue == null
+                    ? "0"
+                    : comboBoxPerAddressDistrict.SelectedValue.ToString();
+                LoadUpazila(comboBoxPerAddressUpazila, id);
+            }
+            catch
+            {
+                comboBoxPerAddressUpazila.DataSource = null;
+                comboBoxPerAddressUnion.DataSource = null;
+                comboBoxPerAddressVillage.DataSource = null;
+            }
+        }
+
+        private void comboBoxPerAddressUpazila_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                comboBoxPerAddressUnion.DataSource = null;
+                comboBoxPerAddressVillage.DataSource = null;
+                var id = comboBoxPerAddressUpazila.SelectedValue == null
+                    ? "0"
+                    : comboBoxPerAddressUpazila.SelectedValue.ToString();
+                LoadUnion(comboBoxPerAddressUnion, id);
+            }
+            catch
+            {
+                comboBoxPerAddressUnion.DataSource = null;
+                comboBoxPerAddressVillage.DataSource = null;
+            }
+        }
+
+        private void comboBoxPerAddressUnion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                comboBoxPerAddressVillage.DataSource = null;
+                var id = comboBoxPerAddressUnion.SelectedValue == null
+                    ? "0"
+                    : comboBoxPerAddressUnion.SelectedValue.ToString();
+                LoadVillage(comboBoxPerAddressVillage, id);
+            }
+            catch (Exception)
+            {
+                comboBoxPerAddressVillage.DataSource = null;
+            }
+        }
+
+        private void comboBoxPerAddressVillage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                //
+            }
+        }
+
+        private void comboBoxGrdAddressDivision_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                comboBoxGrdAddressDistrict.DataSource = null;
+                comboBoxGrdAddressUpazila.DataSource = null;
+                comboBoxGrdAddressUnion.DataSource = null;
+                comboBoxGrdAddressVillage.DataSource = null;
+
+                var id = comboBoxGrdAddressDivision.SelectedValue == null
+                    ? "0"
+                    : comboBoxGrdAddressDivision.SelectedValue.ToString();
+                LoadDistrict(comboBoxGrdAddressDistrict, id);
+            }
+            catch
+            {
+                comboBoxGrdAddressDistrict.DataSource = null;
+                comboBoxGrdAddressUpazila.DataSource = null;
+                comboBoxGrdAddressUnion.DataSource = null;
+                comboBoxGrdAddressVillage.DataSource = null;
+            }
+        }
+
+        private void comboBoxGrdAddressDistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                comboBoxGrdAddressUpazila.DataSource = null;
+                comboBoxGrdAddressUnion.DataSource = null;
+                comboBoxGrdAddressVillage.DataSource = null;
+
+                var id = comboBoxGrdAddressDistrict.SelectedValue == null
+                    ? "0"
+                    : comboBoxGrdAddressDistrict.SelectedValue.ToString();
+                LoadUpazila(comboBoxGrdAddressUpazila, id);
+            }
+            catch
+            {
+                comboBoxGrdAddressUpazila.DataSource = null;
+                comboBoxGrdAddressUnion.DataSource = null;
+                comboBoxGrdAddressVillage.DataSource = null;
+            }
+        }
+
+        private void comboBoxGrdAddressUpazila_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                comboBoxGrdAddressUnion.DataSource = null;
+                comboBoxGrdAddressVillage.DataSource = null;
+                var id = comboBoxGrdAddressUpazila.SelectedValue == null
+                    ? "0"
+                    : comboBoxGrdAddressUpazila.SelectedValue.ToString();
+                LoadUnion(comboBoxGrdAddressUnion, id);
+            }
+            catch
+            {
+                comboBoxGrdAddressUnion.DataSource = null;
+                comboBoxGrdAddressVillage.DataSource = null;
+            }
+        }
+
+        private void comboBoxGrdAddressUnion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                comboBoxGrdAddressVillage.DataSource = null;
+                var id = comboBoxGrdAddressUnion.SelectedValue == null
+                    ? "0"
+                    : comboBoxGrdAddressUnion.SelectedValue.ToString();
+                LoadVillage(comboBoxGrdAddressVillage, id);
+            }
+            catch (Exception)
+            {
+                comboBoxGrdAddressVillage.DataSource = null;
+            }
+        }
+
+        private void comboBoxGrdAddressVillage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                //
             }
         }
     }

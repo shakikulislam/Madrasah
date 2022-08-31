@@ -98,7 +98,7 @@ namespace WindowsDesktop.Theme
             }
         }
 
-        public static void SDataGridView(Control control)
+        public static void SDataGridView(Control control, DataGridViewCellBorderStyle cellBorderStyle= DataGridViewCellBorderStyle.None)
         {
             // DataGridView
             foreach (var gridView in control.Controls.OfType<DataGridView>())
@@ -107,8 +107,8 @@ namespace WindowsDesktop.Theme
                 gridView.RowsDefaultCellStyle.BackColor = STheme.SColor.BackColor;
                 gridView.RowsDefaultCellStyle.SelectionBackColor = STheme.SColor.ActiveBackColor;
                 gridView.RowsDefaultCellStyle.SelectionForeColor = STheme.SColor.ActiveForColor;
-                gridView.ColumnHeadersDefaultCellStyle.BackColor = STheme.SColor.BackColor;
-                gridView.ColumnHeadersDefaultCellStyle.ForeColor = STheme.SColor.ForColor;
+                gridView.ColumnHeadersDefaultCellStyle.BackColor = STheme.SColor.ActiveBackColor;
+                gridView.ColumnHeadersDefaultCellStyle.ForeColor = STheme.SColor.ActiveForColor;
                 gridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = STheme.SColor.BackColor;
                 gridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = STheme.SColor.ForColor;
                 gridView.ColumnHeadersDefaultCellStyle.Font = new Font(STheme.SFont.Font, STheme.SFont.Size+2, FontStyle.Bold);
@@ -124,7 +124,7 @@ namespace WindowsDesktop.Theme
                 gridView.ColumnHeadersHeight = 30;
                 gridView.MultiSelect = false;
                 gridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-                gridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+                gridView.CellBorderStyle = cellBorderStyle;
                 gridView.RowTemplate.Resizable = DataGridViewTriState.False;
                 gridView.RowTemplate.DividerHeight = 1;
                 gridView.RowTemplate.Height = 25;
@@ -132,6 +132,7 @@ namespace WindowsDesktop.Theme
 
             }
         }
+
     }
 }
 
