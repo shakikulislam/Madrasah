@@ -1044,10 +1044,10 @@ namespace WindowsDesktop.Students
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(704, 692);
+            this.Controls.Add(this.groupBoxPersonalInformation);
             this.Controls.Add(this.groupBoxAcademicInformation);
             this.Controls.Add(this.groupBoxGuardianInformation);
             this.Controls.Add(this.groupBoxAddress);
-            this.Controls.Add(this.groupBoxPersonalInformation);
             this.Name = "FrmAddNewStudent";
             this.Text = "Add New Student";
             this.groupBoxGuardianInformation.ResumeLayout(false);

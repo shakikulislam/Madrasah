@@ -49,7 +49,7 @@ namespace WindowsDesktop
             var query = "select c.id, c.name, c.class_number as classNumber, d.name as department " +
                         "from s_classes c " +
                         "left join s_departments d on c.department_id = d.id " +
-                        "order by class_number asc";
+                        "order by c.department_id, c.class_number asc";
             var classList = Db.GetDataTable(query);
             dataGridViewClass.DataSource = classList;
         }

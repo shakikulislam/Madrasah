@@ -17,11 +17,12 @@ namespace WindowsDesktop.Theme
         {
             public static Color ForColor = Color.Black;
             public static Color BackColor = Color.White;
-            public static Color ActiveForColor = Color.White;
-            public static Color ActiveBackColor = Color.Gray;
+            public static Color ActiveForColor = Color.Black;
+            public static Color ActiveBackColor = Color.PapayaWhip;
             public static Color MenuPanelBackColor = Color.White;
             public static Color TextFieldBackgroundColor = Color.White;
             public static Color TextFieldForColor = Color.Black;
+            public static Color HoverBackColor = Color.Silver;
         }
         
         public struct SFont

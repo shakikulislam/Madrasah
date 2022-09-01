@@ -17,6 +17,8 @@ namespace WindowsDesktop.Students
             LoadTheme(groupBoxPersonalInformation);
 
             LoadDivision();
+
+            LoadClass();
         }
 
         private static void LoadTheme(Control control)
@@ -28,6 +30,28 @@ namespace WindowsDesktop.Students
             ThemeTemplate.SButton(control);
             ThemeTemplate.SDateTimePicker(control);
             ThemeTemplate.SComboBox(control);
+        }
+
+        private void LoadClass()
+        {
+            try
+            {
+                var query = "SELECT c.id, CONCAT(d.name, ' (', c.name, ')') AS name " +
+                            "FROM s_classes c " +
+                            "left join s_departments d on c.department_id=d.id " +
+                            "ORDER BY d.name, c.class_number ASC";
+
+                var dt = Db.GetDataTable(query);
+
+                comboBoxClass.DataSource = null;
+                comboBoxClass.DisplayMember = "name";
+                comboBoxClass.ValueMember = "id";
+                comboBoxClass.DataSource = dt;
+            }
+            catch
+            {
+                //
+            }
         }
 
         private void LoadDivision()
@@ -104,11 +128,12 @@ namespace WindowsDesktop.Students
             groupBoxAddress.Size = new Size(594, 619);
             groupBoxAddress.Location = groupBoxPersonalInformation.Location;
             groupBoxAddress.Anchor = AnchorStyles.Top;
-            
-            LoadTheme(groupBoxAddress);
 
             labelAddressName.Text = textBoxFullName.Text + " (" + textBoxNameBangla.Text + ")";
             labelAddressName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
+            
+            LoadTheme(groupBoxAddress);
+            ThemeTemplate.SComboBox(groupBoxAddress, ComboBoxStyle.DropDownList);
 
             groupBoxAddress.Visible = true;
         }
@@ -137,10 +162,11 @@ namespace WindowsDesktop.Students
             groupBoxAcademicInformation.Location = groupBoxPersonalInformation.Location;
             groupBoxAcademicInformation.Anchor = AnchorStyles.Top;
 
-            LoadTheme(groupBoxAcademicInformation);
-
             labelAcademicStudentName.Text = textBoxFullName.Text + " (" + textBoxNameBangla.Text + ")";
             labelAcademicStudentName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
+
+            LoadTheme(groupBoxAcademicInformation); 
+            ThemeTemplate.SComboBox(groupBoxAcademicInformation, ComboBoxStyle.DropDownList);
 
             groupBoxAcademicInformation.Visible = true;
         }
@@ -157,11 +183,12 @@ namespace WindowsDesktop.Students
             groupBoxGuardianInformation.Size = new Size(594, 619);
             groupBoxGuardianInformation.Location = groupBoxPersonalInformation.Location;
             groupBoxGuardianInformation.Anchor = AnchorStyles.Top;
-
-            LoadTheme(groupBoxGuardianInformation);
-
+            
             labelGuardianInfoName.Text = textBoxFullName.Text + " (" + textBoxNameBangla.Text + ")";
             labelGuardianInfoName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
+
+            LoadTheme(groupBoxGuardianInformation);
+            ThemeTemplate.SComboBox(groupBoxGuardianInformation, ComboBoxStyle.DropDownList);
 
             groupBoxGuardianInformation.Visible = true;
         }
