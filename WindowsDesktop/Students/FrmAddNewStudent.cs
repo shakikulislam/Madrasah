@@ -15,6 +15,7 @@ namespace WindowsDesktop.Students
             dateTimePickerDob.MaxDate=DateTime.Now;
 
             LoadTheme(groupBoxPersonalInformation);
+            LoadTheme(this);
 
             LoadDivision();
 
@@ -31,7 +32,7 @@ namespace WindowsDesktop.Students
             ThemeTemplate.SDateTimePicker(control);
             ThemeTemplate.SComboBox(control);
         }
-
+        
         private void LoadClass()
         {
             try
@@ -124,18 +125,52 @@ namespace WindowsDesktop.Students
 
         private void buttonSavePersonalInfo_Click(object sender, EventArgs e)
         {
-            groupBoxPersonalInformation.Visible = false;
-            groupBoxAddress.Size = new Size(594, 619);
-            groupBoxAddress.Location = groupBoxPersonalInformation.Location;
-            groupBoxAddress.Anchor = AnchorStyles.Top;
 
-            labelAddressName.Text = textBoxFullName.Text + " (" + textBoxNameBangla.Text + ")";
-            labelAddressName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
+            try
+            {
+
+                var query = "SELECT * FROM s_students WHERE birth_certificate='"+textBoxBirthCert.Text.Trim()+ "' AND create_by = '' ";
+                var isExist = Db.HasExisted(query);
+
+                if (!isExist)
+                {
+                    query = "INSERT INTO s_students (name, phone, birth_certificate, nid, dob) VALUES ('" + textBoxFullName.Text.Trim()+
+                            "', '"+textBoxStudentPhone.Text.Trim()+"', '"+textBoxBirthCert.Text.Trim()+"', '"+textBoxNid.Text.Trim()+
+                            "', '"+dateTimePickerDob.Value.ToString(GlobalSettings.DateFormatSave)+"') ";
+
+                    var isSaved = Db.QueryExecute(query);
+                }
+                    
+                    
+                
+
+                //if (isExist)
+                //{
+                //    query= "UPDATE s_students SET "
+                //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+
+
+
+
+            //groupBoxPersonalInformation.Visible = false;
+            //groupBoxAddress.Size = new Size(594, 619);
+            //groupBoxAddress.Location = groupBoxPersonalInformation.Location;
+            //groupBoxAddress.Anchor = AnchorStyles.Top;
+
+            //labelStudentName.Text = textBoxFullName.Text + " (" + textBoxNameBangla.Text + ")";
+            //labelStudentName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
             
-            LoadTheme(groupBoxAddress);
-            ThemeTemplate.SComboBox(groupBoxAddress, ComboBoxStyle.DropDownList);
+            //LoadTheme(groupBoxAddress);
+            //ThemeTemplate.SComboBox(groupBoxAddress, ComboBoxStyle.DropDownList);
 
-            groupBoxAddress.Visible = true;
+            //groupBoxAddress.Visible = true;
         }
 
         private void buttonAcademicBack_Click(object sender, EventArgs e)
@@ -162,8 +197,8 @@ namespace WindowsDesktop.Students
             groupBoxAcademicInformation.Location = groupBoxPersonalInformation.Location;
             groupBoxAcademicInformation.Anchor = AnchorStyles.Top;
 
-            labelAcademicStudentName.Text = textBoxFullName.Text + " (" + textBoxNameBangla.Text + ")";
-            labelAcademicStudentName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
+            labelStudentName.Text = textBoxFullName.Text;
+            labelStudentName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
 
             LoadTheme(groupBoxAcademicInformation); 
             ThemeTemplate.SComboBox(groupBoxAcademicInformation, ComboBoxStyle.DropDownList);
@@ -183,9 +218,6 @@ namespace WindowsDesktop.Students
             groupBoxGuardianInformation.Size = new Size(594, 619);
             groupBoxGuardianInformation.Location = groupBoxPersonalInformation.Location;
             groupBoxGuardianInformation.Anchor = AnchorStyles.Top;
-            
-            labelGuardianInfoName.Text = textBoxFullName.Text + " (" + textBoxNameBangla.Text + ")";
-            labelGuardianInfoName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
 
             LoadTheme(groupBoxGuardianInformation);
             ThemeTemplate.SComboBox(groupBoxGuardianInformation, ComboBoxStyle.DropDownList);
