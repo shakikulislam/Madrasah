@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Theme;
@@ -128,49 +129,68 @@ namespace WindowsDesktop.Students
 
             try
             {
+                // Load Theme
+                groupBoxAddress.Size = new Size(594, 619);
+                groupBoxAddress.Location = groupBoxPersonalInformation.Location;
+                groupBoxAddress.Anchor = AnchorStyles.Top;
 
-                var query = "SELECT * FROM s_students WHERE birth_certificate='"+textBoxBirthCert.Text.Trim()+ "' AND create_by = '' ";
-                var isExist = Db.HasExisted(query);
+                LoadTheme(groupBoxAddress);
+                ThemeTemplate.SComboBox(groupBoxAddress, ComboBoxStyle.DropDownList);
 
-                if (!isExist)
+                var isValid = ThemeTemplate.SValidate(groupBoxPersonalInformation, errorProviderNewStudent);
+
+                if (isValid)
                 {
-                    query = "INSERT INTO s_students (name, phone, birth_certificate, nid, dob) VALUES ('" + textBoxFullName.Text.Trim()+
-                            "', '"+textBoxStudentPhone.Text.Trim()+"', '"+textBoxBirthCert.Text.Trim()+"', '"+textBoxNid.Text.Trim()+
-                            "', '"+dateTimePickerDob.Value.ToString(GlobalSettings.DateFormatSave)+"') ";
+                    groupBoxPersonalInformation.Visible = false;
 
-                    var isSaved = Db.QueryExecute(query);
+                    var query = "SELECT * FROM s_students WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
+                    var studentInfo = Db.GetDataReader(query);
+
+                    if (studentInfo.HasRows)
+                    {
+                        studentInfo.Read();
+                        if (studentInfo["create_by"] == DBNull.Value || studentInfo["create_by"].ToString() == "")
+                        {
+                            labelStudentName.Text = studentInfo["name"].ToString();
+                            labelStudentName.Tag = studentInfo["id"].ToString();
+
+                            groupBoxAddress.Visible = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Already added this student\n\nStudent Name: " + studentInfo["name"] + "\nRoll No: " +
+                                        studentInfo["roll"], @"Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                            groupBoxPersonalInformation.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        query = "INSERT INTO s_students (name, phone, birth_certificate, nid, dob) VALUES ('" + textBoxFullName.Text.Trim() +
+                                "', '" + textBoxStudentPhone.Text.Trim() + "', '" + textBoxBirthCert.Text.Trim() + "', '" + textBoxNid.Text.Trim() +
+                                "', '" + dateTimePickerDob.Value.ToString(GlobalSettings.DateFormatSave) + "') ";
+
+                        var isSaved = Db.QueryExecute(query);
+                        if (isSaved)
+                        {
+                            query = "SELECT * FROM s_students WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
+                            studentInfo = Db.GetDataReader(query);
+                            if (studentInfo.HasRows)
+                            {
+                                studentInfo.Read();
+                                labelStudentName.Text = studentInfo["name"].ToString();
+                                labelStudentName.Tag = studentInfo["id"].ToString();
+
+                                groupBoxAddress.Visible = true;
+                            }
+                        }
+                    }
                 }
-                    
-                    
-                
 
-                //if (isExist)
-                //{
-                //    query= "UPDATE s_students SET "
-                //}
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-
-
-
-
-
-
-            //groupBoxPersonalInformation.Visible = false;
-            //groupBoxAddress.Size = new Size(594, 619);
-            //groupBoxAddress.Location = groupBoxPersonalInformation.Location;
-            //groupBoxAddress.Anchor = AnchorStyles.Top;
-
-            //labelStudentName.Text = textBoxFullName.Text + " (" + textBoxNameBangla.Text + ")";
-            //labelStudentName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
-            
-            //LoadTheme(groupBoxAddress);
-            //ThemeTemplate.SComboBox(groupBoxAddress, ComboBoxStyle.DropDownList);
-
-            //groupBoxAddress.Visible = true;
         }
 
         private void buttonAcademicBack_Click(object sender, EventArgs e)

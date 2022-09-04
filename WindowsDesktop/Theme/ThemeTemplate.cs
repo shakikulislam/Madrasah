@@ -7,6 +7,29 @@ namespace WindowsDesktop.Theme
 {
     public class ThemeTemplate
     {
+        public static bool SValidate(Control control, ErrorProvider errorProvider)
+        {
+            var valid = true;
+            //errorProvider = new ErrorProvider {BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError};
+            errorProvider.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
+
+            foreach (var textBox in control.Controls.OfType<TextBox>())
+            {
+                if (textBox.CausesValidation)
+                {
+                    errorProvider.SetError(textBox, string.Empty);
+
+                    if (string.IsNullOrEmpty(textBox.Text))
+                    {
+                        errorProvider.SetError(textBox, "This field is required");
+                        valid = false;
+                    }
+                }
+            }
+
+            return valid;
+        }
+
         public static void SLabel(Control control)
         {
             foreach (var label in control.Controls.OfType<Label>())

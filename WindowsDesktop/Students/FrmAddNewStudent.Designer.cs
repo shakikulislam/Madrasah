@@ -29,6 +29,7 @@ namespace WindowsDesktop.Students
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBoxGuardianInformation = new System.Windows.Forms.GroupBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -76,13 +77,15 @@ namespace WindowsDesktop.Students
             this.label28 = new System.Windows.Forms.Label();
             this.textBoxNid = new System.Windows.Forms.TextBox();
             this.textBoxBirthCert = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
+            this.textBoxStudentPhone = new System.Windows.Forms.TextBox();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.groupBoxAcademicInformation = new System.Windows.Forms.GroupBox();
-            this.labelStudentName = new System.Windows.Forms.Label();
             this.linkLabelAddNewClass = new System.Windows.Forms.LinkLabel();
             this.buttonAcademicBack = new System.Windows.Forms.Button();
             this.buttonAcademicNext = new System.Windows.Forms.Button();
+            this.labelStudentName = new System.Windows.Forms.Label();
             this.groupBoxAddress = new System.Windows.Forms.GroupBox();
             this.buttonAddressBack = new System.Windows.Forms.Button();
             this.buttonAddressNext = new System.Windows.Forms.Button();
@@ -115,12 +118,12 @@ namespace WindowsDesktop.Students
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.comboBoxPreAddressDivision = new System.Windows.Forms.ComboBox();
-            this.textBoxStudentPhone = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
+            this.errorProviderNewStudent = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxGuardianInformation.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
             this.groupBoxAcademicInformation.SuspendLayout();
             this.groupBoxAddress.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewStudent)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxGuardianInformation
@@ -520,7 +523,7 @@ namespace WindowsDesktop.Students
             this.buttonSavePersonalInfo.Name = "buttonSavePersonalInfo";
             this.buttonSavePersonalInfo.Size = new System.Drawing.Size(160, 38);
             this.buttonSavePersonalInfo.TabIndex = 5;
-            this.buttonSavePersonalInfo.Text = "Save And Next";
+            this.buttonSavePersonalInfo.Text = "Draft And Next";
             this.buttonSavePersonalInfo.UseVisualStyleBackColor = true;
             this.buttonSavePersonalInfo.Click += new System.EventHandler(this.buttonSavePersonalInfo_Click);
             // 
@@ -572,6 +575,15 @@ namespace WindowsDesktop.Students
             this.textBoxBirthCert.Size = new System.Drawing.Size(428, 23);
             this.textBoxBirthCert.TabIndex = 2;
             // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(57, 66);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(71, 17);
+            this.label30.TabIndex = 7;
+            this.label30.Text = "Phone No";
+            // 
             // label31
             // 
             this.label31.AutoSize = true;
@@ -580,6 +592,14 @@ namespace WindowsDesktop.Students
             this.label31.Size = new System.Drawing.Size(71, 17);
             this.label31.TabIndex = 5;
             this.label31.Text = "Full Name";
+            // 
+            // textBoxStudentPhone
+            // 
+            this.textBoxStudentPhone.CausesValidation = false;
+            this.textBoxStudentPhone.Location = new System.Drawing.Point(134, 63);
+            this.textBoxStudentPhone.Name = "textBoxStudentPhone";
+            this.textBoxStudentPhone.Size = new System.Drawing.Size(428, 23);
+            this.textBoxStudentPhone.TabIndex = 1;
             // 
             // textBoxFullName
             // 
@@ -607,16 +627,6 @@ namespace WindowsDesktop.Students
             this.groupBoxAcademicInformation.TabStop = false;
             this.groupBoxAcademicInformation.Text = "Academic Information";
             this.groupBoxAcademicInformation.Visible = false;
-            // 
-            // labelStudentName
-            // 
-            this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentName.Location = new System.Drawing.Point(61, 13);
-            this.labelStudentName.Name = "labelStudentName";
-            this.labelStudentName.Size = new System.Drawing.Size(582, 33);
-            this.labelStudentName.TabIndex = 35;
-            this.labelStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // linkLabelAddNewClass
             // 
@@ -649,6 +659,16 @@ namespace WindowsDesktop.Students
             this.buttonAcademicNext.Text = "Next";
             this.buttonAcademicNext.UseVisualStyleBackColor = true;
             this.buttonAcademicNext.Click += new System.EventHandler(this.buttonAcademicNext_Click);
+            // 
+            // labelStudentName
+            // 
+            this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStudentName.Location = new System.Drawing.Point(61, 13);
+            this.labelStudentName.Name = "labelStudentName";
+            this.labelStudentName.Size = new System.Drawing.Size(582, 33);
+            this.labelStudentName.TabIndex = 35;
+            this.labelStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBoxAddress
             // 
@@ -997,21 +1017,9 @@ namespace WindowsDesktop.Students
             this.comboBoxPreAddressDivision.ValueMember = "id";
             this.comboBoxPreAddressDivision.SelectedIndexChanged += new System.EventHandler(this.comboBoxPreAddressDivision_SelectedIndexChanged);
             // 
-            // textBoxStudentPhone
+            // errorProviderNewStudent
             // 
-            this.textBoxStudentPhone.Location = new System.Drawing.Point(134, 63);
-            this.textBoxStudentPhone.Name = "textBoxStudentPhone";
-            this.textBoxStudentPhone.Size = new System.Drawing.Size(428, 23);
-            this.textBoxStudentPhone.TabIndex = 1;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(57, 66);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(71, 17);
-            this.label30.TabIndex = 7;
-            this.label30.Text = "Phone No";
+            this.errorProviderNewStudent.ContainerControl = this;
             // 
             // FrmAddNewStudent
             // 
@@ -1034,6 +1042,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAcademicInformation.PerformLayout();
             this.groupBoxAddress.ResumeLayout(false);
             this.groupBoxAddress.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewStudent)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1128,5 +1137,6 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Button buttonAddressNext;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox textBoxStudentPhone;
+        private System.Windows.Forms.ErrorProvider errorProviderNewStudent;
     }
 }
