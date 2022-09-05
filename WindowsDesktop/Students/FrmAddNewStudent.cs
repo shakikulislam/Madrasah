@@ -61,22 +61,25 @@ namespace WindowsDesktop.Students
             try
             {
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_divisions ORDER BY name ASC";
-                var dt= Db.GetDataTable(query);
-
+                
+                var dtPreAddressDivision = Db.GetDataTable(query);
                 comboBoxPreAddressDivision.DataSource = null;
                 comboBoxPreAddressDivision.DisplayMember = "name";
                 comboBoxPreAddressDivision.ValueMember = "id";
-                comboBoxPreAddressDivision.DataSource = dt;
+                comboBoxPreAddressDivision.DataSource = dtPreAddressDivision;
 
+                var dtPerAddressDivision = Db.GetDataTable(query);
                 comboBoxPerAddressDivision.DataSource = null;
                 comboBoxPerAddressDivision.DisplayMember = "name";
                 comboBoxPerAddressDivision.ValueMember = "id";
-                comboBoxPerAddressDivision.DataSource = dt;
+                comboBoxPerAddressDivision.DataSource = dtPerAddressDivision;
 
+                var dtGrdAddressDivision = Db.GetDataTable(query);
                 comboBoxGrdAddressDivision.DataSource = null;
                 comboBoxGrdAddressDivision.DisplayMember = "name";
                 comboBoxGrdAddressDivision.ValueMember = "id";
-                comboBoxGrdAddressDivision.DataSource = dt;
+                comboBoxGrdAddressDivision.DataSource = dtGrdAddressDivision;
+
             }
             catch
             {
@@ -137,12 +140,14 @@ namespace WindowsDesktop.Students
                 LoadTheme(groupBoxAddress);
                 ThemeTemplate.SComboBox(groupBoxAddress, ComboBoxStyle.DropDownList);
 
+                // Check Validation
                 var isValid = ThemeTemplate.SValidate(groupBoxPersonalInformation, errorProviderNewStudent);
 
                 if (isValid)
                 {
-                    groupBoxPersonalInformation.Visible = false;
+                    //groupBoxPersonalInformation.Visible = false;
 
+                    // Check already added
                     var query = "SELECT * FROM s_students WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
                     var studentInfo = Db.GetDataReader(query);
 
@@ -154,17 +159,18 @@ namespace WindowsDesktop.Students
                             labelStudentName.Text = studentInfo["name"].ToString();
                             labelStudentName.Tag = studentInfo["id"].ToString();
 
+                            groupBoxPersonalInformation.Visible = false;
                             groupBoxAddress.Visible = true;
                         }
                         else
                         {
                             MessageBox.Show("Already added this student\n\nStudent Name: " + studentInfo["name"] + "\nRoll No: " +
                                         studentInfo["roll"], @"Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                            groupBoxPersonalInformation.Visible = true;
                         }
                     }
                     else
                     {
+                        // Insert student basic information
                         query = "INSERT INTO s_students (name, phone, birth_certificate, nid, dob) VALUES ('" + textBoxFullName.Text.Trim() +
                                 "', '" + textBoxStudentPhone.Text.Trim() + "', '" + textBoxBirthCert.Text.Trim() + "', '" + textBoxNid.Text.Trim() +
                                 "', '" + dateTimePickerDob.Value.ToString(GlobalSettings.DateFormatSave) + "') ";
@@ -180,12 +186,12 @@ namespace WindowsDesktop.Students
                                 labelStudentName.Text = studentInfo["name"].ToString();
                                 labelStudentName.Tag = studentInfo["id"].ToString();
 
+                                groupBoxPersonalInformation.Visible = false;
                                 groupBoxAddress.Visible = true;
                             }
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -514,5 +520,35 @@ namespace WindowsDesktop.Students
                 //
             }
         }
+
+        private void checkBoxSameAsPresentAddress_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (checkBoxSameAsPresentAddress.Checked)
+                {
+                    comboBoxPerAddressDivision.Enabled = false;
+                    comboBoxPerAddressDistrict.Enabled = false;
+                    comboBoxPerAddressUpazila.Enabled = false;
+                    comboBoxPerAddressUnion.Enabled = false;
+                    comboBoxPerAddressVillage.Enabled = false;
+                    textBoxPerAddressDetails.Enabled = false;
+                }
+                else
+                {
+                    comboBoxPerAddressDivision.Enabled = true;
+                    comboBoxPerAddressDistrict.Enabled = true;
+                    comboBoxPerAddressUpazila.Enabled = true;
+                    comboBoxPerAddressUnion.Enabled = true;
+                    comboBoxPerAddressVillage.Enabled = true;
+                    textBoxPerAddressDetails.Enabled = true;
+                }
+            }
+            catch 
+            {
+                //
+            }
+        }
+
     }
 }

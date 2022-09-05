@@ -119,6 +119,7 @@ namespace WindowsDesktop.Students
             this.label25 = new System.Windows.Forms.Label();
             this.comboBoxPreAddressDivision = new System.Windows.Forms.ComboBox();
             this.errorProviderNewStudent = new System.Windows.Forms.ErrorProvider(this.components);
+            this.comboBoxPresentDivision = new System.Windows.Forms.ComboBox();
             this.groupBoxGuardianInformation.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
             this.groupBoxAcademicInformation.SuspendLayout();
@@ -515,6 +516,7 @@ namespace WindowsDesktop.Students
             this.groupBoxPersonalInformation.TabIndex = 0;
             this.groupBoxPersonalInformation.TabStop = false;
             this.groupBoxPersonalInformation.Text = "Personal Information";
+            this.groupBoxPersonalInformation.Visible = false;
             // 
             // buttonSavePersonalInfo
             // 
@@ -673,6 +675,7 @@ namespace WindowsDesktop.Students
             // groupBoxAddress
             // 
             this.groupBoxAddress.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBoxAddress.Controls.Add(this.comboBoxPresentDivision);
             this.groupBoxAddress.Controls.Add(this.buttonAddressBack);
             this.groupBoxAddress.Controls.Add(this.buttonAddressNext);
             this.groupBoxAddress.Controls.Add(this.checkBoxSameAsPresentAddress);
@@ -711,7 +714,6 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.TabIndex = 3;
             this.groupBoxAddress.TabStop = false;
             this.groupBoxAddress.Text = "Address";
-            this.groupBoxAddress.Visible = false;
             // 
             // buttonAddressBack
             // 
@@ -744,6 +746,7 @@ namespace WindowsDesktop.Students
             this.checkBoxSameAsPresentAddress.TabIndex = 81;
             this.checkBoxSameAsPresentAddress.Text = "Same as Present address";
             this.checkBoxSameAsPresentAddress.UseVisualStyleBackColor = true;
+            this.checkBoxSameAsPresentAddress.CheckedChanged += new System.EventHandler(this.checkBoxSameAsPresentAddress_CheckedChanged);
             // 
             // linkLabel3
             // 
@@ -1021,15 +1024,23 @@ namespace WindowsDesktop.Students
             // 
             this.errorProviderNewStudent.ContainerControl = this;
             // 
+            // comboBoxPresentDivision
+            // 
+            this.comboBoxPresentDivision.FormattingEnabled = true;
+            this.comboBoxPresentDivision.Location = new System.Drawing.Point(384, 262);
+            this.comboBoxPresentDivision.Name = "comboBoxPresentDivision";
+            this.comboBoxPresentDivision.Size = new System.Drawing.Size(185, 24);
+            this.comboBoxPresentDivision.TabIndex = 84;
+            // 
             // FrmAddNewStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(704, 791);
-            this.Controls.Add(this.groupBoxPersonalInformation);
-            this.Controls.Add(this.groupBoxGuardianInformation);
             this.Controls.Add(this.groupBoxAddress);
+            this.Controls.Add(this.groupBoxGuardianInformation);
+            this.Controls.Add(this.groupBoxPersonalInformation);
             this.Controls.Add(this.labelStudentName);
             this.Controls.Add(this.groupBoxAcademicInformation);
             this.Name = "FrmAddNewStudent";
@@ -1138,5 +1149,6 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox textBoxStudentPhone;
         private System.Windows.Forms.ErrorProvider errorProviderNewStudent;
+        private System.Windows.Forms.ComboBox comboBoxPresentDivision;
     }
 }
