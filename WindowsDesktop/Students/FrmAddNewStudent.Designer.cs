@@ -31,7 +31,6 @@ namespace WindowsDesktop.Students
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxGuardianInformation = new System.Windows.Forms.GroupBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -47,22 +46,22 @@ namespace WindowsDesktop.Students
             this.comboBoxGrdAddressDivision = new System.Windows.Forms.ComboBox();
             this.buttonGuardianBack = new System.Windows.Forms.Button();
             this.buttonGuardianNext = new System.Windows.Forms.Button();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBoxGrdName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBoxGrdPhone = new System.Windows.Forms.TextBox();
+            this.textBoxMotherName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBoxMotherNid = new System.Windows.Forms.TextBox();
+            this.textBoxMotherPhone = new System.Windows.Forms.TextBox();
+            this.textBoxFatherName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBoxFatherNid = new System.Windows.Forms.TextBox();
+            this.textBoxFatherPhone = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxRoll = new System.Windows.Forms.TextBox();
             this.comboBoxClass = new System.Windows.Forms.ComboBox();
@@ -90,7 +89,6 @@ namespace WindowsDesktop.Students
             this.buttonAddressBack = new System.Windows.Forms.Button();
             this.buttonAddressNext = new System.Windows.Forms.Button();
             this.checkBoxSameAsPresentAddress = new System.Windows.Forms.CheckBox();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.textBoxPerAddressDetails = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -104,7 +102,6 @@ namespace WindowsDesktop.Students
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.comboBoxPerAddressDivision = new System.Windows.Forms.ComboBox();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.textBoxPreAddressDetails = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -128,7 +125,6 @@ namespace WindowsDesktop.Students
             // 
             // groupBoxGuardianInformation
             // 
-            this.groupBoxGuardianInformation.Controls.Add(this.linkLabel1);
             this.groupBoxGuardianInformation.Controls.Add(this.textBox1);
             this.groupBoxGuardianInformation.Controls.Add(this.label17);
             this.groupBoxGuardianInformation.Controls.Add(this.label18);
@@ -144,22 +140,22 @@ namespace WindowsDesktop.Students
             this.groupBoxGuardianInformation.Controls.Add(this.comboBoxGrdAddressDivision);
             this.groupBoxGuardianInformation.Controls.Add(this.buttonGuardianBack);
             this.groupBoxGuardianInformation.Controls.Add(this.buttonGuardianNext);
-            this.groupBoxGuardianInformation.Controls.Add(this.textBox13);
+            this.groupBoxGuardianInformation.Controls.Add(this.textBoxGrdName);
             this.groupBoxGuardianInformation.Controls.Add(this.label14);
             this.groupBoxGuardianInformation.Controls.Add(this.label15);
-            this.groupBoxGuardianInformation.Controls.Add(this.textBox14);
-            this.groupBoxGuardianInformation.Controls.Add(this.textBox10);
+            this.groupBoxGuardianInformation.Controls.Add(this.textBoxGrdPhone);
+            this.groupBoxGuardianInformation.Controls.Add(this.textBoxMotherName);
             this.groupBoxGuardianInformation.Controls.Add(this.label11);
             this.groupBoxGuardianInformation.Controls.Add(this.label12);
             this.groupBoxGuardianInformation.Controls.Add(this.label13);
-            this.groupBoxGuardianInformation.Controls.Add(this.textBox11);
-            this.groupBoxGuardianInformation.Controls.Add(this.textBox12);
-            this.groupBoxGuardianInformation.Controls.Add(this.textBox7);
+            this.groupBoxGuardianInformation.Controls.Add(this.textBoxMotherNid);
+            this.groupBoxGuardianInformation.Controls.Add(this.textBoxMotherPhone);
+            this.groupBoxGuardianInformation.Controls.Add(this.textBoxFatherName);
             this.groupBoxGuardianInformation.Controls.Add(this.label8);
             this.groupBoxGuardianInformation.Controls.Add(this.label9);
             this.groupBoxGuardianInformation.Controls.Add(this.label10);
-            this.groupBoxGuardianInformation.Controls.Add(this.textBox8);
-            this.groupBoxGuardianInformation.Controls.Add(this.textBox9);
+            this.groupBoxGuardianInformation.Controls.Add(this.textBoxFatherNid);
+            this.groupBoxGuardianInformation.Controls.Add(this.textBoxFatherPhone);
             this.groupBoxGuardianInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxGuardianInformation.Location = new System.Drawing.Point(84, 79);
             this.groupBoxGuardianInformation.Name = "groupBoxGuardianInformation";
@@ -169,18 +165,9 @@ namespace WindowsDesktop.Students
             this.groupBoxGuardianInformation.Text = "Guardian Information";
             this.groupBoxGuardianInformation.Visible = false;
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(352, 411);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(156, 17);
-            this.linkLabel1.TabIndex = 52;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Add or Update Address";
-            // 
             // textBox1
             // 
+            this.textBox1.CausesValidation = false;
             this.textBox1.Location = new System.Drawing.Point(133, 454);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -210,7 +197,7 @@ namespace WindowsDesktop.Students
             this.comboBoxGrdAddressVillage.FormattingEnabled = true;
             this.comboBoxGrdAddressVillage.Location = new System.Drawing.Point(133, 407);
             this.comboBoxGrdAddressVillage.Name = "comboBoxGrdAddressVillage";
-            this.comboBoxGrdAddressVillage.Size = new System.Drawing.Size(209, 24);
+            this.comboBoxGrdAddressVillage.Size = new System.Drawing.Size(428, 24);
             this.comboBoxGrdAddressVillage.TabIndex = 46;
             this.comboBoxGrdAddressVillage.SelectedIndexChanged += new System.EventHandler(this.comboBoxGrdAddressVillage_SelectedIndexChanged);
             // 
@@ -317,12 +304,12 @@ namespace WindowsDesktop.Students
             this.buttonGuardianNext.UseVisualStyleBackColor = true;
             this.buttonGuardianNext.Click += new System.EventHandler(this.buttonGuardianNext_Click);
             // 
-            // textBox13
+            // textBoxGrdName
             // 
-            this.textBox13.Location = new System.Drawing.Point(133, 232);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(428, 23);
-            this.textBox13.TabIndex = 26;
+            this.textBoxGrdName.Location = new System.Drawing.Point(133, 232);
+            this.textBoxGrdName.Name = "textBoxGrdName";
+            this.textBoxGrdName.Size = new System.Drawing.Size(428, 23);
+            this.textBoxGrdName.TabIndex = 26;
             // 
             // label14
             // 
@@ -342,19 +329,19 @@ namespace WindowsDesktop.Students
             this.label15.TabIndex = 27;
             this.label15.Text = "Guardian Phone";
             // 
-            // textBox14
+            // textBoxGrdPhone
             // 
-            this.textBox14.Location = new System.Drawing.Point(133, 261);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(428, 23);
-            this.textBox14.TabIndex = 28;
+            this.textBoxGrdPhone.Location = new System.Drawing.Point(133, 261);
+            this.textBoxGrdPhone.Name = "textBoxGrdPhone";
+            this.textBoxGrdPhone.Size = new System.Drawing.Size(428, 23);
+            this.textBoxGrdPhone.TabIndex = 28;
             // 
-            // textBox10
+            // textBoxMotherName
             // 
-            this.textBox10.Location = new System.Drawing.Point(133, 130);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(428, 23);
-            this.textBox10.TabIndex = 20;
+            this.textBoxMotherName.Location = new System.Drawing.Point(133, 130);
+            this.textBoxMotherName.Name = "textBoxMotherName";
+            this.textBoxMotherName.Size = new System.Drawing.Size(428, 23);
+            this.textBoxMotherName.TabIndex = 20;
             // 
             // label11
             // 
@@ -383,26 +370,28 @@ namespace WindowsDesktop.Students
             this.label13.TabIndex = 21;
             this.label13.Text = "Mother\'s Phone";
             // 
-            // textBox11
+            // textBoxMotherNid
             // 
-            this.textBox11.Location = new System.Drawing.Point(133, 188);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(428, 23);
-            this.textBox11.TabIndex = 24;
+            this.textBoxMotherNid.CausesValidation = false;
+            this.textBoxMotherNid.Location = new System.Drawing.Point(133, 188);
+            this.textBoxMotherNid.Name = "textBoxMotherNid";
+            this.textBoxMotherNid.Size = new System.Drawing.Size(428, 23);
+            this.textBoxMotherNid.TabIndex = 24;
             // 
-            // textBox12
+            // textBoxMotherPhone
             // 
-            this.textBox12.Location = new System.Drawing.Point(133, 159);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(428, 23);
-            this.textBox12.TabIndex = 22;
+            this.textBoxMotherPhone.CausesValidation = false;
+            this.textBoxMotherPhone.Location = new System.Drawing.Point(133, 159);
+            this.textBoxMotherPhone.Name = "textBoxMotherPhone";
+            this.textBoxMotherPhone.Size = new System.Drawing.Size(428, 23);
+            this.textBoxMotherPhone.TabIndex = 22;
             // 
-            // textBox7
+            // textBoxFatherName
             // 
-            this.textBox7.Location = new System.Drawing.Point(133, 43);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(428, 23);
-            this.textBox7.TabIndex = 14;
+            this.textBoxFatherName.Location = new System.Drawing.Point(133, 43);
+            this.textBoxFatherName.Name = "textBoxFatherName";
+            this.textBoxFatherName.Size = new System.Drawing.Size(428, 23);
+            this.textBoxFatherName.TabIndex = 14;
             // 
             // label8
             // 
@@ -431,19 +420,20 @@ namespace WindowsDesktop.Students
             this.label10.TabIndex = 15;
             this.label10.Text = "Father\'s Phone";
             // 
-            // textBox8
+            // textBoxFatherNid
             // 
-            this.textBox8.Location = new System.Drawing.Point(133, 101);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(428, 23);
-            this.textBox8.TabIndex = 18;
+            this.textBoxFatherNid.CausesValidation = false;
+            this.textBoxFatherNid.Location = new System.Drawing.Point(133, 101);
+            this.textBoxFatherNid.Name = "textBoxFatherNid";
+            this.textBoxFatherNid.Size = new System.Drawing.Size(428, 23);
+            this.textBoxFatherNid.TabIndex = 18;
             // 
-            // textBox9
+            // textBoxFatherPhone
             // 
-            this.textBox9.Location = new System.Drawing.Point(133, 72);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(428, 23);
-            this.textBox9.TabIndex = 16;
+            this.textBoxFatherPhone.Location = new System.Drawing.Point(133, 72);
+            this.textBoxFatherPhone.Name = "textBoxFatherPhone";
+            this.textBoxFatherPhone.Size = new System.Drawing.Size(428, 23);
+            this.textBoxFatherPhone.TabIndex = 16;
             // 
             // label1
             // 
@@ -471,6 +461,7 @@ namespace WindowsDesktop.Students
             // 
             // textBoxReg
             // 
+            this.textBoxReg.CausesValidation = false;
             this.textBoxReg.Location = new System.Drawing.Point(232, 123);
             this.textBoxReg.Name = "textBoxReg";
             this.textBoxReg.Size = new System.Drawing.Size(193, 23);
@@ -627,7 +618,6 @@ namespace WindowsDesktop.Students
             this.groupBoxAcademicInformation.TabIndex = 2;
             this.groupBoxAcademicInformation.TabStop = false;
             this.groupBoxAcademicInformation.Text = "Academic Information";
-            this.groupBoxAcademicInformation.Visible = false;
             // 
             // linkLabelAddNewClass
             // 
@@ -677,7 +667,6 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.Controls.Add(this.buttonAddressBack);
             this.groupBoxAddress.Controls.Add(this.buttonAddressNext);
             this.groupBoxAddress.Controls.Add(this.checkBoxSameAsPresentAddress);
-            this.groupBoxAddress.Controls.Add(this.linkLabel3);
             this.groupBoxAddress.Controls.Add(this.textBoxPerAddressDetails);
             this.groupBoxAddress.Controls.Add(this.label29);
             this.groupBoxAddress.Controls.Add(this.label32);
@@ -691,7 +680,6 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.Controls.Add(this.label36);
             this.groupBoxAddress.Controls.Add(this.label37);
             this.groupBoxAddress.Controls.Add(this.comboBoxPerAddressDivision);
-            this.groupBoxAddress.Controls.Add(this.linkLabel2);
             this.groupBoxAddress.Controls.Add(this.textBoxPreAddressDetails);
             this.groupBoxAddress.Controls.Add(this.label19);
             this.groupBoxAddress.Controls.Add(this.label20);
@@ -712,6 +700,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.TabIndex = 3;
             this.groupBoxAddress.TabStop = false;
             this.groupBoxAddress.Text = "Address";
+            this.groupBoxAddress.Visible = false;
             // 
             // buttonAddressBack
             // 
@@ -746,16 +735,6 @@ namespace WindowsDesktop.Students
             this.checkBoxSameAsPresentAddress.UseVisualStyleBackColor = true;
             this.checkBoxSameAsPresentAddress.CheckedChanged += new System.EventHandler(this.checkBoxSameAsPresentAddress_CheckedChanged);
             // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(360, 417);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(156, 17);
-            this.linkLabel3.TabIndex = 80;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Add or Update Address";
-            // 
             // textBoxPerAddressDetails
             // 
             this.textBoxPerAddressDetails.Location = new System.Drawing.Point(141, 460);
@@ -788,7 +767,7 @@ namespace WindowsDesktop.Students
             this.comboBoxPerAddressVillage.FormattingEnabled = true;
             this.comboBoxPerAddressVillage.Location = new System.Drawing.Point(141, 413);
             this.comboBoxPerAddressVillage.Name = "comboBoxPerAddressVillage";
-            this.comboBoxPerAddressVillage.Size = new System.Drawing.Size(209, 24);
+            this.comboBoxPerAddressVillage.Size = new System.Drawing.Size(428, 24);
             this.comboBoxPerAddressVillage.TabIndex = 76;
             this.comboBoxPerAddressVillage.ValueMember = "id";
             this.comboBoxPerAddressVillage.SelectedIndexChanged += new System.EventHandler(this.comboBoxPerAddressVillage_SelectedIndexChanged);
@@ -882,16 +861,6 @@ namespace WindowsDesktop.Students
             this.comboBoxPerAddressDivision.ValueMember = "id";
             this.comboBoxPerAddressDivision.SelectedIndexChanged += new System.EventHandler(this.comboBoxPerAddressDivision_SelectedIndexChanged);
             // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(360, 162);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(156, 17);
-            this.linkLabel2.TabIndex = 66;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Add or Update Address";
-            // 
             // textBoxPreAddressDetails
             // 
             this.textBoxPreAddressDetails.Location = new System.Drawing.Point(141, 205);
@@ -925,7 +894,7 @@ namespace WindowsDesktop.Students
             this.comboBoxPreAddressVillage.FormattingEnabled = true;
             this.comboBoxPreAddressVillage.Location = new System.Drawing.Point(141, 158);
             this.comboBoxPreAddressVillage.Name = "comboBoxPreAddressVillage";
-            this.comboBoxPreAddressVillage.Size = new System.Drawing.Size(209, 24);
+            this.comboBoxPreAddressVillage.Size = new System.Drawing.Size(428, 24);
             this.comboBoxPreAddressVillage.TabIndex = 62;
             this.comboBoxPreAddressVillage.ValueMember = "id";
             this.comboBoxPreAddressVillage.SelectedIndexChanged += new System.EventHandler(this.comboBoxPreAddressVillage_SelectedIndexChanged);
@@ -1028,12 +997,12 @@ namespace WindowsDesktop.Students
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(704, 791);
+            this.ClientSize = new System.Drawing.Size(704, 749);
+            this.Controls.Add(this.groupBoxAcademicInformation);
             this.Controls.Add(this.groupBoxAddress);
             this.Controls.Add(this.groupBoxGuardianInformation);
             this.Controls.Add(this.groupBoxPersonalInformation);
             this.Controls.Add(this.labelStudentName);
-            this.Controls.Add(this.groupBoxAcademicInformation);
             this.Name = "FrmAddNewStudent";
             this.Text = "Add New Student";
             this.groupBoxGuardianInformation.ResumeLayout(false);
@@ -1057,22 +1026,22 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxReg;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBoxFatherName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBoxFatherNid;
+        private System.Windows.Forms.TextBox textBoxFatherPhone;
+        private System.Windows.Forms.TextBox textBoxMotherName;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBoxMotherNid;
+        private System.Windows.Forms.TextBox textBoxMotherPhone;
+        private System.Windows.Forms.TextBox textBoxGrdName;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBoxGrdPhone;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBoxPersonalInformation;
         private System.Windows.Forms.Label label26;
@@ -1104,10 +1073,8 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox comboBoxGrdAddressVillage;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.GroupBox groupBoxAddress;
         private System.Windows.Forms.CheckBox checkBoxSameAsPresentAddress;
-        private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.TextBox textBoxPerAddressDetails;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label32;
@@ -1121,7 +1088,6 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.ComboBox comboBoxPerAddressDivision;
-        private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.TextBox textBoxPreAddressDetails;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;

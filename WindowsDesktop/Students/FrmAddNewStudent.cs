@@ -207,7 +207,11 @@ namespace WindowsDesktop.Students
 
         private void buttonAcademicNext_Click(object sender, EventArgs e)
         {
-            groupBoxAcademicInformation.Visible = false;
+            var isValid = ThemeTemplate.SValidate(groupBoxAcademicInformation, errorProviderNewStudent);
+            if (isValid)
+            {
+                groupBoxAcademicInformation.Visible = false;
+            }
         }
 
         private void buttonGuardianBack_Click(object sender, EventArgs e)
@@ -218,18 +222,23 @@ namespace WindowsDesktop.Students
 
         private void buttonGuardianNext_Click(object sender, EventArgs e)
         {
-            groupBoxGuardianInformation.Visible = false;
-            groupBoxAcademicInformation.Size = new Size(594, 260);
-            groupBoxAcademicInformation.Location = groupBoxPersonalInformation.Location;
-            groupBoxAcademicInformation.Anchor = AnchorStyles.Top;
+            var isValid = ThemeTemplate.SValidate(groupBoxGuardianInformation, errorProviderNewStudent);
 
-            labelStudentName.Text = textBoxFullName.Text;
-            labelStudentName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
+            if (isValid)
+            {
+                groupBoxGuardianInformation.Visible = false;
+                groupBoxAcademicInformation.Size = new Size(594, 260);
+                groupBoxAcademicInformation.Location = groupBoxPersonalInformation.Location;
+                groupBoxAcademicInformation.Anchor = AnchorStyles.Top;
 
-            LoadTheme(groupBoxAcademicInformation); 
-            ThemeTemplate.SComboBox(groupBoxAcademicInformation, ComboBoxStyle.DropDownList);
+                labelStudentName.Text = textBoxFullName.Text;
+                labelStudentName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
 
-            groupBoxAcademicInformation.Visible = true;
+                LoadTheme(groupBoxAcademicInformation); 
+                ThemeTemplate.SComboBox(groupBoxAcademicInformation, ComboBoxStyle.DropDownList);
+
+                groupBoxAcademicInformation.Visible = true;
+            }
         }
 
         private void buttonAddressBack_Click(object sender, EventArgs e)
