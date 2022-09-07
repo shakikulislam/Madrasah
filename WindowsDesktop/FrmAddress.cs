@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Theme;
@@ -17,18 +18,41 @@ namespace WindowsDesktop
         public FrmAddress()
         {
             InitializeComponent();
-            LoadThemeTemplate();
+            
             LoadDivision();
 
+            LoadThemeTemplate(panelAddress);
+            LoadThemeTemplate(flowLayoutPanelAddress);
+            LoadThemeTemplate(groupBoxAdd);
         }
 
         // Method
 
-        private void LoadThemeTemplate()
+        private void LoadThemeTemplate(Control control)
         {
-            ThemeTemplate.SLabel(panelAddress);
-            ThemeTemplate.STextBox(panelAddress);
-            ThemeTemplate.SDataGridView(flowLayoutPanelAddress);
+            ThemeTemplate.SLabel(control);
+            ThemeTemplate.STextBox(control);
+            ThemeTemplate.SDataGridView(control);
+            ThemeTemplate.SButton(control);
+        }
+
+        private void GedAddressById(string tableName, string id)
+        {
+            try
+            {
+                var query = "select * from " + tableName + " where id=" + id;
+                var hasData = Db.GetDataReader(query);
+                if (hasData.HasRows)
+                {
+                    hasData.Read();
+                    textBoxNameEnglish.Text = hasData["name"].ToString();
+                    textBoxNameBangla.Text = hasData["name_bn"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void LoadDivision()
@@ -70,7 +94,7 @@ namespace WindowsDesktop
 
                 dataGridViewDistrict.DataSource = Db.GetDataTable(query);
             }
-            catch (Exception ex)
+            catch
             {
                 dataGridViewDivision.Tag = string.Empty;
                 dataGridViewDistrict.Tag = string.Empty;
@@ -111,7 +135,7 @@ namespace WindowsDesktop
 
                 dataGridViewUpazila.DataSource = Db.GetDataTable(query);
             }
-            catch (Exception ex)
+            catch
             {
                 dataGridViewDistrict.Tag = string.Empty;
                 dataGridViewUpazila.Tag = string.Empty;
@@ -146,7 +170,7 @@ namespace WindowsDesktop
 
                 dataGridViewUnion.DataSource = Db.GetDataTable(query);
             }
-            catch (Exception ex)
+            catch
             {
                 dataGridViewUpazila.Tag = string.Empty;
                 dataGridViewUnion.Tag = string.Empty;
@@ -177,7 +201,7 @@ namespace WindowsDesktop
 
                 dataGridViewVillage.DataSource = Db.GetDataTable(query);
             }
-            catch (Exception ex)
+            catch
             {
                 dataGridViewUnion.Tag = string.Empty;
                 dataGridViewVillage.Tag = string.Empty;
@@ -197,11 +221,95 @@ namespace WindowsDesktop
                 dataGridViewVillage.Tag = dataGridViewVillage.SelectedRows[0].Cells["ColumnVillageId"].Value;
                 textBoxVillage.Text = dataGridViewVillage.SelectedRows[0].Cells["ColumnVillageName"].Value.ToString();
             }
-            catch (Exception ex)
+            catch
             {
                 dataGridViewVillage.Tag = string.Empty;
                 textBoxVillage.Text = string.Empty;
             }
         }
+
+        private void iconPictureBoxAddDivision_Click(object sender, EventArgs e)
+        {
+            groupBoxAdd.Visible = false;
+            groupBoxAdd.Text = "Add Division";
+            buttonAdd.Text = "Add";
+            groupBoxAdd.Visible = true;
+
+            GedAddressById("s_divisions", dataGridViewDivision.Tag.ToString());
+        }
+
+        private void iconPictureBoxAddDistrict_Click(object sender, EventArgs e)
+        {
+            groupBoxAdd.Visible = false;
+            groupBoxAdd.Text = "Add District";
+            buttonAdd.Text = "Add";
+            groupBoxAdd.Visible = true;
+
+        }
+
+        private void iconPictureBoxAddUpazila_Click(object sender, EventArgs e)
+        {
+            groupBoxAdd.Visible = false;
+            groupBoxAdd.Text = "Add Upazila";
+            buttonAdd.Text = "Add";
+            groupBoxAdd.Visible = true;
+        }
+
+        private void iconPictureBoxAddUnion_Click(object sender, EventArgs e)
+        {
+            groupBoxAdd.Visible = false;
+            groupBoxAdd.Text = "Add Union";
+            buttonAdd.Text = "Add";
+            groupBoxAdd.Visible = true;
+        }
+
+        private void iconPictureBoxAddVillage_Click(object sender, EventArgs e)
+        {
+            groupBoxAdd.Visible = false;
+            groupBoxAdd.Text = "Add Village";
+            buttonAdd.Text = "Add";
+            groupBoxAdd.Visible = true;
+        }
+
+        private void iconPictureBoxUpdateDivision_Click(object sender, EventArgs e)
+        {
+            groupBoxAdd.Visible = false;
+            groupBoxAdd.Text = "Update District";
+            buttonAdd.Text = "Update";
+            groupBoxAdd.Visible = true;
+        }
+
+        private void iconPictureBoxUpdateDistrict_Click(object sender, EventArgs e)
+        {
+            groupBoxAdd.Visible = false;
+            groupBoxAdd.Text = "Update District";
+            buttonAdd.Text = "Update";
+            groupBoxAdd.Visible = true;
+        }
+
+        private void iconPictureBoxUpdateUpazila_Click(object sender, EventArgs e)
+        {
+            groupBoxAdd.Visible = false;
+            groupBoxAdd.Text = "Update Upazila";
+            buttonAdd.Text = "Update";
+            groupBoxAdd.Visible = true;
+        }
+
+        private void iconPictureBoxUpdateUnion_Click(object sender, EventArgs e)
+        {
+            groupBoxAdd.Visible = false;
+            groupBoxAdd.Text = "Update Union";
+            buttonAdd.Text = "Update";
+            groupBoxAdd.Visible = true;
+        }
+
+        private void iconPictureBoxUpdateVillage_Click(object sender, EventArgs e)
+        {
+            groupBoxAdd.Visible = false;
+            groupBoxAdd.Text = "Update Village";
+            buttonAdd.Text = "Update";
+            groupBoxAdd.Visible = true;
+        }
+
     }
 }

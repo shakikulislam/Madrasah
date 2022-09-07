@@ -29,6 +29,7 @@ namespace WindowsDesktop
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBoxDivision = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -64,8 +65,26 @@ namespace WindowsDesktop
             this.ColumnVillageEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnVillageBn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelAddress = new System.Windows.Forms.Panel();
+            this.iconPictureBoxUpdateVillage = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBoxUpdateUnion = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBoxUpdateUpazila = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBoxUpdateDistrict = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBoxUpdateDivision = new FontAwesome.Sharp.IconPictureBox();
+            this.groupBoxAdd = new System.Windows.Forms.GroupBox();
+            this.iconPictureBoxClose = new FontAwesome.Sharp.IconPictureBox();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.textBoxNameEnglish = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxNameBangla = new System.Windows.Forms.TextBox();
+            this.iconPictureBoxAddVillage = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBoxAddUnion = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBoxAddUpazila = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBoxAddDistrict = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBoxAddDivision = new FontAwesome.Sharp.IconPictureBox();
             this.textBoxVillage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolTipAddress = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDivision)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDistrict)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUpazila)).BeginInit();
@@ -73,6 +92,18 @@ namespace WindowsDesktop
             this.flowLayoutPanelAddress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVillage)).BeginInit();
             this.panelAddress.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUpdateVillage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUpdateUnion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUpdateUpazila)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUpdateDistrict)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUpdateDivision)).BeginInit();
+            this.groupBoxAdd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddVillage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddUnion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddUpazila)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddDistrict)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddDivision)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxDivision
@@ -348,7 +379,7 @@ namespace WindowsDesktop
             this.flowLayoutPanelAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelAddress.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelAddress.Name = "flowLayoutPanelAddress";
-            this.flowLayoutPanelAddress.Size = new System.Drawing.Size(910, 547);
+            this.flowLayoutPanelAddress.Size = new System.Drawing.Size(910, 738);
             this.flowLayoutPanelAddress.TabIndex = 26;
             // 
             // dataGridViewVillage
@@ -399,6 +430,17 @@ namespace WindowsDesktop
             // 
             // panelAddress
             // 
+            this.panelAddress.Controls.Add(this.iconPictureBoxUpdateVillage);
+            this.panelAddress.Controls.Add(this.iconPictureBoxUpdateUnion);
+            this.panelAddress.Controls.Add(this.iconPictureBoxUpdateUpazila);
+            this.panelAddress.Controls.Add(this.iconPictureBoxUpdateDistrict);
+            this.panelAddress.Controls.Add(this.iconPictureBoxUpdateDivision);
+            this.panelAddress.Controls.Add(this.groupBoxAdd);
+            this.panelAddress.Controls.Add(this.iconPictureBoxAddVillage);
+            this.panelAddress.Controls.Add(this.iconPictureBoxAddUnion);
+            this.panelAddress.Controls.Add(this.iconPictureBoxAddUpazila);
+            this.panelAddress.Controls.Add(this.iconPictureBoxAddDistrict);
+            this.panelAddress.Controls.Add(this.iconPictureBoxAddDivision);
             this.panelAddress.Controls.Add(this.textBoxVillage);
             this.panelAddress.Controls.Add(this.label1);
             this.panelAddress.Controls.Add(this.textBoxDivision);
@@ -409,10 +451,260 @@ namespace WindowsDesktop
             this.panelAddress.Controls.Add(this.textBoxDistrict);
             this.panelAddress.Controls.Add(this.label7);
             this.panelAddress.Controls.Add(this.label8);
+            this.panelAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelAddress.Location = new System.Drawing.Point(221, 209);
             this.panelAddress.Name = "panelAddress";
-            this.panelAddress.Size = new System.Drawing.Size(325, 200);
+            this.panelAddress.Size = new System.Drawing.Size(368, 383);
             this.panelAddress.TabIndex = 26;
+            // 
+            // iconPictureBoxUpdateVillage
+            // 
+            this.iconPictureBoxUpdateVillage.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBoxUpdateVillage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconPictureBoxUpdateVillage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxUpdateVillage.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.iconPictureBoxUpdateVillage.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxUpdateVillage.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBoxUpdateVillage.IconSize = 25;
+            this.iconPictureBoxUpdateVillage.Location = new System.Drawing.Point(322, 140);
+            this.iconPictureBoxUpdateVillage.Name = "iconPictureBoxUpdateVillage";
+            this.iconPictureBoxUpdateVillage.Size = new System.Drawing.Size(25, 25);
+            this.iconPictureBoxUpdateVillage.TabIndex = 38;
+            this.iconPictureBoxUpdateVillage.TabStop = false;
+            this.toolTipAddress.SetToolTip(this.iconPictureBoxUpdateVillage, "Update Village");
+            this.iconPictureBoxUpdateVillage.Click += new System.EventHandler(this.iconPictureBoxUpdateVillage_Click);
+            // 
+            // iconPictureBoxUpdateUnion
+            // 
+            this.iconPictureBoxUpdateUnion.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBoxUpdateUnion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconPictureBoxUpdateUnion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxUpdateUnion.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.iconPictureBoxUpdateUnion.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxUpdateUnion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBoxUpdateUnion.IconSize = 25;
+            this.iconPictureBoxUpdateUnion.Location = new System.Drawing.Point(322, 109);
+            this.iconPictureBoxUpdateUnion.Name = "iconPictureBoxUpdateUnion";
+            this.iconPictureBoxUpdateUnion.Size = new System.Drawing.Size(25, 25);
+            this.iconPictureBoxUpdateUnion.TabIndex = 37;
+            this.iconPictureBoxUpdateUnion.TabStop = false;
+            this.toolTipAddress.SetToolTip(this.iconPictureBoxUpdateUnion, "Update Union");
+            this.iconPictureBoxUpdateUnion.Click += new System.EventHandler(this.iconPictureBoxUpdateUnion_Click);
+            // 
+            // iconPictureBoxUpdateUpazila
+            // 
+            this.iconPictureBoxUpdateUpazila.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBoxUpdateUpazila.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconPictureBoxUpdateUpazila.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxUpdateUpazila.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.iconPictureBoxUpdateUpazila.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxUpdateUpazila.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBoxUpdateUpazila.IconSize = 25;
+            this.iconPictureBoxUpdateUpazila.Location = new System.Drawing.Point(322, 78);
+            this.iconPictureBoxUpdateUpazila.Name = "iconPictureBoxUpdateUpazila";
+            this.iconPictureBoxUpdateUpazila.Size = new System.Drawing.Size(25, 25);
+            this.iconPictureBoxUpdateUpazila.TabIndex = 36;
+            this.iconPictureBoxUpdateUpazila.TabStop = false;
+            this.toolTipAddress.SetToolTip(this.iconPictureBoxUpdateUpazila, "Update Upazila");
+            this.iconPictureBoxUpdateUpazila.Click += new System.EventHandler(this.iconPictureBoxUpdateUpazila_Click);
+            // 
+            // iconPictureBoxUpdateDistrict
+            // 
+            this.iconPictureBoxUpdateDistrict.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBoxUpdateDistrict.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconPictureBoxUpdateDistrict.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxUpdateDistrict.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.iconPictureBoxUpdateDistrict.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxUpdateDistrict.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBoxUpdateDistrict.IconSize = 25;
+            this.iconPictureBoxUpdateDistrict.Location = new System.Drawing.Point(322, 47);
+            this.iconPictureBoxUpdateDistrict.Name = "iconPictureBoxUpdateDistrict";
+            this.iconPictureBoxUpdateDistrict.Size = new System.Drawing.Size(25, 25);
+            this.iconPictureBoxUpdateDistrict.TabIndex = 35;
+            this.iconPictureBoxUpdateDistrict.TabStop = false;
+            this.toolTipAddress.SetToolTip(this.iconPictureBoxUpdateDistrict, "Update District");
+            this.iconPictureBoxUpdateDistrict.Click += new System.EventHandler(this.iconPictureBoxUpdateDistrict_Click);
+            // 
+            // iconPictureBoxUpdateDivision
+            // 
+            this.iconPictureBoxUpdateDivision.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBoxUpdateDivision.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconPictureBoxUpdateDivision.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxUpdateDivision.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.iconPictureBoxUpdateDivision.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxUpdateDivision.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBoxUpdateDivision.IconSize = 25;
+            this.iconPictureBoxUpdateDivision.Location = new System.Drawing.Point(322, 16);
+            this.iconPictureBoxUpdateDivision.Name = "iconPictureBoxUpdateDivision";
+            this.iconPictureBoxUpdateDivision.Size = new System.Drawing.Size(25, 25);
+            this.iconPictureBoxUpdateDivision.TabIndex = 34;
+            this.iconPictureBoxUpdateDivision.TabStop = false;
+            this.toolTipAddress.SetToolTip(this.iconPictureBoxUpdateDivision, "Update Division");
+            this.iconPictureBoxUpdateDivision.Click += new System.EventHandler(this.iconPictureBoxUpdateDivision_Click);
+            // 
+            // groupBoxAdd
+            // 
+            this.groupBoxAdd.Controls.Add(this.iconPictureBoxClose);
+            this.groupBoxAdd.Controls.Add(this.buttonAdd);
+            this.groupBoxAdd.Controls.Add(this.textBoxNameEnglish);
+            this.groupBoxAdd.Controls.Add(this.label2);
+            this.groupBoxAdd.Controls.Add(this.label3);
+            this.groupBoxAdd.Controls.Add(this.textBoxNameBangla);
+            this.groupBoxAdd.Location = new System.Drawing.Point(33, 191);
+            this.groupBoxAdd.Name = "groupBoxAdd";
+            this.groupBoxAdd.Size = new System.Drawing.Size(303, 170);
+            this.groupBoxAdd.TabIndex = 32;
+            this.groupBoxAdd.TabStop = false;
+            this.groupBoxAdd.Visible = false;
+            // 
+            // iconPictureBoxClose
+            // 
+            this.iconPictureBoxClose.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconPictureBoxClose.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxClose.IconChar = FontAwesome.Sharp.IconChar.XmarkSquare;
+            this.iconPictureBoxClose.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBoxClose.IconSize = 25;
+            this.iconPictureBoxClose.Location = new System.Drawing.Point(276, 12);
+            this.iconPictureBoxClose.Name = "iconPictureBoxClose";
+            this.iconPictureBoxClose.Size = new System.Drawing.Size(25, 25);
+            this.iconPictureBoxClose.TabIndex = 32;
+            this.iconPictureBoxClose.TabStop = false;
+            this.toolTipAddress.SetToolTip(this.iconPictureBoxClose, "Close");
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(82, 132);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(138, 32);
+            this.buttonAdd.TabIndex = 24;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            // 
+            // textBoxNameEnglish
+            // 
+            this.textBoxNameEnglish.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNameEnglish.Location = new System.Drawing.Point(6, 48);
+            this.textBoxNameEnglish.Name = "textBoxNameEnglish";
+            this.textBoxNameEnglish.ReadOnly = true;
+            this.textBoxNameEnglish.Size = new System.Drawing.Size(291, 25);
+            this.textBoxNameEnglish.TabIndex = 20;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 17);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "English";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(11, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 17);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Bangla";
+            // 
+            // textBoxNameBangla
+            // 
+            this.textBoxNameBangla.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxNameBangla.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNameBangla.Location = new System.Drawing.Point(6, 101);
+            this.textBoxNameBangla.Name = "textBoxNameBangla";
+            this.textBoxNameBangla.ReadOnly = true;
+            this.textBoxNameBangla.Size = new System.Drawing.Size(291, 25);
+            this.textBoxNameBangla.TabIndex = 23;
+            // 
+            // iconPictureBoxAddVillage
+            // 
+            this.iconPictureBoxAddVillage.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBoxAddVillage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconPictureBoxAddVillage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxAddVillage.IconChar = FontAwesome.Sharp.IconChar.SquarePlus;
+            this.iconPictureBoxAddVillage.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxAddVillage.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.iconPictureBoxAddVillage.IconSize = 25;
+            this.iconPictureBoxAddVillage.Location = new System.Drawing.Point(296, 140);
+            this.iconPictureBoxAddVillage.Name = "iconPictureBoxAddVillage";
+            this.iconPictureBoxAddVillage.Size = new System.Drawing.Size(25, 25);
+            this.iconPictureBoxAddVillage.TabIndex = 31;
+            this.iconPictureBoxAddVillage.TabStop = false;
+            this.toolTipAddress.SetToolTip(this.iconPictureBoxAddVillage, "Add Village");
+            this.iconPictureBoxAddVillage.Click += new System.EventHandler(this.iconPictureBoxAddVillage_Click);
+            // 
+            // iconPictureBoxAddUnion
+            // 
+            this.iconPictureBoxAddUnion.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBoxAddUnion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconPictureBoxAddUnion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxAddUnion.IconChar = FontAwesome.Sharp.IconChar.SquarePlus;
+            this.iconPictureBoxAddUnion.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxAddUnion.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.iconPictureBoxAddUnion.IconSize = 25;
+            this.iconPictureBoxAddUnion.Location = new System.Drawing.Point(296, 109);
+            this.iconPictureBoxAddUnion.Name = "iconPictureBoxAddUnion";
+            this.iconPictureBoxAddUnion.Size = new System.Drawing.Size(25, 25);
+            this.iconPictureBoxAddUnion.TabIndex = 30;
+            this.iconPictureBoxAddUnion.TabStop = false;
+            this.toolTipAddress.SetToolTip(this.iconPictureBoxAddUnion, "Add Union");
+            this.iconPictureBoxAddUnion.Click += new System.EventHandler(this.iconPictureBoxAddUnion_Click);
+            // 
+            // iconPictureBoxAddUpazila
+            // 
+            this.iconPictureBoxAddUpazila.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBoxAddUpazila.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconPictureBoxAddUpazila.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxAddUpazila.IconChar = FontAwesome.Sharp.IconChar.SquarePlus;
+            this.iconPictureBoxAddUpazila.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxAddUpazila.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.iconPictureBoxAddUpazila.IconSize = 25;
+            this.iconPictureBoxAddUpazila.Location = new System.Drawing.Point(296, 78);
+            this.iconPictureBoxAddUpazila.Name = "iconPictureBoxAddUpazila";
+            this.iconPictureBoxAddUpazila.Size = new System.Drawing.Size(25, 25);
+            this.iconPictureBoxAddUpazila.TabIndex = 29;
+            this.iconPictureBoxAddUpazila.TabStop = false;
+            this.toolTipAddress.SetToolTip(this.iconPictureBoxAddUpazila, "Add Upazila");
+            this.iconPictureBoxAddUpazila.Click += new System.EventHandler(this.iconPictureBoxAddUpazila_Click);
+            // 
+            // iconPictureBoxAddDistrict
+            // 
+            this.iconPictureBoxAddDistrict.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBoxAddDistrict.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconPictureBoxAddDistrict.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxAddDistrict.IconChar = FontAwesome.Sharp.IconChar.SquarePlus;
+            this.iconPictureBoxAddDistrict.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxAddDistrict.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.iconPictureBoxAddDistrict.IconSize = 25;
+            this.iconPictureBoxAddDistrict.Location = new System.Drawing.Point(296, 47);
+            this.iconPictureBoxAddDistrict.Name = "iconPictureBoxAddDistrict";
+            this.iconPictureBoxAddDistrict.Size = new System.Drawing.Size(25, 25);
+            this.iconPictureBoxAddDistrict.TabIndex = 28;
+            this.iconPictureBoxAddDistrict.TabStop = false;
+            this.toolTipAddress.SetToolTip(this.iconPictureBoxAddDistrict, "Add District");
+            this.iconPictureBoxAddDistrict.Click += new System.EventHandler(this.iconPictureBoxAddDistrict_Click);
+            // 
+            // iconPictureBoxAddDivision
+            // 
+            this.iconPictureBoxAddDivision.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBoxAddDivision.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconPictureBoxAddDivision.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxAddDivision.IconChar = FontAwesome.Sharp.IconChar.SquarePlus;
+            this.iconPictureBoxAddDivision.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBoxAddDivision.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.iconPictureBoxAddDivision.IconSize = 25;
+            this.iconPictureBoxAddDivision.Location = new System.Drawing.Point(296, 16);
+            this.iconPictureBoxAddDivision.Name = "iconPictureBoxAddDivision";
+            this.iconPictureBoxAddDivision.Size = new System.Drawing.Size(25, 25);
+            this.iconPictureBoxAddDivision.TabIndex = 25;
+            this.iconPictureBoxAddDivision.TabStop = false;
+            this.toolTipAddress.SetToolTip(this.iconPictureBoxAddDivision, "Add Division");
+            this.iconPictureBoxAddDivision.Click += new System.EventHandler(this.iconPictureBoxAddDivision_Click);
             // 
             // textBoxVillage
             // 
@@ -433,12 +725,16 @@ namespace WindowsDesktop
             this.label1.TabIndex = 22;
             this.label1.Text = "Village";
             // 
+            // toolTipAddress
+            // 
+            this.toolTipAddress.AutomaticDelay = 100;
+            // 
             // FrmAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(910, 547);
+            this.ClientSize = new System.Drawing.Size(910, 738);
             this.Controls.Add(this.flowLayoutPanelAddress);
             this.Name = "FrmAddress";
             this.Text = "Address Details";
@@ -450,6 +746,19 @@ namespace WindowsDesktop
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVillage)).EndInit();
             this.panelAddress.ResumeLayout(false);
             this.panelAddress.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUpdateVillage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUpdateUnion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUpdateUpazila)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUpdateDistrict)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUpdateDivision)).EndInit();
+            this.groupBoxAdd.ResumeLayout(false);
+            this.groupBoxAdd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddVillage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddUnion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddUpazila)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddDistrict)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddDivision)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -492,5 +801,23 @@ namespace WindowsDesktop
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVillageBn;
         private System.Windows.Forms.TextBox textBoxVillage;
         private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxAddDivision;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxAddVillage;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxAddUnion;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxAddUpazila;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxAddDistrict;
+        private System.Windows.Forms.GroupBox groupBoxAdd;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxUpdateDivision;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxUpdateVillage;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxUpdateUnion;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxUpdateUpazila;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxUpdateDistrict;
+        private System.Windows.Forms.TextBox textBoxNameEnglish;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxNameBangla;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.ToolTip toolTipAddress;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxClose;
     }
 }

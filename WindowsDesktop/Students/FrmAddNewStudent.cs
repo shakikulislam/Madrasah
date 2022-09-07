@@ -264,6 +264,11 @@ namespace WindowsDesktop.Students
                     ? "0"
                     : comboBoxPreAddressDivision.SelectedValue.ToString();
                 LoadDistrict(comboBoxPreAddressDistrict,id);
+
+                if (checkBoxSameAsPresentAddress.Checked)
+                {
+                    comboBoxPerAddressDivision.SelectedValue = comboBoxPreAddressDivision.SelectedValue;
+                }
             }
             catch
             {
@@ -286,6 +291,11 @@ namespace WindowsDesktop.Students
                     ? "0"
                     : comboBoxPreAddressDistrict.SelectedValue.ToString();
                 LoadUpazila(comboBoxPreAddressUpazila, id);
+
+                if (checkBoxSameAsPresentAddress.Checked)
+                {
+                    comboBoxPerAddressDistrict.SelectedValue = comboBoxPreAddressDistrict.SelectedValue;
+                }
             }
             catch
             {
@@ -305,6 +315,11 @@ namespace WindowsDesktop.Students
                     ? "0"
                     : comboBoxPreAddressUpazila.SelectedValue.ToString();
                 LoadUnion(comboBoxPreAddressUnion, id);
+
+                if (checkBoxSameAsPresentAddress.Checked)
+                {
+                    comboBoxPerAddressUpazila.SelectedValue = comboBoxPreAddressUpazila.SelectedValue;
+                }
             }
             catch
             {
@@ -322,6 +337,11 @@ namespace WindowsDesktop.Students
                     ? "0"
                     : comboBoxPreAddressUnion.SelectedValue.ToString();
                 LoadVillage(comboBoxPreAddressVillage, id);
+
+                if (checkBoxSameAsPresentAddress.Checked)
+                {
+                    comboBoxPerAddressUnion.SelectedValue = comboBoxPreAddressUnion.SelectedValue;
+                }
             }
             catch (Exception)
             {
@@ -333,7 +353,12 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                
+
+                if (checkBoxSameAsPresentAddress.Checked)
+                {
+                    comboBoxPerAddressVillage.SelectedValue = comboBoxPreAddressVillage.SelectedValue;
+                }
+
             }
             catch (Exception)
             {
@@ -533,6 +558,13 @@ namespace WindowsDesktop.Students
                     comboBoxPerAddressUnion.Enabled = false;
                     comboBoxPerAddressVillage.Enabled = false;
                     textBoxPerAddressDetails.Enabled = false;
+
+                    comboBoxPerAddressDivision.SelectedValue = comboBoxPreAddressDivision.SelectedValue;
+                    comboBoxPerAddressDistrict.SelectedValue = comboBoxPreAddressDistrict.SelectedValue;
+                    comboBoxPerAddressUpazila.SelectedValue = comboBoxPreAddressUpazila.SelectedValue;
+                    comboBoxPerAddressUnion.SelectedValue = comboBoxPreAddressUnion.SelectedValue;
+                    comboBoxPerAddressVillage.SelectedValue = comboBoxPreAddressVillage.SelectedValue;
+                    textBoxPerAddressDetails.Text = textBoxPreAddressDetails.Text;
                 }
                 else
                 {
@@ -550,5 +582,12 @@ namespace WindowsDesktop.Students
             }
         }
 
+        private void textBoxPreAddressDetails_TextChanged(object sender, EventArgs e)
+        {
+            if (checkBoxSameAsPresentAddress.Checked)
+            {
+                textBoxPerAddressDetails.Text = textBoxPreAddressDetails.Text;
+            }
+        }
     }
 }

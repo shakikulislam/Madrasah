@@ -119,7 +119,6 @@ namespace WindowsDesktop.Students
             this.label25 = new System.Windows.Forms.Label();
             this.comboBoxPreAddressDivision = new System.Windows.Forms.ComboBox();
             this.errorProviderNewStudent = new System.Windows.Forms.ErrorProvider(this.components);
-            this.comboBoxPresentDivision = new System.Windows.Forms.ComboBox();
             this.groupBoxGuardianInformation.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
             this.groupBoxAcademicInformation.SuspendLayout();
@@ -675,7 +674,6 @@ namespace WindowsDesktop.Students
             // groupBoxAddress
             // 
             this.groupBoxAddress.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBoxAddress.Controls.Add(this.comboBoxPresentDivision);
             this.groupBoxAddress.Controls.Add(this.buttonAddressBack);
             this.groupBoxAddress.Controls.Add(this.buttonAddressNext);
             this.groupBoxAddress.Controls.Add(this.checkBoxSameAsPresentAddress);
@@ -901,6 +899,7 @@ namespace WindowsDesktop.Students
             this.textBoxPreAddressDetails.Name = "textBoxPreAddressDetails";
             this.textBoxPreAddressDetails.Size = new System.Drawing.Size(428, 51);
             this.textBoxPreAddressDetails.TabIndex = 65;
+            this.textBoxPreAddressDetails.TextChanged += new System.EventHandler(this.textBoxPreAddressDetails_TextChanged);
             // 
             // label19
             // 
@@ -1024,14 +1023,6 @@ namespace WindowsDesktop.Students
             // 
             this.errorProviderNewStudent.ContainerControl = this;
             // 
-            // comboBoxPresentDivision
-            // 
-            this.comboBoxPresentDivision.FormattingEnabled = true;
-            this.comboBoxPresentDivision.Location = new System.Drawing.Point(384, 262);
-            this.comboBoxPresentDivision.Name = "comboBoxPresentDivision";
-            this.comboBoxPresentDivision.Size = new System.Drawing.Size(185, 24);
-            this.comboBoxPresentDivision.TabIndex = 84;
-            // 
             // FrmAddNewStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1149,6 +1140,5 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox textBoxStudentPhone;
         private System.Windows.Forms.ErrorProvider errorProviderNewStudent;
-        private System.Windows.Forms.ComboBox comboBoxPresentDivision;
     }
 }

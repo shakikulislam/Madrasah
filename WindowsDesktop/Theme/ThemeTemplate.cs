@@ -108,6 +108,16 @@ namespace WindowsDesktop.Theme
                 button.BackColor = STheme.SColor.BackColor;
                 button.Font = new Font(STheme.SFont.Font, STheme.SFont.Size + 2, FontStyle.Regular);
             }
+
+            //foreach (var button in control.Controls.OfType<IconButton>())
+            //{
+            //    button.FlatStyle = FlatStyle.Flat;
+            //    button.FlatAppearance.BorderSize = 0;
+            //    button.FlatAppearance.BorderColor = STheme.SColor.ForColor;
+            //    button.ForeColor = STheme.SColor.ForColor;
+            //    button.BackColor = STheme.SColor.BackColor;
+            //    button.IconColor = STheme.SColor.ForColor;
+            //}
         }
 
         public static void SDateTimePicker(Control control)
