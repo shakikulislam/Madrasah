@@ -85,6 +85,7 @@ namespace WindowsDesktop
             this.textBoxVillage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTipAddress = new System.Windows.Forms.ToolTip(this.components);
+            this.errorProviderAddress = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDivision)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDistrict)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUpazila)).BeginInit();
@@ -104,6 +105,7 @@ namespace WindowsDesktop
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddUpazila)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddDistrict)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddDivision)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAddress)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxDivision
@@ -430,12 +432,12 @@ namespace WindowsDesktop
             // 
             // panelAddress
             // 
+            this.panelAddress.Controls.Add(this.groupBoxAdd);
             this.panelAddress.Controls.Add(this.iconPictureBoxUpdateVillage);
             this.panelAddress.Controls.Add(this.iconPictureBoxUpdateUnion);
             this.panelAddress.Controls.Add(this.iconPictureBoxUpdateUpazila);
             this.panelAddress.Controls.Add(this.iconPictureBoxUpdateDistrict);
             this.panelAddress.Controls.Add(this.iconPictureBoxUpdateDivision);
-            this.panelAddress.Controls.Add(this.groupBoxAdd);
             this.panelAddress.Controls.Add(this.iconPictureBoxAddVillage);
             this.panelAddress.Controls.Add(this.iconPictureBoxAddUnion);
             this.panelAddress.Controls.Add(this.iconPictureBoxAddUpazila);
@@ -454,7 +456,7 @@ namespace WindowsDesktop
             this.panelAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelAddress.Location = new System.Drawing.Point(221, 209);
             this.panelAddress.Name = "panelAddress";
-            this.panelAddress.Size = new System.Drawing.Size(368, 383);
+            this.panelAddress.Size = new System.Drawing.Size(368, 200);
             this.panelAddress.TabIndex = 26;
             // 
             // iconPictureBoxUpdateVillage
@@ -550,15 +552,16 @@ namespace WindowsDesktop
             this.groupBoxAdd.Controls.Add(this.label2);
             this.groupBoxAdd.Controls.Add(this.label3);
             this.groupBoxAdd.Controls.Add(this.textBoxNameBangla);
-            this.groupBoxAdd.Location = new System.Drawing.Point(33, 191);
+            this.groupBoxAdd.Location = new System.Drawing.Point(91, 169);
             this.groupBoxAdd.Name = "groupBoxAdd";
-            this.groupBoxAdd.Size = new System.Drawing.Size(303, 170);
+            this.groupBoxAdd.Size = new System.Drawing.Size(69, 42);
             this.groupBoxAdd.TabIndex = 32;
             this.groupBoxAdd.TabStop = false;
             this.groupBoxAdd.Visible = false;
             // 
             // iconPictureBoxClose
             // 
+            this.iconPictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconPictureBoxClose.BackColor = System.Drawing.SystemColors.Control;
             this.iconPictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconPictureBoxClose.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -566,36 +569,40 @@ namespace WindowsDesktop
             this.iconPictureBoxClose.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBoxClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBoxClose.IconSize = 25;
-            this.iconPictureBoxClose.Location = new System.Drawing.Point(276, 12);
+            this.iconPictureBoxClose.Location = new System.Drawing.Point(42, 12);
             this.iconPictureBoxClose.Name = "iconPictureBoxClose";
             this.iconPictureBoxClose.Size = new System.Drawing.Size(25, 25);
             this.iconPictureBoxClose.TabIndex = 32;
             this.iconPictureBoxClose.TabStop = false;
             this.toolTipAddress.SetToolTip(this.iconPictureBoxClose, "Close");
+            this.iconPictureBoxClose.Click += new System.EventHandler(this.iconPictureBoxClose_Click);
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(82, 132);
+            this.buttonAdd.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonAdd.Location = new System.Drawing.Point(-35, 132);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(138, 32);
             this.buttonAdd.TabIndex = 24;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // textBoxNameEnglish
             // 
+            this.textBoxNameEnglish.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxNameEnglish.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNameEnglish.Location = new System.Drawing.Point(6, 48);
+            this.textBoxNameEnglish.Location = new System.Drawing.Point(-111, 48);
             this.textBoxNameEnglish.Name = "textBoxNameEnglish";
-            this.textBoxNameEnglish.ReadOnly = true;
             this.textBoxNameEnglish.Size = new System.Drawing.Size(291, 25);
             this.textBoxNameEnglish.TabIndex = 20;
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 28);
+            this.label2.Location = new System.Drawing.Point(-106, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 17);
             this.label2.TabIndex = 21;
@@ -603,9 +610,10 @@ namespace WindowsDesktop
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 81);
+            this.label3.Location = new System.Drawing.Point(-106, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 17);
             this.label3.TabIndex = 22;
@@ -613,11 +621,11 @@ namespace WindowsDesktop
             // 
             // textBoxNameBangla
             // 
+            this.textBoxNameBangla.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxNameBangla.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxNameBangla.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNameBangla.Location = new System.Drawing.Point(6, 101);
+            this.textBoxNameBangla.Location = new System.Drawing.Point(-111, 101);
             this.textBoxNameBangla.Name = "textBoxNameBangla";
-            this.textBoxNameBangla.ReadOnly = true;
             this.textBoxNameBangla.Size = new System.Drawing.Size(291, 25);
             this.textBoxNameBangla.TabIndex = 23;
             // 
@@ -729,6 +737,10 @@ namespace WindowsDesktop
             // 
             this.toolTipAddress.AutomaticDelay = 100;
             // 
+            // errorProviderAddress
+            // 
+            this.errorProviderAddress.ContainerControl = this;
+            // 
             // FrmAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -759,6 +771,7 @@ namespace WindowsDesktop
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddUpazila)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddDistrict)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxAddDivision)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAddress)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -819,5 +832,6 @@ namespace WindowsDesktop
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.ToolTip toolTipAddress;
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxClose;
+        private System.Windows.Forms.ErrorProvider errorProviderAddress;
     }
 }

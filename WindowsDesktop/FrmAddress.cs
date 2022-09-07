@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using WindowsDesktop.DbContext;
@@ -10,10 +11,8 @@ namespace WindowsDesktop
     public partial class FrmAddress : Form
     {
         // Variable 
-        private string _division_id;
-        private string _district_id;
-        private string _upazila_id;
-        private string _union_id;
+        private string _foreignKeyColumn;
+        private string _foreignKeyValue;
 
         public FrmAddress()
         {
@@ -36,7 +35,22 @@ namespace WindowsDesktop
             ThemeTemplate.SButton(control);
         }
 
-        private void GedAddressById(string tableName, string id)
+        private void ClearField()
+        {
+            groupBoxAdd.Visible = false;
+
+            _foreignKeyColumn = "";
+            _foreignKeyValue = "";
+            groupBoxAdd.Tag = "";
+            buttonAdd.Tag = "";
+            textBoxNameEnglish.Clear();
+            textBoxNameBangla.Clear();
+
+            groupBoxAdd.Location=new Point(3,4);
+            groupBoxAdd.Size=new Size(362, 170);
+        }
+        
+        private void ViewForEdit(string tableName, string id)
         {
             try
             {
@@ -47,6 +61,7 @@ namespace WindowsDesktop
                     hasData.Read();
                     textBoxNameEnglish.Text = hasData["name"].ToString();
                     textBoxNameBangla.Text = hasData["name_bn"].ToString();
+                    buttonAdd.Tag= hasData["id"].ToString();
                 }
             }
             catch (Exception ex)
@@ -230,86 +245,168 @@ namespace WindowsDesktop
 
         private void iconPictureBoxAddDivision_Click(object sender, EventArgs e)
         {
-            groupBoxAdd.Visible = false;
+            ClearField();
             groupBoxAdd.Text = "Add Division";
             buttonAdd.Text = "Add";
+            groupBoxAdd.Tag = "s_divisions";
+            _foreignKeyColumn = "";
+            _foreignKeyValue = "";
             groupBoxAdd.Visible = true;
-
-            GedAddressById("s_divisions", dataGridViewDivision.Tag.ToString());
         }
 
         private void iconPictureBoxAddDistrict_Click(object sender, EventArgs e)
         {
-            groupBoxAdd.Visible = false;
-            groupBoxAdd.Text = "Add District";
+            ClearField();
+            groupBoxAdd.Text = "Add District Under "+textBoxDivision.Text+" Division";
             buttonAdd.Text = "Add";
+            groupBoxAdd.Tag = "s_districts";
+            _foreignKeyColumn = "division_id";
+            _foreignKeyValue = dataGridViewDivision.Tag.ToString();
             groupBoxAdd.Visible = true;
-
         }
 
         private void iconPictureBoxAddUpazila_Click(object sender, EventArgs e)
         {
-            groupBoxAdd.Visible = false;
-            groupBoxAdd.Text = "Add Upazila";
+            ClearField();
+            groupBoxAdd.Text = "Add Upazila Under " + textBoxDistrict.Text + " District";
             buttonAdd.Text = "Add";
+            groupBoxAdd.Tag = "s_upazilas";
+            _foreignKeyColumn = "district_id";
+            _foreignKeyValue = dataGridViewDistrict.Tag.ToString();
             groupBoxAdd.Visible = true;
         }
 
         private void iconPictureBoxAddUnion_Click(object sender, EventArgs e)
         {
-            groupBoxAdd.Visible = false;
-            groupBoxAdd.Text = "Add Union";
+            ClearField();
+            groupBoxAdd.Text = "Add Union Under " + textBoxUpazila.Text + " Upazila";
             buttonAdd.Text = "Add";
+            groupBoxAdd.Tag = "s_unions";
+            _foreignKeyColumn = "upazila_id";
+            _foreignKeyValue = dataGridViewUpazila.Tag.ToString();
             groupBoxAdd.Visible = true;
         }
 
         private void iconPictureBoxAddVillage_Click(object sender, EventArgs e)
         {
-            groupBoxAdd.Visible = false;
-            groupBoxAdd.Text = "Add Village";
+            ClearField();
+            groupBoxAdd.Text = "Add Village Under " + textBoxUnion.Text + " Union";
             buttonAdd.Text = "Add";
+            groupBoxAdd.Tag = "s_villages";
+            _foreignKeyColumn = "union_id";
+            _foreignKeyValue = dataGridViewUnion.Tag.ToString();
             groupBoxAdd.Visible = true;
         }
 
         private void iconPictureBoxUpdateDivision_Click(object sender, EventArgs e)
         {
-            groupBoxAdd.Visible = false;
+            ClearField();
             groupBoxAdd.Text = "Update District";
             buttonAdd.Text = "Update";
+            groupBoxAdd.Tag = "s_divisions";
+            _foreignKeyColumn = "";
+            _foreignKeyValue = "";
             groupBoxAdd.Visible = true;
+
+            ViewForEdit("s_divisions", dataGridViewDivision.Tag.ToString());
         }
 
         private void iconPictureBoxUpdateDistrict_Click(object sender, EventArgs e)
         {
-            groupBoxAdd.Visible = false;
+            ClearField();
             groupBoxAdd.Text = "Update District";
             buttonAdd.Text = "Update";
+            groupBoxAdd.Tag = "s_districts";
+            _foreignKeyColumn = "division_id";
+            _foreignKeyValue = dataGridViewDivision.Tag.ToString();
             groupBoxAdd.Visible = true;
+
+            ViewForEdit("s_districts", dataGridViewDistrict.Tag.ToString());
         }
 
         private void iconPictureBoxUpdateUpazila_Click(object sender, EventArgs e)
         {
-            groupBoxAdd.Visible = false;
+            ClearField();
             groupBoxAdd.Text = "Update Upazila";
             buttonAdd.Text = "Update";
+            groupBoxAdd.Tag = "s_upazilas";
+            _foreignKeyColumn = "district_id";
+            _foreignKeyValue = dataGridViewDistrict.Tag.ToString();
             groupBoxAdd.Visible = true;
+
+            ViewForEdit("s_upazilas", dataGridViewUpazila.Tag.ToString());
         }
 
         private void iconPictureBoxUpdateUnion_Click(object sender, EventArgs e)
         {
-            groupBoxAdd.Visible = false;
+            ClearField();
             groupBoxAdd.Text = "Update Union";
             buttonAdd.Text = "Update";
+            groupBoxAdd.Tag = "s_unions";
+            _foreignKeyColumn = "upazila_id";
+            _foreignKeyValue = dataGridViewUpazila.Tag.ToString();
             groupBoxAdd.Visible = true;
+
+            ViewForEdit("s_unions", dataGridViewUnion.Tag.ToString());
         }
 
         private void iconPictureBoxUpdateVillage_Click(object sender, EventArgs e)
         {
-            groupBoxAdd.Visible = false;
+            ClearField();
             groupBoxAdd.Text = "Update Village";
             buttonAdd.Text = "Update";
+            groupBoxAdd.Tag = "s_villages";
+            _foreignKeyColumn = "union_id";
+            _foreignKeyValue = dataGridViewUnion.Tag.ToString();
             groupBoxAdd.Visible = true;
+
+            ViewForEdit("s_villages", dataGridViewVillage.Tag.ToString());
         }
 
+        private void iconPictureBoxClose_Click(object sender, EventArgs e)
+        {
+            ClearField();
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var isValid = ThemeTemplate.SValidate(groupBoxAdd, errorProviderAddress);
+
+                if (isValid)
+                {
+                    var query = "";
+
+                    var fkn = string.IsNullOrEmpty(_foreignKeyColumn) ? "" : _foreignKeyColumn + ",";
+                    var fknu = string.IsNullOrEmpty(_foreignKeyColumn) ? "" : _foreignKeyColumn + "=";
+                    var fkv=string.IsNullOrEmpty(_foreignKeyColumn) ? "" : _foreignKeyValue + ",";
+
+                    switch (buttonAdd.Text)
+                    {
+                        case "Add":
+                            query = "INSERT INTO " + groupBoxAdd.Tag + " (" + fkn + "name, name_bn) VALUES (" + fkv + "'" +
+                                    textBoxNameEnglish.Text.Trim() + "','" + textBoxNameBangla.Text + "')";
+                            break;
+
+                        case "Update":
+                            query = "UPDATE " + groupBoxAdd.Tag + " SET " + fknu + fkv + " name='" + textBoxNameEnglish.Text.Trim() +
+                                    "', name_bn='" + textBoxNameBangla.Text + "' WHERE id='" + buttonAdd.Tag + "'";
+                            break;
+                    }
+
+                    var isExecute = Db.QueryExecute(query);
+                    if (isExecute)
+                    {
+                        MessageBox.Show("Success...\nPlease change selected item and check again.");
+                        ClearField();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
