@@ -207,9 +207,100 @@ namespace WindowsDesktop.Students
 
         private void buttonAcademicNext_Click(object sender, EventArgs e)
         {
-            var isValid = ThemeTemplate.SValidate(groupBoxAcademicInformation, errorProviderNewStudent);
-            if (isValid)
+            try
             {
+                var isValid = ThemeTemplate.SValidate(groupBoxAcademicInformation, errorProviderNewStudent);
+                if (isValid)
+                {
+                    groupBoxAcademicInformation.Visible = false;
+
+                    groupBoxReview.Location = groupBoxPersonalInformation.Location;
+                    groupBoxReview.Anchor = AnchorStyles.Top;
+
+                    LoadTheme(groupBoxReview);
+                    ThemeTemplate.SComboBox(groupBoxReview, ComboBoxStyle.DropDownList);
+
+                    // Set data
+                    // Personal Information
+                    textBoxReviewFullName.Text = textBoxFullName.Text;
+                    textBoxReviewPhone.Text = textBoxStudentPhone.Text;
+                    textBoxReviewBirthCertificeate.Text = textBoxBirthCert.Text;
+                    textBoxReviewNid.Text = textBoxNid.Text;
+                    dateTimePickerReviewDob.Value = dateTimePickerReviewDob.Value;
+
+                    // Present Address
+                    comboBoxReviewPreDivision.DataSource = comboBoxPreAddressDivision.DataSource;
+                    comboBoxReviewPreDistrict.DataSource = comboBoxPreAddressDistrict.DataSource;
+                    comboBoxReviewPreUpazila.DataSource = comboBoxPreAddressUpazila.DataSource;
+                    comboBoxReviewPreUnion.DataSource = comboBoxPreAddressUnion.DataSource;
+                    comboBoxReviewPreVillage.DataSource = comboBoxPreAddressVillage.DataSource;
+
+                    comboBoxReviewPreDivision.SelectedValue = comboBoxPreAddressDivision.SelectedValue;
+                    comboBoxReviewPreDistrict.SelectedValue = comboBoxPreAddressDistrict.SelectedValue;
+                    comboBoxReviewPreUpazila.SelectedValue = comboBoxPreAddressUpazila.SelectedValue;
+                    comboBoxReviewPreUnion.SelectedValue = comboBoxPreAddressUnion.SelectedValue;
+                    comboBoxReviewPreVillage.SelectedValue = comboBoxPreAddressVillage.SelectedValue;
+                    textBoxReviewPreDetails.Text = textBoxPreAddressDetails.Text;
+
+                    // Permanent Address
+                    comboBoxReviewPerDivision.DataSource = comboBoxPerAddressDivision.DataSource;
+                    comboBoxReviewPerDistrict.DataSource = comboBoxPerAddressDistrict.DataSource;
+                    comboBoxReviewPerUpazila.DataSource = comboBoxPerAddressUpazila.DataSource;
+                    comboBoxReviewPerUnion.DataSource = comboBoxPerAddressUnion.DataSource;
+                    comboBoxReviewPerVillage.DataSource = comboBoxPerAddressVillage.DataSource;
+
+                    comboBoxReviewPerDivision.SelectedValue = comboBoxPerAddressDivision.SelectedValue;
+                    comboBoxReviewPerDistrict.SelectedValue = comboBoxPerAddressDistrict.SelectedValue;
+                    comboBoxReviewPerUpazila.SelectedValue = comboBoxPerAddressUpazila.SelectedValue;
+                    comboBoxReviewPerUnion.SelectedValue = comboBoxPerAddressUnion.SelectedValue;
+                    comboBoxReviewPerVillage.SelectedValue = comboBoxPerAddressVillage.SelectedValue;
+                    textBoxReviewPerDetails.Text = textBoxPerAddressDetails.Text;
+
+                    // Parent Information
+                    textBoxReviewFatherName.Text = textBoxFatherName.Text;
+                    textBoxReviewFatherPhone.Text = textBoxFatherPhone.Text;
+                    textBoxReviewFatherNid.Text = textBoxFatherNid.Text;
+
+                    textBoxReviewMotherName.Text = textBoxMotherName.Text;
+                    textBoxReviewMotherPhone.Text = textBoxMotherPhone.Text;
+                    textBoxReviewMotherNid.Text = textBoxMotherNid.Text;
+
+                    // Guardian Information
+                    textBoxReviewGrdName.Text = textBoxGrdName.Text;
+                    textBoxReviewGrdPhone.Text = textBoxGrdPhone.Text;
+
+                    // Guardian Address
+                    comboBoxReviewGrdDivision.DataSource = comboBoxGrdAddressDivision.DataSource;
+                    comboBoxReviewGrdDistrict.DataSource = comboBoxGrdAddressDistrict.DataSource;
+                    comboBoxReviewGrdUpazila.DataSource = comboBoxGrdAddressUpazila.DataSource;
+                    comboBoxReviewGrdUnion.DataSource = comboBoxGrdAddressUnion.DataSource;
+                    comboBoxReviewGrdVillage.DataSource = comboBoxGrdAddressVillage.DataSource;
+
+
+                    comboBoxReviewGrdDivision.SelectedValue = comboBoxGrdAddressDivision.SelectedValue;
+                    comboBoxReviewGrdDistrict.SelectedValue = comboBoxGrdAddressDistrict.SelectedValue;
+                    comboBoxReviewGrdUpazila.SelectedValue = comboBoxGrdAddressUpazila.SelectedValue;
+                    comboBoxReviewGrdUnion.SelectedValue = comboBoxGrdAddressUnion.SelectedValue;
+                    comboBoxReviewGrdVillage.SelectedValue = comboBoxGrdAddressVillage.SelectedValue;
+                    textBoxReviewGrdDetails.Text = textBoxGrdAddressDetails.Text;
+
+                    // Academic Details
+                    comboBoxReviewClass.DataSource = comboBoxClass.DataSource;
+
+                    comboBoxReviewClass.SelectedValue = comboBoxClass.SelectedValue;
+                    textBoxReviewRoll.Text = textBoxRoll.Text;
+                    textBoxReviewReg.Text = textBoxReg.Text;
+
+
+
+
+                    groupBoxReview.Visible = true;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
                 groupBoxAcademicInformation.Visible = false;
             }
         }
