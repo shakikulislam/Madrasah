@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Theme;
 
@@ -16,7 +17,7 @@ namespace WindowsDesktop.Students
             dateTimePickerDob.MaxDate=DateTime.Now;
 
             LoadTheme(groupBoxPersonalInformation);
-            LoadTheme(this);
+            //LoadTheme(this);
 
             LoadDivision();
 
@@ -32,6 +33,135 @@ namespace WindowsDesktop.Students
             ThemeTemplate.SButton(control);
             ThemeTemplate.SDateTimePicker(control);
             ThemeTemplate.SComboBox(control);
+        }
+
+        private void ClearAllField()
+        {
+            ClearReviewField();
+            
+            labelStudentName.Text = string.Empty;
+            labelStudentName.Tag = string.Empty;
+            textBoxFullName.Clear();
+            textBoxStudentPhone.Clear();
+            textBoxBirthCert.Clear();
+            textBoxNid.Clear();
+            dateTimePickerReviewDob.Value=DateTime.Now;
+
+            textBoxPreAddressDetails.Clear();
+            textBoxPerAddressDetails.Clear();
+
+            checkBoxSameAsPresentAddress.Enabled = false;
+
+            foreach (var textBox in groupBoxGuardianInformation.Controls.OfType<TextBox>())
+            {
+                textBox.Clear();
+            }
+
+            textBoxRoll.Clear();
+            textBoxReg.Clear();
+            
+
+        }
+
+        private void ClearReviewField()
+        {
+            // Set data
+            // Personal Information
+            textBoxReviewFullName.Clear();
+            textBoxReviewPhone.Clear();
+            textBoxReviewBirthCertificeate.Clear();
+            textBoxReviewNid.Clear();
+            dateTimePickerReviewDob.Value = DateTime.Now;
+
+            // Present Address
+            comboBoxReviewPreDivision.DataSource = null;
+            comboBoxReviewPreDivision.DisplayMember = "name";
+            comboBoxReviewPreDivision.ValueMember = "id";
+
+            comboBoxReviewPreDistrict.DataSource = null;
+            comboBoxReviewPreDistrict.DisplayMember="name";
+            comboBoxReviewPreDistrict.ValueMember="id";
+
+            comboBoxReviewPreUpazila.DataSource = null;
+            comboBoxReviewPreUpazila.DisplayMember = "name";
+            comboBoxReviewPreUpazila.ValueMember = "id";
+
+            comboBoxReviewPreUnion.DataSource = null;
+            comboBoxReviewPreUnion.DisplayMember = "name";
+            comboBoxReviewPreUnion.ValueMember = "id";
+
+            comboBoxReviewPreVillage.DataSource = null;
+            comboBoxReviewPreVillage.DisplayMember = "name";
+            comboBoxReviewPreVillage.ValueMember = "id";
+
+            textBoxReviewPreDetails.Clear();
+
+            // Permanent Address
+            comboBoxReviewPerDivision.DataSource = null;
+            comboBoxReviewPerDivision.DisplayMember = "name";
+            comboBoxReviewPerDivision.ValueMember = "id";
+
+            comboBoxReviewPerDistrict.DataSource = null;
+            comboBoxReviewPerDistrict.DisplayMember = "name";
+            comboBoxReviewPerDistrict.ValueMember = "id";
+
+            comboBoxReviewPerUpazila.DataSource = null;
+            comboBoxReviewPerUpazila.DisplayMember = "name";
+            comboBoxReviewPerUpazila.ValueMember = "id";
+
+            comboBoxReviewPerUnion.DataSource = null;
+            comboBoxReviewPerUnion.DisplayMember = "name";
+            comboBoxReviewPerUnion.ValueMember = "id";
+
+            comboBoxReviewPerVillage.DataSource = null;
+            comboBoxReviewPerVillage.DisplayMember = "name";
+            comboBoxReviewPerVillage.ValueMember = "id";
+
+            textBoxReviewPerDetails.Clear();
+
+            // Parent Information
+            textBoxReviewFatherName.Clear();
+            textBoxReviewFatherPhone.Clear();
+            textBoxReviewFatherNid.Clear();
+
+            textBoxReviewMotherName.Clear();
+            textBoxReviewMotherPhone.Clear();
+            textBoxReviewMotherNid.Clear();
+
+            // Guardian Information
+            textBoxReviewGrdName.Clear();
+            textBoxReviewGrdPhone.Clear();
+
+            // Guardian Address
+            comboBoxReviewGrdDivision.DataSource = null;
+            comboBoxReviewGrdDivision.DisplayMember = "name";
+            comboBoxReviewGrdDivision.ValueMember = "id";
+
+            comboBoxReviewGrdDistrict.DataSource = null;
+            comboBoxReviewGrdDistrict.DisplayMember = "name";
+            comboBoxReviewGrdDistrict.ValueMember = "id";
+
+            comboBoxReviewGrdUpazila.DataSource = null;
+            comboBoxReviewGrdUpazila.DisplayMember = "name";
+            comboBoxReviewGrdUpazila.ValueMember = "id";
+
+            comboBoxReviewGrdUnion.DataSource = null;
+            comboBoxReviewGrdUnion.DisplayMember = "name";
+            comboBoxReviewGrdUnion.ValueMember = "id";
+
+            comboBoxReviewGrdVillage.DataSource = null;
+            comboBoxReviewGrdVillage.DisplayMember = "name";
+            comboBoxReviewGrdVillage.ValueMember = "id";
+
+            textBoxReviewGrdDetails.Clear();
+
+            // Academic Details
+            comboBoxReviewClass.DataSource = null;
+            comboBoxReviewClass.DisplayMember = "name";
+            comboBoxReviewClass.ValueMember = "id";
+
+            textBoxReviewRoll.Clear();
+            textBoxReviewReg.Clear();
         }
         
         private void LoadClass()
@@ -154,8 +284,10 @@ namespace WindowsDesktop.Students
                     if (studentInfo.HasRows)
                     {
                         studentInfo.Read();
-                        if (studentInfo["create_by"] == DBNull.Value || studentInfo["create_by"].ToString() == "")
+                        if (studentInfo["guardian_name"] == DBNull.Value || studentInfo["guardian_name"].ToString() == "")
                         {
+                            MessageBox.Show("Pending enrollment students");
+
                             labelStudentName.Text = studentInfo["name"].ToString();
                             labelStudentName.Tag = studentInfo["id"].ToString();
 
@@ -209,6 +341,7 @@ namespace WindowsDesktop.Students
         {
             try
             {
+                ClearReviewField();
                 var isValid = ThemeTemplate.SValidate(groupBoxAcademicInformation, errorProviderNewStudent);
                 if (isValid)
                 {
@@ -226,7 +359,7 @@ namespace WindowsDesktop.Students
                     textBoxReviewPhone.Text = textBoxStudentPhone.Text;
                     textBoxReviewBirthCertificeate.Text = textBoxBirthCert.Text;
                     textBoxReviewNid.Text = textBoxNid.Text;
-                    dateTimePickerReviewDob.Value = dateTimePickerReviewDob.Value;
+                    dateTimePickerReviewDob.Value = dateTimePickerDob.Value;
 
                     // Present Address
                     comboBoxReviewPreDivision.DataSource = comboBoxPreAddressDivision.DataSource;
@@ -291,9 +424,6 @@ namespace WindowsDesktop.Students
                     textBoxReviewRoll.Text = textBoxRoll.Text;
                     textBoxReviewReg.Text = textBoxReg.Text;
 
-
-
-
                     groupBoxReview.Visible = true;
 
                 }
@@ -321,10 +451,7 @@ namespace WindowsDesktop.Students
                 groupBoxAcademicInformation.Size = new Size(594, 260);
                 groupBoxAcademicInformation.Location = groupBoxPersonalInformation.Location;
                 groupBoxAcademicInformation.Anchor = AnchorStyles.Top;
-
-                labelStudentName.Text = textBoxFullName.Text;
-                labelStudentName.Font = new Font(STheme.SFont.Font, 12, FontStyle.Bold);
-
+                
                 LoadTheme(groupBoxAcademicInformation); 
                 ThemeTemplate.SComboBox(groupBoxAcademicInformation, ComboBoxStyle.DropDownList);
 
@@ -340,15 +467,20 @@ namespace WindowsDesktop.Students
 
         private void buttonAddressNext_Click(object sender, EventArgs e)
         {
-            groupBoxAddress.Visible = false;
-            groupBoxGuardianInformation.Size = new Size(594, 619);
-            groupBoxGuardianInformation.Location = groupBoxPersonalInformation.Location;
-            groupBoxGuardianInformation.Anchor = AnchorStyles.Top;
+            var isValid = ThemeTemplate.SValidate(groupBoxAddress, errorProviderNewStudent);
 
-            LoadTheme(groupBoxGuardianInformation);
-            ThemeTemplate.SComboBox(groupBoxGuardianInformation, ComboBoxStyle.DropDownList);
+            if (isValid)
+            {
+                groupBoxAddress.Visible = false;
+                groupBoxGuardianInformation.Size = new Size(594, 619);
+                groupBoxGuardianInformation.Location = groupBoxPersonalInformation.Location;
+                groupBoxGuardianInformation.Anchor = AnchorStyles.Top;
 
-            groupBoxGuardianInformation.Visible = true;
+                LoadTheme(groupBoxGuardianInformation);
+                ThemeTemplate.SComboBox(groupBoxGuardianInformation, ComboBoxStyle.DropDownList);
+
+                groupBoxGuardianInformation.Visible = true;
+            }
         }
 
         private void comboBoxPreAddressDivision_SelectedIndexChanged(object sender, EventArgs e)
@@ -687,6 +819,99 @@ namespace WindowsDesktop.Students
             if (checkBoxSameAsPresentAddress.Checked)
             {
                 textBoxPerAddressDetails.Text = textBoxPreAddressDetails.Text;
+            }
+        }
+
+        private void buttonReviewBack_Click(object sender, EventArgs e)
+        {
+            groupBoxReview.Visible = false;
+            groupBoxAcademicInformation.Visible = true;
+        }
+
+        private void buttonSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var query = "UPDATE s_students SET " +
+                            "roll = '" + textBoxReviewRoll.Text.Trim() + 
+                            "',reg = '" + textBoxReviewReg.Text.Trim() +
+                            "',name = '" + textBoxReviewFullName.Text.Trim() + 
+                            "',phone = '" + textBoxReviewPhone.Text.Trim() +
+                            "',dob = '" + dateTimePickerReviewDob.Value.ToString(GlobalSettings.DateFormatSave) +
+                            "',birth_certificate = '" + textBoxReviewBirthCertificeate.Text.Trim() +
+                            "',nid = '" + textBoxReviewNid.Text.Trim() + 
+                            "',father_name = '" + textBoxReviewFatherName.Text.Trim() +
+                            "',father_phone = '" + textBoxReviewFatherPhone.Text.Trim() +
+                            "',father_nid = '" + textBoxReviewFatherNid.Text.Trim() + 
+                            "',mother_name = '" + textBoxReviewMotherName.Text.Trim() + 
+                            "',mother_phone = '" + textBoxReviewMotherPhone.Text.Trim() +
+                            "',mother_nid = '" + textBoxReviewMotherNid.Text.Trim() + 
+                            "',guardian_name = '" + textBoxReviewGrdName.Text.Trim() + 
+                            "',guardian_phone = '" + textBoxReviewGrdPhone.Text.Trim() +
+                            "',class_id = '" + comboBoxReviewClass.SelectedValue + 
+                            "',status = 'A'," +
+                            "create_by = '" + GlobalSettings.UserName + 
+                            "',create_date = '" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) + 
+                            "' WHERE id='" + labelStudentName.Tag + "' ";
+
+                var queryAddress = "INSERT INTO s_addresses(person_id" +
+                         ",p_division_id," +
+                         "p_district_id," +
+                         "p_upazila_id," +
+                         "p_union_id," +
+                         "p_village_id," +
+                         "p_details," +
+                         "m_division_id," +
+                         "m_district_id," +
+                         "m_upazila_id," +
+                         "m_union_id," +
+                         "m_village_id," +
+                         "m_details," +
+                         "g_division_id," +
+                         "g_district_id," +
+                         "g_upazila_id," +
+                         "g_union_id," +
+                         "g_village_id," +
+                         "g_details," +
+                         "who)" +
+                         "VALUES('"+labelStudentName.Tag+
+                         "','"+comboBoxReviewPerDivision.SelectedValue+
+                         "','"+comboBoxReviewPerDistrict.SelectedValue+
+                         "','"+comboBoxReviewPerUpazila.SelectedValue+
+                         "','"+comboBoxReviewPerUnion.SelectedValue+
+                         "','"+comboBoxReviewPerVillage.SelectedValue+
+                         "','"+textBoxReviewPerDetails.Text+
+                         "','"+comboBoxReviewPreDivision.SelectedValue+
+                         "','"+comboBoxReviewPreDistrict.SelectedValue+
+                         "','"+comboBoxReviewPreUpazila.SelectedValue+
+                         "','"+comboBoxReviewPreUnion.SelectedValue+
+                         "','"+comboBoxReviewPreVillage.SelectedValue+
+                         "','"+textBoxReviewPreDetails.Text+
+                         "','"+comboBoxReviewGrdDivision.SelectedValue+
+                         "','"+comboBoxReviewGrdDistrict.SelectedValue + 
+                         "','"+comboBoxReviewGrdUpazila.SelectedValue + 
+                         "','"+comboBoxReviewGrdUnion.SelectedValue + 
+                         "','"+comboBoxReviewGrdVillage.SelectedValue + 
+                         "','"+textBoxReviewGrdDetails.Text+
+                         "','ST')";
+
+
+                var isUpdate=Db.QueryExecute(query);
+                if (isUpdate)
+                {
+                    var isInsert = Db.QueryExecute(queryAddress);
+                    if (isInsert)
+                    {
+                        ClearAllField();
+                        groupBoxReview.Visible = false;
+                        groupBoxPersonalInformation.Visible = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

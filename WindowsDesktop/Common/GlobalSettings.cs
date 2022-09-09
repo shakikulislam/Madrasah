@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-namespace WindowsDesktop.DbContext
+namespace WindowsDesktop.Common
 {
     public class GlobalSettings
     {

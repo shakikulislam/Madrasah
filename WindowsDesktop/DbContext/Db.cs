@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using WindowsDesktop.Common;
 using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.DbContext

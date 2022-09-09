@@ -92,7 +92,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\ElementsControl.cs" />
     <Compile Include="Common\frmWaiting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,7 +99,7 @@
       <DependentUpon>frmWaiting.cs</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Db.cs" />
-    <Compile Include="DbContext\GlobalSettings.cs" />
+    <Compile Include="Common\GlobalSettings.cs" />
     <Compile Include="FrmAcademic.cs">
       <SubType>Form</SubType>
     </Compile>

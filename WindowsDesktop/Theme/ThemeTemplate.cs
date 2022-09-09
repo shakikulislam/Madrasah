@@ -13,6 +13,7 @@ namespace WindowsDesktop.Theme
             //errorProvider = new ErrorProvider {BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError};
             errorProvider.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
 
+            // TextBox Validate
             foreach (var textBox in control.Controls.OfType<TextBox>())
             {
                 if (textBox.CausesValidation)
@@ -22,6 +23,21 @@ namespace WindowsDesktop.Theme
                     if (string.IsNullOrEmpty(textBox.Text))
                     {
                         errorProvider.SetError(textBox, "This field is required");
+                        valid = false;
+                    }
+                }
+            }
+
+            // ComboBox Validate
+            foreach (var comboBox in control.Controls.OfType<ComboBox>())
+            {
+                if (comboBox.CausesValidation)
+                {
+                    errorProvider.SetError(comboBox, string.Empty);
+
+                    if (string.IsNullOrEmpty(comboBox.Text))
+                    {
+                        errorProvider.SetError(comboBox, "This field is required");
                         valid = false;
                     }
                 }
