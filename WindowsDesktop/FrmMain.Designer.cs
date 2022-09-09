@@ -31,7 +31,6 @@ namespace WindowsDesktop
         {
             this.components = new System.ComponentModel.Container();
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.iconButtonAddStudent = new FontAwesome.Sharp.IconButton();
             this.iconButtonAddress = new FontAwesome.Sharp.IconButton();
             this.iconButtonAcademic = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
@@ -57,7 +56,6 @@ namespace WindowsDesktop
             // 
             // panelSideMenu
             // 
-            this.panelSideMenu.Controls.Add(this.iconButtonAddStudent);
             this.panelSideMenu.Controls.Add(this.iconButtonAddress);
             this.panelSideMenu.Controls.Add(this.iconButtonAcademic);
             this.panelSideMenu.Controls.Add(this.iconButton3);
@@ -68,27 +66,6 @@ namespace WindowsDesktop
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(160, 655);
             this.panelSideMenu.TabIndex = 0;
-            // 
-            // iconButtonAddStudent
-            // 
-            this.iconButtonAddStudent.FlatAppearance.BorderSize = 0;
-            this.iconButtonAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonAddStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonAddStudent.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
-            this.iconButtonAddStudent.IconColor = System.Drawing.Color.Black;
-            this.iconButtonAddStudent.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonAddStudent.IconSize = 32;
-            this.iconButtonAddStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonAddStudent.Location = new System.Drawing.Point(3, 414);
-            this.iconButtonAddStudent.Name = "iconButtonAddStudent";
-            this.iconButtonAddStudent.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.iconButtonAddStudent.Size = new System.Drawing.Size(160, 40);
-            this.iconButtonAddStudent.TabIndex = 4;
-            this.iconButtonAddStudent.Text = "Add Student";
-            this.iconButtonAddStudent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonAddStudent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonAddStudent.UseVisualStyleBackColor = true;
-            this.iconButtonAddStudent.Click += new System.EventHandler(this.iconButtonAddStudent_Click);
             // 
             // iconButtonAddress
             // 
@@ -372,7 +349,6 @@ namespace WindowsDesktop
         private System.Windows.Forms.Label labelOfficeName;
         private FontAwesome.Sharp.IconButton iconButtonAddress;
         private FontAwesome.Sharp.IconButton iconButtonAcademic;
-        private FontAwesome.Sharp.IconButton iconButtonAddStudent;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Panel panelTopDivider;
     }

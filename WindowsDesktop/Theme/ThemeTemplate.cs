@@ -86,17 +86,6 @@ namespace WindowsDesktop.Theme
                 textBox.BackColor = STheme.SColor.TextFieldBackgroundColor;
                 textBox.Font= new Font(STheme.SFont.Font, STheme.SFont.Size);
             }
-
-            foreach (var iconButton in control.Controls.OfType<IconButton>())
-            {
-                iconButton.BackColor = STheme.SColor.BackColor;
-                iconButton.ForeColor = STheme.SColor.ForColor;
-                iconButton.TextAlign = ContentAlignment.MiddleLeft;
-                iconButton.IconColor = STheme.SColor.ForColor;
-                iconButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-                iconButton.ImageAlign = ContentAlignment.MiddleLeft;
-                iconButton.Font= new Font(STheme.SFont.Font, STheme.SFont.Size);
-            }
         }
 
         public static void SComboBox(Control control, ComboBoxStyle comboBoxStyle= ComboBoxStyle.DropDown)
@@ -124,16 +113,19 @@ namespace WindowsDesktop.Theme
                 button.BackColor = STheme.SColor.BackColor;
                 button.Font = new Font(STheme.SFont.Font, STheme.SFont.Size + 2, FontStyle.Regular);
             }
-
-            //foreach (var button in control.Controls.OfType<IconButton>())
-            //{
-            //    button.FlatStyle = FlatStyle.Flat;
-            //    button.FlatAppearance.BorderSize = 0;
-            //    button.FlatAppearance.BorderColor = STheme.SColor.ForColor;
-            //    button.ForeColor = STheme.SColor.ForColor;
-            //    button.BackColor = STheme.SColor.BackColor;
-            //    button.IconColor = STheme.SColor.ForColor;
-            //}
+        }
+        
+        public static void SIconButton(Control control, int borderSize=1)
+        {
+            foreach (var button in control.Controls.OfType<IconButton>())
+            {
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = borderSize;
+                button.FlatAppearance.BorderColor = STheme.SColor.ForColor;
+                button.ForeColor = STheme.SColor.ForColor;
+                button.BackColor = STheme.SColor.BackColor;
+                button.IconColor = STheme.SColor.ForColor;
+            }
         }
 
         public static void SDateTimePicker(Control control)
@@ -149,7 +141,7 @@ namespace WindowsDesktop.Theme
             }
         }
 
-        public static void SDataGridView(Control control, DataGridViewCellBorderStyle cellBorderStyle= DataGridViewCellBorderStyle.None)
+        public static void SDataGridView(Control control, bool autoGenerateColumn=false, DataGridViewCellBorderStyle cellBorderStyle= DataGridViewCellBorderStyle.None)
         {
             // DataGridView
             foreach (var gridView in control.Controls.OfType<DataGridView>())
@@ -166,21 +158,22 @@ namespace WindowsDesktop.Theme
                 gridView.ColumnHeadersDefaultCellStyle.Font = new Font(STheme.SFont.Font, STheme.SFont.Size+2, FontStyle.Bold);
                 gridView.RowsDefaultCellStyle.Font = new Font(STheme.SFont.Font,STheme.SFont.Size);
 
+                gridView.AutoGenerateColumns = autoGenerateColumn;
                 gridView.AllowUserToAddRows = false;
                 gridView.AllowUserToDeleteRows = false;
                 gridView.ShowEditingIcon = false;
                 gridView.EnableHeadersVisualStyles = false;
                 gridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                gridView.MultiSelect = false;
                 gridView.RowHeadersVisible = false;
                 gridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                gridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 gridView.ColumnHeadersHeight = 30;
-                gridView.MultiSelect = false;
                 gridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
                 gridView.CellBorderStyle = cellBorderStyle;
                 gridView.RowTemplate.Resizable = DataGridViewTriState.False;
                 gridView.RowTemplate.DividerHeight = 1;
                 gridView.RowTemplate.Height = 25;
-                gridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             }
         }

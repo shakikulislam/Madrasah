@@ -253,7 +253,7 @@ namespace WindowsDesktop
         private void iconButtonStudent_Click(object sender, EventArgs e)
         {
             ActiveButton(sender);
-            //OpenChildForm(new FrmStudent());
+            OpenChildForm(new FrmStudent());
         }
 
         private void iconButtonAddress_Click(object sender, EventArgs e)
@@ -262,12 +262,6 @@ namespace WindowsDesktop
             OpenChildForm(new FrmAddress());
         }
         
-        private void iconButtonAddStudent_Click(object sender, EventArgs e)
-        {
-            ActiveButton(sender);
-            OpenChildForm(new FrmAddNewStudent());
-        }
-
         private void iconButtonAcademic_Click(object sender, EventArgs e)
         {
             ActiveButton(sender);

@@ -132,6 +132,12 @@
     <Compile Include="Students\FrmStudent.Designer.cs">
       <DependentUpon>FrmStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Students\FrmStudentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Students\FrmStudentList.Designer.cs">
+      <DependentUpon>FrmStudentList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Theme\STheme.cs" />
     <Compile Include="Theme\ThemeTemplate.cs" />
     <EmbeddedResource Include="Common\frmWaiting.resx">
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Students\FrmStudent.resx">
       <DependentUpon>FrmStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Students\FrmStudentList.resx">
+      <DependentUpon>FrmStudentList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
