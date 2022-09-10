@@ -141,11 +141,12 @@ namespace WindowsDesktop.Theme
             }
         }
 
-        public static void SDataGridView(Control control, bool autoGenerateColumn=false, DataGridViewCellBorderStyle cellBorderStyle= DataGridViewCellBorderStyle.None)
+        public static void SDataGridView(Control control, DataGridViewCellBorderStyle cellBorderStyle= DataGridViewCellBorderStyle.None)
         {
             // DataGridView
             foreach (var gridView in control.Controls.OfType<DataGridView>())
             {
+                var dividerHeight = cellBorderStyle == DataGridViewCellBorderStyle.None ? 1 : 0;
                 gridView.BackgroundColor = STheme.SColor.BackColor;
                 gridView.RowsDefaultCellStyle.BackColor = STheme.SColor.BackColor;
                 gridView.RowsDefaultCellStyle.SelectionBackColor = STheme.SColor.ActiveBackColor;
@@ -158,7 +159,7 @@ namespace WindowsDesktop.Theme
                 gridView.ColumnHeadersDefaultCellStyle.Font = new Font(STheme.SFont.Font, STheme.SFont.Size+2, FontStyle.Bold);
                 gridView.RowsDefaultCellStyle.Font = new Font(STheme.SFont.Font,STheme.SFont.Size);
 
-                gridView.AutoGenerateColumns = autoGenerateColumn;
+                gridView.AutoGenerateColumns = false;
                 gridView.AllowUserToAddRows = false;
                 gridView.AllowUserToDeleteRows = false;
                 gridView.ShowEditingIcon = false;
@@ -172,11 +173,14 @@ namespace WindowsDesktop.Theme
                 gridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
                 gridView.CellBorderStyle = cellBorderStyle;
                 gridView.RowTemplate.Resizable = DataGridViewTriState.False;
-                gridView.RowTemplate.DividerHeight = 1;
+                gridView.RowTemplate.DividerHeight = dividerHeight;
                 gridView.RowTemplate.Height = 25;
 
             }
         }
+
+
+
 
     }
 }

@@ -45,7 +45,7 @@ namespace WindowsDesktop
 
         private void LoadClass()
         {
-            ThemeTemplate.SDataGridView(panelClass, false, DataGridViewCellBorderStyle.Single);
+            ThemeTemplate.SDataGridView(panelClass, DataGridViewCellBorderStyle.Single);
 
             var query = "select c.id, c.name, c.class_number as classNumber, d.name as department " +
                         "from s_classes c " +

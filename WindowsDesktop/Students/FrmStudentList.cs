@@ -26,7 +26,7 @@ namespace WindowsDesktop.Students
             ThemeTemplate.SLabel(control);
             ThemeTemplate.STextBox(control);
             ThemeTemplate.SIconButton(control,0);
-            ThemeTemplate.SDataGridView(control);
+            ThemeTemplate.SDataGridView(control, DataGridViewCellBorderStyle.Single);
         }
 
         private void LoadStudentList(string filter="")
@@ -97,8 +97,7 @@ namespace WindowsDesktop.Students
             if (dataGridViewStudentList.Columns[e.ColumnIndex].Name=="details")
             {
                 var id = dataGridViewStudentList.SelectedRows[0].Cells["ColumnId"].Value.ToString();
-                
-                
+                new FrmStudentDetails(id).ShowDialog();
             }
         }
 
