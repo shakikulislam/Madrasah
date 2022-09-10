@@ -18,6 +18,7 @@ namespace WindowsDesktop.Students
         {
             InitializeComponent();
             LoadTheme(this);
+            LoadStudentList();
         }
 
         private void LoadTheme(Control control)
@@ -28,12 +29,27 @@ namespace WindowsDesktop.Students
             ThemeTemplate.SDataGridView(control);
         }
 
+        private void LoadStudentList(string filter="")
+        {
+            var query = "";
+            if (string.IsNullOrEmpty(filter))
+            {
+                query = "SELECT st.*, concat(dp.name,' (',cs.name,')') AS class_name " +
+                        "FROM s_students AS st " +
+                        "LEFT JOIN s_classes AS cs ON st.class_id=cs.id " +
+                        "LEFT JOIN s_departments AS dp ON cs.department_id=dp.id " +
+                        "WHERE roll <> 0";
+            }
+            var studentSet = Db.GetDataTable(query);
+            dataGridViewStudentList.DataSource = studentSet;
+        }
+
         private void LoadColumn()
         {
             var dg = dataGridViewStudentList;
             dg.DataSource = null;
 
-            int totalColumn = 5;
+            const int totalColumn = 5;
             dg.ColumnCount = totalColumn;
 
             dg.Columns[0].Name = "sl";
@@ -68,23 +84,7 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                //LoadColumn();   
-                
-                var query = "";
-                if (string.IsNullOrEmpty(textBoxSearch.Text))
-                {
-                    query = "SELECT st.*, cs.name AS class_name " +
-                            "FROM s_students st " +
-                            "LEFT JOIN s_classes cs ON st.class_id=cs.id";
-                }
-                else
-                {
-                    query = "SELECT * FROM s_students WHERE roll='" + textBoxSearch.Text + "' OR reg='" +
-                            textBoxSearch.Text + "' OR name LIKE '%" + textBoxSearch.Text + "%'";
-                }
-
-                var studentSet = Db.GetDataTable(query);
-                dataGridViewStudentList.DataSource = studentSet;
+                LoadStudentList();
             }
             catch (Exception ex)
             {
@@ -94,13 +94,11 @@ namespace WindowsDesktop.Students
 
         private void dataGridViewStudentList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewStudentList.Columns[e.ColumnIndex].Name=="Edit")
+            if (dataGridViewStudentList.Columns[e.ColumnIndex].Name=="details")
             {
-                MessageBox.Show("Edit\n" + dataGridViewStudentList.SelectedRows[0].Cells[5].Value);
-            }
-            else if (dataGridViewStudentList.Columns[e.ColumnIndex].Name == "Delete")
-            {
-                MessageBox.Show("Delete\n" + dataGridViewStudentList.SelectedRows[0].Cells[6].Value);
+                var id = dataGridViewStudentList.SelectedRows[0].Cells["ColumnId"].Value.ToString();
+                
+                
             }
         }
 

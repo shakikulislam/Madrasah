@@ -34,8 +34,12 @@ namespace WindowsDesktop.Students
             this.dataGridViewStudentList = new System.Windows.Forms.DataGridView();
             this.iconButtonSearch = new FontAwesome.Sharp.IconButton();
             this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnGuardianName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnGuardianPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.details = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
             this.SuspendLayout();
@@ -69,8 +73,12 @@ namespace WindowsDesktop.Students
             this.dataGridViewStudentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStudentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sl,
+            this.ColumnId,
             this.roll,
             this.name,
+            this.ColumnClass,
+            this.ColumnGuardianName,
+            this.ColumnGuardianPhone,
             this.details});
             this.dataGridViewStudentList.Location = new System.Drawing.Point(12, 73);
             this.dataGridViewStudentList.Name = "dataGridViewStudentList";
@@ -103,6 +111,15 @@ namespace WindowsDesktop.Students
             this.sl.ReadOnly = true;
             this.sl.Width = 39;
             // 
+            // ColumnId
+            // 
+            this.ColumnId.DataPropertyName = "id";
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            this.ColumnId.Visible = false;
+            this.ColumnId.Width = 5;
+            // 
             // roll
             // 
             this.roll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -120,6 +137,32 @@ namespace WindowsDesktop.Students
             this.name.Name = "name";
             this.name.ReadOnly = true;
             this.name.Width = 60;
+            // 
+            // ColumnClass
+            // 
+            this.ColumnClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnClass.DataPropertyName = "class_name";
+            this.ColumnClass.HeaderText = "Class";
+            this.ColumnClass.Name = "ColumnClass";
+            this.ColumnClass.ReadOnly = true;
+            this.ColumnClass.Width = 57;
+            // 
+            // ColumnGuardianName
+            // 
+            this.ColumnGuardianName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnGuardianName.DataPropertyName = "guardian_name";
+            this.ColumnGuardianName.HeaderText = "Guardian Name";
+            this.ColumnGuardianName.Name = "ColumnGuardianName";
+            this.ColumnGuardianName.ReadOnly = true;
+            this.ColumnGuardianName.Width = 97;
+            // 
+            // ColumnGuardianPhone
+            // 
+            this.ColumnGuardianPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnGuardianPhone.DataPropertyName = "guardian_phone";
+            this.ColumnGuardianPhone.HeaderText = "Guardian Phone";
+            this.ColumnGuardianPhone.Name = "ColumnGuardianPhone";
+            this.ColumnGuardianPhone.ReadOnly = true;
             // 
             // details
             // 
@@ -154,8 +197,12 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.DataGridView dataGridViewStudentList;
         private FontAwesome.Sharp.IconButton iconButtonSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn sl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn roll;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGuardianName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGuardianPhone;
         private System.Windows.Forms.DataGridViewLinkColumn details;
     }
 }
