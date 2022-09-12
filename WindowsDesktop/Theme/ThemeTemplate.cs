@@ -179,7 +179,18 @@ namespace WindowsDesktop.Theme
             }
         }
 
-
+        public static void STabControl(Control control)
+        {
+            foreach (var tabControl in control.Controls.OfType<TabControl>())
+            {
+                var itemSize = tabControl.ItemSize;
+                itemSize.Height = 30;
+                tabControl.ItemSize = itemSize;
+                tabControl.BackColor = Color.White;
+                tabControl.Font = new Font(STheme.SFont.Font, STheme.SFont.Size, FontStyle.Regular);
+                
+            }
+        }
 
 
     }

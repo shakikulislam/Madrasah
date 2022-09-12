@@ -37,19 +37,9 @@ namespace WindowsDesktop.Students
             this.buttonResult = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.groupBoxReview = new System.Windows.Forms.GroupBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label50 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label43 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label57 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label58 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label79 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label78 = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
             this.textBoxReviewRoll = new System.Windows.Forms.TextBox();
             this.textBoxReviewReg = new System.Windows.Forms.TextBox();
@@ -119,19 +109,27 @@ namespace WindowsDesktop.Students
             this.label42 = new System.Windows.Forms.Label();
             this.textBoxReviewPhone = new System.Windows.Forms.TextBox();
             this.textBoxReviewFullName = new System.Windows.Forms.TextBox();
-            this.buttonReviewBack = new System.Windows.Forms.Button();
-            this.buttonSubmit = new System.Windows.Forms.Button();
+            this.panelBody = new System.Windows.Forms.Panel();
+            this.tabControlProfile = new System.Windows.Forms.TabControl();
+            this.tabPagePersonalInformation = new System.Windows.Forms.TabPage();
+            this.tabPageAddress = new System.Windows.Forms.TabPage();
+            this.tabPageParentInfo = new System.Windows.Forms.TabPage();
+            this.tabPageGuardianInfo = new System.Windows.Forms.TabPage();
+            this.tabPageAcademic = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label58 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panelTitleBar.SuspendLayout();
             this.flowLayoutPanelControl.SuspendLayout();
-            this.groupBoxReview.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panelBody.SuspendLayout();
+            this.tabControlProfile.SuspendLayout();
+            this.tabPagePersonalInformation.SuspendLayout();
+            this.tabPageAddress.SuspendLayout();
+            this.tabPageParentInfo.SuspendLayout();
+            this.tabPageGuardianInfo.SuspendLayout();
+            this.tabPageAcademic.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitleBar
@@ -142,7 +140,7 @@ namespace WindowsDesktop.Students
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(721, 30);
+            this.panelTitleBar.Size = new System.Drawing.Size(1096, 30);
             this.panelTitleBar.TabIndex = 2;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -167,7 +165,7 @@ namespace WindowsDesktop.Students
             this.iconButtonClose.IconColor = System.Drawing.Color.MediumPurple;
             this.iconButtonClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonClose.IconSize = 20;
-            this.iconButtonClose.Location = new System.Drawing.Point(693, 5);
+            this.iconButtonClose.Location = new System.Drawing.Point(1068, 5);
             this.iconButtonClose.Name = "iconButtonClose";
             this.iconButtonClose.Size = new System.Drawing.Size(20, 20);
             this.iconButtonClose.TabIndex = 0;
@@ -181,10 +179,11 @@ namespace WindowsDesktop.Students
             this.flowLayoutPanelControl.Controls.Add(this.buttonResult);
             this.flowLayoutPanelControl.Controls.Add(this.button3);
             this.flowLayoutPanelControl.Controls.Add(this.button4);
+            this.flowLayoutPanelControl.Controls.Add(this.button1);
             this.flowLayoutPanelControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanelControl.Location = new System.Drawing.Point(0, 30);
             this.flowLayoutPanelControl.Name = "flowLayoutPanelControl";
-            this.flowLayoutPanelControl.Size = new System.Drawing.Size(721, 32);
+            this.flowLayoutPanelControl.Size = new System.Drawing.Size(1096, 32);
             this.flowLayoutPanelControl.TabIndex = 3;
             // 
             // buttonProfile
@@ -236,134 +235,22 @@ namespace WindowsDesktop.Students
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // groupBoxReview
+            // button1
             // 
-            this.groupBoxReview.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBoxReview.Controls.Add(this.panel6);
-            this.groupBoxReview.Controls.Add(this.panel4);
-            this.groupBoxReview.Controls.Add(this.panel5);
-            this.groupBoxReview.Controls.Add(this.panel3);
-            this.groupBoxReview.Controls.Add(this.panel2);
-            this.groupBoxReview.Controls.Add(this.panel1);
-            this.groupBoxReview.Controls.Add(this.label75);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewRoll);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewReg);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewClass);
-            this.groupBoxReview.Controls.Add(this.label76);
-            this.groupBoxReview.Controls.Add(this.label77);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewGrdDetails);
-            this.groupBoxReview.Controls.Add(this.label59);
-            this.groupBoxReview.Controls.Add(this.label60);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewGrdVillage);
-            this.groupBoxReview.Controls.Add(this.label61);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewGrdUnion);
-            this.groupBoxReview.Controls.Add(this.label62);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewGrdUpazila);
-            this.groupBoxReview.Controls.Add(this.label63);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewGrdDistrict);
-            this.groupBoxReview.Controls.Add(this.label64);
-            this.groupBoxReview.Controls.Add(this.label65);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewGrdDivision);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewGrdName);
-            this.groupBoxReview.Controls.Add(this.label66);
-            this.groupBoxReview.Controls.Add(this.label67);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewGrdPhone);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewMotherName);
-            this.groupBoxReview.Controls.Add(this.label68);
-            this.groupBoxReview.Controls.Add(this.label69);
-            this.groupBoxReview.Controls.Add(this.label70);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewMotherNid);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewMotherPhone);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewFatherName);
-            this.groupBoxReview.Controls.Add(this.label71);
-            this.groupBoxReview.Controls.Add(this.label72);
-            this.groupBoxReview.Controls.Add(this.label73);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewFatherNid);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewFatherPhone);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewPerDetails);
-            this.groupBoxReview.Controls.Add(this.label44);
-            this.groupBoxReview.Controls.Add(this.label45);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewPerVillage);
-            this.groupBoxReview.Controls.Add(this.label46);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewPerUnion);
-            this.groupBoxReview.Controls.Add(this.label47);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewPerUpazila);
-            this.groupBoxReview.Controls.Add(this.label48);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewPerDistrict);
-            this.groupBoxReview.Controls.Add(this.label49);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewPerDivision);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewPreDetails);
-            this.groupBoxReview.Controls.Add(this.label51);
-            this.groupBoxReview.Controls.Add(this.label52);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewPreVillage);
-            this.groupBoxReview.Controls.Add(this.label53);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewPreUnion);
-            this.groupBoxReview.Controls.Add(this.label54);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewPreUpazila);
-            this.groupBoxReview.Controls.Add(this.label55);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewPreDistrict);
-            this.groupBoxReview.Controls.Add(this.label56);
-            this.groupBoxReview.Controls.Add(this.comboBoxReviewPreDivision);
-            this.groupBoxReview.Controls.Add(this.label38);
-            this.groupBoxReview.Controls.Add(this.dateTimePickerReviewDob);
-            this.groupBoxReview.Controls.Add(this.label39);
-            this.groupBoxReview.Controls.Add(this.label40);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewNid);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewBirthCertificeate);
-            this.groupBoxReview.Controls.Add(this.label41);
-            this.groupBoxReview.Controls.Add(this.label42);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewPhone);
-            this.groupBoxReview.Controls.Add(this.textBoxReviewFullName);
-            this.groupBoxReview.Controls.Add(this.buttonReviewBack);
-            this.groupBoxReview.Controls.Add(this.buttonSubmit);
-            this.groupBoxReview.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxReview.Location = new System.Drawing.Point(50, 26);
-            this.groupBoxReview.Name = "groupBoxReview";
-            this.groupBoxReview.Size = new System.Drawing.Size(594, 1436);
-            this.groupBoxReview.TabIndex = 37;
-            this.groupBoxReview.TabStop = false;
-            this.groupBoxReview.Visible = false;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label50);
-            this.panel6.Location = new System.Drawing.Point(140, 952);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(280, 33);
-            this.panel6.TabIndex = 148;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(3, 6);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(161, 17);
-            this.label50.TabIndex = 146;
-            this.label50.Text = "Guardian Information";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label43);
-            this.panel4.Location = new System.Drawing.Point(140, 16);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(172, 33);
-            this.panel4.TabIndex = 147;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(3, 7);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(158, 17);
-            this.label43.TabIndex = 44;
-            this.label43.Text = "Personal Information";
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(465, 1);
+            this.button1.Margin = new System.Windows.Forms.Padding(1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 30);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.label57);
-            this.panel5.Location = new System.Drawing.Point(140, 470);
+            this.panel5.Location = new System.Drawing.Point(126, 280);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(172, 33);
             this.panel5.TabIndex = 147;
@@ -378,13 +265,768 @@ namespace WindowsDesktop.Students
             this.label57.TabIndex = 109;
             this.label57.Text = "Permanent Address";
             // 
-            // panel3
+            // label75
             // 
-            this.panel3.Controls.Add(this.label58);
-            this.panel3.Location = new System.Drawing.Point(140, 206);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(172, 33);
-            this.panel3.TabIndex = 147;
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(112, 63);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(32, 13);
+            this.label75.TabIndex = 144;
+            this.label75.Text = "Class";
+            // 
+            // textBoxReviewRoll
+            // 
+            this.textBoxReviewRoll.Location = new System.Drawing.Point(160, 91);
+            this.textBoxReviewRoll.Name = "textBoxReviewRoll";
+            this.textBoxReviewRoll.Size = new System.Drawing.Size(172, 20);
+            this.textBoxReviewRoll.TabIndex = 140;
+            // 
+            // textBoxReviewReg
+            // 
+            this.textBoxReviewReg.CausesValidation = false;
+            this.textBoxReviewReg.Location = new System.Drawing.Point(416, 91);
+            this.textBoxReviewReg.Name = "textBoxReviewReg";
+            this.textBoxReviewReg.Size = new System.Drawing.Size(172, 20);
+            this.textBoxReviewReg.TabIndex = 143;
+            // 
+            // comboBoxReviewClass
+            // 
+            this.comboBoxReviewClass.DisplayMember = "name";
+            this.comboBoxReviewClass.FormattingEnabled = true;
+            this.comboBoxReviewClass.Location = new System.Drawing.Point(160, 59);
+            this.comboBoxReviewClass.Name = "comboBoxReviewClass";
+            this.comboBoxReviewClass.Size = new System.Drawing.Size(428, 21);
+            this.comboBoxReviewClass.TabIndex = 141;
+            this.comboBoxReviewClass.ValueMember = "id";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(354, 94);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(44, 13);
+            this.label76.TabIndex = 142;
+            this.label76.Text = "Reg No";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(100, 94);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(42, 13);
+            this.label77.TabIndex = 139;
+            this.label77.Text = "Roll No";
+            // 
+            // textBoxReviewGrdDetails
+            // 
+            this.textBoxReviewGrdDetails.CausesValidation = false;
+            this.textBoxReviewGrdDetails.Location = new System.Drawing.Point(183, 251);
+            this.textBoxReviewGrdDetails.Multiline = true;
+            this.textBoxReviewGrdDetails.Name = "textBoxReviewGrdDetails";
+            this.textBoxReviewGrdDetails.Size = new System.Drawing.Size(428, 51);
+            this.textBoxReviewGrdDetails.TabIndex = 138;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(183, 231);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(150, 13);
+            this.label59.TabIndex = 137;
+            this.label59.Text = "Details (house #/road # etc...)";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(183, 184);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(38, 13);
+            this.label60.TabIndex = 136;
+            this.label60.Text = "Village";
+            // 
+            // comboBoxReviewGrdVillage
+            // 
+            this.comboBoxReviewGrdVillage.DisplayMember = "name";
+            this.comboBoxReviewGrdVillage.FormattingEnabled = true;
+            this.comboBoxReviewGrdVillage.Location = new System.Drawing.Point(183, 204);
+            this.comboBoxReviewGrdVillage.Name = "comboBoxReviewGrdVillage";
+            this.comboBoxReviewGrdVillage.Size = new System.Drawing.Size(428, 21);
+            this.comboBoxReviewGrdVillage.TabIndex = 135;
+            this.comboBoxReviewGrdVillage.ValueMember = "id";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(402, 137);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(35, 13);
+            this.label61.TabIndex = 134;
+            this.label61.Text = "Union";
+            // 
+            // comboBoxReviewGrdUnion
+            // 
+            this.comboBoxReviewGrdUnion.DisplayMember = "name";
+            this.comboBoxReviewGrdUnion.FormattingEnabled = true;
+            this.comboBoxReviewGrdUnion.Location = new System.Drawing.Point(402, 157);
+            this.comboBoxReviewGrdUnion.Name = "comboBoxReviewGrdUnion";
+            this.comboBoxReviewGrdUnion.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewGrdUnion.TabIndex = 133;
+            this.comboBoxReviewGrdUnion.ValueMember = "id";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(183, 137);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(42, 13);
+            this.label62.TabIndex = 132;
+            this.label62.Text = "Upazila";
+            // 
+            // comboBoxReviewGrdUpazila
+            // 
+            this.comboBoxReviewGrdUpazila.DisplayMember = "name";
+            this.comboBoxReviewGrdUpazila.FormattingEnabled = true;
+            this.comboBoxReviewGrdUpazila.Location = new System.Drawing.Point(183, 157);
+            this.comboBoxReviewGrdUpazila.Name = "comboBoxReviewGrdUpazila";
+            this.comboBoxReviewGrdUpazila.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewGrdUpazila.TabIndex = 131;
+            this.comboBoxReviewGrdUpazila.ValueMember = "id";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(402, 90);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(39, 13);
+            this.label63.TabIndex = 130;
+            this.label63.Text = "District";
+            // 
+            // comboBoxReviewGrdDistrict
+            // 
+            this.comboBoxReviewGrdDistrict.DisplayMember = "name";
+            this.comboBoxReviewGrdDistrict.FormattingEnabled = true;
+            this.comboBoxReviewGrdDistrict.Location = new System.Drawing.Point(402, 110);
+            this.comboBoxReviewGrdDistrict.Name = "comboBoxReviewGrdDistrict";
+            this.comboBoxReviewGrdDistrict.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewGrdDistrict.TabIndex = 129;
+            this.comboBoxReviewGrdDistrict.ValueMember = "id";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(183, 90);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(44, 13);
+            this.label64.TabIndex = 128;
+            this.label64.Text = "Division";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(55, 90);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(91, 13);
+            this.label65.TabIndex = 127;
+            this.label65.Text = "Guardian Address";
+            // 
+            // comboBoxReviewGrdDivision
+            // 
+            this.comboBoxReviewGrdDivision.DisplayMember = "name";
+            this.comboBoxReviewGrdDivision.FormattingEnabled = true;
+            this.comboBoxReviewGrdDivision.Location = new System.Drawing.Point(183, 110);
+            this.comboBoxReviewGrdDivision.Name = "comboBoxReviewGrdDivision";
+            this.comboBoxReviewGrdDivision.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewGrdDivision.TabIndex = 126;
+            this.comboBoxReviewGrdDivision.ValueMember = "id";
+            // 
+            // textBoxReviewGrdName
+            // 
+            this.textBoxReviewGrdName.Location = new System.Drawing.Point(183, 35);
+            this.textBoxReviewGrdName.Name = "textBoxReviewGrdName";
+            this.textBoxReviewGrdName.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewGrdName.TabIndex = 123;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(70, 38);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(81, 13);
+            this.label66.TabIndex = 122;
+            this.label66.Text = "Guardian Name";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(66, 67);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(84, 13);
+            this.label67.TabIndex = 124;
+            this.label67.Text = "Guardian Phone";
+            // 
+            // textBoxReviewGrdPhone
+            // 
+            this.textBoxReviewGrdPhone.Location = new System.Drawing.Point(183, 64);
+            this.textBoxReviewGrdPhone.Name = "textBoxReviewGrdPhone";
+            this.textBoxReviewGrdPhone.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewGrdPhone.TabIndex = 125;
+            // 
+            // textBoxReviewMotherName
+            // 
+            this.textBoxReviewMotherName.Location = new System.Drawing.Point(183, 125);
+            this.textBoxReviewMotherName.Name = "textBoxReviewMotherName";
+            this.textBoxReviewMotherName.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewMotherName.TabIndex = 117;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(75, 128);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(78, 13);
+            this.label68.TabIndex = 116;
+            this.label68.Text = "Mother\'s Name";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(89, 186);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(69, 13);
+            this.label69.TabIndex = 120;
+            this.label69.Text = "Mother\'s NID";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(71, 157);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(81, 13);
+            this.label70.TabIndex = 118;
+            this.label70.Text = "Mother\'s Phone";
+            // 
+            // textBoxReviewMotherNid
+            // 
+            this.textBoxReviewMotherNid.CausesValidation = false;
+            this.textBoxReviewMotherNid.Location = new System.Drawing.Point(183, 183);
+            this.textBoxReviewMotherNid.Name = "textBoxReviewMotherNid";
+            this.textBoxReviewMotherNid.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewMotherNid.TabIndex = 121;
+            // 
+            // textBoxReviewMotherPhone
+            // 
+            this.textBoxReviewMotherPhone.CausesValidation = false;
+            this.textBoxReviewMotherPhone.Location = new System.Drawing.Point(183, 154);
+            this.textBoxReviewMotherPhone.Name = "textBoxReviewMotherPhone";
+            this.textBoxReviewMotherPhone.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewMotherPhone.TabIndex = 119;
+            // 
+            // textBoxReviewFatherName
+            // 
+            this.textBoxReviewFatherName.Location = new System.Drawing.Point(183, 38);
+            this.textBoxReviewFatherName.Name = "textBoxReviewFatherName";
+            this.textBoxReviewFatherName.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewFatherName.TabIndex = 111;
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(78, 41);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(75, 13);
+            this.label71.TabIndex = 110;
+            this.label71.Text = "Father\'s Name";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(92, 99);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(66, 13);
+            this.label72.TabIndex = 114;
+            this.label72.Text = "Father\'s NID";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(74, 70);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(78, 13);
+            this.label73.TabIndex = 112;
+            this.label73.Text = "Father\'s Phone";
+            // 
+            // textBoxReviewFatherNid
+            // 
+            this.textBoxReviewFatherNid.CausesValidation = false;
+            this.textBoxReviewFatherNid.Location = new System.Drawing.Point(183, 96);
+            this.textBoxReviewFatherNid.Name = "textBoxReviewFatherNid";
+            this.textBoxReviewFatherNid.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewFatherNid.TabIndex = 115;
+            // 
+            // textBoxReviewFatherPhone
+            // 
+            this.textBoxReviewFatherPhone.Location = new System.Drawing.Point(183, 67);
+            this.textBoxReviewFatherPhone.Name = "textBoxReviewFatherPhone";
+            this.textBoxReviewFatherPhone.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewFatherPhone.TabIndex = 113;
+            // 
+            // textBoxReviewPerDetails
+            // 
+            this.textBoxReviewPerDetails.Location = new System.Drawing.Point(126, 476);
+            this.textBoxReviewPerDetails.Multiline = true;
+            this.textBoxReviewPerDetails.Name = "textBoxReviewPerDetails";
+            this.textBoxReviewPerDetails.Size = new System.Drawing.Size(428, 51);
+            this.textBoxReviewPerDetails.TabIndex = 107;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(126, 456);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(150, 13);
+            this.label44.TabIndex = 106;
+            this.label44.Text = "Details (house #/road # etc...)";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(126, 409);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(38, 13);
+            this.label45.TabIndex = 105;
+            this.label45.Text = "Village";
+            // 
+            // comboBoxReviewPerVillage
+            // 
+            this.comboBoxReviewPerVillage.DisplayMember = "name";
+            this.comboBoxReviewPerVillage.FormattingEnabled = true;
+            this.comboBoxReviewPerVillage.Location = new System.Drawing.Point(126, 429);
+            this.comboBoxReviewPerVillage.Name = "comboBoxReviewPerVillage";
+            this.comboBoxReviewPerVillage.Size = new System.Drawing.Size(428, 21);
+            this.comboBoxReviewPerVillage.TabIndex = 104;
+            this.comboBoxReviewPerVillage.ValueMember = "id";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(345, 362);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(35, 13);
+            this.label46.TabIndex = 103;
+            this.label46.Text = "Union";
+            // 
+            // comboBoxReviewPerUnion
+            // 
+            this.comboBoxReviewPerUnion.DisplayMember = "name";
+            this.comboBoxReviewPerUnion.FormattingEnabled = true;
+            this.comboBoxReviewPerUnion.Location = new System.Drawing.Point(345, 382);
+            this.comboBoxReviewPerUnion.Name = "comboBoxReviewPerUnion";
+            this.comboBoxReviewPerUnion.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPerUnion.TabIndex = 102;
+            this.comboBoxReviewPerUnion.ValueMember = "id";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(126, 362);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(42, 13);
+            this.label47.TabIndex = 101;
+            this.label47.Text = "Upazila";
+            // 
+            // comboBoxReviewPerUpazila
+            // 
+            this.comboBoxReviewPerUpazila.DisplayMember = "name";
+            this.comboBoxReviewPerUpazila.FormattingEnabled = true;
+            this.comboBoxReviewPerUpazila.Location = new System.Drawing.Point(126, 382);
+            this.comboBoxReviewPerUpazila.Name = "comboBoxReviewPerUpazila";
+            this.comboBoxReviewPerUpazila.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPerUpazila.TabIndex = 100;
+            this.comboBoxReviewPerUpazila.ValueMember = "id";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(345, 315);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(39, 13);
+            this.label48.TabIndex = 99;
+            this.label48.Text = "District";
+            // 
+            // comboBoxReviewPerDistrict
+            // 
+            this.comboBoxReviewPerDistrict.DisplayMember = "name";
+            this.comboBoxReviewPerDistrict.FormattingEnabled = true;
+            this.comboBoxReviewPerDistrict.Location = new System.Drawing.Point(345, 335);
+            this.comboBoxReviewPerDistrict.Name = "comboBoxReviewPerDistrict";
+            this.comboBoxReviewPerDistrict.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPerDistrict.TabIndex = 98;
+            this.comboBoxReviewPerDistrict.ValueMember = "id";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(126, 315);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(44, 13);
+            this.label49.TabIndex = 97;
+            this.label49.Text = "Division";
+            // 
+            // comboBoxReviewPerDivision
+            // 
+            this.comboBoxReviewPerDivision.DisplayMember = "name";
+            this.comboBoxReviewPerDivision.FormattingEnabled = true;
+            this.comboBoxReviewPerDivision.Location = new System.Drawing.Point(126, 335);
+            this.comboBoxReviewPerDivision.Name = "comboBoxReviewPerDivision";
+            this.comboBoxReviewPerDivision.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPerDivision.TabIndex = 95;
+            this.comboBoxReviewPerDivision.ValueMember = "id";
+            // 
+            // textBoxReviewPreDetails
+            // 
+            this.textBoxReviewPreDetails.Location = new System.Drawing.Point(126, 212);
+            this.textBoxReviewPreDetails.Multiline = true;
+            this.textBoxReviewPreDetails.Name = "textBoxReviewPreDetails";
+            this.textBoxReviewPreDetails.Size = new System.Drawing.Size(428, 51);
+            this.textBoxReviewPreDetails.TabIndex = 94;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(126, 192);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(150, 13);
+            this.label51.TabIndex = 93;
+            this.label51.Text = "Details (house #/road # etc...)";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(126, 145);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(38, 13);
+            this.label52.TabIndex = 92;
+            this.label52.Text = "Village";
+            // 
+            // comboBoxReviewPreVillage
+            // 
+            this.comboBoxReviewPreVillage.DisplayMember = "name";
+            this.comboBoxReviewPreVillage.FormattingEnabled = true;
+            this.comboBoxReviewPreVillage.Location = new System.Drawing.Point(126, 165);
+            this.comboBoxReviewPreVillage.Name = "comboBoxReviewPreVillage";
+            this.comboBoxReviewPreVillage.Size = new System.Drawing.Size(428, 21);
+            this.comboBoxReviewPreVillage.TabIndex = 91;
+            this.comboBoxReviewPreVillage.ValueMember = "id";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(345, 98);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(35, 13);
+            this.label53.TabIndex = 90;
+            this.label53.Text = "Union";
+            // 
+            // comboBoxReviewPreUnion
+            // 
+            this.comboBoxReviewPreUnion.DisplayMember = "name";
+            this.comboBoxReviewPreUnion.FormattingEnabled = true;
+            this.comboBoxReviewPreUnion.Location = new System.Drawing.Point(345, 118);
+            this.comboBoxReviewPreUnion.Name = "comboBoxReviewPreUnion";
+            this.comboBoxReviewPreUnion.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPreUnion.TabIndex = 89;
+            this.comboBoxReviewPreUnion.ValueMember = "id";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(126, 98);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(42, 13);
+            this.label54.TabIndex = 88;
+            this.label54.Text = "Upazila";
+            // 
+            // comboBoxReviewPreUpazila
+            // 
+            this.comboBoxReviewPreUpazila.DisplayMember = "name";
+            this.comboBoxReviewPreUpazila.FormattingEnabled = true;
+            this.comboBoxReviewPreUpazila.Location = new System.Drawing.Point(126, 118);
+            this.comboBoxReviewPreUpazila.Name = "comboBoxReviewPreUpazila";
+            this.comboBoxReviewPreUpazila.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPreUpazila.TabIndex = 87;
+            this.comboBoxReviewPreUpazila.ValueMember = "id";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(345, 51);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(39, 13);
+            this.label55.TabIndex = 86;
+            this.label55.Text = "District";
+            // 
+            // comboBoxReviewPreDistrict
+            // 
+            this.comboBoxReviewPreDistrict.DisplayMember = "name";
+            this.comboBoxReviewPreDistrict.FormattingEnabled = true;
+            this.comboBoxReviewPreDistrict.Location = new System.Drawing.Point(345, 71);
+            this.comboBoxReviewPreDistrict.Name = "comboBoxReviewPreDistrict";
+            this.comboBoxReviewPreDistrict.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPreDistrict.TabIndex = 85;
+            this.comboBoxReviewPreDistrict.ValueMember = "id";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(126, 51);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(44, 13);
+            this.label56.TabIndex = 84;
+            this.label56.Text = "Division";
+            // 
+            // comboBoxReviewPreDivision
+            // 
+            this.comboBoxReviewPreDivision.DisplayMember = "name";
+            this.comboBoxReviewPreDivision.FormattingEnabled = true;
+            this.comboBoxReviewPreDivision.Location = new System.Drawing.Point(126, 71);
+            this.comboBoxReviewPreDivision.Name = "comboBoxReviewPreDivision";
+            this.comboBoxReviewPreDivision.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPreDivision.TabIndex = 82;
+            this.comboBoxReviewPreDivision.ValueMember = "id";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(95, 152);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(66, 13);
+            this.label38.TabIndex = 42;
+            this.label38.Text = "Date of Birth";
+            // 
+            // dateTimePickerReviewDob
+            // 
+            this.dateTimePickerReviewDob.Location = new System.Drawing.Point(188, 149);
+            this.dateTimePickerReviewDob.Name = "dateTimePickerReviewDob";
+            this.dateTimePickerReviewDob.Size = new System.Drawing.Size(172, 20);
+            this.dateTimePickerReviewDob.TabIndex = 38;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(151, 123);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(26, 13);
+            this.label39.TabIndex = 43;
+            this.label39.Text = "NID";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(78, 94);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(78, 13);
+            this.label40.TabIndex = 41;
+            this.label40.Text = "Birth Certificate";
+            // 
+            // textBoxReviewNid
+            // 
+            this.textBoxReviewNid.Location = new System.Drawing.Point(188, 120);
+            this.textBoxReviewNid.Name = "textBoxReviewNid";
+            this.textBoxReviewNid.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewNid.TabIndex = 37;
+            // 
+            // textBoxReviewBirthCertificeate
+            // 
+            this.textBoxReviewBirthCertificeate.Location = new System.Drawing.Point(188, 91);
+            this.textBoxReviewBirthCertificeate.Name = "textBoxReviewBirthCertificeate";
+            this.textBoxReviewBirthCertificeate.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewBirthCertificeate.TabIndex = 36;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(111, 65);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(55, 13);
+            this.label41.TabIndex = 40;
+            this.label41.Text = "Phone No";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(111, 36);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(54, 13);
+            this.label42.TabIndex = 39;
+            this.label42.Text = "Full Name";
+            // 
+            // textBoxReviewPhone
+            // 
+            this.textBoxReviewPhone.CausesValidation = false;
+            this.textBoxReviewPhone.Location = new System.Drawing.Point(188, 62);
+            this.textBoxReviewPhone.Name = "textBoxReviewPhone";
+            this.textBoxReviewPhone.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewPhone.TabIndex = 35;
+            // 
+            // textBoxReviewFullName
+            // 
+            this.textBoxReviewFullName.Location = new System.Drawing.Point(188, 33);
+            this.textBoxReviewFullName.Name = "textBoxReviewFullName";
+            this.textBoxReviewFullName.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewFullName.TabIndex = 34;
+            // 
+            // panelBody
+            // 
+            this.panelBody.AutoScroll = true;
+            this.panelBody.Controls.Add(this.tabControlProfile);
+            this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBody.Location = new System.Drawing.Point(0, 82);
+            this.panelBody.Name = "panelBody";
+            this.panelBody.Size = new System.Drawing.Size(1096, 691);
+            this.panelBody.TabIndex = 38;
+            // 
+            // tabControlProfile
+            // 
+            this.tabControlProfile.Controls.Add(this.tabPagePersonalInformation);
+            this.tabControlProfile.Controls.Add(this.tabPageParentInfo);
+            this.tabControlProfile.Controls.Add(this.tabPageGuardianInfo);
+            this.tabControlProfile.Controls.Add(this.tabPageAddress);
+            this.tabControlProfile.Controls.Add(this.tabPageAcademic);
+            this.tabControlProfile.Location = new System.Drawing.Point(69, 27);
+            this.tabControlProfile.Name = "tabControlProfile";
+            this.tabControlProfile.SelectedIndex = 0;
+            this.tabControlProfile.Size = new System.Drawing.Size(837, 591);
+            this.tabControlProfile.TabIndex = 38;
+            // 
+            // tabPagePersonalInformation
+            // 
+            this.tabPagePersonalInformation.Controls.Add(this.textBoxReviewFullName);
+            this.tabPagePersonalInformation.Controls.Add(this.textBoxReviewPhone);
+            this.tabPagePersonalInformation.Controls.Add(this.label42);
+            this.tabPagePersonalInformation.Controls.Add(this.label41);
+            this.tabPagePersonalInformation.Controls.Add(this.textBoxReviewBirthCertificeate);
+            this.tabPagePersonalInformation.Controls.Add(this.textBoxReviewNid);
+            this.tabPagePersonalInformation.Controls.Add(this.label40);
+            this.tabPagePersonalInformation.Controls.Add(this.label39);
+            this.tabPagePersonalInformation.Controls.Add(this.dateTimePickerReviewDob);
+            this.tabPagePersonalInformation.Controls.Add(this.label38);
+            this.tabPagePersonalInformation.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePersonalInformation.Name = "tabPagePersonalInformation";
+            this.tabPagePersonalInformation.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePersonalInformation.Size = new System.Drawing.Size(829, 565);
+            this.tabPagePersonalInformation.TabIndex = 0;
+            this.tabPagePersonalInformation.Text = "Personal Information";
+            this.tabPagePersonalInformation.UseVisualStyleBackColor = true;
+            // 
+            // tabPageAddress
+            // 
+            this.tabPageAddress.AutoScroll = true;
+            this.tabPageAddress.Controls.Add(this.panel3);
+            this.tabPageAddress.Controls.Add(this.panel5);
+            this.tabPageAddress.Controls.Add(this.comboBoxReviewPreDivision);
+            this.tabPageAddress.Controls.Add(this.label56);
+            this.tabPageAddress.Controls.Add(this.comboBoxReviewPreDistrict);
+            this.tabPageAddress.Controls.Add(this.label55);
+            this.tabPageAddress.Controls.Add(this.comboBoxReviewPreUpazila);
+            this.tabPageAddress.Controls.Add(this.label54);
+            this.tabPageAddress.Controls.Add(this.comboBoxReviewPreUnion);
+            this.tabPageAddress.Controls.Add(this.label53);
+            this.tabPageAddress.Controls.Add(this.comboBoxReviewPreVillage);
+            this.tabPageAddress.Controls.Add(this.label52);
+            this.tabPageAddress.Controls.Add(this.label51);
+            this.tabPageAddress.Controls.Add(this.textBoxReviewPreDetails);
+            this.tabPageAddress.Controls.Add(this.comboBoxReviewPerDivision);
+            this.tabPageAddress.Controls.Add(this.label49);
+            this.tabPageAddress.Controls.Add(this.comboBoxReviewPerDistrict);
+            this.tabPageAddress.Controls.Add(this.label48);
+            this.tabPageAddress.Controls.Add(this.comboBoxReviewPerUpazila);
+            this.tabPageAddress.Controls.Add(this.label47);
+            this.tabPageAddress.Controls.Add(this.comboBoxReviewPerUnion);
+            this.tabPageAddress.Controls.Add(this.label46);
+            this.tabPageAddress.Controls.Add(this.comboBoxReviewPerVillage);
+            this.tabPageAddress.Controls.Add(this.label45);
+            this.tabPageAddress.Controls.Add(this.label44);
+            this.tabPageAddress.Controls.Add(this.textBoxReviewPerDetails);
+            this.tabPageAddress.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAddress.Name = "tabPageAddress";
+            this.tabPageAddress.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAddress.Size = new System.Drawing.Size(829, 565);
+            this.tabPageAddress.TabIndex = 1;
+            this.tabPageAddress.Text = "Address";
+            this.tabPageAddress.UseVisualStyleBackColor = true;
+            // 
+            // tabPageParentInfo
+            // 
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewFatherName);
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewFatherPhone);
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewFatherNid);
+            this.tabPageParentInfo.Controls.Add(this.label73);
+            this.tabPageParentInfo.Controls.Add(this.label72);
+            this.tabPageParentInfo.Controls.Add(this.label71);
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewMotherPhone);
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewMotherNid);
+            this.tabPageParentInfo.Controls.Add(this.label70);
+            this.tabPageParentInfo.Controls.Add(this.label69);
+            this.tabPageParentInfo.Controls.Add(this.label68);
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewMotherName);
+            this.tabPageParentInfo.Location = new System.Drawing.Point(4, 22);
+            this.tabPageParentInfo.Name = "tabPageParentInfo";
+            this.tabPageParentInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageParentInfo.Size = new System.Drawing.Size(829, 565);
+            this.tabPageParentInfo.TabIndex = 2;
+            this.tabPageParentInfo.Text = "Parent Information";
+            this.tabPageParentInfo.UseVisualStyleBackColor = true;
+            // 
+            // tabPageGuardianInfo
+            // 
+            this.tabPageGuardianInfo.Controls.Add(this.textBoxReviewGrdPhone);
+            this.tabPageGuardianInfo.Controls.Add(this.label67);
+            this.tabPageGuardianInfo.Controls.Add(this.label66);
+            this.tabPageGuardianInfo.Controls.Add(this.textBoxReviewGrdName);
+            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdDivision);
+            this.tabPageGuardianInfo.Controls.Add(this.label65);
+            this.tabPageGuardianInfo.Controls.Add(this.label64);
+            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdDistrict);
+            this.tabPageGuardianInfo.Controls.Add(this.textBoxReviewGrdDetails);
+            this.tabPageGuardianInfo.Controls.Add(this.label63);
+            this.tabPageGuardianInfo.Controls.Add(this.label59);
+            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdUpazila);
+            this.tabPageGuardianInfo.Controls.Add(this.label60);
+            this.tabPageGuardianInfo.Controls.Add(this.label62);
+            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdVillage);
+            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdUnion);
+            this.tabPageGuardianInfo.Controls.Add(this.label61);
+            this.tabPageGuardianInfo.Location = new System.Drawing.Point(4, 22);
+            this.tabPageGuardianInfo.Name = "tabPageGuardianInfo";
+            this.tabPageGuardianInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageGuardianInfo.Size = new System.Drawing.Size(829, 565);
+            this.tabPageGuardianInfo.TabIndex = 3;
+            this.tabPageGuardianInfo.Text = "Guardian Information";
+            this.tabPageGuardianInfo.UseVisualStyleBackColor = true;
+            // 
+            // tabPageAcademic
+            // 
+            this.tabPageAcademic.Controls.Add(this.textBoxReviewRoll);
+            this.tabPageAcademic.Controls.Add(this.label75);
+            this.tabPageAcademic.Controls.Add(this.label77);
+            this.tabPageAcademic.Controls.Add(this.label76);
+            this.tabPageAcademic.Controls.Add(this.textBoxReviewReg);
+            this.tabPageAcademic.Controls.Add(this.comboBoxReviewClass);
+            this.tabPageAcademic.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAcademic.Name = "tabPageAcademic";
+            this.tabPageAcademic.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAcademic.Size = new System.Drawing.Size(829, 565);
+            this.tabPageAcademic.TabIndex = 4;
+            this.tabPageAcademic.Text = "Academic";
+            this.tabPageAcademic.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 62);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1096, 20);
+            this.panel7.TabIndex = 38;
             // 
             // label58
             // 
@@ -396,723 +1038,22 @@ namespace WindowsDesktop.Students
             this.label58.TabIndex = 109;
             this.label58.Text = "Present Address";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label79);
-            this.panel2.Location = new System.Drawing.Point(140, 735);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(280, 33);
-            this.panel2.TabIndex = 147;
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label79.Location = new System.Drawing.Point(3, 6);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(142, 17);
-            this.label79.TabIndex = 146;
-            this.label79.Text = "Parent Information";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label78);
-            this.panel1.Location = new System.Drawing.Point(140, 1264);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(131, 33);
-            this.panel1.TabIndex = 147;
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label78.Location = new System.Drawing.Point(3, 6);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(77, 17);
-            this.label78.TabIndex = 146;
-            this.label78.Text = "Academic";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(92, 1301);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(42, 17);
-            this.label75.TabIndex = 144;
-            this.label75.Text = "Class";
-            // 
-            // textBoxReviewRoll
-            // 
-            this.textBoxReviewRoll.Enabled = false;
-            this.textBoxReviewRoll.Location = new System.Drawing.Point(140, 1329);
-            this.textBoxReviewRoll.Name = "textBoxReviewRoll";
-            this.textBoxReviewRoll.Size = new System.Drawing.Size(172, 23);
-            this.textBoxReviewRoll.TabIndex = 140;
-            // 
-            // textBoxReviewReg
-            // 
-            this.textBoxReviewReg.CausesValidation = false;
-            this.textBoxReviewReg.Enabled = false;
-            this.textBoxReviewReg.Location = new System.Drawing.Point(396, 1329);
-            this.textBoxReviewReg.Name = "textBoxReviewReg";
-            this.textBoxReviewReg.Size = new System.Drawing.Size(172, 23);
-            this.textBoxReviewReg.TabIndex = 143;
-            // 
-            // comboBoxReviewClass
-            // 
-            this.comboBoxReviewClass.DisplayMember = "name";
-            this.comboBoxReviewClass.Enabled = false;
-            this.comboBoxReviewClass.FormattingEnabled = true;
-            this.comboBoxReviewClass.Location = new System.Drawing.Point(140, 1297);
-            this.comboBoxReviewClass.Name = "comboBoxReviewClass";
-            this.comboBoxReviewClass.Size = new System.Drawing.Size(428, 24);
-            this.comboBoxReviewClass.TabIndex = 141;
-            this.comboBoxReviewClass.ValueMember = "id";
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(334, 1332);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(56, 17);
-            this.label76.TabIndex = 142;
-            this.label76.Text = "Reg No";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(80, 1332);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(54, 17);
-            this.label77.TabIndex = 139;
-            this.label77.Text = "Roll No";
-            // 
-            // textBoxReviewGrdDetails
-            // 
-            this.textBoxReviewGrdDetails.CausesValidation = false;
-            this.textBoxReviewGrdDetails.Enabled = false;
-            this.textBoxReviewGrdDetails.Location = new System.Drawing.Point(140, 1201);
-            this.textBoxReviewGrdDetails.Multiline = true;
-            this.textBoxReviewGrdDetails.Name = "textBoxReviewGrdDetails";
-            this.textBoxReviewGrdDetails.Size = new System.Drawing.Size(428, 51);
-            this.textBoxReviewGrdDetails.TabIndex = 138;
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(140, 1181);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(196, 17);
-            this.label59.TabIndex = 137;
-            this.label59.Text = "Details (house #/road # etc...)";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(140, 1134);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(50, 17);
-            this.label60.TabIndex = 136;
-            this.label60.Text = "Village";
-            // 
-            // comboBoxReviewGrdVillage
-            // 
-            this.comboBoxReviewGrdVillage.DisplayMember = "name";
-            this.comboBoxReviewGrdVillage.Enabled = false;
-            this.comboBoxReviewGrdVillage.FormattingEnabled = true;
-            this.comboBoxReviewGrdVillage.Location = new System.Drawing.Point(140, 1154);
-            this.comboBoxReviewGrdVillage.Name = "comboBoxReviewGrdVillage";
-            this.comboBoxReviewGrdVillage.Size = new System.Drawing.Size(428, 24);
-            this.comboBoxReviewGrdVillage.TabIndex = 135;
-            this.comboBoxReviewGrdVillage.ValueMember = "id";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(359, 1087);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(45, 17);
-            this.label61.TabIndex = 134;
-            this.label61.Text = "Union";
-            // 
-            // comboBoxReviewGrdUnion
-            // 
-            this.comboBoxReviewGrdUnion.DisplayMember = "name";
-            this.comboBoxReviewGrdUnion.Enabled = false;
-            this.comboBoxReviewGrdUnion.FormattingEnabled = true;
-            this.comboBoxReviewGrdUnion.Location = new System.Drawing.Point(359, 1107);
-            this.comboBoxReviewGrdUnion.Name = "comboBoxReviewGrdUnion";
-            this.comboBoxReviewGrdUnion.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewGrdUnion.TabIndex = 133;
-            this.comboBoxReviewGrdUnion.ValueMember = "id";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(140, 1087);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(55, 17);
-            this.label62.TabIndex = 132;
-            this.label62.Text = "Upazila";
-            // 
-            // comboBoxReviewGrdUpazila
-            // 
-            this.comboBoxReviewGrdUpazila.DisplayMember = "name";
-            this.comboBoxReviewGrdUpazila.Enabled = false;
-            this.comboBoxReviewGrdUpazila.FormattingEnabled = true;
-            this.comboBoxReviewGrdUpazila.Location = new System.Drawing.Point(140, 1107);
-            this.comboBoxReviewGrdUpazila.Name = "comboBoxReviewGrdUpazila";
-            this.comboBoxReviewGrdUpazila.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewGrdUpazila.TabIndex = 131;
-            this.comboBoxReviewGrdUpazila.ValueMember = "id";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(359, 1040);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(51, 17);
-            this.label63.TabIndex = 130;
-            this.label63.Text = "District";
-            // 
-            // comboBoxReviewGrdDistrict
-            // 
-            this.comboBoxReviewGrdDistrict.DisplayMember = "name";
-            this.comboBoxReviewGrdDistrict.Enabled = false;
-            this.comboBoxReviewGrdDistrict.FormattingEnabled = true;
-            this.comboBoxReviewGrdDistrict.Location = new System.Drawing.Point(359, 1060);
-            this.comboBoxReviewGrdDistrict.Name = "comboBoxReviewGrdDistrict";
-            this.comboBoxReviewGrdDistrict.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewGrdDistrict.TabIndex = 129;
-            this.comboBoxReviewGrdDistrict.ValueMember = "id";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(140, 1040);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(57, 17);
-            this.label64.TabIndex = 128;
-            this.label64.Text = "Division";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(12, 1040);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(123, 17);
-            this.label65.TabIndex = 127;
-            this.label65.Text = "Guardian Address";
-            // 
-            // comboBoxReviewGrdDivision
-            // 
-            this.comboBoxReviewGrdDivision.DisplayMember = "name";
-            this.comboBoxReviewGrdDivision.Enabled = false;
-            this.comboBoxReviewGrdDivision.FormattingEnabled = true;
-            this.comboBoxReviewGrdDivision.Location = new System.Drawing.Point(140, 1060);
-            this.comboBoxReviewGrdDivision.Name = "comboBoxReviewGrdDivision";
-            this.comboBoxReviewGrdDivision.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewGrdDivision.TabIndex = 126;
-            this.comboBoxReviewGrdDivision.ValueMember = "id";
-            // 
-            // textBoxReviewGrdName
-            // 
-            this.textBoxReviewGrdName.Enabled = false;
-            this.textBoxReviewGrdName.Location = new System.Drawing.Point(140, 985);
-            this.textBoxReviewGrdName.Name = "textBoxReviewGrdName";
-            this.textBoxReviewGrdName.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewGrdName.TabIndex = 123;
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(27, 988);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(108, 17);
-            this.label66.TabIndex = 122;
-            this.label66.Text = "Guardian Name";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(23, 1017);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(112, 17);
-            this.label67.TabIndex = 124;
-            this.label67.Text = "Guardian Phone";
-            // 
-            // textBoxReviewGrdPhone
-            // 
-            this.textBoxReviewGrdPhone.Enabled = false;
-            this.textBoxReviewGrdPhone.Location = new System.Drawing.Point(140, 1014);
-            this.textBoxReviewGrdPhone.Name = "textBoxReviewGrdPhone";
-            this.textBoxReviewGrdPhone.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewGrdPhone.TabIndex = 125;
-            // 
-            // textBoxReviewMotherName
-            // 
-            this.textBoxReviewMotherName.Enabled = false;
-            this.textBoxReviewMotherName.Location = new System.Drawing.Point(140, 855);
-            this.textBoxReviewMotherName.Name = "textBoxReviewMotherName";
-            this.textBoxReviewMotherName.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewMotherName.TabIndex = 117;
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(32, 858);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(103, 17);
-            this.label68.TabIndex = 116;
-            this.label68.Text = "Mother\'s Name";
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(46, 916);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(89, 17);
-            this.label69.TabIndex = 120;
-            this.label69.Text = "Mother\'s NID";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(28, 887);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(107, 17);
-            this.label70.TabIndex = 118;
-            this.label70.Text = "Mother\'s Phone";
-            // 
-            // textBoxReviewMotherNid
-            // 
-            this.textBoxReviewMotherNid.CausesValidation = false;
-            this.textBoxReviewMotherNid.Enabled = false;
-            this.textBoxReviewMotherNid.Location = new System.Drawing.Point(140, 913);
-            this.textBoxReviewMotherNid.Name = "textBoxReviewMotherNid";
-            this.textBoxReviewMotherNid.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewMotherNid.TabIndex = 121;
-            // 
-            // textBoxReviewMotherPhone
-            // 
-            this.textBoxReviewMotherPhone.CausesValidation = false;
-            this.textBoxReviewMotherPhone.Enabled = false;
-            this.textBoxReviewMotherPhone.Location = new System.Drawing.Point(140, 884);
-            this.textBoxReviewMotherPhone.Name = "textBoxReviewMotherPhone";
-            this.textBoxReviewMotherPhone.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewMotherPhone.TabIndex = 119;
-            // 
-            // textBoxReviewFatherName
-            // 
-            this.textBoxReviewFatherName.Enabled = false;
-            this.textBoxReviewFatherName.Location = new System.Drawing.Point(140, 768);
-            this.textBoxReviewFatherName.Name = "textBoxReviewFatherName";
-            this.textBoxReviewFatherName.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewFatherName.TabIndex = 111;
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(35, 771);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(100, 17);
-            this.label71.TabIndex = 110;
-            this.label71.Text = "Father\'s Name";
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(49, 829);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(86, 17);
-            this.label72.TabIndex = 114;
-            this.label72.Text = "Father\'s NID";
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(31, 800);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(104, 17);
-            this.label73.TabIndex = 112;
-            this.label73.Text = "Father\'s Phone";
-            // 
-            // textBoxReviewFatherNid
-            // 
-            this.textBoxReviewFatherNid.CausesValidation = false;
-            this.textBoxReviewFatherNid.Enabled = false;
-            this.textBoxReviewFatherNid.Location = new System.Drawing.Point(140, 826);
-            this.textBoxReviewFatherNid.Name = "textBoxReviewFatherNid";
-            this.textBoxReviewFatherNid.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewFatherNid.TabIndex = 115;
-            // 
-            // textBoxReviewFatherPhone
-            // 
-            this.textBoxReviewFatherPhone.Enabled = false;
-            this.textBoxReviewFatherPhone.Location = new System.Drawing.Point(140, 797);
-            this.textBoxReviewFatherPhone.Name = "textBoxReviewFatherPhone";
-            this.textBoxReviewFatherPhone.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewFatherPhone.TabIndex = 113;
-            // 
-            // textBoxReviewPerDetails
-            // 
-            this.textBoxReviewPerDetails.Enabled = false;
-            this.textBoxReviewPerDetails.Location = new System.Drawing.Point(140, 666);
-            this.textBoxReviewPerDetails.Multiline = true;
-            this.textBoxReviewPerDetails.Name = "textBoxReviewPerDetails";
-            this.textBoxReviewPerDetails.Size = new System.Drawing.Size(428, 51);
-            this.textBoxReviewPerDetails.TabIndex = 107;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(140, 646);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(196, 17);
-            this.label44.TabIndex = 106;
-            this.label44.Text = "Details (house #/road # etc...)";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(140, 599);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(50, 17);
-            this.label45.TabIndex = 105;
-            this.label45.Text = "Village";
-            // 
-            // comboBoxReviewPerVillage
-            // 
-            this.comboBoxReviewPerVillage.DisplayMember = "name";
-            this.comboBoxReviewPerVillage.Enabled = false;
-            this.comboBoxReviewPerVillage.FormattingEnabled = true;
-            this.comboBoxReviewPerVillage.Location = new System.Drawing.Point(140, 619);
-            this.comboBoxReviewPerVillage.Name = "comboBoxReviewPerVillage";
-            this.comboBoxReviewPerVillage.Size = new System.Drawing.Size(428, 24);
-            this.comboBoxReviewPerVillage.TabIndex = 104;
-            this.comboBoxReviewPerVillage.ValueMember = "id";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(359, 552);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(45, 17);
-            this.label46.TabIndex = 103;
-            this.label46.Text = "Union";
-            // 
-            // comboBoxReviewPerUnion
-            // 
-            this.comboBoxReviewPerUnion.DisplayMember = "name";
-            this.comboBoxReviewPerUnion.Enabled = false;
-            this.comboBoxReviewPerUnion.FormattingEnabled = true;
-            this.comboBoxReviewPerUnion.Location = new System.Drawing.Point(359, 572);
-            this.comboBoxReviewPerUnion.Name = "comboBoxReviewPerUnion";
-            this.comboBoxReviewPerUnion.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewPerUnion.TabIndex = 102;
-            this.comboBoxReviewPerUnion.ValueMember = "id";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(140, 552);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(55, 17);
-            this.label47.TabIndex = 101;
-            this.label47.Text = "Upazila";
-            // 
-            // comboBoxReviewPerUpazila
-            // 
-            this.comboBoxReviewPerUpazila.DisplayMember = "name";
-            this.comboBoxReviewPerUpazila.Enabled = false;
-            this.comboBoxReviewPerUpazila.FormattingEnabled = true;
-            this.comboBoxReviewPerUpazila.Location = new System.Drawing.Point(140, 572);
-            this.comboBoxReviewPerUpazila.Name = "comboBoxReviewPerUpazila";
-            this.comboBoxReviewPerUpazila.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewPerUpazila.TabIndex = 100;
-            this.comboBoxReviewPerUpazila.ValueMember = "id";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(359, 505);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(51, 17);
-            this.label48.TabIndex = 99;
-            this.label48.Text = "District";
-            // 
-            // comboBoxReviewPerDistrict
-            // 
-            this.comboBoxReviewPerDistrict.DisplayMember = "name";
-            this.comboBoxReviewPerDistrict.Enabled = false;
-            this.comboBoxReviewPerDistrict.FormattingEnabled = true;
-            this.comboBoxReviewPerDistrict.Location = new System.Drawing.Point(359, 525);
-            this.comboBoxReviewPerDistrict.Name = "comboBoxReviewPerDistrict";
-            this.comboBoxReviewPerDistrict.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewPerDistrict.TabIndex = 98;
-            this.comboBoxReviewPerDistrict.ValueMember = "id";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(140, 505);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(57, 17);
-            this.label49.TabIndex = 97;
-            this.label49.Text = "Division";
-            // 
-            // comboBoxReviewPerDivision
-            // 
-            this.comboBoxReviewPerDivision.DisplayMember = "name";
-            this.comboBoxReviewPerDivision.Enabled = false;
-            this.comboBoxReviewPerDivision.FormattingEnabled = true;
-            this.comboBoxReviewPerDivision.Location = new System.Drawing.Point(140, 525);
-            this.comboBoxReviewPerDivision.Name = "comboBoxReviewPerDivision";
-            this.comboBoxReviewPerDivision.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewPerDivision.TabIndex = 95;
-            this.comboBoxReviewPerDivision.ValueMember = "id";
-            // 
-            // textBoxReviewPreDetails
-            // 
-            this.textBoxReviewPreDetails.Enabled = false;
-            this.textBoxReviewPreDetails.Location = new System.Drawing.Point(140, 402);
-            this.textBoxReviewPreDetails.Multiline = true;
-            this.textBoxReviewPreDetails.Name = "textBoxReviewPreDetails";
-            this.textBoxReviewPreDetails.Size = new System.Drawing.Size(428, 51);
-            this.textBoxReviewPreDetails.TabIndex = 94;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(140, 382);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(196, 17);
-            this.label51.TabIndex = 93;
-            this.label51.Text = "Details (house #/road # etc...)";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(140, 335);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(50, 17);
-            this.label52.TabIndex = 92;
-            this.label52.Text = "Village";
-            // 
-            // comboBoxReviewPreVillage
-            // 
-            this.comboBoxReviewPreVillage.DisplayMember = "name";
-            this.comboBoxReviewPreVillage.Enabled = false;
-            this.comboBoxReviewPreVillage.FormattingEnabled = true;
-            this.comboBoxReviewPreVillage.Location = new System.Drawing.Point(140, 355);
-            this.comboBoxReviewPreVillage.Name = "comboBoxReviewPreVillage";
-            this.comboBoxReviewPreVillage.Size = new System.Drawing.Size(428, 24);
-            this.comboBoxReviewPreVillage.TabIndex = 91;
-            this.comboBoxReviewPreVillage.ValueMember = "id";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(359, 288);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(45, 17);
-            this.label53.TabIndex = 90;
-            this.label53.Text = "Union";
-            // 
-            // comboBoxReviewPreUnion
-            // 
-            this.comboBoxReviewPreUnion.DisplayMember = "name";
-            this.comboBoxReviewPreUnion.Enabled = false;
-            this.comboBoxReviewPreUnion.FormattingEnabled = true;
-            this.comboBoxReviewPreUnion.Location = new System.Drawing.Point(359, 308);
-            this.comboBoxReviewPreUnion.Name = "comboBoxReviewPreUnion";
-            this.comboBoxReviewPreUnion.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewPreUnion.TabIndex = 89;
-            this.comboBoxReviewPreUnion.ValueMember = "id";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(140, 288);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(55, 17);
-            this.label54.TabIndex = 88;
-            this.label54.Text = "Upazila";
-            // 
-            // comboBoxReviewPreUpazila
-            // 
-            this.comboBoxReviewPreUpazila.DisplayMember = "name";
-            this.comboBoxReviewPreUpazila.Enabled = false;
-            this.comboBoxReviewPreUpazila.FormattingEnabled = true;
-            this.comboBoxReviewPreUpazila.Location = new System.Drawing.Point(140, 308);
-            this.comboBoxReviewPreUpazila.Name = "comboBoxReviewPreUpazila";
-            this.comboBoxReviewPreUpazila.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewPreUpazila.TabIndex = 87;
-            this.comboBoxReviewPreUpazila.ValueMember = "id";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(359, 241);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(51, 17);
-            this.label55.TabIndex = 86;
-            this.label55.Text = "District";
-            // 
-            // comboBoxReviewPreDistrict
-            // 
-            this.comboBoxReviewPreDistrict.DisplayMember = "name";
-            this.comboBoxReviewPreDistrict.Enabled = false;
-            this.comboBoxReviewPreDistrict.FormattingEnabled = true;
-            this.comboBoxReviewPreDistrict.Location = new System.Drawing.Point(359, 261);
-            this.comboBoxReviewPreDistrict.Name = "comboBoxReviewPreDistrict";
-            this.comboBoxReviewPreDistrict.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewPreDistrict.TabIndex = 85;
-            this.comboBoxReviewPreDistrict.ValueMember = "id";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(140, 241);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(57, 17);
-            this.label56.TabIndex = 84;
-            this.label56.Text = "Division";
-            // 
-            // comboBoxReviewPreDivision
-            // 
-            this.comboBoxReviewPreDivision.DisplayMember = "name";
-            this.comboBoxReviewPreDivision.Enabled = false;
-            this.comboBoxReviewPreDivision.FormattingEnabled = true;
-            this.comboBoxReviewPreDivision.Location = new System.Drawing.Point(140, 261);
-            this.comboBoxReviewPreDivision.Name = "comboBoxReviewPreDivision";
-            this.comboBoxReviewPreDivision.Size = new System.Drawing.Size(209, 24);
-            this.comboBoxReviewPreDivision.TabIndex = 82;
-            this.comboBoxReviewPreDivision.ValueMember = "id";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(47, 168);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(87, 17);
-            this.label38.TabIndex = 42;
-            this.label38.Text = "Date of Birth";
-            // 
-            // dateTimePickerReviewDob
-            // 
-            this.dateTimePickerReviewDob.Enabled = false;
-            this.dateTimePickerReviewDob.Location = new System.Drawing.Point(140, 165);
-            this.dateTimePickerReviewDob.Name = "dateTimePickerReviewDob";
-            this.dateTimePickerReviewDob.Size = new System.Drawing.Size(172, 23);
-            this.dateTimePickerReviewDob.TabIndex = 38;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(103, 139);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(31, 17);
-            this.label39.TabIndex = 43;
-            this.label39.Text = "NID";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(30, 110);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(104, 17);
-            this.label40.TabIndex = 41;
-            this.label40.Text = "Birth Certificate";
-            // 
-            // textBoxReviewNid
-            // 
-            this.textBoxReviewNid.Enabled = false;
-            this.textBoxReviewNid.Location = new System.Drawing.Point(140, 136);
-            this.textBoxReviewNid.Name = "textBoxReviewNid";
-            this.textBoxReviewNid.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewNid.TabIndex = 37;
-            // 
-            // textBoxReviewBirthCertificeate
-            // 
-            this.textBoxReviewBirthCertificeate.Enabled = false;
-            this.textBoxReviewBirthCertificeate.Location = new System.Drawing.Point(140, 107);
-            this.textBoxReviewBirthCertificeate.Name = "textBoxReviewBirthCertificeate";
-            this.textBoxReviewBirthCertificeate.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewBirthCertificeate.TabIndex = 36;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(63, 81);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(71, 17);
-            this.label41.TabIndex = 40;
-            this.label41.Text = "Phone No";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(63, 52);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(71, 17);
-            this.label42.TabIndex = 39;
-            this.label42.Text = "Full Name";
-            // 
-            // textBoxReviewPhone
-            // 
-            this.textBoxReviewPhone.CausesValidation = false;
-            this.textBoxReviewPhone.Enabled = false;
-            this.textBoxReviewPhone.Location = new System.Drawing.Point(140, 78);
-            this.textBoxReviewPhone.Name = "textBoxReviewPhone";
-            this.textBoxReviewPhone.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewPhone.TabIndex = 35;
-            // 
-            // textBoxReviewFullName
-            // 
-            this.textBoxReviewFullName.Enabled = false;
-            this.textBoxReviewFullName.Location = new System.Drawing.Point(140, 49);
-            this.textBoxReviewFullName.Name = "textBoxReviewFullName";
-            this.textBoxReviewFullName.Size = new System.Drawing.Size(428, 23);
-            this.textBoxReviewFullName.TabIndex = 34;
-            // 
-            // buttonReviewBack
-            // 
-            this.buttonReviewBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonReviewBack.Location = new System.Drawing.Point(133, 1387);
-            this.buttonReviewBack.Name = "buttonReviewBack";
-            this.buttonReviewBack.Size = new System.Drawing.Size(160, 38);
-            this.buttonReviewBack.TabIndex = 33;
-            this.buttonReviewBack.Text = "Back";
-            this.buttonReviewBack.UseVisualStyleBackColor = true;
-            // 
-            // buttonSubmit
-            // 
-            this.buttonSubmit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonSubmit.Location = new System.Drawing.Point(302, 1387);
-            this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(160, 38);
-            this.buttonSubmit.TabIndex = 32;
-            this.buttonSubmit.Text = "Submit";
-            this.buttonSubmit.UseVisualStyleBackColor = true;
-            // 
-            // panel7
-            // 
-            this.panel7.AutoScroll = true;
-            this.panel7.Controls.Add(this.groupBoxReview);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 62);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(721, 469);
-            this.panel7.TabIndex = 38;
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label58);
+            this.panel3.Location = new System.Drawing.Point(126, 16);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(172, 33);
+            this.panel3.TabIndex = 147;
             // 
             // FrmStudentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(721, 531);
+            this.ClientSize = new System.Drawing.Size(1096, 773);
             this.ControlBox = false;
+            this.Controls.Add(this.panelBody);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.flowLayoutPanelControl);
             this.Controls.Add(this.panelTitleBar);
@@ -1122,21 +1063,22 @@ namespace WindowsDesktop.Students
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.flowLayoutPanelControl.ResumeLayout(false);
-            this.groupBoxReview.ResumeLayout(false);
-            this.groupBoxReview.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panelBody.ResumeLayout(false);
+            this.tabControlProfile.ResumeLayout(false);
+            this.tabPagePersonalInformation.ResumeLayout(false);
+            this.tabPagePersonalInformation.PerformLayout();
+            this.tabPageAddress.ResumeLayout(false);
+            this.tabPageAddress.PerformLayout();
+            this.tabPageParentInfo.ResumeLayout(false);
+            this.tabPageParentInfo.PerformLayout();
+            this.tabPageGuardianInfo.ResumeLayout(false);
+            this.tabPageGuardianInfo.PerformLayout();
+            this.tabPageAcademic.ResumeLayout(false);
+            this.tabPageAcademic.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1152,19 +1094,8 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Button buttonResult;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBoxReview;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label79;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.TextBox textBoxReviewRoll;
         private System.Windows.Forms.TextBox textBoxReviewReg;
@@ -1234,8 +1165,16 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.TextBox textBoxReviewPhone;
         private System.Windows.Forms.TextBox textBoxReviewFullName;
-        private System.Windows.Forms.Button buttonReviewBack;
-        private System.Windows.Forms.Button buttonSubmit;
+        private System.Windows.Forms.Panel panelBody;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabControl tabControlProfile;
+        private System.Windows.Forms.TabPage tabPagePersonalInformation;
+        private System.Windows.Forms.TabPage tabPageAddress;
+        private System.Windows.Forms.TabPage tabPageParentInfo;
+        private System.Windows.Forms.TabPage tabPageGuardianInfo;
+        private System.Windows.Forms.TabPage tabPageAcademic;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label58;
     }
 }

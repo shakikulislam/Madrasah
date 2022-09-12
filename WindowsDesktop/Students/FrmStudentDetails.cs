@@ -22,12 +22,15 @@ namespace WindowsDesktop.Students
             _id = id;
             LoadTheme(flowLayoutPanelControl);
             LoadData();
+            LoadTheme(panelBody);
         }
 
         private void LoadTheme(Control control)
         {
             ThemeTemplate.SButton(control);
             ThemeTemplate.SDateTimePicker(control);
+            ThemeTemplate.STabControl(control);
+            ThemeTemplate.SComboBox(control,ComboBoxStyle.DropDownList);
         }
 
         private void LoadData()
@@ -67,23 +70,31 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                LoadTheme(groupBoxReview);
-
-                var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _id + "'";
-                var dr = Db.GetDataReader(query);
-                if (dr.HasRows)
+                foreach (Control control in tabControlProfile.Controls)
                 {
-                    dr.Read();
-                    textBoxReviewFullName.Text = dr["name"].ToString();
-                    textBoxReviewPhone.Text = dr["phone"].ToString();
-                    textBoxReviewBirthCertificeate.Text = dr["birth_certificate"].ToString();
-                    textBoxReviewNid.Text = dr["nid"].ToString();
-                    dateTimePickerReviewDob.Value = Convert.ToDateTime(dr["dob"].ToString());
-
-
-
-                    groupBoxReview.Show();
+                    LoadTheme(control);
                 }
+
+                //LoadTheme(tabPagePersonalInformation);
+                //LoadTheme(tabPage1);
+                //LoadTheme(tabPage2);
+                //LoadTheme(tabPage3);
+
+                //var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _id + "'";
+                //var dr = Db.GetDataReader(query);
+                //if (dr.HasRows)
+                //{
+                //    dr.Read();
+                //    textBoxReviewFullName.Text = dr["name"].ToString();
+                //    textBoxReviewPhone.Text = dr["phone"].ToString();
+                //    textBoxReviewBirthCertificeate.Text = dr["birth_certificate"].ToString();
+                //    textBoxReviewNid.Text = dr["nid"].ToString();
+                //    dateTimePickerReviewDob.Value = Convert.ToDateTime(dr["dob"].ToString());
+
+
+
+                //    groupBoxReview.Show();
+                //}
             }
             catch (Exception ex)
             {
