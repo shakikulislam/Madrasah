@@ -57,7 +57,6 @@ namespace WindowsDesktop.Students
             this.label63 = new System.Windows.Forms.Label();
             this.comboBoxReviewGrdDistrict = new System.Windows.Forms.ComboBox();
             this.label64 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
             this.comboBoxReviewGrdDivision = new System.Windows.Forms.ComboBox();
             this.textBoxReviewGrdName = new System.Windows.Forms.TextBox();
             this.label66 = new System.Windows.Forms.Label();
@@ -112,24 +111,30 @@ namespace WindowsDesktop.Students
             this.panelBody = new System.Windows.Forms.Panel();
             this.tabControlProfile = new System.Windows.Forms.TabControl();
             this.tabPagePersonalInformation = new System.Windows.Forms.TabPage();
-            this.tabPageAddress = new System.Windows.Forms.TabPage();
+            this.buttonPersonalInformationUpdate = new System.Windows.Forms.Button();
             this.tabPageParentInfo = new System.Windows.Forms.TabPage();
             this.tabPageGuardianInfo = new System.Windows.Forms.TabPage();
+            this.tabPageAddress = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label58 = new System.Windows.Forms.Label();
             this.tabPageAcademic = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label58 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.panelTitleBar.SuspendLayout();
             this.flowLayoutPanelControl.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panelBody.SuspendLayout();
             this.tabControlProfile.SuspendLayout();
             this.tabPagePersonalInformation.SuspendLayout();
-            this.tabPageAddress.SuspendLayout();
             this.tabPageParentInfo.SuspendLayout();
             this.tabPageGuardianInfo.SuspendLayout();
-            this.tabPageAcademic.SuspendLayout();
+            this.tabPageAddress.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.tabPageAcademic.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitleBar
@@ -140,7 +145,7 @@ namespace WindowsDesktop.Students
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(1096, 30);
+            this.panelTitleBar.Size = new System.Drawing.Size(802, 30);
             this.panelTitleBar.TabIndex = 2;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -154,6 +159,7 @@ namespace WindowsDesktop.Students
             this.labelTitle.Size = new System.Drawing.Size(23, 17);
             this.labelTitle.TabIndex = 3;
             this.labelTitle.Text = "...";
+            this.labelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
             // iconButtonClose
             // 
@@ -165,7 +171,7 @@ namespace WindowsDesktop.Students
             this.iconButtonClose.IconColor = System.Drawing.Color.MediumPurple;
             this.iconButtonClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonClose.IconSize = 20;
-            this.iconButtonClose.Location = new System.Drawing.Point(1068, 5);
+            this.iconButtonClose.Location = new System.Drawing.Point(774, 5);
             this.iconButtonClose.Name = "iconButtonClose";
             this.iconButtonClose.Size = new System.Drawing.Size(20, 20);
             this.iconButtonClose.TabIndex = 0;
@@ -183,15 +189,15 @@ namespace WindowsDesktop.Students
             this.flowLayoutPanelControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanelControl.Location = new System.Drawing.Point(0, 30);
             this.flowLayoutPanelControl.Name = "flowLayoutPanelControl";
-            this.flowLayoutPanelControl.Size = new System.Drawing.Size(1096, 32);
+            this.flowLayoutPanelControl.Size = new System.Drawing.Size(802, 30);
             this.flowLayoutPanelControl.TabIndex = 3;
             // 
             // buttonProfile
             // 
             this.buttonProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonProfile.Location = new System.Drawing.Point(1, 1);
-            this.buttonProfile.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonProfile.Location = new System.Drawing.Point(0, 0);
+            this.buttonProfile.Margin = new System.Windows.Forms.Padding(0);
             this.buttonProfile.Name = "buttonProfile";
             this.buttonProfile.Size = new System.Drawing.Size(114, 30);
             this.buttonProfile.TabIndex = 0;
@@ -203,8 +209,8 @@ namespace WindowsDesktop.Students
             // 
             this.buttonResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonResult.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonResult.Location = new System.Drawing.Point(117, 1);
-            this.buttonResult.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonResult.Location = new System.Drawing.Point(114, 0);
+            this.buttonResult.Margin = new System.Windows.Forms.Padding(0);
             this.buttonResult.Name = "buttonResult";
             this.buttonResult.Size = new System.Drawing.Size(114, 30);
             this.buttonResult.TabIndex = 1;
@@ -215,8 +221,8 @@ namespace WindowsDesktop.Students
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(233, 1);
-            this.button3.Margin = new System.Windows.Forms.Padding(1);
+            this.button3.Location = new System.Drawing.Point(228, 0);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(114, 30);
             this.button3.TabIndex = 2;
@@ -227,8 +233,8 @@ namespace WindowsDesktop.Students
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(349, 1);
-            this.button4.Margin = new System.Windows.Forms.Padding(1);
+            this.button4.Location = new System.Drawing.Point(342, 0);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(114, 30);
             this.button4.TabIndex = 3;
@@ -239,8 +245,8 @@ namespace WindowsDesktop.Students
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(465, 1);
-            this.button1.Margin = new System.Windows.Forms.Padding(1);
+            this.button1.Location = new System.Drawing.Point(456, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 30);
             this.button1.TabIndex = 4;
@@ -249,8 +255,9 @@ namespace WindowsDesktop.Students
             // 
             // panel5
             // 
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel5.Controls.Add(this.label57);
-            this.panel5.Location = new System.Drawing.Point(126, 280);
+            this.panel5.Location = new System.Drawing.Point(111, 280);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(172, 33);
             this.panel5.TabIndex = 147;
@@ -267,60 +274,67 @@ namespace WindowsDesktop.Students
             // 
             // label75
             // 
+            this.label75.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(112, 63);
+            this.label75.Location = new System.Drawing.Point(120, 39);
             this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(32, 13);
+            this.label75.Size = new System.Drawing.Size(42, 17);
             this.label75.TabIndex = 144;
             this.label75.Text = "Class";
             // 
             // textBoxReviewRoll
             // 
-            this.textBoxReviewRoll.Location = new System.Drawing.Point(160, 91);
+            this.textBoxReviewRoll.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewRoll.Location = new System.Drawing.Point(120, 108);
             this.textBoxReviewRoll.Name = "textBoxReviewRoll";
-            this.textBoxReviewRoll.Size = new System.Drawing.Size(172, 20);
+            this.textBoxReviewRoll.Size = new System.Drawing.Size(172, 23);
             this.textBoxReviewRoll.TabIndex = 140;
             // 
             // textBoxReviewReg
             // 
+            this.textBoxReviewReg.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxReviewReg.CausesValidation = false;
-            this.textBoxReviewReg.Location = new System.Drawing.Point(416, 91);
+            this.textBoxReviewReg.Location = new System.Drawing.Point(376, 108);
             this.textBoxReviewReg.Name = "textBoxReviewReg";
-            this.textBoxReviewReg.Size = new System.Drawing.Size(172, 20);
+            this.textBoxReviewReg.Size = new System.Drawing.Size(172, 23);
             this.textBoxReviewReg.TabIndex = 143;
             // 
             // comboBoxReviewClass
             // 
+            this.comboBoxReviewClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewClass.DisplayMember = "name";
             this.comboBoxReviewClass.FormattingEnabled = true;
-            this.comboBoxReviewClass.Location = new System.Drawing.Point(160, 59);
+            this.comboBoxReviewClass.Location = new System.Drawing.Point(120, 59);
             this.comboBoxReviewClass.Name = "comboBoxReviewClass";
-            this.comboBoxReviewClass.Size = new System.Drawing.Size(428, 21);
+            this.comboBoxReviewClass.Size = new System.Drawing.Size(428, 24);
             this.comboBoxReviewClass.TabIndex = 141;
             this.comboBoxReviewClass.ValueMember = "id";
             // 
             // label76
             // 
+            this.label76.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(354, 94);
+            this.label76.Location = new System.Drawing.Point(376, 88);
             this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(44, 13);
+            this.label76.Size = new System.Drawing.Size(56, 17);
             this.label76.TabIndex = 142;
             this.label76.Text = "Reg No";
             // 
             // label77
             // 
+            this.label77.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(100, 94);
+            this.label77.Location = new System.Drawing.Point(120, 88);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(42, 13);
+            this.label77.Size = new System.Drawing.Size(54, 17);
             this.label77.TabIndex = 139;
             this.label77.Text = "Roll No";
             // 
             // textBoxReviewGrdDetails
             // 
+            this.textBoxReviewGrdDetails.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxReviewGrdDetails.CausesValidation = false;
-            this.textBoxReviewGrdDetails.Location = new System.Drawing.Point(183, 251);
+            this.textBoxReviewGrdDetails.Location = new System.Drawing.Point(120, 288);
             this.textBoxReviewGrdDetails.Multiline = true;
             this.textBoxReviewGrdDetails.Name = "textBoxReviewGrdDetails";
             this.textBoxReviewGrdDetails.Size = new System.Drawing.Size(428, 51);
@@ -328,251 +342,275 @@ namespace WindowsDesktop.Students
             // 
             // label59
             // 
+            this.label59.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(183, 231);
+            this.label59.Location = new System.Drawing.Point(120, 268);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(150, 13);
+            this.label59.Size = new System.Drawing.Size(196, 17);
             this.label59.TabIndex = 137;
             this.label59.Text = "Details (house #/road # etc...)";
             // 
             // label60
             // 
+            this.label60.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(183, 184);
+            this.label60.Location = new System.Drawing.Point(120, 219);
             this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(38, 13);
+            this.label60.Size = new System.Drawing.Size(50, 17);
             this.label60.TabIndex = 136;
             this.label60.Text = "Village";
             // 
             // comboBoxReviewGrdVillage
             // 
+            this.comboBoxReviewGrdVillage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewGrdVillage.DisplayMember = "name";
             this.comboBoxReviewGrdVillage.FormattingEnabled = true;
-            this.comboBoxReviewGrdVillage.Location = new System.Drawing.Point(183, 204);
+            this.comboBoxReviewGrdVillage.Location = new System.Drawing.Point(120, 239);
             this.comboBoxReviewGrdVillage.Name = "comboBoxReviewGrdVillage";
-            this.comboBoxReviewGrdVillage.Size = new System.Drawing.Size(428, 21);
+            this.comboBoxReviewGrdVillage.Size = new System.Drawing.Size(428, 24);
             this.comboBoxReviewGrdVillage.TabIndex = 135;
             this.comboBoxReviewGrdVillage.ValueMember = "id";
+            this.comboBoxReviewGrdVillage.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewGrdVillage_SelectedIndexChanged);
             // 
             // label61
             // 
+            this.label61.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(402, 137);
+            this.label61.Location = new System.Drawing.Point(339, 170);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(35, 13);
+            this.label61.Size = new System.Drawing.Size(45, 17);
             this.label61.TabIndex = 134;
             this.label61.Text = "Union";
             // 
             // comboBoxReviewGrdUnion
             // 
+            this.comboBoxReviewGrdUnion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewGrdUnion.DisplayMember = "name";
             this.comboBoxReviewGrdUnion.FormattingEnabled = true;
-            this.comboBoxReviewGrdUnion.Location = new System.Drawing.Point(402, 157);
+            this.comboBoxReviewGrdUnion.Location = new System.Drawing.Point(339, 190);
             this.comboBoxReviewGrdUnion.Name = "comboBoxReviewGrdUnion";
-            this.comboBoxReviewGrdUnion.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewGrdUnion.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewGrdUnion.TabIndex = 133;
             this.comboBoxReviewGrdUnion.ValueMember = "id";
+            this.comboBoxReviewGrdUnion.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewGrdUnion_SelectedIndexChanged);
             // 
             // label62
             // 
+            this.label62.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(183, 137);
+            this.label62.Location = new System.Drawing.Point(120, 170);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(42, 13);
+            this.label62.Size = new System.Drawing.Size(55, 17);
             this.label62.TabIndex = 132;
             this.label62.Text = "Upazila";
             // 
             // comboBoxReviewGrdUpazila
             // 
+            this.comboBoxReviewGrdUpazila.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewGrdUpazila.DisplayMember = "name";
             this.comboBoxReviewGrdUpazila.FormattingEnabled = true;
-            this.comboBoxReviewGrdUpazila.Location = new System.Drawing.Point(183, 157);
+            this.comboBoxReviewGrdUpazila.Location = new System.Drawing.Point(120, 190);
             this.comboBoxReviewGrdUpazila.Name = "comboBoxReviewGrdUpazila";
-            this.comboBoxReviewGrdUpazila.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewGrdUpazila.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewGrdUpazila.TabIndex = 131;
             this.comboBoxReviewGrdUpazila.ValueMember = "id";
+            this.comboBoxReviewGrdUpazila.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewGrdUpazila_SelectedIndexChanged);
             // 
             // label63
             // 
+            this.label63.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(402, 90);
+            this.label63.Location = new System.Drawing.Point(339, 121);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(39, 13);
+            this.label63.Size = new System.Drawing.Size(51, 17);
             this.label63.TabIndex = 130;
             this.label63.Text = "District";
             // 
             // comboBoxReviewGrdDistrict
             // 
+            this.comboBoxReviewGrdDistrict.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewGrdDistrict.DisplayMember = "name";
             this.comboBoxReviewGrdDistrict.FormattingEnabled = true;
-            this.comboBoxReviewGrdDistrict.Location = new System.Drawing.Point(402, 110);
+            this.comboBoxReviewGrdDistrict.Location = new System.Drawing.Point(339, 141);
             this.comboBoxReviewGrdDistrict.Name = "comboBoxReviewGrdDistrict";
-            this.comboBoxReviewGrdDistrict.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewGrdDistrict.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewGrdDistrict.TabIndex = 129;
             this.comboBoxReviewGrdDistrict.ValueMember = "id";
+            this.comboBoxReviewGrdDistrict.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewGrdDistrict_SelectedIndexChanged);
             // 
             // label64
             // 
+            this.label64.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(183, 90);
+            this.label64.Location = new System.Drawing.Point(120, 121);
             this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(44, 13);
+            this.label64.Size = new System.Drawing.Size(57, 17);
             this.label64.TabIndex = 128;
             this.label64.Text = "Division";
             // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(55, 90);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(91, 13);
-            this.label65.TabIndex = 127;
-            this.label65.Text = "Guardian Address";
-            // 
             // comboBoxReviewGrdDivision
             // 
+            this.comboBoxReviewGrdDivision.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewGrdDivision.DisplayMember = "name";
             this.comboBoxReviewGrdDivision.FormattingEnabled = true;
-            this.comboBoxReviewGrdDivision.Location = new System.Drawing.Point(183, 110);
+            this.comboBoxReviewGrdDivision.Location = new System.Drawing.Point(120, 141);
             this.comboBoxReviewGrdDivision.Name = "comboBoxReviewGrdDivision";
-            this.comboBoxReviewGrdDivision.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewGrdDivision.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewGrdDivision.TabIndex = 126;
             this.comboBoxReviewGrdDivision.ValueMember = "id";
+            this.comboBoxReviewGrdDivision.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewGrdDivision_SelectedIndexChanged);
             // 
             // textBoxReviewGrdName
             // 
-            this.textBoxReviewGrdName.Location = new System.Drawing.Point(183, 35);
+            this.textBoxReviewGrdName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewGrdName.Location = new System.Drawing.Point(120, 42);
             this.textBoxReviewGrdName.Name = "textBoxReviewGrdName";
-            this.textBoxReviewGrdName.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewGrdName.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewGrdName.TabIndex = 123;
             // 
             // label66
             // 
+            this.label66.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(70, 38);
+            this.label66.Location = new System.Drawing.Point(120, 22);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(81, 13);
+            this.label66.Size = new System.Drawing.Size(108, 17);
             this.label66.TabIndex = 122;
             this.label66.Text = "Guardian Name";
             // 
             // label67
             // 
+            this.label67.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(66, 67);
+            this.label67.Location = new System.Drawing.Point(120, 70);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(84, 13);
+            this.label67.Size = new System.Drawing.Size(112, 17);
             this.label67.TabIndex = 124;
             this.label67.Text = "Guardian Phone";
             // 
             // textBoxReviewGrdPhone
             // 
-            this.textBoxReviewGrdPhone.Location = new System.Drawing.Point(183, 64);
+            this.textBoxReviewGrdPhone.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewGrdPhone.Location = new System.Drawing.Point(120, 93);
             this.textBoxReviewGrdPhone.Name = "textBoxReviewGrdPhone";
-            this.textBoxReviewGrdPhone.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewGrdPhone.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewGrdPhone.TabIndex = 125;
             // 
             // textBoxReviewMotherName
             // 
-            this.textBoxReviewMotherName.Location = new System.Drawing.Point(183, 125);
+            this.textBoxReviewMotherName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewMotherName.Location = new System.Drawing.Point(120, 189);
             this.textBoxReviewMotherName.Name = "textBoxReviewMotherName";
-            this.textBoxReviewMotherName.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewMotherName.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewMotherName.TabIndex = 117;
             // 
             // label68
             // 
+            this.label68.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(75, 128);
+            this.label68.Location = new System.Drawing.Point(120, 169);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(78, 13);
+            this.label68.Size = new System.Drawing.Size(103, 17);
             this.label68.TabIndex = 116;
             this.label68.Text = "Mother\'s Name";
             // 
             // label69
             // 
+            this.label69.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(89, 186);
+            this.label69.Location = new System.Drawing.Point(120, 266);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(69, 13);
+            this.label69.Size = new System.Drawing.Size(89, 17);
             this.label69.TabIndex = 120;
             this.label69.Text = "Mother\'s NID";
             // 
             // label70
             // 
+            this.label70.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(71, 157);
+            this.label70.Location = new System.Drawing.Point(120, 218);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(81, 13);
+            this.label70.Size = new System.Drawing.Size(107, 17);
             this.label70.TabIndex = 118;
             this.label70.Text = "Mother\'s Phone";
             // 
             // textBoxReviewMotherNid
             // 
+            this.textBoxReviewMotherNid.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxReviewMotherNid.CausesValidation = false;
-            this.textBoxReviewMotherNid.Location = new System.Drawing.Point(183, 183);
+            this.textBoxReviewMotherNid.Location = new System.Drawing.Point(120, 286);
             this.textBoxReviewMotherNid.Name = "textBoxReviewMotherNid";
-            this.textBoxReviewMotherNid.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewMotherNid.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewMotherNid.TabIndex = 121;
             // 
             // textBoxReviewMotherPhone
             // 
+            this.textBoxReviewMotherPhone.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxReviewMotherPhone.CausesValidation = false;
-            this.textBoxReviewMotherPhone.Location = new System.Drawing.Point(183, 154);
+            this.textBoxReviewMotherPhone.Location = new System.Drawing.Point(120, 238);
             this.textBoxReviewMotherPhone.Name = "textBoxReviewMotherPhone";
-            this.textBoxReviewMotherPhone.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewMotherPhone.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewMotherPhone.TabIndex = 119;
             // 
             // textBoxReviewFatherName
             // 
-            this.textBoxReviewFatherName.Location = new System.Drawing.Point(183, 38);
+            this.textBoxReviewFatherName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewFatherName.Location = new System.Drawing.Point(120, 42);
             this.textBoxReviewFatherName.Name = "textBoxReviewFatherName";
-            this.textBoxReviewFatherName.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewFatherName.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewFatherName.TabIndex = 111;
             // 
             // label71
             // 
+            this.label71.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(78, 41);
+            this.label71.Location = new System.Drawing.Point(120, 22);
             this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(75, 13);
+            this.label71.Size = new System.Drawing.Size(100, 17);
             this.label71.TabIndex = 110;
             this.label71.Text = "Father\'s Name";
             // 
             // label72
             // 
+            this.label72.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(92, 99);
+            this.label72.Location = new System.Drawing.Point(120, 120);
             this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(66, 13);
+            this.label72.Size = new System.Drawing.Size(86, 17);
             this.label72.TabIndex = 114;
             this.label72.Text = "Father\'s NID";
             // 
             // label73
             // 
+            this.label73.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(74, 70);
+            this.label73.Location = new System.Drawing.Point(120, 71);
             this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(78, 13);
+            this.label73.Size = new System.Drawing.Size(104, 17);
             this.label73.TabIndex = 112;
             this.label73.Text = "Father\'s Phone";
             // 
             // textBoxReviewFatherNid
             // 
+            this.textBoxReviewFatherNid.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxReviewFatherNid.CausesValidation = false;
-            this.textBoxReviewFatherNid.Location = new System.Drawing.Point(183, 96);
+            this.textBoxReviewFatherNid.Location = new System.Drawing.Point(120, 140);
             this.textBoxReviewFatherNid.Name = "textBoxReviewFatherNid";
-            this.textBoxReviewFatherNid.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewFatherNid.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewFatherNid.TabIndex = 115;
             // 
             // textBoxReviewFatherPhone
             // 
-            this.textBoxReviewFatherPhone.Location = new System.Drawing.Point(183, 67);
+            this.textBoxReviewFatherPhone.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewFatherPhone.Location = new System.Drawing.Point(120, 91);
             this.textBoxReviewFatherPhone.Name = "textBoxReviewFatherPhone";
-            this.textBoxReviewFatherPhone.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewFatherPhone.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewFatherPhone.TabIndex = 113;
             // 
             // textBoxReviewPerDetails
             // 
-            this.textBoxReviewPerDetails.Location = new System.Drawing.Point(126, 476);
+            this.textBoxReviewPerDetails.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewPerDetails.Location = new System.Drawing.Point(111, 476);
             this.textBoxReviewPerDetails.Multiline = true;
             this.textBoxReviewPerDetails.Name = "textBoxReviewPerDetails";
             this.textBoxReviewPerDetails.Size = new System.Drawing.Size(428, 51);
@@ -580,111 +618,128 @@ namespace WindowsDesktop.Students
             // 
             // label44
             // 
+            this.label44.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(126, 456);
+            this.label44.Location = new System.Drawing.Point(111, 456);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(150, 13);
+            this.label44.Size = new System.Drawing.Size(196, 17);
             this.label44.TabIndex = 106;
             this.label44.Text = "Details (house #/road # etc...)";
             // 
             // label45
             // 
+            this.label45.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(126, 409);
+            this.label45.Location = new System.Drawing.Point(111, 409);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(38, 13);
+            this.label45.Size = new System.Drawing.Size(50, 17);
             this.label45.TabIndex = 105;
             this.label45.Text = "Village";
             // 
             // comboBoxReviewPerVillage
             // 
+            this.comboBoxReviewPerVillage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerVillage.DisplayMember = "name";
             this.comboBoxReviewPerVillage.FormattingEnabled = true;
-            this.comboBoxReviewPerVillage.Location = new System.Drawing.Point(126, 429);
+            this.comboBoxReviewPerVillage.Location = new System.Drawing.Point(111, 429);
             this.comboBoxReviewPerVillage.Name = "comboBoxReviewPerVillage";
-            this.comboBoxReviewPerVillage.Size = new System.Drawing.Size(428, 21);
+            this.comboBoxReviewPerVillage.Size = new System.Drawing.Size(428, 24);
             this.comboBoxReviewPerVillage.TabIndex = 104;
             this.comboBoxReviewPerVillage.ValueMember = "id";
+            this.comboBoxReviewPerVillage.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewPerVillage_SelectedIndexChanged);
             // 
             // label46
             // 
+            this.label46.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(345, 362);
+            this.label46.Location = new System.Drawing.Point(330, 362);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(35, 13);
+            this.label46.Size = new System.Drawing.Size(45, 17);
             this.label46.TabIndex = 103;
             this.label46.Text = "Union";
             // 
             // comboBoxReviewPerUnion
             // 
+            this.comboBoxReviewPerUnion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerUnion.DisplayMember = "name";
             this.comboBoxReviewPerUnion.FormattingEnabled = true;
-            this.comboBoxReviewPerUnion.Location = new System.Drawing.Point(345, 382);
+            this.comboBoxReviewPerUnion.Location = new System.Drawing.Point(330, 382);
             this.comboBoxReviewPerUnion.Name = "comboBoxReviewPerUnion";
-            this.comboBoxReviewPerUnion.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPerUnion.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerUnion.TabIndex = 102;
             this.comboBoxReviewPerUnion.ValueMember = "id";
+            this.comboBoxReviewPerUnion.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewPerUnion_SelectedIndexChanged);
             // 
             // label47
             // 
+            this.label47.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(126, 362);
+            this.label47.Location = new System.Drawing.Point(111, 362);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(42, 13);
+            this.label47.Size = new System.Drawing.Size(55, 17);
             this.label47.TabIndex = 101;
             this.label47.Text = "Upazila";
             // 
             // comboBoxReviewPerUpazila
             // 
+            this.comboBoxReviewPerUpazila.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerUpazila.DisplayMember = "name";
             this.comboBoxReviewPerUpazila.FormattingEnabled = true;
-            this.comboBoxReviewPerUpazila.Location = new System.Drawing.Point(126, 382);
+            this.comboBoxReviewPerUpazila.Location = new System.Drawing.Point(111, 382);
             this.comboBoxReviewPerUpazila.Name = "comboBoxReviewPerUpazila";
-            this.comboBoxReviewPerUpazila.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPerUpazila.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerUpazila.TabIndex = 100;
             this.comboBoxReviewPerUpazila.ValueMember = "id";
+            this.comboBoxReviewPerUpazila.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewPerUpazila_SelectedIndexChanged);
             // 
             // label48
             // 
+            this.label48.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(345, 315);
+            this.label48.Location = new System.Drawing.Point(330, 315);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(39, 13);
+            this.label48.Size = new System.Drawing.Size(51, 17);
             this.label48.TabIndex = 99;
             this.label48.Text = "District";
             // 
             // comboBoxReviewPerDistrict
             // 
+            this.comboBoxReviewPerDistrict.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerDistrict.DisplayMember = "name";
             this.comboBoxReviewPerDistrict.FormattingEnabled = true;
-            this.comboBoxReviewPerDistrict.Location = new System.Drawing.Point(345, 335);
+            this.comboBoxReviewPerDistrict.Location = new System.Drawing.Point(330, 335);
             this.comboBoxReviewPerDistrict.Name = "comboBoxReviewPerDistrict";
-            this.comboBoxReviewPerDistrict.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPerDistrict.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerDistrict.TabIndex = 98;
             this.comboBoxReviewPerDistrict.ValueMember = "id";
+            this.comboBoxReviewPerDistrict.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewPerDistrict_SelectedIndexChanged);
             // 
             // label49
             // 
+            this.label49.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(126, 315);
+            this.label49.Location = new System.Drawing.Point(111, 315);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(44, 13);
+            this.label49.Size = new System.Drawing.Size(57, 17);
             this.label49.TabIndex = 97;
             this.label49.Text = "Division";
             // 
             // comboBoxReviewPerDivision
             // 
+            this.comboBoxReviewPerDivision.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerDivision.DisplayMember = "name";
             this.comboBoxReviewPerDivision.FormattingEnabled = true;
-            this.comboBoxReviewPerDivision.Location = new System.Drawing.Point(126, 335);
+            this.comboBoxReviewPerDivision.Location = new System.Drawing.Point(111, 335);
             this.comboBoxReviewPerDivision.Name = "comboBoxReviewPerDivision";
-            this.comboBoxReviewPerDivision.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPerDivision.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerDivision.TabIndex = 95;
             this.comboBoxReviewPerDivision.ValueMember = "id";
+            this.comboBoxReviewPerDivision.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewPerDivision_SelectedIndexChanged);
             // 
             // textBoxReviewPreDetails
             // 
-            this.textBoxReviewPreDetails.Location = new System.Drawing.Point(126, 212);
+            this.textBoxReviewPreDetails.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewPreDetails.Location = new System.Drawing.Point(111, 212);
             this.textBoxReviewPreDetails.Multiline = true;
             this.textBoxReviewPreDetails.Name = "textBoxReviewPreDetails";
             this.textBoxReviewPreDetails.Size = new System.Drawing.Size(428, 51);
@@ -692,187 +747,213 @@ namespace WindowsDesktop.Students
             // 
             // label51
             // 
+            this.label51.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(126, 192);
+            this.label51.Location = new System.Drawing.Point(111, 192);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(150, 13);
+            this.label51.Size = new System.Drawing.Size(196, 17);
             this.label51.TabIndex = 93;
             this.label51.Text = "Details (house #/road # etc...)";
             // 
             // label52
             // 
+            this.label52.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(126, 145);
+            this.label52.Location = new System.Drawing.Point(111, 145);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(38, 13);
+            this.label52.Size = new System.Drawing.Size(50, 17);
             this.label52.TabIndex = 92;
             this.label52.Text = "Village";
             // 
             // comboBoxReviewPreVillage
             // 
+            this.comboBoxReviewPreVillage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreVillage.DisplayMember = "name";
             this.comboBoxReviewPreVillage.FormattingEnabled = true;
-            this.comboBoxReviewPreVillage.Location = new System.Drawing.Point(126, 165);
+            this.comboBoxReviewPreVillage.Location = new System.Drawing.Point(111, 165);
             this.comboBoxReviewPreVillage.Name = "comboBoxReviewPreVillage";
-            this.comboBoxReviewPreVillage.Size = new System.Drawing.Size(428, 21);
+            this.comboBoxReviewPreVillage.Size = new System.Drawing.Size(428, 24);
             this.comboBoxReviewPreVillage.TabIndex = 91;
             this.comboBoxReviewPreVillage.ValueMember = "id";
+            this.comboBoxReviewPreVillage.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewPreVillage_SelectedIndexChanged);
             // 
             // label53
             // 
+            this.label53.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(345, 98);
+            this.label53.Location = new System.Drawing.Point(330, 98);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(35, 13);
+            this.label53.Size = new System.Drawing.Size(45, 17);
             this.label53.TabIndex = 90;
             this.label53.Text = "Union";
             // 
             // comboBoxReviewPreUnion
             // 
+            this.comboBoxReviewPreUnion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreUnion.DisplayMember = "name";
             this.comboBoxReviewPreUnion.FormattingEnabled = true;
-            this.comboBoxReviewPreUnion.Location = new System.Drawing.Point(345, 118);
+            this.comboBoxReviewPreUnion.Location = new System.Drawing.Point(330, 118);
             this.comboBoxReviewPreUnion.Name = "comboBoxReviewPreUnion";
-            this.comboBoxReviewPreUnion.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPreUnion.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreUnion.TabIndex = 89;
             this.comboBoxReviewPreUnion.ValueMember = "id";
+            this.comboBoxReviewPreUnion.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewPreUnion_SelectedIndexChanged);
             // 
             // label54
             // 
+            this.label54.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(126, 98);
+            this.label54.Location = new System.Drawing.Point(111, 98);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(42, 13);
+            this.label54.Size = new System.Drawing.Size(55, 17);
             this.label54.TabIndex = 88;
             this.label54.Text = "Upazila";
             // 
             // comboBoxReviewPreUpazila
             // 
+            this.comboBoxReviewPreUpazila.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreUpazila.DisplayMember = "name";
             this.comboBoxReviewPreUpazila.FormattingEnabled = true;
-            this.comboBoxReviewPreUpazila.Location = new System.Drawing.Point(126, 118);
+            this.comboBoxReviewPreUpazila.Location = new System.Drawing.Point(111, 118);
             this.comboBoxReviewPreUpazila.Name = "comboBoxReviewPreUpazila";
-            this.comboBoxReviewPreUpazila.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPreUpazila.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreUpazila.TabIndex = 87;
             this.comboBoxReviewPreUpazila.ValueMember = "id";
+            this.comboBoxReviewPreUpazila.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewPreUpazila_SelectedIndexChanged);
             // 
             // label55
             // 
+            this.label55.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(345, 51);
+            this.label55.Location = new System.Drawing.Point(330, 51);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(39, 13);
+            this.label55.Size = new System.Drawing.Size(51, 17);
             this.label55.TabIndex = 86;
             this.label55.Text = "District";
             // 
             // comboBoxReviewPreDistrict
             // 
+            this.comboBoxReviewPreDistrict.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreDistrict.DisplayMember = "name";
             this.comboBoxReviewPreDistrict.FormattingEnabled = true;
-            this.comboBoxReviewPreDistrict.Location = new System.Drawing.Point(345, 71);
+            this.comboBoxReviewPreDistrict.Location = new System.Drawing.Point(330, 71);
             this.comboBoxReviewPreDistrict.Name = "comboBoxReviewPreDistrict";
-            this.comboBoxReviewPreDistrict.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPreDistrict.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreDistrict.TabIndex = 85;
             this.comboBoxReviewPreDistrict.ValueMember = "id";
+            this.comboBoxReviewPreDistrict.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewPreDistrict_SelectedIndexChanged);
             // 
             // label56
             // 
+            this.label56.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(126, 51);
+            this.label56.Location = new System.Drawing.Point(111, 51);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(44, 13);
+            this.label56.Size = new System.Drawing.Size(57, 17);
             this.label56.TabIndex = 84;
             this.label56.Text = "Division";
             // 
             // comboBoxReviewPreDivision
             // 
+            this.comboBoxReviewPreDivision.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreDivision.DisplayMember = "name";
             this.comboBoxReviewPreDivision.FormattingEnabled = true;
-            this.comboBoxReviewPreDivision.Location = new System.Drawing.Point(126, 71);
+            this.comboBoxReviewPreDivision.Location = new System.Drawing.Point(111, 71);
             this.comboBoxReviewPreDivision.Name = "comboBoxReviewPreDivision";
-            this.comboBoxReviewPreDivision.Size = new System.Drawing.Size(209, 21);
+            this.comboBoxReviewPreDivision.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreDivision.TabIndex = 82;
             this.comboBoxReviewPreDivision.ValueMember = "id";
+            this.comboBoxReviewPreDivision.SelectedIndexChanged += new System.EventHandler(this.comboBoxReviewPreDivision_SelectedIndexChanged);
             // 
             // label38
             // 
+            this.label38.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(95, 152);
+            this.label38.Location = new System.Drawing.Point(120, 262);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(66, 13);
+            this.label38.Size = new System.Drawing.Size(87, 17);
             this.label38.TabIndex = 42;
             this.label38.Text = "Date of Birth";
             // 
             // dateTimePickerReviewDob
             // 
-            this.dateTimePickerReviewDob.Location = new System.Drawing.Point(188, 149);
+            this.dateTimePickerReviewDob.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dateTimePickerReviewDob.Location = new System.Drawing.Point(120, 282);
             this.dateTimePickerReviewDob.Name = "dateTimePickerReviewDob";
-            this.dateTimePickerReviewDob.Size = new System.Drawing.Size(172, 20);
+            this.dateTimePickerReviewDob.Size = new System.Drawing.Size(172, 23);
             this.dateTimePickerReviewDob.TabIndex = 38;
             // 
             // label39
             // 
+            this.label39.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(151, 123);
+            this.label39.Location = new System.Drawing.Point(120, 200);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(26, 13);
+            this.label39.Size = new System.Drawing.Size(31, 17);
             this.label39.TabIndex = 43;
             this.label39.Text = "NID";
             // 
             // label40
             // 
+            this.label40.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(78, 94);
+            this.label40.Location = new System.Drawing.Point(120, 139);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(78, 13);
+            this.label40.Size = new System.Drawing.Size(104, 17);
             this.label40.TabIndex = 41;
             this.label40.Text = "Birth Certificate";
             // 
             // textBoxReviewNid
             // 
-            this.textBoxReviewNid.Location = new System.Drawing.Point(188, 120);
+            this.textBoxReviewNid.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewNid.Location = new System.Drawing.Point(120, 220);
             this.textBoxReviewNid.Name = "textBoxReviewNid";
-            this.textBoxReviewNid.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewNid.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewNid.TabIndex = 37;
             // 
             // textBoxReviewBirthCertificeate
             // 
-            this.textBoxReviewBirthCertificeate.Location = new System.Drawing.Point(188, 91);
+            this.textBoxReviewBirthCertificeate.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewBirthCertificeate.Location = new System.Drawing.Point(120, 159);
             this.textBoxReviewBirthCertificeate.Name = "textBoxReviewBirthCertificeate";
-            this.textBoxReviewBirthCertificeate.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewBirthCertificeate.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewBirthCertificeate.TabIndex = 36;
             // 
             // label41
             // 
+            this.label41.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(111, 65);
+            this.label41.Location = new System.Drawing.Point(120, 76);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(55, 13);
+            this.label41.Size = new System.Drawing.Size(71, 17);
             this.label41.TabIndex = 40;
             this.label41.Text = "Phone No";
             // 
             // label42
             // 
+            this.label42.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(111, 36);
+            this.label42.Location = new System.Drawing.Point(120, 22);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(54, 13);
+            this.label42.Size = new System.Drawing.Size(71, 17);
             this.label42.TabIndex = 39;
             this.label42.Text = "Full Name";
             // 
             // textBoxReviewPhone
             // 
+            this.textBoxReviewPhone.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxReviewPhone.CausesValidation = false;
-            this.textBoxReviewPhone.Location = new System.Drawing.Point(188, 62);
+            this.textBoxReviewPhone.Location = new System.Drawing.Point(120, 96);
             this.textBoxReviewPhone.Name = "textBoxReviewPhone";
-            this.textBoxReviewPhone.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewPhone.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewPhone.TabIndex = 35;
             // 
             // textBoxReviewFullName
             // 
-            this.textBoxReviewFullName.Location = new System.Drawing.Point(188, 33);
+            this.textBoxReviewFullName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewFullName.Location = new System.Drawing.Point(120, 42);
             this.textBoxReviewFullName.Name = "textBoxReviewFullName";
-            this.textBoxReviewFullName.Size = new System.Drawing.Size(428, 20);
+            this.textBoxReviewFullName.Size = new System.Drawing.Size(428, 23);
             this.textBoxReviewFullName.TabIndex = 34;
             // 
             // panelBody
@@ -880,9 +961,9 @@ namespace WindowsDesktop.Students
             this.panelBody.AutoScroll = true;
             this.panelBody.Controls.Add(this.tabControlProfile);
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBody.Location = new System.Drawing.Point(0, 82);
+            this.panelBody.Location = new System.Drawing.Point(0, 80);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(1096, 691);
+            this.panelBody.Size = new System.Drawing.Size(802, 462);
             this.panelBody.TabIndex = 38;
             // 
             // tabControlProfile
@@ -892,14 +973,17 @@ namespace WindowsDesktop.Students
             this.tabControlProfile.Controls.Add(this.tabPageGuardianInfo);
             this.tabControlProfile.Controls.Add(this.tabPageAddress);
             this.tabControlProfile.Controls.Add(this.tabPageAcademic);
-            this.tabControlProfile.Location = new System.Drawing.Point(69, 27);
+            this.tabControlProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlProfile.Location = new System.Drawing.Point(69, 6);
             this.tabControlProfile.Name = "tabControlProfile";
             this.tabControlProfile.SelectedIndex = 0;
-            this.tabControlProfile.Size = new System.Drawing.Size(837, 591);
+            this.tabControlProfile.Size = new System.Drawing.Size(676, 444);
             this.tabControlProfile.TabIndex = 38;
+            this.tabControlProfile.Visible = false;
             // 
             // tabPagePersonalInformation
             // 
+            this.tabPagePersonalInformation.Controls.Add(this.buttonPersonalInformationUpdate);
             this.tabPagePersonalInformation.Controls.Add(this.textBoxReviewFullName);
             this.tabPagePersonalInformation.Controls.Add(this.textBoxReviewPhone);
             this.tabPagePersonalInformation.Controls.Add(this.label42);
@@ -910,17 +994,78 @@ namespace WindowsDesktop.Students
             this.tabPagePersonalInformation.Controls.Add(this.label39);
             this.tabPagePersonalInformation.Controls.Add(this.dateTimePickerReviewDob);
             this.tabPagePersonalInformation.Controls.Add(this.label38);
-            this.tabPagePersonalInformation.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePersonalInformation.Location = new System.Drawing.Point(4, 25);
             this.tabPagePersonalInformation.Name = "tabPagePersonalInformation";
             this.tabPagePersonalInformation.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePersonalInformation.Size = new System.Drawing.Size(829, 565);
+            this.tabPagePersonalInformation.Size = new System.Drawing.Size(668, 415);
             this.tabPagePersonalInformation.TabIndex = 0;
             this.tabPagePersonalInformation.Text = "Personal Information";
             this.tabPagePersonalInformation.UseVisualStyleBackColor = true;
             // 
+            // buttonPersonalInformationUpdate
+            // 
+            this.buttonPersonalInformationUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonPersonalInformationUpdate.Location = new System.Drawing.Point(392, 266);
+            this.buttonPersonalInformationUpdate.Name = "buttonPersonalInformationUpdate";
+            this.buttonPersonalInformationUpdate.Size = new System.Drawing.Size(156, 39);
+            this.buttonPersonalInformationUpdate.TabIndex = 44;
+            this.buttonPersonalInformationUpdate.Text = "Update";
+            this.buttonPersonalInformationUpdate.UseVisualStyleBackColor = true;
+            // 
+            // tabPageParentInfo
+            // 
+            this.tabPageParentInfo.Controls.Add(this.button2);
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewFatherName);
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewFatherPhone);
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewFatherNid);
+            this.tabPageParentInfo.Controls.Add(this.label73);
+            this.tabPageParentInfo.Controls.Add(this.label72);
+            this.tabPageParentInfo.Controls.Add(this.label71);
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewMotherPhone);
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewMotherNid);
+            this.tabPageParentInfo.Controls.Add(this.label70);
+            this.tabPageParentInfo.Controls.Add(this.label69);
+            this.tabPageParentInfo.Controls.Add(this.label68);
+            this.tabPageParentInfo.Controls.Add(this.textBoxReviewMotherName);
+            this.tabPageParentInfo.Location = new System.Drawing.Point(4, 25);
+            this.tabPageParentInfo.Name = "tabPageParentInfo";
+            this.tabPageParentInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageParentInfo.Size = new System.Drawing.Size(668, 415);
+            this.tabPageParentInfo.TabIndex = 2;
+            this.tabPageParentInfo.Text = "Parent Information";
+            this.tabPageParentInfo.UseVisualStyleBackColor = true;
+            // 
+            // tabPageGuardianInfo
+            // 
+            this.tabPageGuardianInfo.Controls.Add(this.button5);
+            this.tabPageGuardianInfo.Controls.Add(this.textBoxReviewGrdPhone);
+            this.tabPageGuardianInfo.Controls.Add(this.label67);
+            this.tabPageGuardianInfo.Controls.Add(this.label66);
+            this.tabPageGuardianInfo.Controls.Add(this.textBoxReviewGrdName);
+            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdDivision);
+            this.tabPageGuardianInfo.Controls.Add(this.label64);
+            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdDistrict);
+            this.tabPageGuardianInfo.Controls.Add(this.textBoxReviewGrdDetails);
+            this.tabPageGuardianInfo.Controls.Add(this.label63);
+            this.tabPageGuardianInfo.Controls.Add(this.label59);
+            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdUpazila);
+            this.tabPageGuardianInfo.Controls.Add(this.label60);
+            this.tabPageGuardianInfo.Controls.Add(this.label62);
+            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdVillage);
+            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdUnion);
+            this.tabPageGuardianInfo.Controls.Add(this.label61);
+            this.tabPageGuardianInfo.Location = new System.Drawing.Point(4, 25);
+            this.tabPageGuardianInfo.Name = "tabPageGuardianInfo";
+            this.tabPageGuardianInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageGuardianInfo.Size = new System.Drawing.Size(668, 415);
+            this.tabPageGuardianInfo.TabIndex = 3;
+            this.tabPageGuardianInfo.Text = "Guardian Information";
+            this.tabPageGuardianInfo.UseVisualStyleBackColor = true;
+            // 
             // tabPageAddress
             // 
             this.tabPageAddress.AutoScroll = true;
+            this.tabPageAddress.Controls.Add(this.button6);
             this.tabPageAddress.Controls.Add(this.panel3);
             this.tabPageAddress.Controls.Add(this.panel5);
             this.tabPageAddress.Controls.Add(this.comboBoxReviewPreDivision);
@@ -944,89 +1089,26 @@ namespace WindowsDesktop.Students
             this.tabPageAddress.Controls.Add(this.comboBoxReviewPerUnion);
             this.tabPageAddress.Controls.Add(this.label46);
             this.tabPageAddress.Controls.Add(this.comboBoxReviewPerVillage);
+            this.tabPageAddress.Controls.Add(this.label1);
             this.tabPageAddress.Controls.Add(this.label45);
             this.tabPageAddress.Controls.Add(this.label44);
             this.tabPageAddress.Controls.Add(this.textBoxReviewPerDetails);
-            this.tabPageAddress.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAddress.Location = new System.Drawing.Point(4, 25);
             this.tabPageAddress.Name = "tabPageAddress";
             this.tabPageAddress.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddress.Size = new System.Drawing.Size(829, 565);
+            this.tabPageAddress.Size = new System.Drawing.Size(668, 415);
             this.tabPageAddress.TabIndex = 1;
             this.tabPageAddress.Text = "Address";
             this.tabPageAddress.UseVisualStyleBackColor = true;
             // 
-            // tabPageParentInfo
+            // panel3
             // 
-            this.tabPageParentInfo.Controls.Add(this.textBoxReviewFatherName);
-            this.tabPageParentInfo.Controls.Add(this.textBoxReviewFatherPhone);
-            this.tabPageParentInfo.Controls.Add(this.textBoxReviewFatherNid);
-            this.tabPageParentInfo.Controls.Add(this.label73);
-            this.tabPageParentInfo.Controls.Add(this.label72);
-            this.tabPageParentInfo.Controls.Add(this.label71);
-            this.tabPageParentInfo.Controls.Add(this.textBoxReviewMotherPhone);
-            this.tabPageParentInfo.Controls.Add(this.textBoxReviewMotherNid);
-            this.tabPageParentInfo.Controls.Add(this.label70);
-            this.tabPageParentInfo.Controls.Add(this.label69);
-            this.tabPageParentInfo.Controls.Add(this.label68);
-            this.tabPageParentInfo.Controls.Add(this.textBoxReviewMotherName);
-            this.tabPageParentInfo.Location = new System.Drawing.Point(4, 22);
-            this.tabPageParentInfo.Name = "tabPageParentInfo";
-            this.tabPageParentInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageParentInfo.Size = new System.Drawing.Size(829, 565);
-            this.tabPageParentInfo.TabIndex = 2;
-            this.tabPageParentInfo.Text = "Parent Information";
-            this.tabPageParentInfo.UseVisualStyleBackColor = true;
-            // 
-            // tabPageGuardianInfo
-            // 
-            this.tabPageGuardianInfo.Controls.Add(this.textBoxReviewGrdPhone);
-            this.tabPageGuardianInfo.Controls.Add(this.label67);
-            this.tabPageGuardianInfo.Controls.Add(this.label66);
-            this.tabPageGuardianInfo.Controls.Add(this.textBoxReviewGrdName);
-            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdDivision);
-            this.tabPageGuardianInfo.Controls.Add(this.label65);
-            this.tabPageGuardianInfo.Controls.Add(this.label64);
-            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdDistrict);
-            this.tabPageGuardianInfo.Controls.Add(this.textBoxReviewGrdDetails);
-            this.tabPageGuardianInfo.Controls.Add(this.label63);
-            this.tabPageGuardianInfo.Controls.Add(this.label59);
-            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdUpazila);
-            this.tabPageGuardianInfo.Controls.Add(this.label60);
-            this.tabPageGuardianInfo.Controls.Add(this.label62);
-            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdVillage);
-            this.tabPageGuardianInfo.Controls.Add(this.comboBoxReviewGrdUnion);
-            this.tabPageGuardianInfo.Controls.Add(this.label61);
-            this.tabPageGuardianInfo.Location = new System.Drawing.Point(4, 22);
-            this.tabPageGuardianInfo.Name = "tabPageGuardianInfo";
-            this.tabPageGuardianInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGuardianInfo.Size = new System.Drawing.Size(829, 565);
-            this.tabPageGuardianInfo.TabIndex = 3;
-            this.tabPageGuardianInfo.Text = "Guardian Information";
-            this.tabPageGuardianInfo.UseVisualStyleBackColor = true;
-            // 
-            // tabPageAcademic
-            // 
-            this.tabPageAcademic.Controls.Add(this.textBoxReviewRoll);
-            this.tabPageAcademic.Controls.Add(this.label75);
-            this.tabPageAcademic.Controls.Add(this.label77);
-            this.tabPageAcademic.Controls.Add(this.label76);
-            this.tabPageAcademic.Controls.Add(this.textBoxReviewReg);
-            this.tabPageAcademic.Controls.Add(this.comboBoxReviewClass);
-            this.tabPageAcademic.Location = new System.Drawing.Point(4, 22);
-            this.tabPageAcademic.Name = "tabPageAcademic";
-            this.tabPageAcademic.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAcademic.Size = new System.Drawing.Size(829, 565);
-            this.tabPageAcademic.TabIndex = 4;
-            this.tabPageAcademic.Text = "Academic";
-            this.tabPageAcademic.UseVisualStyleBackColor = true;
-            // 
-            // panel7
-            // 
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 62);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1096, 20);
-            this.panel7.TabIndex = 38;
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel3.Controls.Add(this.label58);
+            this.panel3.Location = new System.Drawing.Point(111, 16);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(172, 33);
+            this.panel3.TabIndex = 147;
             // 
             // label58
             // 
@@ -1038,26 +1120,93 @@ namespace WindowsDesktop.Students
             this.label58.TabIndex = 109;
             this.label58.Text = "Present Address";
             // 
-            // panel3
+            // tabPageAcademic
             // 
-            this.panel3.Controls.Add(this.label58);
-            this.panel3.Location = new System.Drawing.Point(126, 16);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(172, 33);
-            this.panel3.TabIndex = 147;
+            this.tabPageAcademic.Controls.Add(this.button7);
+            this.tabPageAcademic.Controls.Add(this.textBoxReviewRoll);
+            this.tabPageAcademic.Controls.Add(this.label75);
+            this.tabPageAcademic.Controls.Add(this.label77);
+            this.tabPageAcademic.Controls.Add(this.label76);
+            this.tabPageAcademic.Controls.Add(this.textBoxReviewReg);
+            this.tabPageAcademic.Controls.Add(this.comboBoxReviewClass);
+            this.tabPageAcademic.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAcademic.Name = "tabPageAcademic";
+            this.tabPageAcademic.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAcademic.Size = new System.Drawing.Size(668, 415);
+            this.tabPageAcademic.TabIndex = 4;
+            this.tabPageAcademic.Text = "Academic";
+            this.tabPageAcademic.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 60);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(802, 20);
+            this.panel7.TabIndex = 38;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button2.Location = new System.Drawing.Point(392, 315);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(156, 39);
+            this.button2.TabIndex = 122;
+            this.button2.Text = "Update";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button5.Location = new System.Drawing.Point(392, 345);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(156, 39);
+            this.button5.TabIndex = 139;
+            this.button5.Text = "Update";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button6.Location = new System.Drawing.Point(383, 533);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(156, 39);
+            this.button6.TabIndex = 148;
+            this.button6.Text = "Update";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(368, 612);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 17);
+            this.label1.TabIndex = 105;
+            this.label1.Text = "Village";
+            // 
+            // button7
+            // 
+            this.button7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button7.Location = new System.Drawing.Point(392, 137);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(156, 39);
+            this.button7.TabIndex = 145;
+            this.button7.Text = "Update";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // FrmStudentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1096, 773);
+            this.ClientSize = new System.Drawing.Size(802, 542);
             this.ControlBox = false;
             this.Controls.Add(this.panelBody);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.flowLayoutPanelControl);
             this.Controls.Add(this.panelTitleBar);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmStudentDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panelTitleBar.ResumeLayout(false);
@@ -1069,16 +1218,16 @@ namespace WindowsDesktop.Students
             this.tabControlProfile.ResumeLayout(false);
             this.tabPagePersonalInformation.ResumeLayout(false);
             this.tabPagePersonalInformation.PerformLayout();
-            this.tabPageAddress.ResumeLayout(false);
-            this.tabPageAddress.PerformLayout();
             this.tabPageParentInfo.ResumeLayout(false);
             this.tabPageParentInfo.PerformLayout();
             this.tabPageGuardianInfo.ResumeLayout(false);
             this.tabPageGuardianInfo.PerformLayout();
-            this.tabPageAcademic.ResumeLayout(false);
-            this.tabPageAcademic.PerformLayout();
+            this.tabPageAddress.ResumeLayout(false);
+            this.tabPageAddress.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.tabPageAcademic.ResumeLayout(false);
+            this.tabPageAcademic.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1113,7 +1262,6 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.ComboBox comboBoxReviewGrdDistrict;
         private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.Label label65;
         private System.Windows.Forms.ComboBox comboBoxReviewGrdDivision;
         private System.Windows.Forms.TextBox textBoxReviewGrdName;
         private System.Windows.Forms.Label label66;
@@ -1176,5 +1324,11 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.TabPage tabPageAcademic;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Button buttonPersonalInformationUpdate;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button7;
     }
 }
