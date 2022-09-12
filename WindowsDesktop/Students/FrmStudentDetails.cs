@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Theme;
+using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.Students
 {
@@ -217,26 +218,47 @@ namespace WindowsDesktop.Students
                 tabControlProfile.Dock = DockStyle.Fill;
                 tabControlProfile.Visible = true;
 
-                //LoadTheme(tabPagePersonalInformation);
-                //LoadTheme(tabPage1);
-                //LoadTheme(tabPage2);
-                //LoadTheme(tabPage3);
+                var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _id + "'";
+                var dr = Db.GetDataReader(query);
+                if (dr.HasRows)
+                {
+                    dr.Read();
 
-                //var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _id + "'";
-                //var dr = Db.GetDataReader(query);
-                //if (dr.HasRows)
-                //{
-                //    dr.Read();
-                //    textBoxReviewFullName.Text = dr["name"].ToString();
-                //    textBoxReviewPhone.Text = dr["phone"].ToString();
-                //    textBoxReviewBirthCertificeate.Text = dr["birth_certificate"].ToString();
-                //    textBoxReviewNid.Text = dr["nid"].ToString();
-                //    dateTimePickerReviewDob.Value = Convert.ToDateTime(dr["dob"].ToString());
+                    // Personal Information
+                    textBoxReviewFullName.Text = dr["name"].ToString();
+                    textBoxReviewPhone.Text = dr["phone"].ToString();
+                    textBoxReviewBirthCertificeate.Text = dr["birth_certificate"].ToString();
+                    textBoxReviewNid.Text = dr["nid"].ToString();
+                    dateTimePickerReviewDob.Value = Convert.ToDateTime(dr["dob"].ToString());
+
+                    // Parent Information
+                    textBoxReviewFatherName.Text = dr["father_name"].ToString();
+                    textBoxReviewFatherPhone.Text = dr["father_phone"].ToString();
+                    textBoxReviewFatherNid.Text = dr["father_nid"].ToString();
+                    textBoxReviewMotherName.Text = dr["mother_name"].ToString();
+                    textBoxReviewMotherPhone.Text = dr["mother_phone"].ToString();
+                    textBoxReviewMotherNid.Text = dr["mother_nid"].ToString();
+
+                    // Guardian information
+                    textBoxReviewGrdName.Text = dr["guardian_name"].ToString();
+                    textBoxReviewGrdPhone.Text = dr["guardian_phone"].ToString();
+                    textBoxReviewGrdDetails.Text = dr["g_details"].ToString();
 
 
+                    // ---------------- Address ---------------------
 
-                //    groupBoxReview.Show();
-                //}
+                    var gDivisionId = dr["g_division_id"].ToString();
+                    var gDistrictId = dr["g_district_id"].ToString();
+                    var dUpazilaId = dr["g_upazila_id"].ToString();
+                    var gUnionId = dr["g_union_id"].ToString();
+                    var gVillageId = dr["g_village_id"].ToString();
+
+                    comboBoxReviewGrdDivision.SelectedValue = gDivisionId;
+                    comboBoxReviewGrdDistrict.SelectedValue = gDistrictId;
+                    comboBoxReviewGrdUpazila.SelectedValue = dUpazilaId;
+                    comboBoxReviewGrdUnion.SelectedValue = gUnionId;
+                    comboBoxReviewGrdVillage.SelectedValue = gVillageId;
+                }
             }
             catch (Exception ex)
             {
