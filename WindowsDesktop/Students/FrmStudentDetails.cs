@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Theme;
 
@@ -463,7 +464,20 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                var query = "UPDATE ";
+                var isValid = ThemeTemplate.SValidate(tabPagePersonalInformation, errorProviderDetails);
+                if (isValid)
+                {
+                    var query = "UPDATE s_students SET name='" + textBoxReviewFullName.Text.Trim() +
+                                "', phone='" + textBoxReviewPhone.Text.Trim() +
+                                "', birth_certificate='" + textBoxReviewBirthCertificeate.Text.Trim() +
+                                "', nid='" + textBoxReviewNid.Text.Trim() +
+                                "', dob='" + dateTimePickerReviewDob.Value.ToString(GlobalSettings.DateFormatSave) +
+                                "', update_by='" + GlobalSettings.UserName +
+                                "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
+                                "' WHERE id='" + _studentId + "'";
+                    var isUpdate = Db.QueryExecute(query);
+                    MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
+                }
             }
             catch (Exception ex)
             {
@@ -473,17 +487,109 @@ namespace WindowsDesktop.Students
 
         private void buttonParentInformationUpdate_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                var isValid = ThemeTemplate.SValidate(tabPageParentInfo, errorProviderDetails);
+                if (!isValid) return;
+                var query = "UPDATE s_students SET father_name='" + textBoxReviewFatherName.Text.Trim() +
+                            "', father_phone='" + textBoxReviewFatherPhone.Text.Trim() +
+                            "', father_nid='" + textBoxReviewFatherNid.Text.Trim() +
+                            "', mother_name='" + textBoxReviewMotherName.Text.Trim() +
+                            "', mother_phone='" + textBoxReviewMotherPhone.Text.Trim() +
+                            "', mother_nid='" + textBoxReviewMotherNid.Text.Trim() +
+                            "', update_by='" + GlobalSettings.UserName +
+                            "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
+                            "' WHERE id='" + _studentId + "'";
+                var isUpdate = Db.QueryExecute(query);
+                MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void buttonGuardianInfoUpdate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var isValid = ThemeTemplate.SValidate(tabPageGuardianInfo, errorProviderDetails);
+                if (!isValid) return;
+                var query = "UPDATE s_students SET guardian_name='" + textBoxReviewGrdName.Text.Trim() +
+                            "', guardian_phone='" + textBoxReviewGrdPhone.Text.Trim() +
+                            "', update_by='" + GlobalSettings.UserName +
+                            "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
+                            "' WHERE id='" + _studentId + "'; ";
 
+                query += "UPDATE s_addresses SET g_division_id='" + comboBoxReviewGrdDivision.SelectedValue +
+                         "', g_district_id='" + comboBoxReviewGrdDistrict.SelectedValue +
+                         "', g_upazila_id='" + comboBoxReviewGrdUpazila.SelectedValue +
+                         "', g_union_id='" + comboBoxReviewGrdUnion.SelectedValue +
+                         "', g_village_id='" + comboBoxReviewGrdVillage.SelectedValue +
+                         "', g_details='" + textBoxReviewGrdDetails.Text.Trim() +
+                         "', update_by='" + GlobalSettings.UserName +
+                         "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
+                         "' WHERE person_id='" + _studentId + "' AND who='ST';";
+
+                var isUpdate = Db.QueryExecute(query);
+                MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void buttonAddressUpdate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var isValid = ThemeTemplate.SValidate(tabPageAddress, errorProviderDetails);
+                if (!isValid) return;
+                var query = "UPDATE s_addresses SET p_division_id='" + comboBoxReviewPerDivision.SelectedValue +
+                         "', p_district_id='" + comboBoxReviewPerDistrict.SelectedValue +
+                         "', p_upazila_id='" + comboBoxReviewPerUpazila.SelectedValue +
+                         "', p_union_id='" + comboBoxReviewPerUnion.SelectedValue +
+                         "', p_village_id='" + comboBoxReviewPerVillage.SelectedValue +
+                         "', p_details='" + textBoxReviewPerDetails.Text.Trim() +
+                         "', m_division_id='" + comboBoxReviewPreDivision.SelectedValue +
+                         "', m_district_id='" + comboBoxReviewPreDistrict.SelectedValue +
+                         "', m_upazila_id='" + comboBoxReviewPreUpazila.SelectedValue +
+                         "', m_union_id='" + comboBoxReviewPreUnion.SelectedValue +
+                         "', m_village_id='" + comboBoxReviewPreVillage.SelectedValue +
+                         "', m_details='" + textBoxReviewPreDetails.Text.Trim() +
+                         "', update_by='" + GlobalSettings.UserName +
+                         "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
+                         "' WHERE person_id='" + _studentId + "' AND who='ST'";
 
+                var isUpdate = Db.QueryExecute(query);
+                MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void buttonAcademicUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var isValid = ThemeTemplate.SValidate(tabPageAcademic, errorProviderDetails);
+                if (!isValid) return;
+                var query = "UPDATE s_students SET roll='" + textBoxReviewRoll.Text.Trim() +
+                            "', reg='" + textBoxReviewReg.Text.Trim() +
+                            "', class_id='" + comboBoxReviewClass.SelectedValue +
+                            "', update_by='" + GlobalSettings.UserName +
+                            "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
+                            "' WHERE id='" + _studentId + "'";
+                var isUpdate = Db.QueryExecute(query);
+                MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
