@@ -1,30 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Theme;
-using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.Students
 {
     public partial class FrmStudentDetails : Form
     {
-        private string _id;
+        private string _studentId;
         private Button _currentBtn;
 
-        public FrmStudentDetails(string id)
+        public FrmStudentDetails(string studentId)
         {
             InitializeComponent();
-            _id = id;
-            LoadTheme(flowLayoutPanelControl);
+            _studentId = studentId;
             LoadData();
+            LoadTheme(flowLayoutPanelControl);
             LoadTheme(panelBody);
         }
 
@@ -60,7 +52,7 @@ namespace WindowsDesktop.Students
 
         private void LoadData()
         {
-            var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _id + "'";
+            var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _studentId + "'";
             var studentDetails = Db.GetDataReader(query);
             if (studentDetails.HasRows)
             {
@@ -218,7 +210,7 @@ namespace WindowsDesktop.Students
                 tabControlProfile.Dock = DockStyle.Fill;
                 tabControlProfile.Visible = true;
 
-                var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _id + "'";
+                var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _studentId + "'";
                 var dr = Db.GetDataReader(query);
                 if (dr.HasRows)
                 {
@@ -242,22 +234,64 @@ namespace WindowsDesktop.Students
                     // Guardian information
                     textBoxReviewGrdName.Text = dr["guardian_name"].ToString();
                     textBoxReviewGrdPhone.Text = dr["guardian_phone"].ToString();
-                    textBoxReviewGrdDetails.Text = dr["g_details"].ToString();
+
+                    // Present and Permanent Address
 
 
                     // ---------------- Address ---------------------
 
+                    // Guardian
                     var gDivisionId = dr["g_division_id"].ToString();
                     var gDistrictId = dr["g_district_id"].ToString();
                     var dUpazilaId = dr["g_upazila_id"].ToString();
                     var gUnionId = dr["g_union_id"].ToString();
                     var gVillageId = dr["g_village_id"].ToString();
+                    textBoxReviewGrdDetails.Text = dr["g_details"].ToString();
 
+                    // Permanent
+                    var pDivisionId = dr["p_division_id"].ToString();
+                    var pDistrictId = dr["p_district_id"].ToString();
+                    var pUpazilaId = dr["p_upazila_id"].ToString();
+                    var pUnionId = dr["p_union_id"].ToString();
+                    var pVillageId = dr["p_village_id"].ToString();
+                    textBoxReviewPerDetails.Text = dr["p_details"].ToString();
+
+                    // Present/Mailing
+                    var mDivisionId = dr["m_division_id"].ToString();
+                    var mDistrictId = dr["m_district_id"].ToString();
+                    var mUpazilaId = dr["m_upazila_id"].ToString();
+                    var mUnionId = dr["m_union_id"].ToString();
+                    var mVillageId = dr["m_village_id"].ToString();
+                    textBoxReviewPreDetails.Text = dr["m_details"].ToString();
+
+                    // Class
+                    var classId = dr["class_id"].ToString();
+                    textBoxReviewRoll.Text = dr["roll"].ToString();
+                    textBoxReviewReg.Text = dr["reg"].ToString();
+
+                    // Guardian
                     comboBoxReviewGrdDivision.SelectedValue = gDivisionId;
                     comboBoxReviewGrdDistrict.SelectedValue = gDistrictId;
                     comboBoxReviewGrdUpazila.SelectedValue = dUpazilaId;
                     comboBoxReviewGrdUnion.SelectedValue = gUnionId;
                     comboBoxReviewGrdVillage.SelectedValue = gVillageId;
+
+                    // Permanent
+                    comboBoxReviewPerDivision.SelectedValue = pDivisionId;
+                    comboBoxReviewPerDistrict.SelectedValue = pDistrictId;
+                    comboBoxReviewPerUpazila.SelectedValue = pUpazilaId;
+                    comboBoxReviewPerUnion.SelectedValue = pUnionId;
+                    comboBoxReviewPerVillage.SelectedValue = pVillageId;
+
+                    // Present/Mailing
+                    comboBoxReviewPreDivision.SelectedValue = mDivisionId;
+                    comboBoxReviewPreDistrict.SelectedValue = mDistrictId;
+                    comboBoxReviewPreUpazila.SelectedValue = mUpazilaId;
+                    comboBoxReviewPreUnion.SelectedValue = mUnionId;
+                    comboBoxReviewPreVillage.SelectedValue = mVillageId;
+
+                    // Class
+                    comboBoxReviewClass.SelectedValue = classId;
                 }
             }
             catch (Exception ex)
@@ -421,6 +455,33 @@ namespace WindowsDesktop.Students
         }
 
         private void comboBoxReviewPerVillage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPersonalInformationUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var query = "UPDATE ";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void buttonParentInformationUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonGuardianInfoUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAddressUpdate_Click(object sender, EventArgs e)
         {
 
         }
