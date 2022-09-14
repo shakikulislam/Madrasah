@@ -104,7 +104,7 @@ namespace WindowsDesktop.Students
             this.Controls.Add(this.panelStudentBody);
             this.Controls.Add(this.panelStudentControl);
             this.Name = "FrmStudent";
-            this.Text = "FrmStudent";
+            this.Text = "Student";
             this.panelStudentControl.ResumeLayout(false);
             this.ResumeLayout(false);
 

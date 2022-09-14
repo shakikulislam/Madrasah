@@ -123,11 +123,11 @@ namespace WindowsDesktop.Students
             this.label58 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageAcademic = new System.Windows.Forms.TabPage();
+            this.textBoxReviewFormNo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.buttonAcademicUpdate = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.errorProviderDetails = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBoxReviewFormNo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panelTitleBar.SuspendLayout();
             this.flowLayoutPanelControl.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -262,7 +262,7 @@ namespace WindowsDesktop.Students
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel5.Controls.Add(this.label57);
-            this.panel5.Location = new System.Drawing.Point(84, 280);
+            this.panel5.Location = new System.Drawing.Point(116, 280);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(172, 33);
             this.panel5.TabIndex = 147;
@@ -281,7 +281,7 @@ namespace WindowsDesktop.Students
             // 
             this.label75.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(120, 86);
+            this.label75.Location = new System.Drawing.Point(120, 70);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(42, 17);
             this.label75.TabIndex = 144;
@@ -290,7 +290,7 @@ namespace WindowsDesktop.Students
             // textBoxReviewRoll
             // 
             this.textBoxReviewRoll.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxReviewRoll.Location = new System.Drawing.Point(120, 155);
+            this.textBoxReviewRoll.Location = new System.Drawing.Point(120, 139);
             this.textBoxReviewRoll.Name = "textBoxReviewRoll";
             this.textBoxReviewRoll.Size = new System.Drawing.Size(172, 23);
             this.textBoxReviewRoll.TabIndex = 140;
@@ -299,7 +299,7 @@ namespace WindowsDesktop.Students
             // 
             this.textBoxReviewReg.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxReviewReg.CausesValidation = false;
-            this.textBoxReviewReg.Location = new System.Drawing.Point(376, 155);
+            this.textBoxReviewReg.Location = new System.Drawing.Point(376, 139);
             this.textBoxReviewReg.Name = "textBoxReviewReg";
             this.textBoxReviewReg.Size = new System.Drawing.Size(172, 23);
             this.textBoxReviewReg.TabIndex = 143;
@@ -309,7 +309,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewClass.DisplayMember = "name";
             this.comboBoxReviewClass.FormattingEnabled = true;
-            this.comboBoxReviewClass.Location = new System.Drawing.Point(120, 106);
+            this.comboBoxReviewClass.Location = new System.Drawing.Point(120, 90);
             this.comboBoxReviewClass.Name = "comboBoxReviewClass";
             this.comboBoxReviewClass.Size = new System.Drawing.Size(428, 24);
             this.comboBoxReviewClass.TabIndex = 141;
@@ -319,7 +319,7 @@ namespace WindowsDesktop.Students
             // 
             this.label76.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(376, 135);
+            this.label76.Location = new System.Drawing.Point(376, 119);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(56, 17);
             this.label76.TabIndex = 142;
@@ -329,7 +329,7 @@ namespace WindowsDesktop.Students
             // 
             this.label77.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(120, 135);
+            this.label77.Location = new System.Drawing.Point(120, 119);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(54, 17);
             this.label77.TabIndex = 139;
@@ -616,7 +616,7 @@ namespace WindowsDesktop.Students
             // 
             this.textBoxReviewPerDetails.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxReviewPerDetails.CausesValidation = false;
-            this.textBoxReviewPerDetails.Location = new System.Drawing.Point(84, 476);
+            this.textBoxReviewPerDetails.Location = new System.Drawing.Point(116, 476);
             this.textBoxReviewPerDetails.Multiline = true;
             this.textBoxReviewPerDetails.Name = "textBoxReviewPerDetails";
             this.textBoxReviewPerDetails.Size = new System.Drawing.Size(428, 51);
@@ -626,7 +626,7 @@ namespace WindowsDesktop.Students
             // 
             this.label44.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(84, 456);
+            this.label44.Location = new System.Drawing.Point(116, 456);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(196, 17);
             this.label44.TabIndex = 106;
@@ -636,7 +636,7 @@ namespace WindowsDesktop.Students
             // 
             this.label45.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(84, 409);
+            this.label45.Location = new System.Drawing.Point(116, 409);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(50, 17);
             this.label45.TabIndex = 105;
@@ -647,7 +647,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewPerVillage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerVillage.DisplayMember = "name";
             this.comboBoxReviewPerVillage.FormattingEnabled = true;
-            this.comboBoxReviewPerVillage.Location = new System.Drawing.Point(84, 429);
+            this.comboBoxReviewPerVillage.Location = new System.Drawing.Point(116, 429);
             this.comboBoxReviewPerVillage.Name = "comboBoxReviewPerVillage";
             this.comboBoxReviewPerVillage.Size = new System.Drawing.Size(428, 24);
             this.comboBoxReviewPerVillage.TabIndex = 104;
@@ -658,7 +658,7 @@ namespace WindowsDesktop.Students
             // 
             this.label46.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(303, 362);
+            this.label46.Location = new System.Drawing.Point(335, 362);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(45, 17);
             this.label46.TabIndex = 103;
@@ -669,7 +669,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewPerUnion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerUnion.DisplayMember = "name";
             this.comboBoxReviewPerUnion.FormattingEnabled = true;
-            this.comboBoxReviewPerUnion.Location = new System.Drawing.Point(303, 382);
+            this.comboBoxReviewPerUnion.Location = new System.Drawing.Point(335, 382);
             this.comboBoxReviewPerUnion.Name = "comboBoxReviewPerUnion";
             this.comboBoxReviewPerUnion.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerUnion.TabIndex = 102;
@@ -680,7 +680,7 @@ namespace WindowsDesktop.Students
             // 
             this.label47.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(84, 362);
+            this.label47.Location = new System.Drawing.Point(116, 362);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(55, 17);
             this.label47.TabIndex = 101;
@@ -691,7 +691,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewPerUpazila.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerUpazila.DisplayMember = "name";
             this.comboBoxReviewPerUpazila.FormattingEnabled = true;
-            this.comboBoxReviewPerUpazila.Location = new System.Drawing.Point(84, 382);
+            this.comboBoxReviewPerUpazila.Location = new System.Drawing.Point(116, 382);
             this.comboBoxReviewPerUpazila.Name = "comboBoxReviewPerUpazila";
             this.comboBoxReviewPerUpazila.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerUpazila.TabIndex = 100;
@@ -702,7 +702,7 @@ namespace WindowsDesktop.Students
             // 
             this.label48.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(303, 315);
+            this.label48.Location = new System.Drawing.Point(335, 315);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(51, 17);
             this.label48.TabIndex = 99;
@@ -713,7 +713,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewPerDistrict.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerDistrict.DisplayMember = "name";
             this.comboBoxReviewPerDistrict.FormattingEnabled = true;
-            this.comboBoxReviewPerDistrict.Location = new System.Drawing.Point(303, 335);
+            this.comboBoxReviewPerDistrict.Location = new System.Drawing.Point(335, 335);
             this.comboBoxReviewPerDistrict.Name = "comboBoxReviewPerDistrict";
             this.comboBoxReviewPerDistrict.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerDistrict.TabIndex = 98;
@@ -724,7 +724,7 @@ namespace WindowsDesktop.Students
             // 
             this.label49.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(84, 315);
+            this.label49.Location = new System.Drawing.Point(116, 315);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(57, 17);
             this.label49.TabIndex = 97;
@@ -735,7 +735,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewPerDivision.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerDivision.DisplayMember = "name";
             this.comboBoxReviewPerDivision.FormattingEnabled = true;
-            this.comboBoxReviewPerDivision.Location = new System.Drawing.Point(84, 335);
+            this.comboBoxReviewPerDivision.Location = new System.Drawing.Point(116, 335);
             this.comboBoxReviewPerDivision.Name = "comboBoxReviewPerDivision";
             this.comboBoxReviewPerDivision.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerDivision.TabIndex = 95;
@@ -746,7 +746,7 @@ namespace WindowsDesktop.Students
             // 
             this.textBoxReviewPreDetails.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxReviewPreDetails.CausesValidation = false;
-            this.textBoxReviewPreDetails.Location = new System.Drawing.Point(84, 212);
+            this.textBoxReviewPreDetails.Location = new System.Drawing.Point(116, 212);
             this.textBoxReviewPreDetails.Multiline = true;
             this.textBoxReviewPreDetails.Name = "textBoxReviewPreDetails";
             this.textBoxReviewPreDetails.Size = new System.Drawing.Size(428, 51);
@@ -756,7 +756,7 @@ namespace WindowsDesktop.Students
             // 
             this.label51.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(84, 192);
+            this.label51.Location = new System.Drawing.Point(116, 192);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(196, 17);
             this.label51.TabIndex = 93;
@@ -766,7 +766,7 @@ namespace WindowsDesktop.Students
             // 
             this.label52.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(84, 145);
+            this.label52.Location = new System.Drawing.Point(116, 145);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(50, 17);
             this.label52.TabIndex = 92;
@@ -777,7 +777,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewPreVillage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreVillage.DisplayMember = "name";
             this.comboBoxReviewPreVillage.FormattingEnabled = true;
-            this.comboBoxReviewPreVillage.Location = new System.Drawing.Point(84, 165);
+            this.comboBoxReviewPreVillage.Location = new System.Drawing.Point(116, 165);
             this.comboBoxReviewPreVillage.Name = "comboBoxReviewPreVillage";
             this.comboBoxReviewPreVillage.Size = new System.Drawing.Size(428, 24);
             this.comboBoxReviewPreVillage.TabIndex = 91;
@@ -788,7 +788,7 @@ namespace WindowsDesktop.Students
             // 
             this.label53.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(303, 98);
+            this.label53.Location = new System.Drawing.Point(335, 98);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(45, 17);
             this.label53.TabIndex = 90;
@@ -799,7 +799,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewPreUnion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreUnion.DisplayMember = "name";
             this.comboBoxReviewPreUnion.FormattingEnabled = true;
-            this.comboBoxReviewPreUnion.Location = new System.Drawing.Point(303, 118);
+            this.comboBoxReviewPreUnion.Location = new System.Drawing.Point(335, 118);
             this.comboBoxReviewPreUnion.Name = "comboBoxReviewPreUnion";
             this.comboBoxReviewPreUnion.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreUnion.TabIndex = 89;
@@ -810,7 +810,7 @@ namespace WindowsDesktop.Students
             // 
             this.label54.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(84, 98);
+            this.label54.Location = new System.Drawing.Point(116, 98);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(55, 17);
             this.label54.TabIndex = 88;
@@ -821,7 +821,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewPreUpazila.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreUpazila.DisplayMember = "name";
             this.comboBoxReviewPreUpazila.FormattingEnabled = true;
-            this.comboBoxReviewPreUpazila.Location = new System.Drawing.Point(84, 118);
+            this.comboBoxReviewPreUpazila.Location = new System.Drawing.Point(116, 118);
             this.comboBoxReviewPreUpazila.Name = "comboBoxReviewPreUpazila";
             this.comboBoxReviewPreUpazila.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreUpazila.TabIndex = 87;
@@ -832,7 +832,7 @@ namespace WindowsDesktop.Students
             // 
             this.label55.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(303, 51);
+            this.label55.Location = new System.Drawing.Point(335, 51);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(51, 17);
             this.label55.TabIndex = 86;
@@ -843,7 +843,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewPreDistrict.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreDistrict.DisplayMember = "name";
             this.comboBoxReviewPreDistrict.FormattingEnabled = true;
-            this.comboBoxReviewPreDistrict.Location = new System.Drawing.Point(303, 71);
+            this.comboBoxReviewPreDistrict.Location = new System.Drawing.Point(335, 71);
             this.comboBoxReviewPreDistrict.Name = "comboBoxReviewPreDistrict";
             this.comboBoxReviewPreDistrict.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreDistrict.TabIndex = 85;
@@ -854,7 +854,7 @@ namespace WindowsDesktop.Students
             // 
             this.label56.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(84, 51);
+            this.label56.Location = new System.Drawing.Point(116, 51);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(57, 17);
             this.label56.TabIndex = 84;
@@ -865,7 +865,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewPreDivision.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreDivision.DisplayMember = "name";
             this.comboBoxReviewPreDivision.FormattingEnabled = true;
-            this.comboBoxReviewPreDivision.Location = new System.Drawing.Point(84, 71);
+            this.comboBoxReviewPreDivision.Location = new System.Drawing.Point(116, 71);
             this.comboBoxReviewPreDivision.Name = "comboBoxReviewPreDivision";
             this.comboBoxReviewPreDivision.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreDivision.TabIndex = 82;
@@ -1135,7 +1135,7 @@ namespace WindowsDesktop.Students
             // buttonAddressUpdate
             // 
             this.buttonAddressUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonAddressUpdate.Location = new System.Drawing.Point(356, 533);
+            this.buttonAddressUpdate.Location = new System.Drawing.Point(388, 533);
             this.buttonAddressUpdate.Name = "buttonAddressUpdate";
             this.buttonAddressUpdate.Size = new System.Drawing.Size(156, 39);
             this.buttonAddressUpdate.TabIndex = 148;
@@ -1147,7 +1147,7 @@ namespace WindowsDesktop.Students
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel3.Controls.Add(this.label58);
-            this.panel3.Location = new System.Drawing.Point(84, 16);
+            this.panel3.Location = new System.Drawing.Point(116, 16);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(172, 33);
             this.panel3.TabIndex = 147;
@@ -1189,10 +1189,29 @@ namespace WindowsDesktop.Students
             this.tabPageAcademic.Text = "Academic";
             this.tabPageAcademic.UseVisualStyleBackColor = true;
             // 
+            // textBoxReviewFormNo
+            // 
+            this.textBoxReviewFormNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewFormNo.CausesValidation = false;
+            this.textBoxReviewFormNo.Location = new System.Drawing.Point(120, 43);
+            this.textBoxReviewFormNo.Name = "textBoxReviewFormNo";
+            this.textBoxReviewFormNo.Size = new System.Drawing.Size(172, 23);
+            this.textBoxReviewFormNo.TabIndex = 147;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(120, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.TabIndex = 146;
+            this.label2.Text = "Form No";
+            // 
             // buttonAcademicUpdate
             // 
             this.buttonAcademicUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonAcademicUpdate.Location = new System.Drawing.Point(392, 199);
+            this.buttonAcademicUpdate.Location = new System.Drawing.Point(392, 183);
             this.buttonAcademicUpdate.Name = "buttonAcademicUpdate";
             this.buttonAcademicUpdate.Size = new System.Drawing.Size(156, 39);
             this.buttonAcademicUpdate.TabIndex = 145;
@@ -1212,25 +1231,6 @@ namespace WindowsDesktop.Students
             // 
             this.errorProviderDetails.ContainerControl = this;
             // 
-            // textBoxReviewFormNo
-            // 
-            this.textBoxReviewFormNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxReviewFormNo.CausesValidation = false;
-            this.textBoxReviewFormNo.Location = new System.Drawing.Point(120, 59);
-            this.textBoxReviewFormNo.Name = "textBoxReviewFormNo";
-            this.textBoxReviewFormNo.Size = new System.Drawing.Size(172, 23);
-            this.textBoxReviewFormNo.TabIndex = 147;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(120, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 17);
-            this.label2.TabIndex = 146;
-            this.label2.Text = "Form No";
-            // 
             // FrmStudentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1243,7 +1243,7 @@ namespace WindowsDesktop.Students
             this.Controls.Add(this.flowLayoutPanelControl);
             this.Controls.Add(this.panelTitleBar);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmStudentDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panelTitleBar.ResumeLayout(false);

@@ -5,9 +5,10 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WindowsDesktop.Common;
-using WindowsDesktop.DbContext;
+using WindowsDesktop.Staff;
 using WindowsDesktop.Students;
 using WindowsDesktop.Theme;
+using Hospital_MS_SSC.Common;
 
 namespace WindowsDesktop
 {
@@ -15,6 +16,8 @@ namespace WindowsDesktop
     {
 
         #region Variable
+
+        private frmWaiting _waiting;
 
         private IconButton _currentBtn;
         private Panel _leftMenuBtnBorder;
@@ -148,6 +151,13 @@ namespace WindowsDesktop
 
                 // Current Child
                 iconPictureBoxCurrentChild.IconChar = _currentBtn.IconChar;
+                iconPictureBoxCurrentChild.IconFont = _currentBtn.IconFont;
+
+                // Loading
+                _waiting = new frmWaiting();
+                _waiting.TopMost = true;
+                _waiting.Show();
+                Application.DoEvents();
             }
         }
 
@@ -182,6 +192,8 @@ namespace WindowsDesktop
             
             _currentChildForm.Show();
 
+            // Loading
+            _waiting.Close();
         }
 
         private void CloseChildForm()
@@ -266,6 +278,12 @@ namespace WindowsDesktop
         {
             ActiveButton(sender);
             OpenChildForm(new FrmAcademic());
+        }
+
+        private void iconButtonStaff_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            OpenChildForm(new FrmStaff());
         }
     }
 }
