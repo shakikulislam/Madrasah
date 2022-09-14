@@ -81,7 +81,8 @@ namespace WindowsDesktop.Students
             this.textBoxStudentPhone = new System.Windows.Forms.TextBox();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.groupBoxAcademicInformation = new System.Windows.Forms.GroupBox();
-            this.linkLabelAddNewClass = new System.Windows.Forms.LinkLabel();
+            this.textBoxFormNo = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
             this.buttonAcademicBack = new System.Windows.Forms.Button();
             this.buttonAcademicNext = new System.Windows.Forms.Button();
             this.labelStudentName = new System.Windows.Forms.Label();
@@ -200,6 +201,8 @@ namespace WindowsDesktop.Students
             this.textBoxReviewFullName = new System.Windows.Forms.TextBox();
             this.buttonReviewBack = new System.Windows.Forms.Button();
             this.buttonSubmit = new System.Windows.Forms.Button();
+            this.textBoxReviewFormNo = new System.Windows.Forms.TextBox();
+            this.label80 = new System.Windows.Forms.Label();
             this.groupBoxGuardianInformation.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
             this.groupBoxAcademicInformation.SuspendLayout();
@@ -545,7 +548,7 @@ namespace WindowsDesktop.Students
             // comboBoxClass
             // 
             this.comboBoxClass.FormattingEnabled = true;
-            this.comboBoxClass.Location = new System.Drawing.Point(232, 35);
+            this.comboBoxClass.Location = new System.Drawing.Point(232, 64);
             this.comboBoxClass.Name = "comboBoxClass";
             this.comboBoxClass.Size = new System.Drawing.Size(193, 24);
             this.comboBoxClass.TabIndex = 2;
@@ -570,7 +573,7 @@ namespace WindowsDesktop.Students
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(184, 39);
+            this.label16.Location = new System.Drawing.Point(184, 68);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(42, 17);
             this.label16.TabIndex = 29;
@@ -591,7 +594,7 @@ namespace WindowsDesktop.Students
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxStudentPhone);
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxPersonalInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(46, 50);
+            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(28, 50);
             this.groupBoxPersonalInformation.Name = "groupBoxPersonalInformation";
             this.groupBoxPersonalInformation.Size = new System.Drawing.Size(594, 257);
             this.groupBoxPersonalInformation.TabIndex = 0;
@@ -693,7 +696,8 @@ namespace WindowsDesktop.Students
             // 
             // groupBoxAcademicInformation
             // 
-            this.groupBoxAcademicInformation.Controls.Add(this.linkLabelAddNewClass);
+            this.groupBoxAcademicInformation.Controls.Add(this.textBoxFormNo);
+            this.groupBoxAcademicInformation.Controls.Add(this.label74);
             this.groupBoxAcademicInformation.Controls.Add(this.buttonAcademicBack);
             this.groupBoxAcademicInformation.Controls.Add(this.buttonAcademicNext);
             this.groupBoxAcademicInformation.Controls.Add(this.label16);
@@ -703,28 +707,37 @@ namespace WindowsDesktop.Students
             this.groupBoxAcademicInformation.Controls.Add(this.label2);
             this.groupBoxAcademicInformation.Controls.Add(this.label1);
             this.groupBoxAcademicInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAcademicInformation.Location = new System.Drawing.Point(14, 170);
+            this.groupBoxAcademicInformation.Location = new System.Drawing.Point(4, 170);
             this.groupBoxAcademicInformation.Name = "groupBoxAcademicInformation";
-            this.groupBoxAcademicInformation.Size = new System.Drawing.Size(594, 224);
+            this.groupBoxAcademicInformation.Size = new System.Drawing.Size(594, 226);
             this.groupBoxAcademicInformation.TabIndex = 2;
             this.groupBoxAcademicInformation.TabStop = false;
             this.groupBoxAcademicInformation.Text = "Academic Information";
             this.groupBoxAcademicInformation.Visible = false;
             // 
-            // linkLabelAddNewClass
+            // textBoxFormNo
             // 
-            this.linkLabelAddNewClass.AutoSize = true;
-            this.linkLabelAddNewClass.Location = new System.Drawing.Point(323, 62);
-            this.linkLabelAddNewClass.Name = "linkLabelAddNewClass";
-            this.linkLabelAddNewClass.Size = new System.Drawing.Size(102, 17);
-            this.linkLabelAddNewClass.TabIndex = 34;
-            this.linkLabelAddNewClass.TabStop = true;
-            this.linkLabelAddNewClass.Text = "Add New Class";
+            this.textBoxFormNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxFormNo.CausesValidation = false;
+            this.textBoxFormNo.Location = new System.Drawing.Point(232, 35);
+            this.textBoxFormNo.Name = "textBoxFormNo";
+            this.textBoxFormNo.Size = new System.Drawing.Size(193, 23);
+            this.textBoxFormNo.TabIndex = 149;
+            // 
+            // label74
+            // 
+            this.label74.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(164, 38);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(62, 17);
+            this.label74.TabIndex = 148;
+            this.label74.Text = "Form No";
             // 
             // buttonAcademicBack
             // 
             this.buttonAcademicBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonAcademicBack.Location = new System.Drawing.Point(133, 175);
+            this.buttonAcademicBack.Location = new System.Drawing.Point(133, 177);
             this.buttonAcademicBack.Name = "buttonAcademicBack";
             this.buttonAcademicBack.Size = new System.Drawing.Size(160, 38);
             this.buttonAcademicBack.TabIndex = 33;
@@ -735,7 +748,7 @@ namespace WindowsDesktop.Students
             // buttonAcademicNext
             // 
             this.buttonAcademicNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonAcademicNext.Location = new System.Drawing.Point(302, 175);
+            this.buttonAcademicNext.Location = new System.Drawing.Point(302, 177);
             this.buttonAcademicNext.Name = "buttonAcademicNext";
             this.buttonAcademicNext.Size = new System.Drawing.Size(160, 38);
             this.buttonAcademicNext.TabIndex = 32;
@@ -747,7 +760,7 @@ namespace WindowsDesktop.Students
             // 
             this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentName.Location = new System.Drawing.Point(52, 13);
+            this.labelStudentName.Location = new System.Drawing.Point(34, 13);
             this.labelStudentName.Name = "labelStudentName";
             this.labelStudentName.Size = new System.Drawing.Size(582, 33);
             this.labelStudentName.TabIndex = 35;
@@ -786,7 +799,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(31, 106);
+            this.groupBoxAddress.Location = new System.Drawing.Point(13, 106);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
@@ -1088,6 +1101,8 @@ namespace WindowsDesktop.Students
             // 
             // groupBoxReview
             // 
+            this.groupBoxReview.Controls.Add(this.textBoxReviewFormNo);
+            this.groupBoxReview.Controls.Add(this.label80);
             this.groupBoxReview.Controls.Add(this.panel6);
             this.groupBoxReview.Controls.Add(this.panel4);
             this.groupBoxReview.Controls.Add(this.panel5);
@@ -1168,7 +1183,7 @@ namespace WindowsDesktop.Students
             this.groupBoxReview.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxReview.Location = new System.Drawing.Point(24, 208);
             this.groupBoxReview.Name = "groupBoxReview";
-            this.groupBoxReview.Size = new System.Drawing.Size(594, 1436);
+            this.groupBoxReview.Size = new System.Drawing.Size(594, 1531);
             this.groupBoxReview.TabIndex = 36;
             this.groupBoxReview.TabStop = false;
             this.groupBoxReview.Text = "Review";
@@ -1285,7 +1300,7 @@ namespace WindowsDesktop.Students
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(92, 1301);
+            this.label75.Location = new System.Drawing.Point(92, 1334);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(42, 17);
             this.label75.TabIndex = 144;
@@ -1294,7 +1309,7 @@ namespace WindowsDesktop.Students
             // textBoxReviewRoll
             // 
             this.textBoxReviewRoll.Enabled = false;
-            this.textBoxReviewRoll.Location = new System.Drawing.Point(140, 1329);
+            this.textBoxReviewRoll.Location = new System.Drawing.Point(140, 1362);
             this.textBoxReviewRoll.Name = "textBoxReviewRoll";
             this.textBoxReviewRoll.Size = new System.Drawing.Size(172, 23);
             this.textBoxReviewRoll.TabIndex = 140;
@@ -1303,7 +1318,7 @@ namespace WindowsDesktop.Students
             // 
             this.textBoxReviewReg.CausesValidation = false;
             this.textBoxReviewReg.Enabled = false;
-            this.textBoxReviewReg.Location = new System.Drawing.Point(396, 1329);
+            this.textBoxReviewReg.Location = new System.Drawing.Point(396, 1362);
             this.textBoxReviewReg.Name = "textBoxReviewReg";
             this.textBoxReviewReg.Size = new System.Drawing.Size(172, 23);
             this.textBoxReviewReg.TabIndex = 143;
@@ -1313,7 +1328,7 @@ namespace WindowsDesktop.Students
             this.comboBoxReviewClass.DisplayMember = "name";
             this.comboBoxReviewClass.Enabled = false;
             this.comboBoxReviewClass.FormattingEnabled = true;
-            this.comboBoxReviewClass.Location = new System.Drawing.Point(140, 1297);
+            this.comboBoxReviewClass.Location = new System.Drawing.Point(140, 1330);
             this.comboBoxReviewClass.Name = "comboBoxReviewClass";
             this.comboBoxReviewClass.Size = new System.Drawing.Size(428, 24);
             this.comboBoxReviewClass.TabIndex = 141;
@@ -1322,7 +1337,7 @@ namespace WindowsDesktop.Students
             // label76
             // 
             this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(334, 1332);
+            this.label76.Location = new System.Drawing.Point(334, 1365);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(56, 17);
             this.label76.TabIndex = 142;
@@ -1331,7 +1346,7 @@ namespace WindowsDesktop.Students
             // label77
             // 
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(80, 1332);
+            this.label77.Location = new System.Drawing.Point(80, 1365);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(54, 17);
             this.label77.TabIndex = 139;
@@ -1929,7 +1944,7 @@ namespace WindowsDesktop.Students
             // buttonReviewBack
             // 
             this.buttonReviewBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonReviewBack.Location = new System.Drawing.Point(133, 1387);
+            this.buttonReviewBack.Location = new System.Drawing.Point(133, 1482);
             this.buttonReviewBack.Name = "buttonReviewBack";
             this.buttonReviewBack.Size = new System.Drawing.Size(160, 38);
             this.buttonReviewBack.TabIndex = 33;
@@ -1940,7 +1955,7 @@ namespace WindowsDesktop.Students
             // buttonSubmit
             // 
             this.buttonSubmit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonSubmit.Location = new System.Drawing.Point(302, 1387);
+            this.buttonSubmit.Location = new System.Drawing.Point(302, 1482);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(160, 38);
             this.buttonSubmit.TabIndex = 32;
@@ -1948,18 +1963,38 @@ namespace WindowsDesktop.Students
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
+            // textBoxReviewFormNo
+            // 
+            this.textBoxReviewFormNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxReviewFormNo.CausesValidation = false;
+            this.textBoxReviewFormNo.Enabled = false;
+            this.textBoxReviewFormNo.Location = new System.Drawing.Point(140, 1300);
+            this.textBoxReviewFormNo.Name = "textBoxReviewFormNo";
+            this.textBoxReviewFormNo.Size = new System.Drawing.Size(172, 23);
+            this.textBoxReviewFormNo.TabIndex = 151;
+            // 
+            // label80
+            // 
+            this.label80.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(72, 1303);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(62, 17);
+            this.label80.TabIndex = 150;
+            this.label80.Text = "Form No";
+            // 
             // FrmAddNewStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(704, 749);
-            this.Controls.Add(this.groupBoxPersonalInformation);
-            this.Controls.Add(this.groupBoxReview);
-            this.Controls.Add(this.groupBoxAddress);
-            this.Controls.Add(this.groupBoxGuardianInformation);
             this.Controls.Add(this.groupBoxAcademicInformation);
+            this.Controls.Add(this.groupBoxReview);
+            this.Controls.Add(this.groupBoxGuardianInformation);
+            this.Controls.Add(this.groupBoxPersonalInformation);
             this.Controls.Add(this.labelStudentName);
+            this.Controls.Add(this.groupBoxAddress);
             this.Name = "FrmAddNewStudent";
             this.Text = "Add New Student";
             this.groupBoxGuardianInformation.ResumeLayout(false);
@@ -2029,7 +2064,6 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Button buttonAcademicNext;
         private System.Windows.Forms.Button buttonGuardianBack;
         private System.Windows.Forms.Button buttonGuardianNext;
-        private System.Windows.Forms.LinkLabel linkLabelAddNewClass;
         private System.Windows.Forms.Label labelStudentName;
         private System.Windows.Forms.ComboBox comboBoxGrdAddressDivision;
         private System.Windows.Forms.Label label4;
@@ -2161,5 +2195,9 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.TextBox textBoxFormNo;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.TextBox textBoxReviewFormNo;
+        private System.Windows.Forms.Label label80;
     }
 }

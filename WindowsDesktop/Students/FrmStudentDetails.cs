@@ -267,6 +267,7 @@ namespace WindowsDesktop.Students
 
                     // Class
                     var classId = dr["class_id"].ToString();
+                    textBoxReviewFormNo.Text = dr["form_number"].ToString();
                     textBoxReviewRoll.Text = dr["roll"].ToString();
                     textBoxReviewReg.Text = dr["reg"].ToString();
 
@@ -577,7 +578,8 @@ namespace WindowsDesktop.Students
             {
                 var isValid = ThemeTemplate.SValidate(tabPageAcademic, errorProviderDetails);
                 if (!isValid) return;
-                var query = "UPDATE s_students SET roll='" + textBoxReviewRoll.Text.Trim() +
+                var query = "UPDATE s_students SET form_number='"+textBoxReviewFormNo.Text.Trim()+
+                            "', roll='" + textBoxReviewRoll.Text.Trim() +
                             "', reg='" + textBoxReviewReg.Text.Trim() +
                             "', class_id='" + comboBoxReviewClass.SelectedValue +
                             "', update_by='" + GlobalSettings.UserName +

@@ -421,6 +421,7 @@ namespace WindowsDesktop.Students
                     comboBoxReviewClass.DataSource = comboBoxClass.DataSource;
 
                     comboBoxReviewClass.SelectedValue = comboBoxClass.SelectedValue;
+                    textBoxReviewFormNo.Text = textBoxFormNo.Text;
                     textBoxReviewRoll.Text = textBoxRoll.Text;
                     textBoxReviewReg.Text = textBoxReg.Text;
 
@@ -833,7 +834,8 @@ namespace WindowsDesktop.Students
             try
             {
                 var query = "UPDATE s_students SET " +
-                            "roll = '" + textBoxReviewRoll.Text.Trim() + 
+                            "form_number = '" + textBoxReviewFormNo.Text.Trim() + 
+                            "',roll = '" + textBoxReviewRoll.Text.Trim() + 
                             "',reg = '" + textBoxReviewReg.Text.Trim() +
                             "',name = '" + textBoxReviewFullName.Text.Trim() + 
                             "',phone = '" + textBoxReviewPhone.Text.Trim() +
@@ -914,5 +916,6 @@ namespace WindowsDesktop.Students
                 MessageBox.Show(ex.ToString());
             }
         }
+
     }
 }
