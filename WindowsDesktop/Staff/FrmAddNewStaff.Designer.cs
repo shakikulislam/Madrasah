@@ -1,7 +1,7 @@
 ﻿
-namespace WindowsDesktop.Students
+namespace WindowsDesktop.Staff
 {
-    partial class FrmAddNewStudent
+    partial class FrmAddNewStaff
     {
         /// <summary>
         /// Required designer variable.
@@ -116,7 +116,7 @@ namespace WindowsDesktop.Students
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.comboBoxPreAddressDivision = new System.Windows.Forms.ComboBox();
-            this.errorProviderNewStudent = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderStaff = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxReview = new System.Windows.Forms.GroupBox();
             this.textBoxReviewFormNo = new System.Windows.Forms.TextBox();
             this.label80 = new System.Windows.Forms.Label();
@@ -207,7 +207,7 @@ namespace WindowsDesktop.Students
             this.groupBoxPersonalInformation.SuspendLayout();
             this.groupBoxAcademicInformation.SuspendLayout();
             this.groupBoxAddress.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderStaff)).BeginInit();
             this.groupBoxReview.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -594,7 +594,7 @@ namespace WindowsDesktop.Students
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxStudentPhone);
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxPersonalInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(28, 50);
+            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(19, 50);
             this.groupBoxPersonalInformation.Name = "groupBoxPersonalInformation";
             this.groupBoxPersonalInformation.Size = new System.Drawing.Size(594, 257);
             this.groupBoxPersonalInformation.TabIndex = 0;
@@ -760,7 +760,7 @@ namespace WindowsDesktop.Students
             // 
             this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentName.Location = new System.Drawing.Point(34, 13);
+            this.labelStudentName.Location = new System.Drawing.Point(25, 13);
             this.labelStudentName.Name = "labelStudentName";
             this.labelStudentName.Size = new System.Drawing.Size(582, 33);
             this.labelStudentName.TabIndex = 35;
@@ -799,7 +799,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(13, 106);
+            this.groupBoxAddress.Location = new System.Drawing.Point(4, 106);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
@@ -1095,9 +1095,9 @@ namespace WindowsDesktop.Students
             this.comboBoxPreAddressDivision.ValueMember = "id";
             this.comboBoxPreAddressDivision.SelectedIndexChanged += new System.EventHandler(this.comboBoxPreAddressDivision_SelectedIndexChanged);
             // 
-            // errorProviderNewStudent
+            // errorProviderStaff
             // 
-            this.errorProviderNewStudent.ContainerControl = this;
+            this.errorProviderStaff.ContainerControl = this;
             // 
             // groupBoxReview
             // 
@@ -1983,7 +1983,7 @@ namespace WindowsDesktop.Students
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
-            // FrmAddNewStudent
+            // FrmAddNewStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1995,8 +1995,8 @@ namespace WindowsDesktop.Students
             this.Controls.Add(this.groupBoxPersonalInformation);
             this.Controls.Add(this.labelStudentName);
             this.Controls.Add(this.groupBoxAddress);
-            this.Name = "FrmAddNewStudent";
-            this.Text = "Add New Student";
+            this.Name = "FrmAddNewStaff";
+            this.Text = "Add New Staff";
             this.groupBoxGuardianInformation.ResumeLayout(false);
             this.groupBoxGuardianInformation.PerformLayout();
             this.groupBoxPersonalInformation.ResumeLayout(false);
@@ -2005,7 +2005,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAcademicInformation.PerformLayout();
             this.groupBoxAddress.ResumeLayout(false);
             this.groupBoxAddress.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderStaff)).EndInit();
             this.groupBoxReview.ResumeLayout(false);
             this.groupBoxReview.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -2110,7 +2110,7 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Button buttonAddressNext;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox textBoxStudentPhone;
-        private System.Windows.Forms.ErrorProvider errorProviderNewStudent;
+        private System.Windows.Forms.ErrorProvider errorProviderStaff;
         private System.Windows.Forms.GroupBox groupBoxReview;
         private System.Windows.Forms.Button buttonReviewBack;
         private System.Windows.Forms.Button buttonSubmit;
