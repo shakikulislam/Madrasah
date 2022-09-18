@@ -16,7 +16,6 @@ namespace WindowsDesktop.Staff
 
             dateTimePickerDob.MaxDate=DateTime.Now;
 
-            LoadTheme(groupBoxPersonalInformation);
             //LoadTheme(this);
 
             LoadDivision();
@@ -33,6 +32,21 @@ namespace WindowsDesktop.Staff
             ThemeTemplate.SButton(control);
             ThemeTemplate.SDateTimePicker(control);
             ThemeTemplate.SComboBox(control);
+        }
+
+        private void SetPanelLocation(GroupBox groupBox)
+        {
+            foreach (var box in Controls.OfType<GroupBox>())
+            {
+                box.Visible = false;
+            }
+
+            LoadTheme(groupBoxPersonalInformation);
+            var x = (this.Width / 2) - (groupBox.Width / 2);
+            int y = 50;
+            groupBox.Location = new Point(x, y);
+            groupBox.Anchor = AnchorStyles.Top;
+            groupBox.Visible = true;
         }
 
         private void ClearAllField()
@@ -917,5 +931,9 @@ namespace WindowsDesktop.Staff
             }
         }
 
+        private void FrmAddNewStaff_Load(object sender, EventArgs e)
+        {
+            SetPanelLocation(groupBoxPersonalInformation);
+        }
     }
 }

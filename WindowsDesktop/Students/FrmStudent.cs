@@ -98,5 +98,10 @@ namespace WindowsDesktop.Students
             ActiveButton(sender);
             OpenChildForm(new FrmStudentList());
         }
+
+        private void FrmStudent_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
