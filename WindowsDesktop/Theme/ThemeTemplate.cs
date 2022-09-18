@@ -192,7 +192,14 @@ namespace WindowsDesktop.Theme
             }
         }
 
-
+        public static void SPictureBox(Control control, BorderStyle borderStyle=BorderStyle.FixedSingle)
+        {
+            foreach (var pictureBox in control.Controls.OfType<PictureBox>())
+            {
+                pictureBox.BorderStyle = borderStyle;
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
     }
 }
 
