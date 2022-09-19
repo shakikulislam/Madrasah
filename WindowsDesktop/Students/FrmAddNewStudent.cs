@@ -22,6 +22,22 @@ namespace WindowsDesktop.Students
             LoadDivision();
 
             LoadClass();
+
+            SetLocation(labelStudentName, 0);
+            SetLocation(groupBoxPersonalInformation);
+        }
+
+        private void SetLocation(Control control, int y = 50)
+        {
+            foreach (var box in Controls.OfType<GroupBox>())
+            {
+                box.Visible = false;
+            }
+
+            var x = (this.Width / 2) - (control.Width / 2);
+            control.Location = new Point(x, y);
+            control.Anchor = AnchorStyles.Top;
+            control.Visible = true;
         }
 
         private static void LoadTheme(Control control)
@@ -853,7 +869,6 @@ namespace WindowsDesktop.Students
                             "',class_id = '" + comboBoxReviewClass.SelectedValue + 
                             "',status = 'A'," +
                             "create_by = '" + GlobalSettings.UserName + 
-                            "',create_date = '" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) + 
                             "' WHERE id='" + labelStudentName.Tag + "' ";
 
                 var queryAddress = "INSERT INTO s_addresses(person_id" +

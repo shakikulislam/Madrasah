@@ -400,7 +400,6 @@ namespace WindowsDesktop
                     {
                         MessageBox.Show("Success...\nPlease change selected item and check again.");
                         ClearField();
-                        
                     }
                 }
             }

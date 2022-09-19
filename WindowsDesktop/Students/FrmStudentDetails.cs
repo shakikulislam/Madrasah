@@ -474,8 +474,7 @@ namespace WindowsDesktop.Students
                                 "', nid='" + textBoxReviewNid.Text.Trim() +
                                 "', dob='" + dateTimePickerReviewDob.Value.ToString(GlobalSettings.DateFormatSave) +
                                 "', update_by='" + GlobalSettings.UserName +
-                                "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
-                                "' WHERE id='" + _studentId + "'";
+                                "', update_date=current_timestamp() WHERE id='" + _studentId + "'";
                     var isUpdate = Db.QueryExecute(query);
                     MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
                 }
@@ -499,8 +498,7 @@ namespace WindowsDesktop.Students
                             "', mother_phone='" + textBoxReviewMotherPhone.Text.Trim() +
                             "', mother_nid='" + textBoxReviewMotherNid.Text.Trim() +
                             "', update_by='" + GlobalSettings.UserName +
-                            "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
-                            "' WHERE id='" + _studentId + "'";
+                            "', update_date=current_timestamp() WHERE id='" + _studentId + "'";
                 var isUpdate = Db.QueryExecute(query);
                 MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
             }
@@ -519,8 +517,7 @@ namespace WindowsDesktop.Students
                 var query = "UPDATE s_students SET guardian_name='" + textBoxReviewGrdName.Text.Trim() +
                             "', guardian_phone='" + textBoxReviewGrdPhone.Text.Trim() +
                             "', update_by='" + GlobalSettings.UserName +
-                            "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
-                            "' WHERE id='" + _studentId + "'; ";
+                            "', update_date=current_timestamp() WHERE id='" + _studentId + "'; ";
 
                 query += "UPDATE s_addresses SET g_division_id='" + comboBoxReviewGrdDivision.SelectedValue +
                          "', g_district_id='" + comboBoxReviewGrdDistrict.SelectedValue +
@@ -529,8 +526,7 @@ namespace WindowsDesktop.Students
                          "', g_village_id='" + comboBoxReviewGrdVillage.SelectedValue +
                          "', g_details='" + textBoxReviewGrdDetails.Text.Trim() +
                          "', update_by='" + GlobalSettings.UserName +
-                         "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
-                         "' WHERE person_id='" + _studentId + "' AND who='ST';";
+                         "', update_date=current_timestamp() WHERE person_id='" + _studentId + "' AND who='ST';";
 
                 var isUpdate = Db.QueryExecute(query);
                 MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
@@ -560,8 +556,7 @@ namespace WindowsDesktop.Students
                          "', m_village_id='" + comboBoxReviewPreVillage.SelectedValue +
                          "', m_details='" + textBoxReviewPreDetails.Text.Trim() +
                          "', update_by='" + GlobalSettings.UserName +
-                         "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
-                         "' WHERE person_id='" + _studentId + "' AND who='ST'";
+                         "', update_date=current_timestamp() WHERE person_id='" + _studentId + "' AND who='ST'";
 
                 var isUpdate = Db.QueryExecute(query);
                 MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
@@ -583,8 +578,7 @@ namespace WindowsDesktop.Students
                             "', reg='" + textBoxReviewReg.Text.Trim() +
                             "', class_id='" + comboBoxReviewClass.SelectedValue +
                             "', update_by='" + GlobalSettings.UserName +
-                            "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
-                            "' WHERE id='" + _studentId + "'";
+                            "', update_date=current_timestamp() WHERE id='" + _studentId + "'";
                 var isUpdate = Db.QueryExecute(query);
                 MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
             }
