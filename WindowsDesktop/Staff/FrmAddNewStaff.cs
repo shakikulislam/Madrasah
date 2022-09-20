@@ -15,11 +15,8 @@ namespace WindowsDesktop.Staff
             InitializeComponent();
 
             dateTimePickerDob.MaxDate=DateTime.Now;
-
-            //LoadTheme(this);
-
+            
             LoadDivision();
-
         }
 
         private static void LoadTheme(Control control)
@@ -30,8 +27,26 @@ namespace WindowsDesktop.Staff
             ThemeTemplate.SRichTextBox(control);
             ThemeTemplate.SButton(control);
             ThemeTemplate.SDateTimePicker(control);
-            ThemeTemplate.SComboBox(control);
+            ThemeTemplate.SComboBox(control,ComboBoxStyle.DropDownList);
             ThemeTemplate.SPictureBox(control);
+        }
+
+        private void LoadDesignation()
+        {
+            try
+            {
+                var query = "SELECT id, name FROM s_employee_designations WHERE name <> 'SA' ORDER BY number ASC";
+                var desigList = Db.GetDataTable(query);
+
+                comboBoxDesignation.SelectedValue = "id";
+                comboBoxDesignation.DisplayMember = "name";
+                comboBoxDesignation.DataSource = desigList;
+                comboBoxDesignation.SelectedIndex = 3;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void SetLocation(Control control, int y=50)
@@ -41,7 +56,6 @@ namespace WindowsDesktop.Staff
                 box.Visible = false;
             }
 
-            LoadTheme(groupBoxStaffInformation);
             var x = (this.Width / 2) - (control.Width / 2);
             control.Location = new Point(x, y);
             control.Anchor = AnchorStyles.Top;
@@ -56,7 +70,6 @@ namespace WindowsDesktop.Staff
             labelStaffName.Tag = string.Empty;
             textBoxFullName.Clear();
             textBoxStudentPhone.Clear();
-            textBoxBirthCert.Clear();
             textBoxNid.Clear();
             dateTimePickerReviewDob.Value=DateTime.Now;
 
@@ -666,8 +679,12 @@ namespace WindowsDesktop.Staff
 
         private void FrmAddNewStaff_Load(object sender, EventArgs e)
         {
+            LoadTheme(this);
+            LoadTheme(groupBoxStaffInformation);
             SetLocation(labelStaffName,0);
             SetLocation(groupBoxStaffInformation);
+            buttonBrowse.Font = new Font(buttonBrowse.Font.FontFamily, 10);
+            LoadDesignation();
         }
     }
 }

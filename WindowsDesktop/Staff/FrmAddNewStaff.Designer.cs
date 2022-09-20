@@ -31,13 +31,15 @@ namespace WindowsDesktop.Staff
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxStaffInformation = new System.Windows.Forms.GroupBox();
+            this.buttonBrowse = new System.Windows.Forms.Button();
+            this.pictureBoxStaff = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePickerJoiningDate = new System.Windows.Forms.DateTimePicker();
             this.buttonSavePersonalInfo = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.dateTimePickerDob = new System.Windows.Forms.DateTimePicker();
             this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
             this.textBoxNid = new System.Windows.Forms.TextBox();
-            this.textBoxBirthCert = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.textBoxStudentPhone = new System.Windows.Forms.TextBox();
@@ -160,14 +162,12 @@ namespace WindowsDesktop.Staff
             this.textBoxReviewFullName = new System.Windows.Forms.TextBox();
             this.buttonReviewBack = new System.Windows.Forms.Button();
             this.buttonSubmit = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePickerJoiningDate = new System.Windows.Forms.DateTimePicker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxRemark = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBoxStaff = new System.Windows.Forms.PictureBox();
-            this.buttonBrowse = new System.Windows.Forms.Button();
+            this.comboBoxDesignation = new System.Windows.Forms.ComboBox();
             this.groupBoxStaffInformation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStaff)).BeginInit();
             this.groupBoxAddress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderStaff)).BeginInit();
             this.groupBoxReview.SuspendLayout();
@@ -177,43 +177,74 @@ namespace WindowsDesktop.Staff
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStaff)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxStaffInformation
             // 
             this.groupBoxStaffInformation.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBoxStaffInformation.Controls.Add(this.comboBoxDesignation);
+            this.groupBoxStaffInformation.Controls.Add(this.label2);
+            this.groupBoxStaffInformation.Controls.Add(this.label4);
+            this.groupBoxStaffInformation.Controls.Add(this.textBox1);
             this.groupBoxStaffInformation.Controls.Add(this.buttonBrowse);
             this.groupBoxStaffInformation.Controls.Add(this.pictureBoxStaff);
-            this.groupBoxStaffInformation.Controls.Add(this.label3);
-            this.groupBoxStaffInformation.Controls.Add(this.label2);
-            this.groupBoxStaffInformation.Controls.Add(this.textBoxRemark);
             this.groupBoxStaffInformation.Controls.Add(this.label1);
             this.groupBoxStaffInformation.Controls.Add(this.dateTimePickerJoiningDate);
             this.groupBoxStaffInformation.Controls.Add(this.buttonSavePersonalInfo);
             this.groupBoxStaffInformation.Controls.Add(this.label26);
             this.groupBoxStaffInformation.Controls.Add(this.dateTimePickerDob);
             this.groupBoxStaffInformation.Controls.Add(this.label27);
-            this.groupBoxStaffInformation.Controls.Add(this.label28);
             this.groupBoxStaffInformation.Controls.Add(this.textBoxNid);
-            this.groupBoxStaffInformation.Controls.Add(this.textBoxBirthCert);
             this.groupBoxStaffInformation.Controls.Add(this.label30);
             this.groupBoxStaffInformation.Controls.Add(this.label31);
             this.groupBoxStaffInformation.Controls.Add(this.textBoxStudentPhone);
             this.groupBoxStaffInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxStaffInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxStaffInformation.Location = new System.Drawing.Point(54, 60);
+            this.groupBoxStaffInformation.Location = new System.Drawing.Point(45, 60);
             this.groupBoxStaffInformation.Name = "groupBoxStaffInformation";
-            this.groupBoxStaffInformation.Size = new System.Drawing.Size(594, 450);
+            this.groupBoxStaffInformation.Size = new System.Drawing.Size(594, 336);
             this.groupBoxStaffInformation.TabIndex = 0;
             this.groupBoxStaffInformation.TabStop = false;
             this.groupBoxStaffInformation.Text = "Staff Information";
             this.groupBoxStaffInformation.Visible = false;
             // 
+            // buttonBrowse
+            // 
+            this.buttonBrowse.Location = new System.Drawing.Point(465, 192);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(112, 34);
+            this.buttonBrowse.TabIndex = 18;
+            this.buttonBrowse.Text = "Browse Image";
+            this.buttonBrowse.UseVisualStyleBackColor = true;
+            // 
+            // pictureBoxStaff
+            // 
+            this.pictureBoxStaff.Location = new System.Drawing.Point(465, 67);
+            this.pictureBoxStaff.Name = "pictureBoxStaff";
+            this.pictureBoxStaff.Size = new System.Drawing.Size(112, 119);
+            this.pictureBoxStaff.TabIndex = 17;
+            this.pictureBoxStaff.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(244, 206);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 17);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Joining Date";
+            // 
+            // dateTimePickerJoiningDate
+            // 
+            this.dateTimePickerJoiningDate.Location = new System.Drawing.Point(333, 203);
+            this.dateTimePickerJoiningDate.Name = "dateTimePickerJoiningDate";
+            this.dateTimePickerJoiningDate.Size = new System.Drawing.Size(116, 23);
+            this.dateTimePickerJoiningDate.TabIndex = 12;
+            // 
             // buttonSavePersonalInfo
             // 
             this.buttonSavePersonalInfo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonSavePersonalInfo.Location = new System.Drawing.Point(217, 401);
+            this.buttonSavePersonalInfo.Location = new System.Drawing.Point(217, 287);
             this.buttonSavePersonalInfo.Name = "buttonSavePersonalInfo";
             this.buttonSavePersonalInfo.Size = new System.Drawing.Size(160, 38);
             this.buttonSavePersonalInfo.TabIndex = 5;
@@ -224,7 +255,7 @@ namespace WindowsDesktop.Staff
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(41, 153);
+            this.label26.Location = new System.Drawing.Point(21, 206);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(87, 17);
             this.label26.TabIndex = 10;
@@ -232,48 +263,34 @@ namespace WindowsDesktop.Staff
             // 
             // dateTimePickerDob
             // 
-            this.dateTimePickerDob.Location = new System.Drawing.Point(134, 150);
+            this.dateTimePickerDob.CustomFormat = "dd-MMM-yyyy";
+            this.dateTimePickerDob.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerDob.Location = new System.Drawing.Point(114, 203);
             this.dateTimePickerDob.Name = "dateTimePickerDob";
-            this.dateTimePickerDob.Size = new System.Drawing.Size(172, 23);
+            this.dateTimePickerDob.Size = new System.Drawing.Size(116, 23);
             this.dateTimePickerDob.TabIndex = 4;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(97, 124);
+            this.label27.Location = new System.Drawing.Point(77, 172);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(31, 17);
             this.label27.TabIndex = 11;
             this.label27.Text = "NID";
             // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(24, 95);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(104, 17);
-            this.label28.TabIndex = 9;
-            this.label28.Text = "Birth Certificate";
-            // 
             // textBoxNid
             // 
             this.textBoxNid.CausesValidation = false;
-            this.textBoxNid.Location = new System.Drawing.Point(134, 121);
+            this.textBoxNid.Location = new System.Drawing.Point(114, 169);
             this.textBoxNid.Name = "textBoxNid";
-            this.textBoxNid.Size = new System.Drawing.Size(428, 23);
+            this.textBoxNid.Size = new System.Drawing.Size(335, 23);
             this.textBoxNid.TabIndex = 3;
-            // 
-            // textBoxBirthCert
-            // 
-            this.textBoxBirthCert.Location = new System.Drawing.Point(134, 92);
-            this.textBoxBirthCert.Name = "textBoxBirthCert";
-            this.textBoxBirthCert.Size = new System.Drawing.Size(428, 23);
-            this.textBoxBirthCert.TabIndex = 2;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(57, 66);
+            this.label30.Location = new System.Drawing.Point(37, 138);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(71, 17);
             this.label30.TabIndex = 7;
@@ -282,7 +299,7 @@ namespace WindowsDesktop.Staff
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(57, 37);
+            this.label31.Location = new System.Drawing.Point(37, 104);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(71, 17);
             this.label31.TabIndex = 5;
@@ -291,16 +308,16 @@ namespace WindowsDesktop.Staff
             // textBoxStudentPhone
             // 
             this.textBoxStudentPhone.CausesValidation = false;
-            this.textBoxStudentPhone.Location = new System.Drawing.Point(134, 63);
+            this.textBoxStudentPhone.Location = new System.Drawing.Point(114, 135);
             this.textBoxStudentPhone.Name = "textBoxStudentPhone";
-            this.textBoxStudentPhone.Size = new System.Drawing.Size(428, 23);
+            this.textBoxStudentPhone.Size = new System.Drawing.Size(335, 23);
             this.textBoxStudentPhone.TabIndex = 1;
             // 
             // textBoxFullName
             // 
-            this.textBoxFullName.Location = new System.Drawing.Point(134, 34);
+            this.textBoxFullName.Location = new System.Drawing.Point(114, 101);
             this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(428, 23);
+            this.textBoxFullName.Size = new System.Drawing.Size(335, 23);
             this.textBoxFullName.TabIndex = 0;
             // 
             // labelStaffName
@@ -308,7 +325,7 @@ namespace WindowsDesktop.Staff
             this.labelStaffName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelStaffName.BackColor = System.Drawing.SystemColors.Control;
             this.labelStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStaffName.Location = new System.Drawing.Point(7, 13);
+            this.labelStaffName.Location = new System.Drawing.Point(-2, 13);
             this.labelStaffName.Name = "labelStaffName";
             this.labelStaffName.Size = new System.Drawing.Size(582, 33);
             this.labelStaffName.TabIndex = 35;
@@ -347,7 +364,7 @@ namespace WindowsDesktop.Staff
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(58, 312);
+            this.groupBoxAddress.Location = new System.Drawing.Point(49, 312);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
@@ -1531,65 +1548,39 @@ namespace WindowsDesktop.Staff
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
-            // label1
+            // textBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 182);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 17);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Joining Date";
+            this.textBox1.CausesValidation = false;
+            this.textBox1.Location = new System.Drawing.Point(114, 67);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(116, 23);
+            this.textBox1.TabIndex = 19;
             // 
-            // dateTimePickerJoiningDate
+            // label4
             // 
-            this.dateTimePickerJoiningDate.Location = new System.Drawing.Point(134, 179);
-            this.dateTimePickerJoiningDate.Name = "dateTimePickerJoiningDate";
-            this.dateTimePickerJoiningDate.Size = new System.Drawing.Size(172, 23);
-            this.dateTimePickerJoiningDate.TabIndex = 12;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(21, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 17);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Employee ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 211);
+            this.label2.Location = new System.Drawing.Point(236, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 17);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Remark";
+            this.label2.Size = new System.Drawing.Size(83, 17);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Designation";
             // 
-            // textBoxRemark
+            // comboBoxDesignation
             // 
-            this.textBoxRemark.CausesValidation = false;
-            this.textBoxRemark.Location = new System.Drawing.Point(134, 208);
-            this.textBoxRemark.Multiline = true;
-            this.textBoxRemark.Name = "textBoxRemark";
-            this.textBoxRemark.Size = new System.Drawing.Size(428, 51);
-            this.textBoxRemark.TabIndex = 14;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(82, 265);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Image";
-            // 
-            // pictureBoxStaff
-            // 
-            this.pictureBoxStaff.Location = new System.Drawing.Point(134, 265);
-            this.pictureBoxStaff.Name = "pictureBoxStaff";
-            this.pictureBoxStaff.Size = new System.Drawing.Size(107, 125);
-            this.pictureBoxStaff.TabIndex = 17;
-            this.pictureBoxStaff.TabStop = false;
-            // 
-            // buttonBrowse
-            // 
-            this.buttonBrowse.Location = new System.Drawing.Point(255, 305);
-            this.buttonBrowse.Name = "buttonBrowse";
-            this.buttonBrowse.Size = new System.Drawing.Size(160, 38);
-            this.buttonBrowse.TabIndex = 18;
-            this.buttonBrowse.Text = "Browse";
-            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.comboBoxDesignation.FormattingEnabled = true;
+            this.comboBoxDesignation.Location = new System.Drawing.Point(316, 67);
+            this.comboBoxDesignation.Name = "comboBoxDesignation";
+            this.comboBoxDesignation.Size = new System.Drawing.Size(133, 24);
+            this.comboBoxDesignation.TabIndex = 23;
             // 
             // FrmAddNewStaff
             // 
@@ -1606,6 +1597,7 @@ namespace WindowsDesktop.Staff
             this.Load += new System.EventHandler(this.FrmAddNewStaff_Load);
             this.groupBoxStaffInformation.ResumeLayout(false);
             this.groupBoxStaffInformation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStaff)).EndInit();
             this.groupBoxAddress.ResumeLayout(false);
             this.groupBoxAddress.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderStaff)).EndInit();
@@ -1623,7 +1615,6 @@ namespace WindowsDesktop.Staff
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStaff)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1633,9 +1624,7 @@ namespace WindowsDesktop.Staff
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.DateTimePicker dateTimePickerDob;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBoxNid;
-        private System.Windows.Forms.TextBox textBoxBirthCert;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox textBoxFullName;
         private System.Windows.Forms.Button buttonSavePersonalInfo;
@@ -1761,10 +1750,11 @@ namespace WindowsDesktop.Staff
         private System.Windows.Forms.Label label80;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePickerJoiningDate;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxRemark;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBoxStaff;
         private System.Windows.Forms.Button buttonBrowse;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBoxDesignation;
+        private System.Windows.Forms.Label label2;
     }
 }

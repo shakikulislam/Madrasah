@@ -594,7 +594,7 @@ namespace WindowsDesktop.Students
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxStudentPhone);
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxPersonalInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(1, 50);
+            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(-16, 50);
             this.groupBoxPersonalInformation.Name = "groupBoxPersonalInformation";
             this.groupBoxPersonalInformation.Size = new System.Drawing.Size(594, 257);
             this.groupBoxPersonalInformation.TabIndex = 0;
@@ -760,7 +760,7 @@ namespace WindowsDesktop.Students
             // 
             this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentName.Location = new System.Drawing.Point(7, 13);
+            this.labelStudentName.Location = new System.Drawing.Point(-10, 13);
             this.labelStudentName.Name = "labelStudentName";
             this.labelStudentName.Size = new System.Drawing.Size(582, 33);
             this.labelStudentName.TabIndex = 35;
@@ -799,7 +799,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(-14, 106);
+            this.groupBoxAddress.Location = new System.Drawing.Point(-31, 106);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
@@ -1988,11 +1988,11 @@ namespace WindowsDesktop.Students
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(704, 749);
+            this.ClientSize = new System.Drawing.Size(721, 749);
+            this.Controls.Add(this.groupBoxPersonalInformation);
             this.Controls.Add(this.groupBoxAcademicInformation);
             this.Controls.Add(this.groupBoxReview);
             this.Controls.Add(this.groupBoxGuardianInformation);
-            this.Controls.Add(this.groupBoxPersonalInformation);
             this.Controls.Add(this.labelStudentName);
             this.Controls.Add(this.groupBoxAddress);
             this.Name = "FrmAddNewStudent";
