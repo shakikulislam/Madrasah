@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
+using WindowsDesktop.Properties;
 using WindowsDesktop.Theme;
 
 namespace WindowsDesktop.Staff
@@ -41,7 +42,7 @@ namespace WindowsDesktop.Staff
                 comboBoxDesignation.SelectedValue = "id";
                 comboBoxDesignation.DisplayMember = "name";
                 comboBoxDesignation.DataSource = desigList;
-                comboBoxDesignation.SelectedIndex = 3;
+                comboBoxDesignation.SelectedIndex = 3; //default staff
             }
             catch (Exception ex)
             {
@@ -69,7 +70,7 @@ namespace WindowsDesktop.Staff
             labelStaffName.Text = string.Empty;
             labelStaffName.Tag = string.Empty;
             textBoxFullName.Clear();
-            textBoxStudentPhone.Clear();
+            textBoxPhone.Clear();
             textBoxNid.Clear();
             dateTimePickerReviewDob.Value=DateTime.Now;
 
@@ -249,69 +250,72 @@ namespace WindowsDesktop.Staff
         {
             try
             {
+                var img=new ImageConverter();
+                var imgBytes = (byte[]) img.ConvertTo(pictureBoxStaff.Image, Type.GetType("System.Byte[]"));
+
                 labelStaffName.Text = textBoxFullName.Text;
-                //// Load Theme
-                //groupBoxAddress.Size = new Size(594, 619);
-                //groupBoxAddress.Location = groupBoxStaffInformation.Location;
-                //groupBoxAddress.Anchor = AnchorStyles.Top;
+                // Load Theme
+                groupBoxAddress.Size = new Size(594, 619);
+                groupBoxAddress.Location = groupBoxStaffInformation.Location;
+                groupBoxAddress.Anchor = AnchorStyles.Top;
 
-                //LoadTheme(groupBoxAddress);
-                //ThemeTemplate.SComboBox(groupBoxAddress, ComboBoxStyle.DropDownList);
+                LoadTheme(groupBoxAddress);
+                ThemeTemplate.SComboBox(groupBoxAddress, ComboBoxStyle.DropDownList);
 
-                //// Check Validation
-                //var isValid = ThemeTemplate.SValidate(groupBoxStaffInformation, errorProviderStaff);
+                // Check Validation
+                var isValid = ThemeTemplate.SValidate(groupBoxStaffInformation, errorProviderStaff);
 
-                //if (isValid)
-                //{
-                //    //groupBoxPersonalInformation.Visible = false;
+                if (isValid)
+                {
+                    //groupBoxPersonalInformation.Visible = false;
 
-                //    // Check already added
-                //    var query = "SELECT * FROM s_students WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
-                //    var studentInfo = Db.GetDataReader(query);
+                    // Check already added
+                    //var query = "SELECT * FROM s_employees WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
+                    //var studentInfo = Db.GetDataReader(query);
 
-                //    if (studentInfo.HasRows)
-                //    {
-                //        studentInfo.Read();
-                //        if (studentInfo["guardian_name"] == DBNull.Value || studentInfo["guardian_name"].ToString() == "")
-                //        {
-                //            MessageBox.Show("Pending enrollment students");
+                    //if (studentInfo.HasRows)
+                    //{
+                    //    studentInfo.Read();
+                    //    if (studentInfo["guardian_name"] == DBNull.Value || studentInfo["guardian_name"].ToString() == "")
+                    //    {
+                    //        MessageBox.Show("Pending enrollment students");
 
-                //            labelStaffName.Text = studentInfo["name"].ToString();
-                //            labelStaffName.Tag = studentInfo["id"].ToString();
+                    //        labelStaffName.Text = studentInfo["name"].ToString();
+                    //        labelStaffName.Tag = studentInfo["id"].ToString();
 
-                //            groupBoxStaffInformation.Visible = false;
-                //            groupBoxAddress.Visible = true;
-                //        }
-                //        else
-                //        {
-                //            MessageBox.Show("Already added this student\n\nStudent Name: " + studentInfo["name"] + "\nRoll No: " +
-                //                        studentInfo["roll"], @"Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                //        }
-                //    }
-                //    else
-                //    {
-                //        // Insert student basic information
-                //        query = "INSERT INTO s_students (name, phone, birth_certificate, nid, dob) VALUES ('" + textBoxFullName.Text.Trim() +
-                //                "', '" + textBoxStudentPhone.Text.Trim() + "', '" + textBoxBirthCert.Text.Trim() + "', '" + textBoxNid.Text.Trim() +
-                //                "', '" + dateTimePickerDob.Value.ToString(GlobalSettings.DateFormatSave) + "') ";
+                    //        groupBoxStaffInformation.Visible = false;
+                    //        groupBoxAddress.Visible = true;
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show("Already added this student\n\nStudent Name: " + studentInfo["name"] + "\nRoll No: " +
+                    //                    studentInfo["roll"], @"Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    // Insert student basic information
+                    //    query = "INSERT INTO s_students (name, phone, birth_certificate, nid, dob) VALUES ('" + textBoxFullName.Text.Trim() +
+                    //            "', '" + textBoxStudentPhone.Text.Trim() + "', '" + textBoxBirthCert.Text.Trim() + "', '" + textBoxNid.Text.Trim() +
+                    //            "', '" + dateTimePickerDob.Value.ToString(GlobalSettings.DateFormatSave) + "') ";
 
-                //        var isSaved = Db.QueryExecute(query);
-                //        if (isSaved)
-                //        {
-                //            query = "SELECT * FROM s_students WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
-                //            studentInfo = Db.GetDataReader(query);
-                //            if (studentInfo.HasRows)
-                //            {
-                //                studentInfo.Read();
-                //                labelStaffName.Text = studentInfo["name"].ToString();
-                //                labelStaffName.Tag = studentInfo["id"].ToString();
+                    //    var isSaved = Db.QueryExecute(query);
+                    //    if (isSaved)
+                    //    {
+                    //        query = "SELECT * FROM s_students WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
+                    //        studentInfo = Db.GetDataReader(query);
+                    //        if (studentInfo.HasRows)
+                    //        {
+                    //            studentInfo.Read();
+                    //            labelStaffName.Text = studentInfo["name"].ToString();
+                    //            labelStaffName.Tag = studentInfo["id"].ToString();
 
-                //                groupBoxStaffInformation.Visible = false;
-                //                groupBoxAddress.Visible = true;
-                //            }
-                //        }
-                //    }
-                //}
+                    //            groupBoxStaffInformation.Visible = false;
+                    //            groupBoxAddress.Visible = true;
+                    //        }
+                    //    }
+                    //}
+                }
             }
             catch (Exception ex)
             {
@@ -685,6 +689,31 @@ namespace WindowsDesktop.Staff
             SetLocation(groupBoxStaffInformation);
             buttonBrowse.Font = new Font(buttonBrowse.Font.FontFamily, 10);
             LoadDesignation();
+        }
+
+        private void buttonBrowse_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var openFileDialog = new OpenFileDialog() {Filter = "JPG|*.jpg|PNG|*.png", Multiselect = false};
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxStaff.Image = Image.FromFile(openFileDialog.FileName);
+                }
+                else
+                {
+                    if (MessageBox.Show("Set default?","Confirmation", MessageBoxButtons.OKCancel)==DialogResult.OK)
+                    {
+                        pictureBoxStaff.Image = Resources.no_person_image;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                pictureBoxStaff.Image = Resources.no_person_image;
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -31,6 +31,10 @@ namespace WindowsDesktop.Staff
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxStaffInformation = new System.Windows.Forms.GroupBox();
+            this.comboBoxDesignation = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxEmpId = new System.Windows.Forms.TextBox();
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.pictureBoxStaff = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,7 +46,7 @@ namespace WindowsDesktop.Staff
             this.textBoxNid = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBoxStudentPhone = new System.Windows.Forms.TextBox();
+            this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.labelStaffName = new System.Windows.Forms.Label();
             this.groupBoxAddress = new System.Windows.Forms.GroupBox();
@@ -162,10 +166,7 @@ namespace WindowsDesktop.Staff
             this.textBoxReviewFullName = new System.Windows.Forms.TextBox();
             this.buttonReviewBack = new System.Windows.Forms.Button();
             this.buttonSubmit = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxDesignation = new System.Windows.Forms.ComboBox();
+            this.labelStudentName = new System.Windows.Forms.Label();
             this.groupBoxStaffInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStaff)).BeginInit();
             this.groupBoxAddress.SuspendLayout();
@@ -182,10 +183,11 @@ namespace WindowsDesktop.Staff
             // groupBoxStaffInformation
             // 
             this.groupBoxStaffInformation.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBoxStaffInformation.Controls.Add(this.labelStudentName);
             this.groupBoxStaffInformation.Controls.Add(this.comboBoxDesignation);
             this.groupBoxStaffInformation.Controls.Add(this.label2);
             this.groupBoxStaffInformation.Controls.Add(this.label4);
-            this.groupBoxStaffInformation.Controls.Add(this.textBox1);
+            this.groupBoxStaffInformation.Controls.Add(this.textBoxEmpId);
             this.groupBoxStaffInformation.Controls.Add(this.buttonBrowse);
             this.groupBoxStaffInformation.Controls.Add(this.pictureBoxStaff);
             this.groupBoxStaffInformation.Controls.Add(this.label1);
@@ -197,16 +199,50 @@ namespace WindowsDesktop.Staff
             this.groupBoxStaffInformation.Controls.Add(this.textBoxNid);
             this.groupBoxStaffInformation.Controls.Add(this.label30);
             this.groupBoxStaffInformation.Controls.Add(this.label31);
-            this.groupBoxStaffInformation.Controls.Add(this.textBoxStudentPhone);
+            this.groupBoxStaffInformation.Controls.Add(this.textBoxPhone);
             this.groupBoxStaffInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxStaffInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxStaffInformation.Location = new System.Drawing.Point(45, 60);
+            this.groupBoxStaffInformation.Location = new System.Drawing.Point(18, 60);
             this.groupBoxStaffInformation.Name = "groupBoxStaffInformation";
             this.groupBoxStaffInformation.Size = new System.Drawing.Size(594, 336);
             this.groupBoxStaffInformation.TabIndex = 0;
             this.groupBoxStaffInformation.TabStop = false;
             this.groupBoxStaffInformation.Text = "Staff Information";
             this.groupBoxStaffInformation.Visible = false;
+            // 
+            // comboBoxDesignation
+            // 
+            this.comboBoxDesignation.FormattingEnabled = true;
+            this.comboBoxDesignation.Location = new System.Drawing.Point(316, 67);
+            this.comboBoxDesignation.Name = "comboBoxDesignation";
+            this.comboBoxDesignation.Size = new System.Drawing.Size(133, 24);
+            this.comboBoxDesignation.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(236, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 17);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Designation";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(21, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 17);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Employee ID";
+            // 
+            // textBoxEmpId
+            // 
+            this.textBoxEmpId.CausesValidation = false;
+            this.textBoxEmpId.Location = new System.Drawing.Point(114, 67);
+            this.textBoxEmpId.Name = "textBoxEmpId";
+            this.textBoxEmpId.Size = new System.Drawing.Size(116, 23);
+            this.textBoxEmpId.TabIndex = 19;
             // 
             // buttonBrowse
             // 
@@ -216,12 +252,15 @@ namespace WindowsDesktop.Staff
             this.buttonBrowse.TabIndex = 18;
             this.buttonBrowse.Text = "Browse Image";
             this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
             // pictureBoxStaff
             // 
+            this.pictureBoxStaff.Image = global::WindowsDesktop.Properties.Resources.no_person_image;
             this.pictureBoxStaff.Location = new System.Drawing.Point(465, 67);
             this.pictureBoxStaff.Name = "pictureBoxStaff";
             this.pictureBoxStaff.Size = new System.Drawing.Size(112, 119);
+            this.pictureBoxStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxStaff.TabIndex = 17;
             this.pictureBoxStaff.TabStop = false;
             // 
@@ -281,7 +320,6 @@ namespace WindowsDesktop.Staff
             // 
             // textBoxNid
             // 
-            this.textBoxNid.CausesValidation = false;
             this.textBoxNid.Location = new System.Drawing.Point(114, 169);
             this.textBoxNid.Name = "textBoxNid";
             this.textBoxNid.Size = new System.Drawing.Size(335, 23);
@@ -305,13 +343,12 @@ namespace WindowsDesktop.Staff
             this.label31.TabIndex = 5;
             this.label31.Text = "Full Name";
             // 
-            // textBoxStudentPhone
+            // textBoxPhone
             // 
-            this.textBoxStudentPhone.CausesValidation = false;
-            this.textBoxStudentPhone.Location = new System.Drawing.Point(114, 135);
-            this.textBoxStudentPhone.Name = "textBoxStudentPhone";
-            this.textBoxStudentPhone.Size = new System.Drawing.Size(335, 23);
-            this.textBoxStudentPhone.TabIndex = 1;
+            this.textBoxPhone.Location = new System.Drawing.Point(114, 135);
+            this.textBoxPhone.Name = "textBoxPhone";
+            this.textBoxPhone.Size = new System.Drawing.Size(335, 23);
+            this.textBoxPhone.TabIndex = 1;
             // 
             // textBoxFullName
             // 
@@ -325,7 +362,7 @@ namespace WindowsDesktop.Staff
             this.labelStaffName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelStaffName.BackColor = System.Drawing.SystemColors.Control;
             this.labelStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStaffName.Location = new System.Drawing.Point(-2, 13);
+            this.labelStaffName.Location = new System.Drawing.Point(-29, 13);
             this.labelStaffName.Name = "labelStaffName";
             this.labelStaffName.Size = new System.Drawing.Size(582, 33);
             this.labelStaffName.TabIndex = 35;
@@ -364,7 +401,7 @@ namespace WindowsDesktop.Staff
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(49, 312);
+            this.groupBoxAddress.Location = new System.Drawing.Point(22, 312);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
@@ -1548,39 +1585,15 @@ namespace WindowsDesktop.Staff
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
-            // textBox1
+            // labelStudentName
             // 
-            this.textBox1.CausesValidation = false;
-            this.textBox1.Location = new System.Drawing.Point(114, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(116, 23);
-            this.textBox1.TabIndex = 19;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 70);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 17);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Employee ID";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(236, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 17);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Designation";
-            // 
-            // comboBoxDesignation
-            // 
-            this.comboBoxDesignation.FormattingEnabled = true;
-            this.comboBoxDesignation.Location = new System.Drawing.Point(316, 67);
-            this.comboBoxDesignation.Name = "comboBoxDesignation";
-            this.comboBoxDesignation.Size = new System.Drawing.Size(133, 24);
-            this.comboBoxDesignation.TabIndex = 23;
+            this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStudentName.Location = new System.Drawing.Point(20, 19);
+            this.labelStudentName.Name = "labelStudentName";
+            this.labelStudentName.Size = new System.Drawing.Size(548, 33);
+            this.labelStudentName.TabIndex = 36;
+            this.labelStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmAddNewStaff
             // 
@@ -1660,7 +1673,7 @@ namespace WindowsDesktop.Staff
         private System.Windows.Forms.Button buttonAddressBack;
         private System.Windows.Forms.Button buttonAddressNext;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBoxStudentPhone;
+        private System.Windows.Forms.TextBox textBoxPhone;
         private System.Windows.Forms.ErrorProvider errorProviderStaff;
         private System.Windows.Forms.GroupBox groupBoxReview;
         private System.Windows.Forms.Button buttonReviewBack;
@@ -1753,8 +1766,9 @@ namespace WindowsDesktop.Staff
         private System.Windows.Forms.PictureBox pictureBoxStaff;
         private System.Windows.Forms.Button buttonBrowse;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxEmpId;
         private System.Windows.Forms.ComboBox comboBoxDesignation;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelStudentName;
     }
 }
