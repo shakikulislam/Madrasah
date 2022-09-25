@@ -6,6 +6,7 @@ using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Properties;
 using WindowsDesktop.Theme;
+using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.Staff
 {
@@ -42,7 +43,7 @@ namespace WindowsDesktop.Staff
                 comboBoxDesignation.SelectedValue = "id";
                 comboBoxDesignation.DisplayMember = "name";
                 comboBoxDesignation.DataSource = desigList;
-                comboBoxDesignation.SelectedIndex = 3; //default staff
+               // comboBoxDesignation.SelectedIndex = 3; //default staff
             }
             catch (Exception ex)
             {
@@ -267,54 +268,56 @@ namespace WindowsDesktop.Staff
 
                 if (isValid)
                 {
-                    //groupBoxPersonalInformation.Visible = false;
+                    groupBoxStaffInformation.Visible = false;
 
-                    // Check already added
-                    //var query = "SELECT * FROM s_employees WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
-                    //var studentInfo = Db.GetDataReader(query);
+                    var already = false;
+                    var query = "select * from s_employees where nid='" + textBoxNid.Text.Trim() + "' ";
+                    var staffInfo = Db.GetDataReader(query);
 
-                    //if (studentInfo.HasRows)
-                    //{
-                    //    studentInfo.Read();
-                    //    if (studentInfo["guardian_name"] == DBNull.Value || studentInfo["guardian_name"].ToString() == "")
-                    //    {
-                    //        MessageBox.Show("Pending enrollment students");
+                    if (staffInfo.HasRows)
+                    {
+                        staffInfo.Read();
+                        if (staffInfo["status "] == DBNull.Value)
+                        {
+                            MessageBox.Show("pending enrollment");
+                            labelFullName.Text = staffInfo["name"].ToString();
+                            labelFullName.Tag = staffInfo["id"].ToString();
 
-                    //        labelStaffName.Text = studentInfo["name"].ToString();
-                    //        labelStaffName.Tag = studentInfo["id"].ToString();
+                            groupBoxStaffInformation.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("already added this staff\n\nstaff name" + staffInfo["name"], "Information");
+                        }
+                    }
+                    else
+                    {
+                        // insert student basic information
+                        var imgConv = new ImageConverter();
+                        var bytes = (byte[]) imgConv.ConvertTo(pictureBoxStaff.Image, Type.GetType("System.Byte[]"));
 
-                    //        groupBoxStaffInformation.Visible = false;
-                    //        groupBoxAddress.Visible = true;
-                    //    }
-                    //    else
-                    //    {
-                    //        MessageBox.Show("Already added this student\n\nStudent Name: " + studentInfo["name"] + "\nRoll No: " +
-                    //                    studentInfo["roll"], @"Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    // Insert student basic information
-                    //    query = "INSERT INTO s_students (name, phone, birth_certificate, nid, dob) VALUES ('" + textBoxFullName.Text.Trim() +
-                    //            "', '" + textBoxStudentPhone.Text.Trim() + "', '" + textBoxBirthCert.Text.Trim() + "', '" + textBoxNid.Text.Trim() +
-                    //            "', '" + dateTimePickerDob.Value.ToString(GlobalSettings.DateFormatSave) + "') ";
+                        var cmd = new MySqlCommand();
+                        cmd.CommandText="insert into s_employees (emp_id, name, phone, nid, desig_id,joining_date,image) values ('" + textBoxEmpId.Text.Trim() +
+                                                 "', '" + textBoxFullName.Text.Trim() + "', '" + textBoxPhone.Text.Trim() + "', '" + textBoxNid.Text.Trim() +
+                                                 "', '" + comboBoxDesignation.SelectedValue + "','"+dateTimePickerJoiningDate.Value.ToString(GlobalSettings.DateFormatSave)+"',@img) ";
+                        cmd.Parameters.AddWithValue("@img", bytes);
 
-                    //    var isSaved = Db.QueryExecute(query);
-                    //    if (isSaved)
-                    //    {
-                    //        query = "SELECT * FROM s_students WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
-                    //        studentInfo = Db.GetDataReader(query);
-                    //        if (studentInfo.HasRows)
-                    //        {
-                    //            studentInfo.Read();
-                    //            labelStaffName.Text = studentInfo["name"].ToString();
-                    //            labelStaffName.Tag = studentInfo["id"].ToString();
+                        var isSaved = Db.QueryExecute(cmd);
 
-                    //            groupBoxStaffInformation.Visible = false;
-                    //            groupBoxAddress.Visible = true;
-                    //        }
-                    //    }
-                    //}
+                        if (isSaved)
+                        {
+                            query = "select * from s_employees where nid='" + textBoxNid.Text.Trim() + "' ";
+                            staffInfo = Db.GetDataReader(query);
+                            if (staffInfo.HasRows)
+                            {
+                                staffInfo.Read();
+                                labelFullName.Text = staffInfo["name"].ToString();
+                                labelFullName.Tag = staffInfo["id"].ToString();
+
+                                groupBoxStaffInformation.Visible = false;
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)

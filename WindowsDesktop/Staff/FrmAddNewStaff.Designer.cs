@@ -31,6 +31,7 @@ namespace WindowsDesktop.Staff
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxStaffInformation = new System.Windows.Forms.GroupBox();
+            this.labelFullName = new System.Windows.Forms.Label();
             this.comboBoxDesignation = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -166,7 +167,6 @@ namespace WindowsDesktop.Staff
             this.textBoxReviewFullName = new System.Windows.Forms.TextBox();
             this.buttonReviewBack = new System.Windows.Forms.Button();
             this.buttonSubmit = new System.Windows.Forms.Button();
-            this.labelStudentName = new System.Windows.Forms.Label();
             this.groupBoxStaffInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStaff)).BeginInit();
             this.groupBoxAddress.SuspendLayout();
@@ -183,7 +183,7 @@ namespace WindowsDesktop.Staff
             // groupBoxStaffInformation
             // 
             this.groupBoxStaffInformation.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBoxStaffInformation.Controls.Add(this.labelStudentName);
+            this.groupBoxStaffInformation.Controls.Add(this.labelFullName);
             this.groupBoxStaffInformation.Controls.Add(this.comboBoxDesignation);
             this.groupBoxStaffInformation.Controls.Add(this.label2);
             this.groupBoxStaffInformation.Controls.Add(this.label4);
@@ -202,13 +202,23 @@ namespace WindowsDesktop.Staff
             this.groupBoxStaffInformation.Controls.Add(this.textBoxPhone);
             this.groupBoxStaffInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxStaffInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxStaffInformation.Location = new System.Drawing.Point(18, 60);
+            this.groupBoxStaffInformation.Location = new System.Drawing.Point(9, 60);
             this.groupBoxStaffInformation.Name = "groupBoxStaffInformation";
             this.groupBoxStaffInformation.Size = new System.Drawing.Size(594, 336);
             this.groupBoxStaffInformation.TabIndex = 0;
             this.groupBoxStaffInformation.TabStop = false;
             this.groupBoxStaffInformation.Text = "Staff Information";
             this.groupBoxStaffInformation.Visible = false;
+            // 
+            // labelFullName
+            // 
+            this.labelFullName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFullName.Location = new System.Drawing.Point(20, 19);
+            this.labelFullName.Name = "labelFullName";
+            this.labelFullName.Size = new System.Drawing.Size(548, 33);
+            this.labelFullName.TabIndex = 36;
+            this.labelFullName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboBoxDesignation
             // 
@@ -362,7 +372,7 @@ namespace WindowsDesktop.Staff
             this.labelStaffName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelStaffName.BackColor = System.Drawing.SystemColors.Control;
             this.labelStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStaffName.Location = new System.Drawing.Point(-29, 13);
+            this.labelStaffName.Location = new System.Drawing.Point(-38, 13);
             this.labelStaffName.Name = "labelStaffName";
             this.labelStaffName.Size = new System.Drawing.Size(582, 33);
             this.labelStaffName.TabIndex = 35;
@@ -401,7 +411,7 @@ namespace WindowsDesktop.Staff
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(22, 312);
+            this.groupBoxAddress.Location = new System.Drawing.Point(13, 312);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
@@ -1585,16 +1595,6 @@ namespace WindowsDesktop.Staff
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
-            // labelStudentName
-            // 
-            this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentName.Location = new System.Drawing.Point(20, 19);
-            this.labelStudentName.Name = "labelStudentName";
-            this.labelStudentName.Size = new System.Drawing.Size(548, 33);
-            this.labelStudentName.TabIndex = 36;
-            this.labelStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FrmAddNewStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1769,6 +1769,6 @@ namespace WindowsDesktop.Staff
         private System.Windows.Forms.TextBox textBoxEmpId;
         private System.Windows.Forms.ComboBox comboBoxDesignation;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labelStudentName;
+        private System.Windows.Forms.Label labelFullName;
     }
 }

@@ -55,6 +55,17 @@ namespace WindowsDesktop.DbContext
             return cmd.ExecuteNonQuery() > 0;
         }
 
+        public static bool QueryExecute(MySqlCommand mySqlCommand)
+        {
+            GetConnection();
+            cmd.CommandText = mySqlCommand.CommandText;
+            foreach (MySqlParameter parameter in mySqlCommand.Parameters)
+            {
+                cmd.Parameters.Add(parameter);
+            }
+            return cmd.ExecuteNonQuery() > 0;
+        }
+
         public static MySqlDataReader GetDataReader(string query)
         {
             GetConnection();
