@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using WindowsDesktop.Common;
@@ -32,7 +33,7 @@ namespace WindowsDesktop.Staff
             ThemeTemplate.SComboBox(control,ComboBoxStyle.DropDownList);
             ThemeTemplate.SPictureBox(control);
         }
-
+        
         private void LoadDesignation()
         {
             try
@@ -40,10 +41,9 @@ namespace WindowsDesktop.Staff
                 var query = "SELECT id, name FROM s_employee_designations WHERE name <> 'SA' ORDER BY number ASC";
                 var desigList = Db.GetDataTable(query);
 
-                comboBoxDesignation.SelectedValue = "id";
+                comboBoxDesignation.ValueMember = "id";
                 comboBoxDesignation.DisplayMember = "name";
                 comboBoxDesignation.DataSource = desigList;
-               // comboBoxDesignation.SelectedIndex = 3; //default staff
             }
             catch (Exception ex)
             {
@@ -68,8 +68,8 @@ namespace WindowsDesktop.Staff
         {
             ClearReviewField();
             
-            labelStaffName.Text = string.Empty;
-            labelStaffName.Tag = string.Empty;
+            labelFullName.Text = string.Empty;
+            labelFullName.Tag = string.Empty;
             textBoxFullName.Clear();
             textBoxPhone.Clear();
             textBoxNid.Clear();
@@ -88,7 +88,7 @@ namespace WindowsDesktop.Staff
             // Personal Information
             textBoxReviewFullName.Clear();
             textBoxReviewPhone.Clear();
-            textBoxReviewBirthCertificeate.Clear();
+            //textBoxReviewBirthCertificeate.Clear();
             textBoxReviewNid.Clear();
             dateTimePickerReviewDob.Value = DateTime.Now;
 
@@ -137,50 +137,9 @@ namespace WindowsDesktop.Staff
             comboBoxReviewPerVillage.ValueMember = "id";
 
             textBoxReviewPerDetails.Clear();
+            pictureBoxStaff.Image = Resources.no_person_image;
+            pictureBoxReviewStaffImg.Image = Resources.no_person_image;
 
-            // Parent Information
-            textBoxReviewFatherName.Clear();
-            textBoxReviewFatherPhone.Clear();
-            textBoxReviewFatherNid.Clear();
-
-            textBoxReviewMotherName.Clear();
-            textBoxReviewMotherPhone.Clear();
-            textBoxReviewMotherNid.Clear();
-
-            // Guardian Information
-            textBoxReviewGrdName.Clear();
-            textBoxReviewGrdPhone.Clear();
-
-            // Guardian Address
-            comboBoxReviewGrdDivision.DataSource = null;
-            comboBoxReviewGrdDivision.DisplayMember = "name";
-            comboBoxReviewGrdDivision.ValueMember = "id";
-
-            comboBoxReviewGrdDistrict.DataSource = null;
-            comboBoxReviewGrdDistrict.DisplayMember = "name";
-            comboBoxReviewGrdDistrict.ValueMember = "id";
-
-            comboBoxReviewGrdUpazila.DataSource = null;
-            comboBoxReviewGrdUpazila.DisplayMember = "name";
-            comboBoxReviewGrdUpazila.ValueMember = "id";
-
-            comboBoxReviewGrdUnion.DataSource = null;
-            comboBoxReviewGrdUnion.DisplayMember = "name";
-            comboBoxReviewGrdUnion.ValueMember = "id";
-
-            comboBoxReviewGrdVillage.DataSource = null;
-            comboBoxReviewGrdVillage.DisplayMember = "name";
-            comboBoxReviewGrdVillage.ValueMember = "id";
-
-            textBoxReviewGrdDetails.Clear();
-
-            // Academic Details
-            comboBoxReviewClass.DataSource = null;
-            comboBoxReviewClass.DisplayMember = "name";
-            comboBoxReviewClass.ValueMember = "id";
-
-            textBoxReviewRoll.Clear();
-            textBoxReviewReg.Clear();
         }
         
         private void LoadDivision()
@@ -251,10 +210,7 @@ namespace WindowsDesktop.Staff
         {
             try
             {
-                var img=new ImageConverter();
-                var imgBytes = (byte[]) img.ConvertTo(pictureBoxStaff.Image, Type.GetType("System.Byte[]"));
-
-                labelStaffName.Text = textBoxFullName.Text;
+                labelFullName.Text = textBoxFullName.Text;
                 // Load Theme
                 groupBoxAddress.Size = new Size(594, 619);
                 groupBoxAddress.Location = groupBoxStaffInformation.Location;
@@ -268,8 +224,6 @@ namespace WindowsDesktop.Staff
 
                 if (isValid)
                 {
-                    groupBoxStaffInformation.Visible = false;
-
                     var already = false;
                     var query = "select * from s_employees where nid='" + textBoxNid.Text.Trim() + "' ";
                     var staffInfo = Db.GetDataReader(query);
@@ -277,13 +231,14 @@ namespace WindowsDesktop.Staff
                     if (staffInfo.HasRows)
                     {
                         staffInfo.Read();
-                        if (staffInfo["status "] == DBNull.Value)
+                        if (staffInfo["create_by"] == DBNull.Value || staffInfo["create_by"].ToString() == string.Empty)
                         {
-                            MessageBox.Show("pending enrollment");
-                            labelFullName.Text = staffInfo["name"].ToString();
+                            MessageBox.Show("Pending enrollment");
+                            labelFullName.Text = textBoxFullName.Text.Trim();
                             labelFullName.Tag = staffInfo["id"].ToString();
 
                             groupBoxStaffInformation.Visible = false;
+                            groupBoxAddress.Visible = true;
                         }
                         else
                         {
@@ -315,6 +270,7 @@ namespace WindowsDesktop.Staff
                                 labelFullName.Tag = staffInfo["id"].ToString();
 
                                 groupBoxStaffInformation.Visible = false;
+                                groupBoxAddress.Visible = true;
                             }
                         }
                     }
@@ -339,7 +295,60 @@ namespace WindowsDesktop.Staff
             if (isValid)
             {
                 groupBoxAddress.Visible = false;
+                groupBoxReview.Location = groupBoxAddress.Location;
+                groupBoxReview.Anchor = AnchorStyles.Top;
+                
+                LoadTheme(groupBoxReview);
+                ThemeTemplate.SComboBox(groupBoxReview, ComboBoxStyle.DropDownList);
+
+                // Set data
+                // Personal Information
+                textBoxReviewFullName.Text = textBoxFullName.Text;
+                textBoxReviewPhone.Text = textBoxPhone.Text;
+                textBoxReviewNid.Text = textBoxNid.Text;
+                dateTimePickerReviewDob.Value = dateTimePickerDob.Value;
+                dateTimePickerReviewJoiningDate.Value = dateTimePickerJoiningDate.Value;
+                pictureBoxReviewStaffImg.Image = pictureBoxStaff.Image;
+
+                comboBoxReviewDesignation.DisplayMember = comboBoxDesignation.DisplayMember;
+                comboBoxReviewDesignation.ValueMember = comboBoxDesignation.ValueMember;
+                comboBoxReviewDesignation.DataSource = comboBoxDesignation.DataSource;
+                comboBoxReviewDesignation.SelectedValue = comboBoxDesignation.SelectedValue;
+
+                // Present Address
+                comboBoxReviewPreDivision.DataSource = comboBoxPreAddressDivision.DataSource;
+                comboBoxReviewPreDistrict.DataSource = comboBoxPreAddressDistrict.DataSource;
+                comboBoxReviewPreUpazila.DataSource = comboBoxPreAddressUpazila.DataSource;
+                comboBoxReviewPreUnion.DataSource = comboBoxPreAddressUnion.DataSource;
+                comboBoxReviewPreVillage.DataSource = comboBoxPreAddressVillage.DataSource;
+
+                comboBoxReviewPreDivision.SelectedValue = comboBoxPreAddressDivision.SelectedValue;
+                comboBoxReviewPreDistrict.SelectedValue = comboBoxPreAddressDistrict.SelectedValue;
+                comboBoxReviewPreUpazila.SelectedValue = comboBoxPreAddressUpazila.SelectedValue;
+                comboBoxReviewPreUnion.SelectedValue = comboBoxPreAddressUnion.SelectedValue;
+                comboBoxReviewPreVillage.SelectedValue = comboBoxPreAddressVillage.SelectedValue;
+                textBoxReviewPreDetails.Text = textBoxPreAddressDetails.Text;
+
+                // Permanent Address
+                comboBoxReviewPerDivision.DataSource = comboBoxPerAddressDivision.DataSource;
+                comboBoxReviewPerDistrict.DataSource = comboBoxPerAddressDistrict.DataSource;
+                comboBoxReviewPerUpazila.DataSource = comboBoxPerAddressUpazila.DataSource;
+                comboBoxReviewPerUnion.DataSource = comboBoxPerAddressUnion.DataSource;
+                comboBoxReviewPerVillage.DataSource = comboBoxPerAddressVillage.DataSource;
+
+                comboBoxReviewPerDivision.SelectedValue = comboBoxPerAddressDivision.SelectedValue;
+                comboBoxReviewPerDistrict.SelectedValue = comboBoxPerAddressDistrict.SelectedValue;
+                comboBoxReviewPerUpazila.SelectedValue = comboBoxPerAddressUpazila.SelectedValue;
+                comboBoxReviewPerUnion.SelectedValue = comboBoxPerAddressUnion.SelectedValue;
+                comboBoxReviewPerVillage.SelectedValue = comboBoxPerAddressVillage.SelectedValue;
+                textBoxReviewPerDetails.Text = textBoxPerAddressDetails.Text;
+
+                
+                groupBoxReview.Visible = true;
+
+
             }
+
         }
 
         private void comboBoxPreAddressDivision_SelectedIndexChanged(object sender, EventArgs e)
@@ -600,82 +609,65 @@ namespace WindowsDesktop.Staff
         {
             try
             {
-                //var query = "UPDATE s_students SET " +
-                //            "form_number = '" + textBoxReviewFormNo.Text.Trim() + 
-                //            "',roll = '" + textBoxReviewRoll.Text.Trim() + 
-                //            "',reg = '" + textBoxReviewReg.Text.Trim() +
-                //            "',name = '" + textBoxReviewFullName.Text.Trim() + 
-                //            "',phone = '" + textBoxReviewPhone.Text.Trim() +
-                //            "',dob = '" + dateTimePickerReviewDob.Value.ToString(GlobalSettings.DateFormatSave) +
-                //            "',birth_certificate = '" + textBoxReviewBirthCertificeate.Text.Trim() +
-                //            "',nid = '" + textBoxReviewNid.Text.Trim() + 
-                //            "',father_name = '" + textBoxReviewFatherName.Text.Trim() +
-                //            "',father_phone = '" + textBoxReviewFatherPhone.Text.Trim() +
-                //            "',father_nid = '" + textBoxReviewFatherNid.Text.Trim() + 
-                //            "',mother_name = '" + textBoxReviewMotherName.Text.Trim() + 
-                //            "',mother_phone = '" + textBoxReviewMotherPhone.Text.Trim() +
-                //            "',mother_nid = '" + textBoxReviewMotherNid.Text.Trim() + 
-                //            "',guardian_name = '" + textBoxReviewGrdName.Text.Trim() + 
-                //            "',guardian_phone = '" + textBoxReviewGrdPhone.Text.Trim() +
-                //            "',class_id = '" + comboBoxReviewClass.SelectedValue + 
-                //            "',status = 'A'," +
-                //            "create_by = '" + GlobalSettings.UserName + 
-                //            "',create_date = '" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) + 
-                //            "' WHERE id='" + labelStudentName.Tag + "' ";
+                var imgCon=new ImageConverter();
+                var bytes = (byte[]) imgCon.ConvertTo(pictureBoxReviewStaffImg.Image, Type.GetType("System.Byte[]"));
 
-                //var queryAddress = "INSERT INTO s_addresses(person_id" +
-                //         ",p_division_id," +
-                //         "p_district_id," +
-                //         "p_upazila_id," +
-                //         "p_union_id," +
-                //         "p_village_id," +
-                //         "p_details," +
-                //         "m_division_id," +
-                //         "m_district_id," +
-                //         "m_upazila_id," +
-                //         "m_union_id," +
-                //         "m_village_id," +
-                //         "m_details," +
-                //         "g_division_id," +
-                //         "g_district_id," +
-                //         "g_upazila_id," +
-                //         "g_union_id," +
-                //         "g_village_id," +
-                //         "g_details," +
-                //         "who)" +
-                //         "VALUES('"+labelStudentName.Tag+
-                //         "','"+comboBoxReviewPerDivision.SelectedValue+
-                //         "','"+comboBoxReviewPerDistrict.SelectedValue+
-                //         "','"+comboBoxReviewPerUpazila.SelectedValue+
-                //         "','"+comboBoxReviewPerUnion.SelectedValue+
-                //         "','"+comboBoxReviewPerVillage.SelectedValue+
-                //         "','"+textBoxReviewPerDetails.Text+
-                //         "','"+comboBoxReviewPreDivision.SelectedValue+
-                //         "','"+comboBoxReviewPreDistrict.SelectedValue+
-                //         "','"+comboBoxReviewPreUpazila.SelectedValue+
-                //         "','"+comboBoxReviewPreUnion.SelectedValue+
-                //         "','"+comboBoxReviewPreVillage.SelectedValue+
-                //         "','"+textBoxReviewPreDetails.Text+
-                //         "','"+comboBoxReviewGrdDivision.SelectedValue+
-                //         "','"+comboBoxReviewGrdDistrict.SelectedValue + 
-                //         "','"+comboBoxReviewGrdUpazila.SelectedValue + 
-                //         "','"+comboBoxReviewGrdUnion.SelectedValue + 
-                //         "','"+comboBoxReviewGrdVillage.SelectedValue + 
-                //         "','"+textBoxReviewGrdDetails.Text+
-                //         "','ST')";
+                var cmd=new MySqlCommand();
+
+                cmd.CommandText = "UPDATE s_employees SET " +
+                            "emp_id = '" + textBoxReviewEmpId.Text.Trim() +
+                            "',name = '" + textBoxReviewFullName.Text.Trim() +
+                            "',phone = '" + textBoxReviewPhone.Text.Trim() +
+                            "',nid = '" + textBoxReviewNid.Text.Trim() +
+                            "',desig_id  = '" + comboBoxReviewDesignation.SelectedValue +
+                            "',joining_date = '" + dateTimePickerReviewJoiningDate.Value.ToString(GlobalSettings.DateFormatSave) +
+                            "',image = @img" +
+                            ",create_by = '" + GlobalSettings.UserName +
+                            "',create_date = current_timestamp() " +
+                            "WHERE id='" + labelFullName.Tag + "' ";
+                cmd.Parameters.AddWithValue("@img", bytes);
+
+                var queryAddress = "INSERT INTO s_addresses(person_id" +
+                         ",p_division_id," +
+                         "p_district_id," +
+                         "p_upazila_id," +
+                         "p_union_id," +
+                         "p_village_id," +
+                         "p_details," +
+                         "m_division_id," +
+                         "m_district_id," +
+                         "m_upazila_id," +
+                         "m_union_id," +
+                         "m_village_id," +
+                         "m_details," +
+                         "who)" +
+                         "VALUES('" + labelFullName.Tag +
+                         "','" + comboBoxReviewPerDivision.SelectedValue +
+                         "','" + comboBoxReviewPerDistrict.SelectedValue +
+                         "','" + comboBoxReviewPerUpazila.SelectedValue +
+                         "','" + comboBoxReviewPerUnion.SelectedValue +
+                         "','" + comboBoxReviewPerVillage.SelectedValue +
+                         "','" + textBoxReviewPerDetails.Text +
+                         "','" + comboBoxReviewPreDivision.SelectedValue +
+                         "','" + comboBoxReviewPreDistrict.SelectedValue +
+                         "','" + comboBoxReviewPreUpazila.SelectedValue +
+                         "','" + comboBoxReviewPreUnion.SelectedValue +
+                         "','" + comboBoxReviewPreVillage.SelectedValue +
+                         "','" + textBoxReviewPreDetails.Text +
+                         "','STF')";
 
 
-                //var isUpdate=Db.QueryExecute(query);
-                //if (isUpdate)
-                //{
-                //    var isInsert = Db.QueryExecute(queryAddress);
-                //    if (isInsert)
-                //    {
-                //        ClearAllField();
-                //        groupBoxReview.Visible = false;
-                //        groupBoxStaffInformation.Visible = true;
-                //    }
-                //}
+                var isUpdate = Db.QueryExecute(cmd);
+                if (isUpdate)
+                {
+                    var isInsert = Db.QueryExecute(queryAddress);
+                    if (isInsert)
+                    {
+                        ClearAllField();
+                        groupBoxReview.Visible = false;
+                        groupBoxStaffInformation.Visible = true;
+                    }
+                }
 
             }
             catch (Exception ex)
@@ -686,12 +678,13 @@ namespace WindowsDesktop.Staff
 
         private void FrmAddNewStaff_Load(object sender, EventArgs e)
         {
-            LoadTheme(this);
+            //LoadTheme(this);
             LoadTheme(groupBoxStaffInformation);
-            SetLocation(labelStaffName,0);
+            SetLocation(labelFullName,0);
             SetLocation(groupBoxStaffInformation);
             buttonBrowse.Font = new Font(buttonBrowse.Font.FontFamily, 10);
             LoadDesignation();
+            labelFullName.BackColor = STheme.SColor.BackColor;
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)

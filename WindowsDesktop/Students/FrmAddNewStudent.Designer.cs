@@ -594,7 +594,7 @@ namespace WindowsDesktop.Students
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxStudentPhone);
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxPersonalInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(-32, 50);
+            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(12, 50);
             this.groupBoxPersonalInformation.Name = "groupBoxPersonalInformation";
             this.groupBoxPersonalInformation.Size = new System.Drawing.Size(594, 257);
             this.groupBoxPersonalInformation.TabIndex = 0;
@@ -707,7 +707,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAcademicInformation.Controls.Add(this.label2);
             this.groupBoxAcademicInformation.Controls.Add(this.label1);
             this.groupBoxAcademicInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAcademicInformation.Location = new System.Drawing.Point(4, 170);
+            this.groupBoxAcademicInformation.Location = new System.Drawing.Point(43, 170);
             this.groupBoxAcademicInformation.Name = "groupBoxAcademicInformation";
             this.groupBoxAcademicInformation.Size = new System.Drawing.Size(594, 226);
             this.groupBoxAcademicInformation.TabIndex = 2;
@@ -760,7 +760,7 @@ namespace WindowsDesktop.Students
             // 
             this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentName.Location = new System.Drawing.Point(-26, 13);
+            this.labelStudentName.Location = new System.Drawing.Point(18, 13);
             this.labelStudentName.Name = "labelStudentName";
             this.labelStudentName.Size = new System.Drawing.Size(582, 33);
             this.labelStudentName.TabIndex = 35;
@@ -799,7 +799,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(-47, 106);
+            this.groupBoxAddress.Location = new System.Drawing.Point(15, 106);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
@@ -1181,7 +1181,7 @@ namespace WindowsDesktop.Students
             this.groupBoxReview.Controls.Add(this.buttonReviewBack);
             this.groupBoxReview.Controls.Add(this.buttonSubmit);
             this.groupBoxReview.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxReview.Location = new System.Drawing.Point(24, 208);
+            this.groupBoxReview.Location = new System.Drawing.Point(63, 208);
             this.groupBoxReview.Name = "groupBoxReview";
             this.groupBoxReview.Size = new System.Drawing.Size(594, 1531);
             this.groupBoxReview.TabIndex = 36;
@@ -1989,8 +1989,8 @@ namespace WindowsDesktop.Students
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(721, 749);
-            this.Controls.Add(this.groupBoxPersonalInformation);
             this.Controls.Add(this.groupBoxAcademicInformation);
+            this.Controls.Add(this.groupBoxPersonalInformation);
             this.Controls.Add(this.groupBoxReview);
             this.Controls.Add(this.groupBoxGuardianInformation);
             this.Controls.Add(this.labelStudentName);
