@@ -1,6 +1,10 @@
 ﻿
 using System;
 using System.Data;
+using System.Drawing;
+using System.IO;
+using WindowsDesktop.Properties;
+using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.Common
 {
@@ -25,5 +29,26 @@ namespace WindowsDesktop.Common
         public static string DateFormatShortWithDateView { get { return _viewDateFormatShortWithDay; } }
         public static string DateFormatSave { get { return _saveDateFormat; } }
 
+        //Method
+        public static Image ByteToImage(object imageField, Bitmap defaultImage)
+        {
+            if (imageField == DBNull.Value) return defaultImage;
+            var ms = new MemoryStream((byte[]) imageField);
+            return Image.FromStream(ms);
+        }
+        
+        public static byte[] ImageToByte(Image image)
+        {
+            //var img = new ImageConverter();
+            //var bytes = (byte[])img.ConvertTo(img, Type.GetType("System.Byte[]"));
+            //return bytes;
+
+            //var imgConv = new ImageConverter();
+            //var bytes = (byte[])imgConv.ConvertTo(pictureBoxStaff.Image, Type.GetType("System.Byte[]"));
+
+            var imgConv = new ImageConverter();
+            var bytes = (byte[])imgConv.ConvertTo(image, Type.GetType("System.Byte[]"));
+            return bytes;
+        }
     }
 }

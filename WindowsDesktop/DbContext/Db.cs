@@ -58,6 +58,7 @@ namespace WindowsDesktop.DbContext
         public static bool QueryExecute(MySqlCommand mySqlCommand)
         {
             GetConnection();
+            cmd.Parameters.Clear();
             cmd.CommandText = mySqlCommand.CommandText;
             foreach (MySqlParameter parameter in mySqlCommand.Parameters)
             {
@@ -84,34 +85,6 @@ namespace WindowsDesktop.DbContext
             da.Fill(dt);
             return dt;
         }
-
-        //public static string GenerateInvoice(string firstInvString, int startInvNum, int increment, string dbTblName, string tblIdFieldName, string tblInvFieldName)
-        //{
-        //    try
-        //    {
-        //        GetConnection();
-        //        var year = Settings.Default.CURRENT_PERIOD;
-        //        string defaultInvoice = firstInvString + year + startInvNum;
-
-        //        var cmd = new SqlCommand("SELECT " + tblInvFieldName + " AS INV FROM " + dbTblName + " WHERE " + tblIdFieldName + " = (SELECT MAX(" + tblIdFieldName + ") AS ID FROM " + dbTblName + ")", conn);
-        //        var dr = cmd.ExecuteReader();
-        //        if (dr.Read() && !dr.IsDBNull(0))
-        //        {
-        //            var db_invoice = dr["INV"].ToString();
-        //            var db_inv_year = db_invoice.Substring(firstInvString.Length, 4);
-        //            return Convert.ToInt32(db_inv_year) < Convert.ToInt32(year)
-        //                ? defaultInvoice
-        //                : new AutoGenerateInvoice().Invoice(db_invoice, firstInvString + year, increment);
-        //        }
-        //        dr.Close();
-        //        return defaultInvoice;
-        //    }
-        //    catch
-        //    {
-        //        return "";
-        //    }
-        //}
-
-
+        
     }
 }

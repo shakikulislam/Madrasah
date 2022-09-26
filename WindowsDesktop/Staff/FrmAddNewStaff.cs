@@ -251,10 +251,16 @@ namespace WindowsDesktop.Staff
                         var imgConv = new ImageConverter();
                         var bytes = (byte[]) imgConv.ConvertTo(pictureBoxStaff.Image, Type.GetType("System.Byte[]"));
 
-                        var cmd = new MySqlCommand();
-                        cmd.CommandText="insert into s_employees (emp_id, name, phone, nid, desig_id,joining_date,image) values ('" + textBoxEmpId.Text.Trim() +
-                                                 "', '" + textBoxFullName.Text.Trim() + "', '" + textBoxPhone.Text.Trim() + "', '" + textBoxNid.Text.Trim() +
-                                                 "', '" + comboBoxDesignation.SelectedValue + "','"+dateTimePickerJoiningDate.Value.ToString(GlobalSettings.DateFormatSave)+"',@img) ";
+                        var cmd = new MySqlCommand
+                        {
+                            CommandText =
+                                "insert into s_employees (emp_id, name, phone, nid, desig_id,joining_date,image) values ('" +
+                                textBoxEmpId.Text.Trim() +
+                                "', '" + textBoxFullName.Text.Trim() + "', '" + textBoxPhone.Text.Trim() + "', '" +
+                                textBoxNid.Text.Trim() +
+                                "', '" + comboBoxDesignation.SelectedValue + "','" +
+                                dateTimePickerJoiningDate.Value.ToString(GlobalSettings.DateFormatSave) + "',@img) "
+                        };
                         cmd.Parameters.AddWithValue("@img", bytes);
 
                         var isSaved = Db.QueryExecute(cmd);
