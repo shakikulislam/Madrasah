@@ -81,6 +81,13 @@ namespace WindowsDesktop.Staff
             this.comboBoxPreAddressDivision = new System.Windows.Forms.ComboBox();
             this.errorProviderStaff = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxReview = new System.Windows.Forms.GroupBox();
+            this.comboBoxReviewDesignation = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxReviewEmpId = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePickerReviewJoiningDate = new System.Windows.Forms.DateTimePicker();
+            this.pictureBoxReviewStaffImg = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label43 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -121,22 +128,15 @@ namespace WindowsDesktop.Staff
             this.textBoxReviewFullName = new System.Windows.Forms.TextBox();
             this.buttonReviewBack = new System.Windows.Forms.Button();
             this.buttonSubmit = new System.Windows.Forms.Button();
-            this.pictureBoxReviewStaffImg = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePickerReviewJoiningDate = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxReviewEmpId = new System.Windows.Forms.TextBox();
-            this.comboBoxReviewDesignation = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBoxStaffInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStaff)).BeginInit();
             this.groupBoxAddress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderStaff)).BeginInit();
             this.groupBoxReview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReviewStaffImg)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReviewStaffImg)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxStaffInformation
@@ -160,7 +160,7 @@ namespace WindowsDesktop.Staff
             this.groupBoxStaffInformation.Controls.Add(this.textBoxPhone);
             this.groupBoxStaffInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxStaffInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxStaffInformation.Location = new System.Drawing.Point(49, 60);
+            this.groupBoxStaffInformation.Location = new System.Drawing.Point(40, 60);
             this.groupBoxStaffInformation.Name = "groupBoxStaffInformation";
             this.groupBoxStaffInformation.Size = new System.Drawing.Size(594, 304);
             this.groupBoxStaffInformation.TabIndex = 0;
@@ -320,7 +320,7 @@ namespace WindowsDesktop.Staff
             this.labelFullName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelFullName.BackColor = System.Drawing.SystemColors.Control;
             this.labelFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFullName.Location = new System.Drawing.Point(6, 13);
+            this.labelFullName.Location = new System.Drawing.Point(-3, 13);
             this.labelFullName.Name = "labelFullName";
             this.labelFullName.Size = new System.Drawing.Size(582, 33);
             this.labelFullName.TabIndex = 35;
@@ -359,7 +359,7 @@ namespace WindowsDesktop.Staff
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(4, 312);
+            this.groupBoxAddress.Location = new System.Drawing.Point(-5, 312);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
@@ -713,6 +713,68 @@ namespace WindowsDesktop.Staff
             this.groupBoxReview.TabStop = false;
             this.groupBoxReview.Text = "Review";
             this.groupBoxReview.Visible = false;
+            // 
+            // comboBoxReviewDesignation
+            // 
+            this.comboBoxReviewDesignation.Enabled = false;
+            this.comboBoxReviewDesignation.FormattingEnabled = true;
+            this.comboBoxReviewDesignation.Location = new System.Drawing.Point(435, 202);
+            this.comboBoxReviewDesignation.Name = "comboBoxReviewDesignation";
+            this.comboBoxReviewDesignation.Size = new System.Drawing.Size(133, 24);
+            this.comboBoxReviewDesignation.TabIndex = 158;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(348, 206);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 17);
+            this.label6.TabIndex = 157;
+            this.label6.Text = "Designation";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(47, 61);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 17);
+            this.label5.TabIndex = 156;
+            this.label5.Text = "Employee ID";
+            // 
+            // textBoxReviewEmpId
+            // 
+            this.textBoxReviewEmpId.Enabled = false;
+            this.textBoxReviewEmpId.Location = new System.Drawing.Point(140, 58);
+            this.textBoxReviewEmpId.Name = "textBoxReviewEmpId";
+            this.textBoxReviewEmpId.Size = new System.Drawing.Size(310, 23);
+            this.textBoxReviewEmpId.TabIndex = 155;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(47, 206);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 17);
+            this.label3.TabIndex = 154;
+            this.label3.Text = "Joining Date";
+            // 
+            // dateTimePickerReviewJoiningDate
+            // 
+            this.dateTimePickerReviewJoiningDate.Enabled = false;
+            this.dateTimePickerReviewJoiningDate.Location = new System.Drawing.Point(140, 203);
+            this.dateTimePickerReviewJoiningDate.Name = "dateTimePickerReviewJoiningDate";
+            this.dateTimePickerReviewJoiningDate.Size = new System.Drawing.Size(172, 23);
+            this.dateTimePickerReviewJoiningDate.TabIndex = 153;
+            // 
+            // pictureBoxReviewStaffImg
+            // 
+            this.pictureBoxReviewStaffImg.Image = global::WindowsDesktop.Properties.Resources.no_person_image;
+            this.pictureBoxReviewStaffImg.Location = new System.Drawing.Point(456, 58);
+            this.pictureBoxReviewStaffImg.Name = "pictureBoxReviewStaffImg";
+            this.pictureBoxReviewStaffImg.Size = new System.Drawing.Size(112, 119);
+            this.pictureBoxReviewStaffImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxReviewStaffImg.TabIndex = 152;
+            this.pictureBoxReviewStaffImg.TabStop = false;
             // 
             // panel4
             // 
@@ -1095,68 +1157,6 @@ namespace WindowsDesktop.Staff
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
-            // pictureBoxReviewStaffImg
-            // 
-            this.pictureBoxReviewStaffImg.Image = global::WindowsDesktop.Properties.Resources.no_person_image;
-            this.pictureBoxReviewStaffImg.Location = new System.Drawing.Point(456, 58);
-            this.pictureBoxReviewStaffImg.Name = "pictureBoxReviewStaffImg";
-            this.pictureBoxReviewStaffImg.Size = new System.Drawing.Size(112, 119);
-            this.pictureBoxReviewStaffImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxReviewStaffImg.TabIndex = 152;
-            this.pictureBoxReviewStaffImg.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 206);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 17);
-            this.label3.TabIndex = 154;
-            this.label3.Text = "Joining Date";
-            // 
-            // dateTimePickerReviewJoiningDate
-            // 
-            this.dateTimePickerReviewJoiningDate.Enabled = false;
-            this.dateTimePickerReviewJoiningDate.Location = new System.Drawing.Point(140, 203);
-            this.dateTimePickerReviewJoiningDate.Name = "dateTimePickerReviewJoiningDate";
-            this.dateTimePickerReviewJoiningDate.Size = new System.Drawing.Size(172, 23);
-            this.dateTimePickerReviewJoiningDate.TabIndex = 153;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(47, 61);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 17);
-            this.label5.TabIndex = 156;
-            this.label5.Text = "Employee ID";
-            // 
-            // textBoxReviewEmpId
-            // 
-            this.textBoxReviewEmpId.Enabled = false;
-            this.textBoxReviewEmpId.Location = new System.Drawing.Point(140, 58);
-            this.textBoxReviewEmpId.Name = "textBoxReviewEmpId";
-            this.textBoxReviewEmpId.Size = new System.Drawing.Size(310, 23);
-            this.textBoxReviewEmpId.TabIndex = 155;
-            // 
-            // comboBoxReviewDesignation
-            // 
-            this.comboBoxReviewDesignation.Enabled = false;
-            this.comboBoxReviewDesignation.FormattingEnabled = true;
-            this.comboBoxReviewDesignation.Location = new System.Drawing.Point(435, 202);
-            this.comboBoxReviewDesignation.Name = "comboBoxReviewDesignation";
-            this.comboBoxReviewDesignation.Size = new System.Drawing.Size(133, 24);
-            this.comboBoxReviewDesignation.TabIndex = 158;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(348, 206);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 17);
-            this.label6.TabIndex = 157;
-            this.label6.Text = "Designation";
-            // 
             // FrmAddNewStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1178,13 +1178,13 @@ namespace WindowsDesktop.Staff
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderStaff)).EndInit();
             this.groupBoxReview.ResumeLayout(false);
             this.groupBoxReview.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReviewStaffImg)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReviewStaffImg)).EndInit();
             this.ResumeLayout(false);
 
         }

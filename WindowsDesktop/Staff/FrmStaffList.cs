@@ -11,7 +11,7 @@ namespace WindowsDesktop.Staff
         {
             InitializeComponent();
             LoadTheme(this);
-            LoadStudentList();
+            LoadStaffList();
         }
 
         private void LoadTheme(Control control)
@@ -22,19 +22,17 @@ namespace WindowsDesktop.Staff
             ThemeTemplate.SDataGridView(control, DataGridViewCellBorderStyle.Single);
         }
 
-        private void LoadStudentList(string filter="")
+        private void LoadStaffList(string filter="")
         {
             var query = "";
             if (string.IsNullOrEmpty(filter))
             {
-                query = "SELECT st.*, concat(dp.name,' (',cs.name,')') AS class_name " +
-                        "FROM s_students AS st " +
-                        "LEFT JOIN s_classes AS cs ON st.class_id=cs.id " +
-                        "LEFT JOIN s_departments AS dp ON cs.department_id=dp.id " +
-                        "WHERE roll <> 0";
+                query = "SELECT emp.id, emp.emp_id, emp.name, emp.phone, d.name AS designation " +
+                        "FROM s_employees emp " +
+                        "LEFT JOIN s_employee_designations d ON emp.desig_id = d.id";
             }
             var studentSet = Db.GetDataTable(query);
-            dataGridViewStudentList.DataSource = studentSet;
+            dataGridViewStaffList.DataSource = studentSet;
         }
 
         private void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
@@ -48,7 +46,7 @@ namespace WindowsDesktop.Staff
         {
             try
             {
-                LoadStudentList();
+                LoadStaffList(textBoxSearch.Text.Trim());
             }
             catch (Exception ex)
             {
@@ -58,16 +56,16 @@ namespace WindowsDesktop.Staff
 
         private void dataGridViewStudentList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewStudentList.Columns[e.ColumnIndex].Name=="details")
+            if (dataGridViewStaffList.Columns[e.ColumnIndex].Name=="details")
             {
-                var id = dataGridViewStudentList.SelectedRows[0].Cells["ColumnId"].Value.ToString();
+                var id = dataGridViewStaffList.SelectedRows[0].Cells["ColumnId"].Value.ToString();
                 new FrmStaffDetails(id).ShowDialog();
             }
         }
 
         private void dataGridViewStudentList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            dataGridViewStudentList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+            dataGridViewStaffList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
         }
     }
 }
