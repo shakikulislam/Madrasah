@@ -33,6 +33,7 @@ namespace WindowsDesktop
             this.buttonDepartment = new System.Windows.Forms.Button();
             this.buttonClass = new System.Windows.Forms.Button();
             this.panelClass = new System.Windows.Forms.Panel();
+            this.numericUpDownClassNumber = new System.Windows.Forms.NumericUpDown();
             this.comboBoxClassDepartment = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonClassUpdate = new System.Windows.Forms.Button();
@@ -49,18 +50,20 @@ namespace WindowsDesktop
             this.dataGridViewDepartment = new System.Windows.Forms.DataGridView();
             this.ColumnDepartmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDepartmentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numericUpDownClassNumber = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxTeacher = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.ColumnClassSl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClassDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacher_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClassNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTopMenu.SuspendLayout();
             this.panelClass.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClassNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClass)).BeginInit();
             this.panelDepartment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepartment)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClassNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTopMenu
@@ -76,7 +79,7 @@ namespace WindowsDesktop
             // buttonDepartment
             // 
             this.buttonDepartment.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonDepartment.Location = new System.Drawing.Point(154, 12);
+            this.buttonDepartment.Location = new System.Drawing.Point(237, 12);
             this.buttonDepartment.Name = "buttonDepartment";
             this.buttonDepartment.Size = new System.Drawing.Size(160, 38);
             this.buttonDepartment.TabIndex = 34;
@@ -87,7 +90,7 @@ namespace WindowsDesktop
             // buttonClass
             // 
             this.buttonClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonClass.Location = new System.Drawing.Point(320, 12);
+            this.buttonClass.Location = new System.Drawing.Point(403, 12);
             this.buttonClass.Name = "buttonClass";
             this.buttonClass.Size = new System.Drawing.Size(160, 38);
             this.buttonClass.TabIndex = 33;
@@ -99,6 +102,8 @@ namespace WindowsDesktop
             // 
             this.panelClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelClass.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelClass.Controls.Add(this.comboBoxTeacher);
+            this.panelClass.Controls.Add(this.label4);
             this.panelClass.Controls.Add(this.numericUpDownClassNumber);
             this.panelClass.Controls.Add(this.comboBoxClassDepartment);
             this.panelClass.Controls.Add(this.label3);
@@ -111,15 +116,23 @@ namespace WindowsDesktop
             this.panelClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelClass.Location = new System.Drawing.Point(49, 130);
             this.panelClass.Name = "panelClass";
-            this.panelClass.Size = new System.Drawing.Size(389, 62);
+            this.panelClass.Size = new System.Drawing.Size(660, 315);
             this.panelClass.TabIndex = 1;
             this.panelClass.Visible = false;
+            // 
+            // numericUpDownClassNumber
+            // 
+            this.numericUpDownClassNumber.Enabled = false;
+            this.numericUpDownClassNumber.Location = new System.Drawing.Point(10, 278);
+            this.numericUpDownClassNumber.Name = "numericUpDownClassNumber";
+            this.numericUpDownClassNumber.Size = new System.Drawing.Size(201, 23);
+            this.numericUpDownClassNumber.TabIndex = 42;
             // 
             // comboBoxClassDepartment
             // 
             this.comboBoxClassDepartment.Enabled = false;
             this.comboBoxClassDepartment.FormattingEnabled = true;
-            this.comboBoxClassDepartment.Location = new System.Drawing.Point(420, 99);
+            this.comboBoxClassDepartment.Location = new System.Drawing.Point(10, 228);
             this.comboBoxClassDepartment.Name = "comboBoxClassDepartment";
             this.comboBoxClassDepartment.Size = new System.Drawing.Size(201, 24);
             this.comboBoxClassDepartment.TabIndex = 41;
@@ -127,7 +140,7 @@ namespace WindowsDesktop
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(420, 79);
+            this.label3.Location = new System.Drawing.Point(10, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 17);
             this.label3.TabIndex = 40;
@@ -135,9 +148,9 @@ namespace WindowsDesktop
             // 
             // buttonClassUpdate
             // 
-            this.buttonClassUpdate.Location = new System.Drawing.Point(461, 232);
+            this.buttonClassUpdate.Location = new System.Drawing.Point(486, 265);
             this.buttonClassUpdate.Name = "buttonClassUpdate";
-            this.buttonClassUpdate.Size = new System.Drawing.Size(160, 38);
+            this.buttonClassUpdate.Size = new System.Drawing.Size(160, 36);
             this.buttonClassUpdate.TabIndex = 39;
             this.buttonClassUpdate.Text = "Add";
             this.buttonClassUpdate.UseVisualStyleBackColor = true;
@@ -147,7 +160,7 @@ namespace WindowsDesktop
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(420, 172);
+            this.label2.Location = new System.Drawing.Point(10, 258);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 17);
             this.label2.TabIndex = 38;
@@ -156,7 +169,7 @@ namespace WindowsDesktop
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(420, 126);
+            this.label1.Location = new System.Drawing.Point(276, 209);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 37;
@@ -164,17 +177,17 @@ namespace WindowsDesktop
             // 
             // textBoxClassName
             // 
-            this.textBoxClassName.Location = new System.Drawing.Point(420, 146);
+            this.textBoxClassName.Enabled = false;
+            this.textBoxClassName.Location = new System.Drawing.Point(276, 229);
             this.textBoxClassName.Name = "textBoxClassName";
-            this.textBoxClassName.ReadOnly = true;
             this.textBoxClassName.Size = new System.Drawing.Size(201, 23);
             this.textBoxClassName.TabIndex = 35;
             // 
             // buttonAddNewClass
             // 
-            this.buttonAddNewClass.Location = new System.Drawing.Point(391, 23);
+            this.buttonAddNewClass.Location = new System.Drawing.Point(486, 228);
             this.buttonAddNewClass.Name = "buttonAddNewClass";
-            this.buttonAddNewClass.Size = new System.Drawing.Size(160, 38);
+            this.buttonAddNewClass.Size = new System.Drawing.Size(160, 36);
             this.buttonAddNewClass.TabIndex = 34;
             this.buttonAddNewClass.Text = "Add Class";
             this.buttonAddNewClass.UseVisualStyleBackColor = true;
@@ -187,11 +200,12 @@ namespace WindowsDesktop
             this.ColumnClassSl,
             this.ColumnClassDepartment,
             this.ColumnClassName,
+            this.teacher_name,
             this.ColumnClassId,
             this.ColumnClassNumber});
             this.dataGridViewClass.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewClass.Name = "dataGridViewClass";
-            this.dataGridViewClass.Size = new System.Drawing.Size(379, 309);
+            this.dataGridViewClass.Size = new System.Drawing.Size(654, 202);
             this.dataGridViewClass.TabIndex = 0;
             this.dataGridViewClass.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewClass_RowPostPaint);
             this.dataGridViewClass.DoubleClick += new System.EventHandler(this.dataGridViewClass_DoubleClick);
@@ -280,13 +294,23 @@ namespace WindowsDesktop
             this.ColumnDepartmentId.ReadOnly = true;
             this.ColumnDepartmentId.Visible = false;
             // 
-            // numericUpDownClassNumber
+            // comboBoxTeacher
             // 
-            this.numericUpDownClassNumber.Enabled = false;
-            this.numericUpDownClassNumber.Location = new System.Drawing.Point(420, 192);
-            this.numericUpDownClassNumber.Name = "numericUpDownClassNumber";
-            this.numericUpDownClassNumber.Size = new System.Drawing.Size(201, 23);
-            this.numericUpDownClassNumber.TabIndex = 42;
+            this.comboBoxTeacher.Enabled = false;
+            this.comboBoxTeacher.FormattingEnabled = true;
+            this.comboBoxTeacher.Location = new System.Drawing.Point(276, 277);
+            this.comboBoxTeacher.Name = "comboBoxTeacher";
+            this.comboBoxTeacher.Size = new System.Drawing.Size(201, 24);
+            this.comboBoxTeacher.TabIndex = 44;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(276, 257);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 17);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Teacher";
             // 
             // ColumnClassSl
             // 
@@ -298,11 +322,12 @@ namespace WindowsDesktop
             // 
             // ColumnClassDepartment
             // 
-            this.ColumnClassDepartment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnClassDepartment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColumnClassDepartment.DataPropertyName = "department";
             this.ColumnClassDepartment.HeaderText = "Department";
             this.ColumnClassDepartment.Name = "ColumnClassDepartment";
             this.ColumnClassDepartment.ReadOnly = true;
+            this.ColumnClassDepartment.Width = 107;
             // 
             // ColumnClassName
             // 
@@ -312,6 +337,14 @@ namespace WindowsDesktop
             this.ColumnClassName.Name = "ColumnClassName";
             this.ColumnClassName.ReadOnly = true;
             this.ColumnClassName.Width = 70;
+            // 
+            // teacher_name
+            // 
+            this.teacher_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.teacher_name.DataPropertyName = "teacher_name";
+            this.teacher_name.HeaderText = "Teacher Name";
+            this.teacher_name.Name = "teacher_name";
+            this.teacher_name.ReadOnly = true;
             // 
             // ColumnClassId
             // 
@@ -343,11 +376,11 @@ namespace WindowsDesktop
             this.panelTopMenu.ResumeLayout(false);
             this.panelClass.ResumeLayout(false);
             this.panelClass.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClassNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClass)).EndInit();
             this.panelDepartment.ResumeLayout(false);
             this.panelDepartment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepartment)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClassNumber)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,9 +408,12 @@ namespace WindowsDesktop
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDepartmentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDepartmentId;
         private System.Windows.Forms.NumericUpDown numericUpDownClassNumber;
+        private System.Windows.Forms.ComboBox comboBoxTeacher;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassSl;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teacher_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassNumber;
     }

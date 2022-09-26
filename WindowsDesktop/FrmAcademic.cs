@@ -22,7 +22,6 @@ namespace WindowsDesktop
             LoadTheme(panelTopMenu);
         }
 
-
         private void LoadDepartment(Control control)
         {
             var query = "select id, name from s_departments";
@@ -43,13 +42,24 @@ namespace WindowsDesktop
             }
         }
 
+        private void LoadTeacher(ComboBox comboBox)
+        {
+            var query = "select id, name from s_employees WHERE status='A'";
+            var staffList= Db.GetDataTable(query);
+
+            comboBox.DisplayMember = "name";
+            comboBox.ValueMember = "id";
+            comboBox.DataSource = staffList;
+        }
+
         private void LoadClass()
         {
             ThemeTemplate.SDataGridView(panelClass, DataGridViewCellBorderStyle.Single);
 
-            var query = "select c.id, c.name, c.class_number as classNumber, d.name as department " +
-                        "from s_classes c " +
+            var query = "select c.id, c.name, c.class_number as classNumber, d.name as department, " +
+                        "e.name as teacher_name from s_classes c " +
                         "left join s_departments d on c.department_id = d.id " +
+                        "left join s_employees e on c.teacher_id = e.id " +
                         "order by c.department_id, c.class_number asc";
             var classList = Db.GetDataTable(query);
             dataGridViewClass.DataSource = classList;
@@ -88,6 +98,7 @@ namespace WindowsDesktop
                 Application.DoEvents();
                 LoadClass();
                 LoadDepartment(comboBoxClassDepartment);
+                LoadTeacher(comboBoxTeacher);
             }
             catch (Exception ex)
             {
@@ -97,14 +108,29 @@ namespace WindowsDesktop
 
         private void buttonAddNewClass_Click(object sender, EventArgs e)
         {
-            textBoxClassName.ReadOnly = false;
-            numericUpDownClassNumber.Enabled = true;
-            comboBoxClassDepartment.Enabled = true;
-            textBoxClassName.Clear();
-            numericUpDownClassNumber.Text = "0";
-
-            buttonClassUpdate.Text = "Add";
-            buttonClassUpdate.Visible = true;
+            if (buttonAddNewClass.Text == "Add Class")
+            {
+                buttonAddNewClass.Text = "Cancel";
+                comboBoxClassDepartment.Enabled = true;
+                textBoxClassName.Enabled = true;
+                textBoxClassName.Clear();
+                numericUpDownClassNumber.Enabled = true;
+                numericUpDownClassNumber.Text = "0";
+                comboBoxTeacher.Enabled = true;
+                buttonClassUpdate.Visible = true;
+                buttonClassUpdate.Text = "Add";
+            }
+            else
+            {
+                buttonAddNewClass.Text = "Add Class";
+                comboBoxClassDepartment.Enabled = false;
+                textBoxClassName.Enabled = false;
+                textBoxClassName.Clear();
+                numericUpDownClassNumber.Enabled = false;
+                numericUpDownClassNumber.Text = "0";
+                comboBoxTeacher.Enabled = false;
+                buttonClassUpdate.Visible = false;
+            }
         }
 
         private void buttonClassUpdate_Click(object sender, EventArgs e)
@@ -115,15 +141,16 @@ namespace WindowsDesktop
 
                 if (buttonClassUpdate.Text=="Add")
                 {
-                    query = "insert into s_classes (name,class_number,department_id) values ('" +
+                    query = "insert into s_classes (name,class_number,department_id,teacher_id) values ('" +
                             textBoxClassName.Text.Trim() + "','" + numericUpDownClassNumber.Text.Trim() +
-                            "','" + comboBoxClassDepartment.SelectedValue + "')";
+                            "','" + comboBoxClassDepartment.SelectedValue + "','" + comboBoxTeacher.SelectedValue + "')";
                 }
                 else if (buttonClassUpdate.Text == "Update")
                 {
                     query = "update s_classes set name='" + textBoxClassName.Text.Trim() +
                             "', class_number='" + numericUpDownClassNumber.Text.Trim() +
                             "', department_id='" + comboBoxClassDepartment.SelectedValue +
+                            "', teacher_id='" + comboBoxTeacher.SelectedValue +
                             "', update_by = '" + GlobalSettings.UserName +
                             "', update_date=CURRENT_TIMESTAMP() where id = '" + textBoxClassName.Tag + "'";
                 }
@@ -131,11 +158,13 @@ namespace WindowsDesktop
                 var isExecute=Db.QueryExecute(query);
                 if (isExecute)
                 {
-                    textBoxClassName.Clear();
-                    textBoxClassName.ReadOnly = true;
-                    numericUpDownClassNumber.Text = "0";
-                    numericUpDownClassNumber.Enabled = false;
+                    buttonAddNewClass.Text = "Add Class";
                     comboBoxClassDepartment.Enabled = false;
+                    textBoxClassName.Enabled = false;
+                    textBoxClassName.Clear();
+                    numericUpDownClassNumber.Enabled = false;
+                    numericUpDownClassNumber.Text = "0";
+                    comboBoxTeacher.Enabled = false;
                     buttonClassUpdate.Visible = false;
                 }
 
@@ -244,7 +273,7 @@ namespace WindowsDesktop
                 {
                     textBoxClassName.Text = dataGridViewClass.SelectedRows[0].Cells["ColumnClassName"].Value.ToString();
                     textBoxClassName.Tag = dataGridViewClass.SelectedRows[0].Cells["ColumnClassId"].Value.ToString();
-                    textBoxClassName.ReadOnly = false;
+                    textBoxClassName.Enabled = true;
 
                     comboBoxClassDepartment.Enabled = true;
                     comboBoxClassDepartment.Text= dataGridViewClass.SelectedRows[0].Cells["ColumnClassDepartment"].Value.ToString();
@@ -252,17 +281,23 @@ namespace WindowsDesktop
                     numericUpDownClassNumber.Enabled = true;
                     numericUpDownClassNumber.Text=dataGridViewClass.SelectedRows[0].Cells["ColumnClassNumber"].Value.ToString();
 
+                    comboBoxTeacher.Enabled = true;
+                    comboBoxTeacher.Text = dataGridViewClass.SelectedRows[0].Cells["teacher_name"].Value.ToString();
+
+                    buttonAddNewClass.Text = "Cancel";
                     buttonClassUpdate.Text = "Update";
                     buttonClassUpdate.Visible = true;
                 }
             }
             catch (Exception ex)
             {
+                buttonAddNewClass.Text = "Add Class";
+                comboBoxClassDepartment.Enabled = false;
+                textBoxClassName.Enabled = false;
                 textBoxClassName.Clear();
-                textBoxClassName.Tag = string.Empty;
-                textBoxClassName.ReadOnly = true;
-                numericUpDownClassNumber.Text = "0";
                 numericUpDownClassNumber.Enabled = false;
+                numericUpDownClassNumber.Text = "0";
+                comboBoxTeacher.Enabled = false;
                 buttonClassUpdate.Visible = false;
             }
         }
