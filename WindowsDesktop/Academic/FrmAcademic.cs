@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -7,10 +6,13 @@ using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Theme;
 
-namespace WindowsDesktop
+namespace WindowsDesktop.Academic
 {
     public partial class FrmAcademic : Form
     {
+        private Form _currentChildForm;
+        private Button _currentBtn;
+
         public FrmAcademic()
         {
             InitializeComponent();
@@ -20,6 +22,64 @@ namespace WindowsDesktop
                 panel.BackColor = STheme.SColor.BackColor;
             }
             LoadTheme(panelTopMenu);
+        }
+
+
+        //private void OpenChildForm(Form childForm)
+        //{
+        //    CloseChildForm();
+
+        //    _currentChildForm = childForm;
+
+        //    _currentChildForm.TopLevel = false;
+        //    _currentChildForm.FormBorderStyle = FormBorderStyle.None;
+        //    _currentChildForm.Dock = DockStyle.Fill;
+        //    _currentChildForm.BackColor = panelClassBody.BackColor;
+
+        //    panelClassBody.Controls.Add(_currentChildForm);
+        //    panelClassBody.Tag = _currentChildForm;
+
+        //    _currentChildForm.Show();
+
+        //}
+
+        //private void CloseChildForm()
+        //{
+        //    if (_currentChildForm != null)
+        //    {
+        //        // Open only home
+        //        _currentChildForm.Close();
+        //    }
+        //}
+
+        private void ActiveButton(object senderBtn)
+        {
+            if (senderBtn != null)
+            {
+                DisableButton();
+
+                // Active button
+                _currentBtn = (Button)senderBtn;
+                _currentBtn.BackColor = STheme.SColor.ActiveBackColor;
+                _currentBtn.ForeColor = STheme.SColor.ActiveForColor;
+                //_currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                //_currentBtn.IconColor = STheme.SColor.ActiveForColor;
+                //_currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                //_currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+            }
+        }
+
+        private void DisableButton()
+        {
+            if (_currentBtn != null)
+            {
+                _currentBtn.BackColor = STheme.SColor.MenuPanelBackColor;
+                _currentBtn.ForeColor = STheme.SColor.ForColor;
+                //_currentBtn.TextAlign = ContentAlignment.MiddleLeft;
+                //_currentBtn.IconColor = STheme.SColor.ForColor;
+                //_currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                //_currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            }
         }
 
         private void LoadDepartment(Control control)
@@ -86,24 +146,28 @@ namespace WindowsDesktop
 
         private void buttonClass_Click(object sender, System.EventArgs e)
         {
-            try
-            {
-                LoadTheme(panelClass);
-                PanelHide();
-                panelClass.Size = new Size(660, 315);
-                panelClass.Location = new Point((Width / 2) - (panelClass.Width / 2), panelTopMenu.Height + 5);
-                panelClass.Anchor = AnchorStyles.Top;
+            ActiveButton(sender);
+            _currentChildForm = GlobalSettings.OpenChildForm(new FrmClass(), _currentChildForm, panelClassBody);
 
-                panelClass.Visible = true;
-                Application.DoEvents();
-                LoadClass();
-                LoadDepartment(comboBoxClassDepartment);
-                LoadTeacher(comboBoxTeacher);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            //OpenChildForm(new FrmClass());
+            //try
+            //{
+            //    LoadTheme(panelClass);
+            //    PanelHide();
+            //    panelClass.Size = new Size(660, 315);
+            //    panelClass.Location = new Point((Width / 2) - (panelClass.Width / 2), panelTopMenu.Height + 5);
+            //    panelClass.Anchor = AnchorStyles.Top;
+
+            //    panelClass.Visible = true;
+            //    Application.DoEvents();
+            //    LoadClass();
+            //    LoadDepartment(comboBoxClassDepartment);
+            //    LoadTeacher(comboBoxTeacher);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //}
         }
 
         private void buttonAddNewClass_Click(object sender, EventArgs e)

@@ -2,29 +2,22 @@
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 
 namespace WindowsDesktop.Common
 {
     public class GlobalSettings
     {
-        //Variable
-        private static string _devUser = "DEVELOPER";
-        private static string _devPass = "developer12345";
-        private static string _viewDateFormatShort = "dd-MMM-yy";
-        private static string _viewDateFormatShortWithDay = "dddd dd-MMM-yy";
-        private static string _saveDateFormat = "yyyy-MM-dd";
-
         //Property
-        public static string DevUser { get { return _devUser; } }
-        public static string DevPass { get { return _devPass; } }
+        public static string DevUser { get; } = "DEVELOPER";
+        public static string DevPass { get; } = "developer12345";
         public static DataTable OfficeInfo { get; set; }
         public static string Server { get; set; }
         public static string EmployeeId { get; set; }
         public static string UserName { get; set; }
         public static string UserRole { get; set; }
-        public static string DateFormatShortView { get { return _viewDateFormatShort; } }
-        public static string DateFormatShortWithDateView { get { return _viewDateFormatShortWithDay; } }
-        public static string DateFormatSave { get { return _saveDateFormat; } }
+        public static string DateFormatShortView { get; } = "dd-MMM-yy";
+        public static string DateFormatSave { get; } = "yyyy-MM-dd";
 
         //Method
         public static Image ByteToImage(object imageField, Bitmap defaultImage)
@@ -37,8 +30,47 @@ namespace WindowsDesktop.Common
         public static byte[] ImageToByte(Image image)
         {
             var imgConv = new ImageConverter();
-            var bytes = (byte[])imgConv.ConvertTo(image, Type.GetType("System.Byte[]"));
+            var bytes = (byte[])imgConv.ConvertTo(image, typeof(byte[]));
             return bytes;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newForm">New Form</param>
+        /// <param name="currentForm">Currently Active Form</param>
+        /// <param name="body">Load New Form Body</param>
+        public static Form OpenChildForm(Form newForm, Form currentForm, Control body)
+        {
+            CloseChildForm(currentForm);
+            var currentChildForm = newForm;
+
+            currentChildForm.TopLevel = false;
+            currentChildForm.ShowInTaskbar = false;
+            currentChildForm.ShowIcon = false;
+            currentChildForm.FormBorderStyle = FormBorderStyle.None;
+            currentChildForm.Dock = DockStyle.Fill;
+            currentChildForm.BackColor = body.BackColor;
+
+            body.Controls.Add(currentChildForm);
+            body.Tag = currentChildForm;
+
+            currentChildForm.Show();
+
+            return currentChildForm;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentForm">Currently Active Form</param>
+        public static void CloseChildForm(Form currentForm)
+        {
+            //if (currentForm != null)
+            //{
+            //    currentForm.Close();
+            //}
+            currentForm?.Close();
         }
     }
 }

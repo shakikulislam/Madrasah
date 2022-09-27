@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using WindowsDesktop.Academic;
 using WindowsDesktop.Common;
 using WindowsDesktop.Staff;
 using WindowsDesktop.Students;
@@ -115,6 +116,7 @@ namespace WindowsDesktop
             {
                 label.BackColor = STheme.SColor.MenuPanelBackColor;
                 label.ForeColor = STheme.SColor.ForColor;
+                label.Font = new Font(STheme.SFont.Font, 12);
             }
 
             #endregion

@@ -281,11 +281,12 @@ namespace WindowsDesktop
             // labelOfficeName
             // 
             this.labelOfficeName.AutoSize = true;
-            this.labelOfficeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOfficeName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOfficeName.ForeColor = System.Drawing.Color.Black;
-            this.labelOfficeName.Location = new System.Drawing.Point(6, 7);
+            this.labelOfficeName.Location = new System.Drawing.Point(4, 0);
+            this.labelOfficeName.Margin = new System.Windows.Forms.Padding(0);
             this.labelOfficeName.Name = "labelOfficeName";
-            this.labelOfficeName.Size = new System.Drawing.Size(52, 17);
+            this.labelOfficeName.Size = new System.Drawing.Size(57, 21);
             this.labelOfficeName.TabIndex = 0;
             this.labelOfficeName.Text = "label1";
             // 
