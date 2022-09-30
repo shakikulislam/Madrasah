@@ -7,6 +7,22 @@ namespace WindowsDesktop.Theme
 {
     public class ThemeTemplate
     {
+        public static void LoadTheme(Control control)
+        {
+            SLabel(control);
+            SLinkLabel(control);
+            SRichTextBox(control);
+            STextBox(control);
+            SNumericUpDown(control);
+            SComboBox(control);
+            SButton(control);
+            SIconButton(control);
+            SDateTimePicker(control);
+            SDataGridView(control);
+            STabControl(control);
+            SPictureBox(control);
+        }
+
         public static bool SValidate(Control control, ErrorProvider errorProvider)
         {
             var valid = true;
@@ -85,6 +101,17 @@ namespace WindowsDesktop.Theme
                 textBox.ForeColor = STheme.SColor.TextFieldForColor;
                 textBox.BackColor = STheme.SColor.TextFieldBackgroundColor;
                 textBox.Font= new Font(STheme.SFont.Font, STheme.SFont.Size);
+            }
+        }
+
+        public static void SNumericUpDown(Control control)
+        {
+            foreach (var numericUpDown in control.Controls.OfType<NumericUpDown>())
+            {
+                numericUpDown.BorderStyle = BorderStyle.FixedSingle;
+                numericUpDown.ForeColor = STheme.SColor.TextFieldForColor;
+                numericUpDown.BackColor = STheme.SColor.TextFieldBackgroundColor;
+                numericUpDown.Font= new Font(STheme.SFont.Font, STheme.SFont.Size);
             }
         }
 

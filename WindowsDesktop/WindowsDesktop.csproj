@@ -98,6 +98,12 @@
     <Compile Include="Academic\FrmClass.Designer.cs">
       <DependentUpon>FrmClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Academic\FrmDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Academic\FrmDepartment.Designer.cs">
+      <DependentUpon>FrmDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Common\frmWaiting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     <Compile Include="Theme\ThemeTemplate.cs" />
     <EmbeddedResource Include="Academic\FrmClass.resx">
       <DependentUpon>FrmClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Academic\FrmDepartment.resx">
+      <DependentUpon>FrmDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Common\frmWaiting.resx">
       <DependentUpon>frmWaiting.cs</DependentUpon>
