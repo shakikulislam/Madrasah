@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
+using WindowsDesktop.Properties;
 using WindowsDesktop.Theme;
+using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.Students
 {
@@ -223,6 +226,7 @@ namespace WindowsDesktop.Students
                     textBoxReviewBirthCertificeate.Text = dr["birth_certificate"].ToString();
                     textBoxReviewNid.Text = dr["nid"].ToString();
                     dateTimePickerReviewDob.Value = Convert.ToDateTime(dr["dob"].ToString());
+                    pictureBoxStudent.Image = GlobalSettings.ByteToImage(dr["image"], Resources.no_person_image);
 
                     // Parent Information
                     textBoxReviewFatherName.Text = dr["father_name"].ToString();
@@ -468,14 +472,19 @@ namespace WindowsDesktop.Students
                 var isValid = ThemeTemplate.SValidate(tabPagePersonalInformation, errorProviderDetails);
                 if (isValid)
                 {
-                    var query = "UPDATE s_students SET name='" + textBoxReviewFullName.Text.Trim() +
-                                "', phone='" + textBoxReviewPhone.Text.Trim() +
-                                "', birth_certificate='" + textBoxReviewBirthCertificeate.Text.Trim() +
-                                "', nid='" + textBoxReviewNid.Text.Trim() +
-                                "', dob='" + dateTimePickerReviewDob.Value.ToString(GlobalSettings.DateFormatSave) +
-                                "', update_by='" + GlobalSettings.UserName +
-                                "', update_date=current_timestamp() WHERE id='" + _studentId + "'";
-                    var isUpdate = Db.QueryExecute(query);
+                    var cmd = new MySqlCommand
+                    {
+                        CommandText = "UPDATE s_students SET name='" + textBoxReviewFullName.Text.Trim() +
+                                      "', phone='" + textBoxReviewPhone.Text.Trim() +
+                                      "', birth_certificate='" + textBoxReviewBirthCertificeate.Text.Trim() +
+                                      "', nid='" + textBoxReviewNid.Text.Trim() +
+                                      "', dob='" +
+                                      dateTimePickerReviewDob.Value.ToString(GlobalSettings.DateFormatSave) +
+                                      "',image=@img, update_by='" + GlobalSettings.UserName +
+                                      "', update_date=current_timestamp() WHERE id='" + _studentId + "'"
+                    };
+                    cmd.Parameters.AddWithValue("@img", GlobalSettings.ImageToByte(pictureBoxStudent.Image));
+                    var isUpdate = Db.QueryExecute(cmd);
                     MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
                 }
             }
@@ -585,6 +594,31 @@ namespace WindowsDesktop.Students
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void buttonBrowse_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var openFileDialog = new OpenFileDialog() { Filter = "JPG|*.jpg|PNG|*.png", Multiselect = false };
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxStudent.Image = Image.FromFile(openFileDialog.FileName);
+                }
+                else
+                {
+                    if (MessageBox.Show("Set default?", "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        pictureBoxStudent.Image = Resources.no_person_image;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                pictureBoxStudent.Image = Resources.no_person_image;
+                MessageBox.Show(ex.Message);
             }
         }
     }

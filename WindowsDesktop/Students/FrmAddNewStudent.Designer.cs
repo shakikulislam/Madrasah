@@ -203,6 +203,9 @@ namespace WindowsDesktop.Students
             this.textBoxReviewFullName = new System.Windows.Forms.TextBox();
             this.buttonReviewBack = new System.Windows.Forms.Button();
             this.buttonSubmit = new System.Windows.Forms.Button();
+            this.buttonBrowse = new System.Windows.Forms.Button();
+            this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
+            this.pictureBoxReviewStudent = new System.Windows.Forms.PictureBox();
             this.groupBoxGuardianInformation.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
             this.groupBoxAcademicInformation.SuspendLayout();
@@ -215,6 +218,8 @@ namespace WindowsDesktop.Students
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReviewStudent)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxGuardianInformation
@@ -582,6 +587,8 @@ namespace WindowsDesktop.Students
             // groupBoxPersonalInformation
             // 
             this.groupBoxPersonalInformation.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBoxPersonalInformation.Controls.Add(this.buttonBrowse);
+            this.groupBoxPersonalInformation.Controls.Add(this.pictureBoxStudent);
             this.groupBoxPersonalInformation.Controls.Add(this.buttonSavePersonalInfo);
             this.groupBoxPersonalInformation.Controls.Add(this.label26);
             this.groupBoxPersonalInformation.Controls.Add(this.dateTimePickerDob);
@@ -594,7 +601,7 @@ namespace WindowsDesktop.Students
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxStudentPhone);
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxPersonalInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(12, 50);
+            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(4, 50);
             this.groupBoxPersonalInformation.Name = "groupBoxPersonalInformation";
             this.groupBoxPersonalInformation.Size = new System.Drawing.Size(594, 257);
             this.groupBoxPersonalInformation.TabIndex = 0;
@@ -651,14 +658,14 @@ namespace WindowsDesktop.Students
             this.textBoxNid.CausesValidation = false;
             this.textBoxNid.Location = new System.Drawing.Point(134, 121);
             this.textBoxNid.Name = "textBoxNid";
-            this.textBoxNid.Size = new System.Drawing.Size(428, 23);
+            this.textBoxNid.Size = new System.Drawing.Size(336, 23);
             this.textBoxNid.TabIndex = 3;
             // 
             // textBoxBirthCert
             // 
             this.textBoxBirthCert.Location = new System.Drawing.Point(134, 92);
             this.textBoxBirthCert.Name = "textBoxBirthCert";
-            this.textBoxBirthCert.Size = new System.Drawing.Size(428, 23);
+            this.textBoxBirthCert.Size = new System.Drawing.Size(336, 23);
             this.textBoxBirthCert.TabIndex = 2;
             // 
             // label30
@@ -684,14 +691,14 @@ namespace WindowsDesktop.Students
             this.textBoxStudentPhone.CausesValidation = false;
             this.textBoxStudentPhone.Location = new System.Drawing.Point(134, 63);
             this.textBoxStudentPhone.Name = "textBoxStudentPhone";
-            this.textBoxStudentPhone.Size = new System.Drawing.Size(428, 23);
+            this.textBoxStudentPhone.Size = new System.Drawing.Size(336, 23);
             this.textBoxStudentPhone.TabIndex = 1;
             // 
             // textBoxFullName
             // 
             this.textBoxFullName.Location = new System.Drawing.Point(134, 34);
             this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(428, 23);
+            this.textBoxFullName.Size = new System.Drawing.Size(336, 23);
             this.textBoxFullName.TabIndex = 0;
             // 
             // groupBoxAcademicInformation
@@ -760,7 +767,7 @@ namespace WindowsDesktop.Students
             // 
             this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentName.Location = new System.Drawing.Point(18, 13);
+            this.labelStudentName.Location = new System.Drawing.Point(10, 13);
             this.labelStudentName.Name = "labelStudentName";
             this.labelStudentName.Size = new System.Drawing.Size(582, 33);
             this.labelStudentName.TabIndex = 35;
@@ -799,7 +806,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(15, 106);
+            this.groupBoxAddress.Location = new System.Drawing.Point(7, 106);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
@@ -1101,6 +1108,7 @@ namespace WindowsDesktop.Students
             // 
             // groupBoxReview
             // 
+            this.groupBoxReview.Controls.Add(this.pictureBoxReviewStudent);
             this.groupBoxReview.Controls.Add(this.textBoxReviewFormNo);
             this.groupBoxReview.Controls.Add(this.label80);
             this.groupBoxReview.Controls.Add(this.panel6);
@@ -1915,7 +1923,7 @@ namespace WindowsDesktop.Students
             this.textBoxReviewNid.Enabled = false;
             this.textBoxReviewNid.Location = new System.Drawing.Point(140, 136);
             this.textBoxReviewNid.Name = "textBoxReviewNid";
-            this.textBoxReviewNid.Size = new System.Drawing.Size(428, 23);
+            this.textBoxReviewNid.Size = new System.Drawing.Size(310, 23);
             this.textBoxReviewNid.TabIndex = 37;
             // 
             // textBoxReviewBirthCertificeate
@@ -1923,7 +1931,7 @@ namespace WindowsDesktop.Students
             this.textBoxReviewBirthCertificeate.Enabled = false;
             this.textBoxReviewBirthCertificeate.Location = new System.Drawing.Point(140, 107);
             this.textBoxReviewBirthCertificeate.Name = "textBoxReviewBirthCertificeate";
-            this.textBoxReviewBirthCertificeate.Size = new System.Drawing.Size(428, 23);
+            this.textBoxReviewBirthCertificeate.Size = new System.Drawing.Size(310, 23);
             this.textBoxReviewBirthCertificeate.TabIndex = 36;
             // 
             // label41
@@ -1950,7 +1958,7 @@ namespace WindowsDesktop.Students
             this.textBoxReviewPhone.Enabled = false;
             this.textBoxReviewPhone.Location = new System.Drawing.Point(140, 78);
             this.textBoxReviewPhone.Name = "textBoxReviewPhone";
-            this.textBoxReviewPhone.Size = new System.Drawing.Size(428, 23);
+            this.textBoxReviewPhone.Size = new System.Drawing.Size(310, 23);
             this.textBoxReviewPhone.TabIndex = 35;
             // 
             // textBoxReviewFullName
@@ -1958,7 +1966,7 @@ namespace WindowsDesktop.Students
             this.textBoxReviewFullName.Enabled = false;
             this.textBoxReviewFullName.Location = new System.Drawing.Point(140, 49);
             this.textBoxReviewFullName.Name = "textBoxReviewFullName";
-            this.textBoxReviewFullName.Size = new System.Drawing.Size(428, 23);
+            this.textBoxReviewFullName.Size = new System.Drawing.Size(310, 23);
             this.textBoxReviewFullName.TabIndex = 34;
             // 
             // buttonReviewBack
@@ -1983,15 +1991,45 @@ namespace WindowsDesktop.Students
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
+            // buttonBrowse
+            // 
+            this.buttonBrowse.Location = new System.Drawing.Point(476, 159);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(112, 34);
+            this.buttonBrowse.TabIndex = 20;
+            this.buttonBrowse.Text = "Browse Image";
+            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
+            // 
+            // pictureBoxStudent
+            // 
+            this.pictureBoxStudent.Image = global::WindowsDesktop.Properties.Resources.no_person_image;
+            this.pictureBoxStudent.Location = new System.Drawing.Point(476, 34);
+            this.pictureBoxStudent.Name = "pictureBoxStudent";
+            this.pictureBoxStudent.Size = new System.Drawing.Size(112, 119);
+            this.pictureBoxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxStudent.TabIndex = 19;
+            this.pictureBoxStudent.TabStop = false;
+            // 
+            // pictureBoxReviewStudent
+            // 
+            this.pictureBoxReviewStudent.Image = global::WindowsDesktop.Properties.Resources.no_person_image;
+            this.pictureBoxReviewStudent.Location = new System.Drawing.Point(456, 49);
+            this.pictureBoxReviewStudent.Name = "pictureBoxReviewStudent";
+            this.pictureBoxReviewStudent.Size = new System.Drawing.Size(112, 119);
+            this.pictureBoxReviewStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxReviewStudent.TabIndex = 152;
+            this.pictureBoxReviewStudent.TabStop = false;
+            // 
             // FrmAddNewStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(721, 749);
-            this.Controls.Add(this.groupBoxAcademicInformation);
             this.Controls.Add(this.groupBoxPersonalInformation);
             this.Controls.Add(this.groupBoxReview);
+            this.Controls.Add(this.groupBoxAcademicInformation);
             this.Controls.Add(this.groupBoxGuardianInformation);
             this.Controls.Add(this.labelStudentName);
             this.Controls.Add(this.groupBoxAddress);
@@ -2020,6 +2058,8 @@ namespace WindowsDesktop.Students
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReviewStudent)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2199,5 +2239,8 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.TextBox textBoxReviewFormNo;
         private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.Button buttonBrowse;
+        private System.Windows.Forms.PictureBox pictureBoxStudent;
+        private System.Windows.Forms.PictureBox pictureBoxReviewStudent;
     }
 }

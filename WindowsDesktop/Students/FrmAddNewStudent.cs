@@ -4,7 +4,9 @@ using System.Linq;
 using System.Windows.Forms;
 using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
+using WindowsDesktop.Properties;
 using WindowsDesktop.Theme;
+using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.Students
 {
@@ -376,6 +378,8 @@ namespace WindowsDesktop.Students
                     textBoxReviewBirthCertificeate.Text = textBoxBirthCert.Text;
                     textBoxReviewNid.Text = textBoxNid.Text;
                     dateTimePickerReviewDob.Value = dateTimePickerDob.Value;
+
+                    pictureBoxReviewStudent.Image = pictureBoxStudent.Image;
 
                     // Present Address
                     comboBoxReviewPreDivision.DataSource = comboBoxPreAddressDivision.DataSource;
@@ -849,27 +853,31 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                var query = "UPDATE s_students SET " +
-                            "form_number = '" + textBoxReviewFormNo.Text.Trim() + 
-                            "',roll = '" + textBoxReviewRoll.Text.Trim() + 
-                            "',reg = '" + textBoxReviewReg.Text.Trim() +
-                            "',name = '" + textBoxReviewFullName.Text.Trim() + 
-                            "',phone = '" + textBoxReviewPhone.Text.Trim() +
-                            "',dob = '" + dateTimePickerReviewDob.Value.ToString(GlobalSettings.DateFormatSave) +
-                            "',birth_certificate = '" + textBoxReviewBirthCertificeate.Text.Trim() +
-                            "',nid = '" + textBoxReviewNid.Text.Trim() + 
-                            "',father_name = '" + textBoxReviewFatherName.Text.Trim() +
-                            "',father_phone = '" + textBoxReviewFatherPhone.Text.Trim() +
-                            "',father_nid = '" + textBoxReviewFatherNid.Text.Trim() + 
-                            "',mother_name = '" + textBoxReviewMotherName.Text.Trim() + 
-                            "',mother_phone = '" + textBoxReviewMotherPhone.Text.Trim() +
-                            "',mother_nid = '" + textBoxReviewMotherNid.Text.Trim() + 
-                            "',guardian_name = '" + textBoxReviewGrdName.Text.Trim() + 
-                            "',guardian_phone = '" + textBoxReviewGrdPhone.Text.Trim() +
-                            "',class_id = '" + comboBoxReviewClass.SelectedValue + 
-                            "',status = 'A'," +
-                            "create_by = '" + GlobalSettings.UserName + 
-                            "' WHERE id='" + labelStudentName.Tag + "' ";
+                var cmd = new MySqlCommand
+                {
+                    CommandText = "UPDATE s_students SET " +
+                                  "form_number = '" + textBoxReviewFormNo.Text.Trim() +
+                                  "',roll = '" + textBoxReviewRoll.Text.Trim() +
+                                  "',reg = '" + textBoxReviewReg.Text.Trim() +
+                                  "',name = '" + textBoxReviewFullName.Text.Trim() +
+                                  "',phone = '" + textBoxReviewPhone.Text.Trim() +
+                                  "',dob = '" + dateTimePickerReviewDob.Value.ToString(GlobalSettings.DateFormatSave) +
+                                  "',birth_certificate = '" + textBoxReviewBirthCertificeate.Text.Trim() +
+                                  "',nid = '" + textBoxReviewNid.Text.Trim() +
+                                  "',father_name = '" + textBoxReviewFatherName.Text.Trim() +
+                                  "',father_phone = '" + textBoxReviewFatherPhone.Text.Trim() +
+                                  "',father_nid = '" + textBoxReviewFatherNid.Text.Trim() +
+                                  "',mother_name = '" + textBoxReviewMotherName.Text.Trim() +
+                                  "',mother_phone = '" + textBoxReviewMotherPhone.Text.Trim() +
+                                  "',mother_nid = '" + textBoxReviewMotherNid.Text.Trim() +
+                                  "',guardian_name = '" + textBoxReviewGrdName.Text.Trim() +
+                                  "',guardian_phone = '" + textBoxReviewGrdPhone.Text.Trim() +
+                                  "',class_id = '" + comboBoxReviewClass.SelectedValue +
+                                  "',image=@img,status = 'A'," +
+                                  "create_by = '" + GlobalSettings.UserName +
+                                  "' WHERE id='" + labelStudentName.Tag + "' "
+                };
+                cmd.Parameters.AddWithValue("@img", GlobalSettings.ImageToByte(pictureBoxReviewStudent.Image));
 
                 var queryAddress = "INSERT INTO s_addresses(person_id" +
                          ",p_division_id," +
@@ -913,7 +921,7 @@ namespace WindowsDesktop.Students
                          "','ST')";
 
 
-                var isUpdate=Db.QueryExecute(query);
+                var isUpdate = Db.QueryExecute(cmd);
                 if (isUpdate)
                 {
                     var isInsert = Db.QueryExecute(queryAddress);
@@ -932,5 +940,29 @@ namespace WindowsDesktop.Students
             }
         }
 
+        private void buttonBrowse_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var openFileDialog = new OpenFileDialog() { Filter = "JPG|*.jpg|PNG|*.png", Multiselect = false };
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxStudent.Image = Image.FromFile(openFileDialog.FileName);
+                }
+                else
+                {
+                    if (MessageBox.Show("Set default?", "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        pictureBoxStudent.Image = Resources.no_person_image;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                pictureBoxStudent.Image = Resources.no_person_image;
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

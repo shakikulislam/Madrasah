@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Windows;
 using System.Windows.Forms;
 using WindowsDesktop.Academic;
 using WindowsDesktop.Common;
@@ -10,6 +11,10 @@ using WindowsDesktop.Staff;
 using WindowsDesktop.Students;
 using WindowsDesktop.Theme;
 using Hospital_MS_SSC.Common;
+using Application = System.Windows.Forms.Application;
+using FontStyle = System.Drawing.FontStyle;
+using Point = System.Drawing.Point;
+using Size = System.Drawing.Size;
 
 namespace WindowsDesktop
 {
@@ -152,9 +157,10 @@ namespace WindowsDesktop
                 _currentBtn.IconColor = STheme.SColor.SiteMenuBackColor;
                 _currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 _currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                _currentBtn.Font = new Font(_currentBtn.Font.FontFamily, _currentBtn.Font.Size, FontStyle.Bold);
 
                 // Left border button
-                _leftMenuBtnBorder.BackColor = STheme.SColor.ActiveForColor;
+                _leftMenuBtnBorder.BackColor = STheme.SColor.TopMenuBackColor;
                 _leftMenuBtnBorder.Location = new Point(0, _currentBtn.Location.Y);
                 _leftMenuBtnBorder.Visible = true;
                 _leftMenuBtnBorder.BringToFront();
@@ -181,6 +187,7 @@ namespace WindowsDesktop
                 _currentBtn.IconColor = STheme.SColor.SiteMenuForColor;
                 _currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 _currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+                _currentBtn.Font = new Font(_currentBtn.Font.FontFamily, _currentBtn.Font.Size, FontStyle.Regular);
             }
         }
 

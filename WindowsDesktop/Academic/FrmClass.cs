@@ -15,8 +15,10 @@ namespace WindowsDesktop.Academic
             LoadTeacher(comboBoxTeacher);
             LoadClass();
             ThemeTemplate.LoadTheme(this);
+            ThemeTemplate.LoadTheme(panelClassForm);
+            ThemeTemplate.SComboBox(panelClassForm, ComboBoxStyle.DropDownList);
         }
-
+        
         private void LoadDepartment(Control control)
         {
             var query = "select id, name from s_departments";
@@ -63,25 +65,19 @@ namespace WindowsDesktop.Academic
             if (buttonAddNewClass.Text == "Add Class")
             {
                 buttonAddNewClass.Text = "Cancel";
-                comboBoxClassDepartment.Enabled = true;
-                textBoxClassName.Enabled = true;
                 textBoxClassName.Clear();
-                numericUpDownClassNumber.Enabled = true;
                 numericUpDownClassNumber.Text = "0";
-                comboBoxTeacher.Enabled = true;
-                buttonClassUpdate.Visible = true;
                 buttonClassUpdate.Text = "Add";
+                buttonClassUpdate.Visible = true;
+                panelClassForm.Visible = true;
             }
             else
             {
                 buttonAddNewClass.Text = "Add Class";
-                comboBoxClassDepartment.Enabled = false;
-                textBoxClassName.Enabled = false;
                 textBoxClassName.Clear();
-                numericUpDownClassNumber.Enabled = false;
                 numericUpDownClassNumber.Text = "0";
-                comboBoxTeacher.Enabled = false;
                 buttonClassUpdate.Visible = false;
+                panelClassForm.Visible = false;
             }
         }
 
@@ -89,7 +85,7 @@ namespace WindowsDesktop.Academic
         {
             try
             {
-                var isValid = ThemeTemplate.SValidate(this, errorProviderClass);
+                var isValid = ThemeTemplate.SValidate(panelClassForm, errorProviderClass);
                 if (isValid)
                 {
                     var query = "";
@@ -114,13 +110,10 @@ namespace WindowsDesktop.Academic
                     if (isExecute)
                     {
                         buttonAddNewClass.Text = "Add Class";
-                        comboBoxClassDepartment.Enabled = false;
-                        textBoxClassName.Enabled = false;
                         textBoxClassName.Clear();
-                        numericUpDownClassNumber.Enabled = false;
                         numericUpDownClassNumber.Text = "0";
-                        comboBoxTeacher.Enabled = false;
                         buttonClassUpdate.Visible = false;
+                        panelClassForm.Visible = false;
                     }
 
                     LoadClass();
