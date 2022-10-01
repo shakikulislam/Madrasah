@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Hospital_MS_SSC.Common;
 
 namespace WindowsDesktop.Common
 {
@@ -42,6 +43,10 @@ namespace WindowsDesktop.Common
         /// <param name="body">Load New Form Body</param>
         public static Form OpenChildForm(Form newForm, Form currentForm, Control body)
         {
+            var wait = new frmWaiting {TopMost = true};
+            wait.Show();
+            Application.DoEvents();
+
             CloseChildForm(currentForm);
             var currentChildForm = newForm;
 
@@ -56,7 +61,7 @@ namespace WindowsDesktop.Common
             body.Tag = currentChildForm;
 
             currentChildForm.Show();
-
+            wait.Close();
             return currentChildForm;
         }
 

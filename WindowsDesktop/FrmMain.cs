@@ -30,7 +30,7 @@ namespace WindowsDesktop
         public FrmMain()
         {
             InitializeComponent();
-
+            //this.FormBorderStyle = FormBorderStyle.None;
             _leftMenuBtnBorder = new Panel {Size = new Size(3, 40)};
             panelSideMenu.Controls.Add(_leftMenuBtnBorder);
             //MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
@@ -65,12 +65,13 @@ namespace WindowsDesktop
             // Left Side menu panel
             #region Left Side menu panel
 
-            panelSideMenu.BackColor = STheme.SColor.MenuPanelBackColor;
+            panelSideMenu.BackColor = STheme.SColor.SiteMenuBackColor;
+            panelSideMenu.ForeColor = STheme.SColor.SiteMenuForColor;
             foreach (var iconButton in panelSideMenu.Controls.OfType<IconButton>())
             {
-                iconButton.ForeColor = STheme.SColor.ForColor;
-                iconButton.IconColor = STheme.SColor.ForColor;
-                iconButton.BackColor = STheme.SColor.MenuPanelBackColor;
+                iconButton.ForeColor = STheme.SColor.SiteMenuForColor;
+                iconButton.IconColor = STheme.SColor.SiteMenuForColor;
+                iconButton.BackColor = STheme.SColor.SiteMenuBackColor;
             }
 
             #endregion
@@ -78,17 +79,24 @@ namespace WindowsDesktop
             // Top title panel
             #region Top title panel
 
-            panelTitleBar.BackColor = STheme.SColor.MenuPanelBackColor;
-            iconPictureBoxCurrentChild.BackColor = STheme.SColor.MenuPanelBackColor;
-            iconPictureBoxCurrentChild.IconColor = STheme.SColor.ForColor;
-            labelCurrentChild.BackColor = STheme.SColor.MenuPanelBackColor;
-            labelCurrentChild.ForeColor = STheme.SColor.ForColor;
+            //panelTitleBar.BackColor = STheme.SColor.MenuPanelBackColor;
+            //iconPictureBoxCurrentChild.BackColor = STheme.SColor.MenuPanelBackColor;
+            //iconPictureBoxCurrentChild.IconColor = STheme.SColor.ForColor;
+            //labelCurrentChild.BackColor = STheme.SColor.MenuPanelBackColor;
+            //labelCurrentChild.ForeColor = STheme.SColor.ForColor;
+
+
+            panelTitleBar.BackColor = STheme.SColor.TopMenuBackColor;
+            iconPictureBoxCurrentChild.BackColor = STheme.SColor.TopMenuBackColor;
+            iconPictureBoxCurrentChild.IconColor = STheme.SColor.TopMenuForColor;
+            labelCurrentChild.BackColor = STheme.SColor.TopMenuBackColor;
+            labelCurrentChild.ForeColor = STheme.SColor.TopMenuForColor;
 
             foreach (var iconButton in panelTitleBar.Controls.OfType<IconButton>())
             {
-                iconButton.ForeColor = STheme.SColor.ForColor;
-                iconButton.IconColor = STheme.SColor.ForColor;
-                iconButton.BackColor = STheme.SColor.MenuPanelBackColor;
+                iconButton.ForeColor = STheme.SColor.TopMenuForColor;
+                iconButton.IconColor = STheme.SColor.TopMenuForColor;
+                iconButton.BackColor = STheme.SColor.TopMenuBackColor;
             }
 
             #endregion
@@ -138,10 +146,10 @@ namespace WindowsDesktop
 
                 // Active button
                 _currentBtn = (IconButton)senderBtn;
-                _currentBtn.BackColor = STheme.SColor.ActiveBackColor;
-                _currentBtn.ForeColor = STheme.SColor.ActiveForColor;
+                _currentBtn.BackColor = STheme.SColor.SiteMenuForColor;
+                _currentBtn.ForeColor = STheme.SColor.SiteMenuBackColor;
                 _currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                _currentBtn.IconColor = STheme.SColor.ActiveForColor;
+                _currentBtn.IconColor = STheme.SColor.SiteMenuBackColor;
                 _currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 _currentBtn.ImageAlign = ContentAlignment.MiddleRight;
 
@@ -167,10 +175,10 @@ namespace WindowsDesktop
         {
             if (_currentBtn != null)
             {
-                _currentBtn.BackColor = STheme.SColor.MenuPanelBackColor;
-                _currentBtn.ForeColor = STheme.SColor.ForColor;
+                _currentBtn.BackColor = STheme.SColor.SiteMenuBackColor;
+                _currentBtn.ForeColor = STheme.SColor.SiteMenuForColor;
                 _currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                _currentBtn.IconColor = STheme.SColor.ForColor;
+                _currentBtn.IconColor = STheme.SColor.SiteMenuForColor;
                 _currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 _currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
@@ -178,6 +186,8 @@ namespace WindowsDesktop
 
         private void OpenChildForm(Form childForm)
         {
+            //_waiting.Show();
+
             CloseChildForm();
 
             _currentChildForm = childForm;
