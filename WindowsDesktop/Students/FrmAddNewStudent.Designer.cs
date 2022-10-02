@@ -69,6 +69,8 @@ namespace WindowsDesktop.Students
             this.label2 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBoxPersonalInformation = new System.Windows.Forms.GroupBox();
+            this.buttonBrowse = new System.Windows.Forms.Button();
+            this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
             this.buttonSavePersonalInfo = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.dateTimePickerDob = new System.Windows.Forms.DateTimePicker();
@@ -118,6 +120,7 @@ namespace WindowsDesktop.Students
             this.comboBoxPreAddressDivision = new System.Windows.Forms.ComboBox();
             this.errorProviderNewStudent = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxReview = new System.Windows.Forms.GroupBox();
+            this.pictureBoxReviewStudent = new System.Windows.Forms.PictureBox();
             this.textBoxReviewFormNo = new System.Windows.Forms.TextBox();
             this.label80 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -203,23 +206,20 @@ namespace WindowsDesktop.Students
             this.textBoxReviewFullName = new System.Windows.Forms.TextBox();
             this.buttonReviewBack = new System.Windows.Forms.Button();
             this.buttonSubmit = new System.Windows.Forms.Button();
-            this.buttonBrowse = new System.Windows.Forms.Button();
-            this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
-            this.pictureBoxReviewStudent = new System.Windows.Forms.PictureBox();
             this.groupBoxGuardianInformation.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
             this.groupBoxAcademicInformation.SuspendLayout();
             this.groupBoxAddress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewStudent)).BeginInit();
             this.groupBoxReview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReviewStudent)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReviewStudent)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxGuardianInformation
@@ -601,12 +601,32 @@ namespace WindowsDesktop.Students
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxStudentPhone);
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxPersonalInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(4, 50);
+            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(-12, 50);
             this.groupBoxPersonalInformation.Name = "groupBoxPersonalInformation";
             this.groupBoxPersonalInformation.Size = new System.Drawing.Size(594, 257);
             this.groupBoxPersonalInformation.TabIndex = 0;
             this.groupBoxPersonalInformation.TabStop = false;
             this.groupBoxPersonalInformation.Text = "Personal Information";
+            // 
+            // buttonBrowse
+            // 
+            this.buttonBrowse.Location = new System.Drawing.Point(476, 159);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(112, 34);
+            this.buttonBrowse.TabIndex = 20;
+            this.buttonBrowse.Text = "Browse Image";
+            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
+            // 
+            // pictureBoxStudent
+            // 
+            this.pictureBoxStudent.Image = global::WindowsDesktop.Properties.Resources.no_person_image;
+            this.pictureBoxStudent.Location = new System.Drawing.Point(476, 34);
+            this.pictureBoxStudent.Name = "pictureBoxStudent";
+            this.pictureBoxStudent.Size = new System.Drawing.Size(112, 119);
+            this.pictureBoxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxStudent.TabIndex = 19;
+            this.pictureBoxStudent.TabStop = false;
             // 
             // buttonSavePersonalInfo
             // 
@@ -767,7 +787,7 @@ namespace WindowsDesktop.Students
             // 
             this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentName.Location = new System.Drawing.Point(10, 13);
+            this.labelStudentName.Location = new System.Drawing.Point(-6, 13);
             this.labelStudentName.Name = "labelStudentName";
             this.labelStudentName.Size = new System.Drawing.Size(582, 33);
             this.labelStudentName.TabIndex = 35;
@@ -806,7 +826,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(7, 106);
+            this.groupBoxAddress.Location = new System.Drawing.Point(-9, 106);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
@@ -1196,6 +1216,16 @@ namespace WindowsDesktop.Students
             this.groupBoxReview.TabStop = false;
             this.groupBoxReview.Text = "Review";
             this.groupBoxReview.Visible = false;
+            // 
+            // pictureBoxReviewStudent
+            // 
+            this.pictureBoxReviewStudent.Image = global::WindowsDesktop.Properties.Resources.no_person_image;
+            this.pictureBoxReviewStudent.Location = new System.Drawing.Point(456, 49);
+            this.pictureBoxReviewStudent.Name = "pictureBoxReviewStudent";
+            this.pictureBoxReviewStudent.Size = new System.Drawing.Size(112, 119);
+            this.pictureBoxReviewStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxReviewStudent.TabIndex = 152;
+            this.pictureBoxReviewStudent.TabStop = false;
             // 
             // textBoxReviewFormNo
             // 
@@ -1991,36 +2021,6 @@ namespace WindowsDesktop.Students
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
-            // buttonBrowse
-            // 
-            this.buttonBrowse.Location = new System.Drawing.Point(476, 159);
-            this.buttonBrowse.Name = "buttonBrowse";
-            this.buttonBrowse.Size = new System.Drawing.Size(112, 34);
-            this.buttonBrowse.TabIndex = 20;
-            this.buttonBrowse.Text = "Browse Image";
-            this.buttonBrowse.UseVisualStyleBackColor = true;
-            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
-            // 
-            // pictureBoxStudent
-            // 
-            this.pictureBoxStudent.Image = global::WindowsDesktop.Properties.Resources.no_person_image;
-            this.pictureBoxStudent.Location = new System.Drawing.Point(476, 34);
-            this.pictureBoxStudent.Name = "pictureBoxStudent";
-            this.pictureBoxStudent.Size = new System.Drawing.Size(112, 119);
-            this.pictureBoxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxStudent.TabIndex = 19;
-            this.pictureBoxStudent.TabStop = false;
-            // 
-            // pictureBoxReviewStudent
-            // 
-            this.pictureBoxReviewStudent.Image = global::WindowsDesktop.Properties.Resources.no_person_image;
-            this.pictureBoxReviewStudent.Location = new System.Drawing.Point(456, 49);
-            this.pictureBoxReviewStudent.Name = "pictureBoxReviewStudent";
-            this.pictureBoxReviewStudent.Size = new System.Drawing.Size(112, 119);
-            this.pictureBoxReviewStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxReviewStudent.TabIndex = 152;
-            this.pictureBoxReviewStudent.TabStop = false;
-            // 
             // FrmAddNewStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2039,6 +2039,7 @@ namespace WindowsDesktop.Students
             this.groupBoxGuardianInformation.PerformLayout();
             this.groupBoxPersonalInformation.ResumeLayout(false);
             this.groupBoxPersonalInformation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).EndInit();
             this.groupBoxAcademicInformation.ResumeLayout(false);
             this.groupBoxAcademicInformation.PerformLayout();
             this.groupBoxAddress.ResumeLayout(false);
@@ -2046,6 +2047,7 @@ namespace WindowsDesktop.Students
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewStudent)).EndInit();
             this.groupBoxReview.ResumeLayout(false);
             this.groupBoxReview.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReviewStudent)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -2058,8 +2060,6 @@ namespace WindowsDesktop.Students
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReviewStudent)).EndInit();
             this.ResumeLayout(false);
 
         }

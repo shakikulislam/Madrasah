@@ -16,9 +16,7 @@ namespace WindowsDesktop.Students
 
         private void LoadTheme(Control control)
         {
-            ThemeTemplate.SLabel(control);
-            ThemeTemplate.STextBox(control);
-            ThemeTemplate.SIconButton(control,0);
+            ThemeTemplate.LoadTheme(control);
             ThemeTemplate.SDataGridView(control, DataGridViewCellBorderStyle.Single);
         }
 

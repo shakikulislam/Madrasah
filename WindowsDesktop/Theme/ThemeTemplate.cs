@@ -78,7 +78,7 @@ namespace WindowsDesktop.Theme
             {
                 linkLabel.ForeColor = STheme.SColor.ForColor;
                 linkLabel.BackColor = STheme.SColor.BackColor;
-                linkLabel.Font= new Font(STheme.SFont.Font, linkLabel.Font.Size);
+                linkLabel.Font = new Font(STheme.SFont.Font, linkLabel.Font.Size - 2 <= 0 ? linkLabel.Font.Size : linkLabel.Font.Size - 2);
             }
         }
 
@@ -115,7 +115,7 @@ namespace WindowsDesktop.Theme
             }
         }
 
-        public static void SComboBox(Control control, ComboBoxStyle comboBoxStyle= ComboBoxStyle.DropDown)
+        public static void SComboBox(Control control, ComboBoxStyle comboBoxStyle= ComboBoxStyle.DropDownList)
         {
             foreach (var comboBox in control.Controls.OfType<ComboBox>())
             {
@@ -152,6 +152,8 @@ namespace WindowsDesktop.Theme
                 button.ForeColor = STheme.SColor.ForColor;
                 button.BackColor = STheme.SColor.BackColor;
                 button.IconColor = STheme.SColor.ForColor;
+                button.Font = new Font(STheme.SFont.Font, STheme.SFont.Size + 2, FontStyle.Regular);
+
             }
         }
 
@@ -174,6 +176,8 @@ namespace WindowsDesktop.Theme
             foreach (var gridView in control.Controls.OfType<DataGridView>())
             {
                 var dividerHeight = cellBorderStyle == DataGridViewCellBorderStyle.None ? 1 : 0;
+                var borderStyle = cellBorderStyle == DataGridViewCellBorderStyle.None ? BorderStyle.FixedSingle : BorderStyle.None;
+
                 gridView.BackgroundColor = STheme.SColor.BackColor;
                 gridView.RowsDefaultCellStyle.BackColor = STheme.SColor.BackColor;
                 gridView.RowsDefaultCellStyle.SelectionBackColor = STheme.SColor.ActiveBackColor;
@@ -182,6 +186,8 @@ namespace WindowsDesktop.Theme
                 gridView.ColumnHeadersDefaultCellStyle.ForeColor = STheme.SColor.ActiveForColor;
                 gridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = STheme.SColor.HoverBackColor;
                 gridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = STheme.SColor.ForColor;
+
+                gridView.BorderStyle = borderStyle;
 
                 gridView.ColumnHeadersDefaultCellStyle.Font = new Font(STheme.SFont.Font, STheme.SFont.Size+2, FontStyle.Bold);
                 gridView.RowsDefaultCellStyle.Font = new Font(STheme.SFont.Font,STheme.SFont.Size);

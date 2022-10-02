@@ -44,13 +44,7 @@ namespace WindowsDesktop.Students
 
         private static void LoadTheme(Control control)
         {
-            ThemeTemplate.SLabel(control);
-            ThemeTemplate.SLinkLabel(control);
-            ThemeTemplate.STextBox(control);
-            ThemeTemplate.SRichTextBox(control);
-            ThemeTemplate.SButton(control);
-            ThemeTemplate.SDateTimePicker(control);
-            ThemeTemplate.SComboBox(control);
+            ThemeTemplate.LoadTheme(control);
         }
 
         private void ClearAllField()
@@ -77,8 +71,9 @@ namespace WindowsDesktop.Students
 
             textBoxRoll.Clear();
             textBoxReg.Clear();
-            
 
+            pictureBoxStudent.Image = Resources.no_person_image;
+            pictureBoxReviewStudent.Image = Resources.no_person_image;
         }
 
         private void ClearReviewField()
@@ -286,7 +281,6 @@ namespace WindowsDesktop.Students
                 groupBoxAddress.Anchor = AnchorStyles.Top;
 
                 LoadTheme(groupBoxAddress);
-                ThemeTemplate.SComboBox(groupBoxAddress, ComboBoxStyle.DropDownList);
 
                 // Check Validation
                 var isValid = ThemeTemplate.SValidate(groupBoxPersonalInformation, errorProviderNewStudent);
@@ -369,7 +363,6 @@ namespace WindowsDesktop.Students
                     groupBoxReview.Anchor = AnchorStyles.Top;
 
                     LoadTheme(groupBoxReview);
-                    ThemeTemplate.SComboBox(groupBoxReview, ComboBoxStyle.DropDownList);
 
                     // Set data
                     // Personal Information
@@ -474,7 +467,6 @@ namespace WindowsDesktop.Students
                 groupBoxAcademicInformation.Anchor = AnchorStyles.Top;
                 
                 LoadTheme(groupBoxAcademicInformation); 
-                ThemeTemplate.SComboBox(groupBoxAcademicInformation, ComboBoxStyle.DropDownList);
 
                 groupBoxAcademicInformation.Visible = true;
             }
@@ -498,7 +490,6 @@ namespace WindowsDesktop.Students
                 groupBoxGuardianInformation.Anchor = AnchorStyles.Top;
 
                 LoadTheme(groupBoxGuardianInformation);
-                ThemeTemplate.SComboBox(groupBoxGuardianInformation, ComboBoxStyle.DropDownList);
 
                 groupBoxGuardianInformation.Visible = true;
             }

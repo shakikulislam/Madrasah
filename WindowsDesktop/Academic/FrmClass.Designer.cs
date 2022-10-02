@@ -41,14 +41,14 @@ namespace WindowsDesktop.Academic
             this.textBoxClassName = new System.Windows.Forms.TextBox();
             this.buttonAddNewClass = new System.Windows.Forms.Button();
             this.dataGridViewClass = new System.Windows.Forms.DataGridView();
-            this.ColumnClassSl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnClassDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacher_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnClassNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errorProviderClass = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelClassForm = new System.Windows.Forms.Panel();
+            this.ColumnClassSl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacher_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnClassDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnClassNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClassNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderClass)).BeginInit();
@@ -166,9 +166,9 @@ namespace WindowsDesktop.Academic
             this.dataGridViewClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnClassSl,
+            this.teacher_name,
             this.ColumnClassDepartment,
             this.ColumnClassName,
-            this.teacher_name,
             this.ColumnClassId,
             this.ColumnClassNumber});
             this.dataGridViewClass.Location = new System.Drawing.Point(26, 125);
@@ -177,56 +177,6 @@ namespace WindowsDesktop.Academic
             this.dataGridViewClass.TabIndex = 0;
             this.dataGridViewClass.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewClass_RowPostPaint);
             this.dataGridViewClass.DoubleClick += new System.EventHandler(this.dataGridViewClass_DoubleClick);
-            // 
-            // ColumnClassSl
-            // 
-            this.ColumnClassSl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnClassSl.HeaderText = "#";
-            this.ColumnClassSl.Name = "ColumnClassSl";
-            this.ColumnClassSl.ReadOnly = true;
-            this.ColumnClassSl.Width = 39;
-            // 
-            // ColumnClassDepartment
-            // 
-            this.ColumnClassDepartment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnClassDepartment.DataPropertyName = "department";
-            this.ColumnClassDepartment.HeaderText = "Department";
-            this.ColumnClassDepartment.Name = "ColumnClassDepartment";
-            this.ColumnClassDepartment.ReadOnly = true;
-            this.ColumnClassDepartment.Width = 87;
-            // 
-            // ColumnClassName
-            // 
-            this.ColumnClassName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnClassName.DataPropertyName = "name";
-            this.ColumnClassName.HeaderText = "Name";
-            this.ColumnClassName.Name = "ColumnClassName";
-            this.ColumnClassName.ReadOnly = true;
-            this.ColumnClassName.Width = 60;
-            // 
-            // teacher_name
-            // 
-            this.teacher_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.teacher_name.DataPropertyName = "teacher_name";
-            this.teacher_name.HeaderText = "Teacher Name";
-            this.teacher_name.Name = "teacher_name";
-            this.teacher_name.ReadOnly = true;
-            // 
-            // ColumnClassId
-            // 
-            this.ColumnClassId.DataPropertyName = "id";
-            this.ColumnClassId.HeaderText = "ID";
-            this.ColumnClassId.Name = "ColumnClassId";
-            this.ColumnClassId.ReadOnly = true;
-            this.ColumnClassId.Visible = false;
-            // 
-            // ColumnClassNumber
-            // 
-            this.ColumnClassNumber.DataPropertyName = "classNumber";
-            this.ColumnClassNumber.HeaderText = "Class Number";
-            this.ColumnClassNumber.Name = "ColumnClassNumber";
-            this.ColumnClassNumber.ReadOnly = true;
-            this.ColumnClassNumber.Visible = false;
             // 
             // errorProviderClass
             // 
@@ -248,6 +198,56 @@ namespace WindowsDesktop.Academic
             this.panelClassForm.Size = new System.Drawing.Size(494, 107);
             this.panelClassForm.TabIndex = 44;
             this.panelClassForm.Visible = false;
+            // 
+            // ColumnClassSl
+            // 
+            this.ColumnClassSl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnClassSl.HeaderText = "#";
+            this.ColumnClassSl.Name = "ColumnClassSl";
+            this.ColumnClassSl.ReadOnly = true;
+            this.ColumnClassSl.Width = 39;
+            // 
+            // teacher_name
+            // 
+            this.teacher_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.teacher_name.DataPropertyName = "teacher_name";
+            this.teacher_name.HeaderText = "Teacher Name";
+            this.teacher_name.Name = "teacher_name";
+            this.teacher_name.ReadOnly = true;
+            // 
+            // ColumnClassDepartment
+            // 
+            this.ColumnClassDepartment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnClassDepartment.DataPropertyName = "department";
+            this.ColumnClassDepartment.HeaderText = "Department";
+            this.ColumnClassDepartment.Name = "ColumnClassDepartment";
+            this.ColumnClassDepartment.ReadOnly = true;
+            this.ColumnClassDepartment.Width = 87;
+            // 
+            // ColumnClassName
+            // 
+            this.ColumnClassName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnClassName.DataPropertyName = "className";
+            this.ColumnClassName.HeaderText = "Class Name";
+            this.ColumnClassName.Name = "ColumnClassName";
+            this.ColumnClassName.ReadOnly = true;
+            this.ColumnClassName.Width = 88;
+            // 
+            // ColumnClassId
+            // 
+            this.ColumnClassId.DataPropertyName = "id";
+            this.ColumnClassId.HeaderText = "ID";
+            this.ColumnClassId.Name = "ColumnClassId";
+            this.ColumnClassId.ReadOnly = true;
+            this.ColumnClassId.Visible = false;
+            // 
+            // ColumnClassNumber
+            // 
+            this.ColumnClassNumber.DataPropertyName = "classNumber";
+            this.ColumnClassNumber.HeaderText = "Class Number";
+            this.ColumnClassNumber.Name = "ColumnClassNumber";
+            this.ColumnClassNumber.ReadOnly = true;
+            this.ColumnClassNumber.Visible = false;
             // 
             // FrmClass
             // 
@@ -284,13 +284,13 @@ namespace WindowsDesktop.Academic
         private System.Windows.Forms.TextBox textBoxClassName;
         private System.Windows.Forms.Button buttonAddNewClass;
         private System.Windows.Forms.DataGridView dataGridViewClass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassSl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassDepartment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teacher_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassNumber;
         private System.Windows.Forms.ErrorProvider errorProviderClass;
         private System.Windows.Forms.Panel panelClassForm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassSl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teacher_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassDepartment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassNumber;
     }
 }

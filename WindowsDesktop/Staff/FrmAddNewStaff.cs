@@ -23,14 +23,7 @@ namespace WindowsDesktop.Staff
 
         private static void LoadTheme(Control control)
         {
-            ThemeTemplate.SLabel(control);
-            ThemeTemplate.SLinkLabel(control);
-            ThemeTemplate.STextBox(control);
-            ThemeTemplate.SRichTextBox(control);
-            ThemeTemplate.SButton(control);
-            ThemeTemplate.SDateTimePicker(control);
-            ThemeTemplate.SComboBox(control,ComboBoxStyle.DropDownList);
-            ThemeTemplate.SPictureBox(control);
+            ThemeTemplate.LoadTheme(control);
         }
         
         private void LoadDesignation()
@@ -216,7 +209,6 @@ namespace WindowsDesktop.Staff
                 groupBoxAddress.Anchor = AnchorStyles.Top;
 
                 LoadTheme(groupBoxAddress);
-                ThemeTemplate.SComboBox(groupBoxAddress, ComboBoxStyle.DropDownList);
 
                 // Check Validation
                 var isValid = ThemeTemplate.SValidate(groupBoxStaffInformation, errorProviderStaff);
@@ -304,7 +296,6 @@ namespace WindowsDesktop.Staff
                 groupBoxReview.Anchor = AnchorStyles.Top;
                 
                 LoadTheme(groupBoxReview);
-                ThemeTemplate.SComboBox(groupBoxReview, ComboBoxStyle.DropDownList);
 
                 // Set data
                 // Personal Information

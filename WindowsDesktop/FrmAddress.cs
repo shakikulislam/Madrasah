@@ -29,10 +29,7 @@ namespace WindowsDesktop
 
         private void LoadThemeTemplate(Control control)
         {
-            ThemeTemplate.SLabel(control);
-            ThemeTemplate.STextBox(control);
-            ThemeTemplate.SDataGridView(control);
-            ThemeTemplate.SButton(control);
+            ThemeTemplate.LoadTheme(control);
         }
 
         private void ClearField()

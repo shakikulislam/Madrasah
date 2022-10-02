@@ -21,13 +21,7 @@ namespace WindowsDesktop.Students
 
         private static void LoadTheme(Control control)
         {
-            ThemeTemplate.SLabel(control);
-            ThemeTemplate.SLinkLabel(control);
-            ThemeTemplate.STextBox(control);
-            ThemeTemplate.SRichTextBox(control);
-            ThemeTemplate.SButton(control);
-            ThemeTemplate.SDateTimePicker(control);
-            ThemeTemplate.SComboBox(control);
+            ThemeTemplate.LoadTheme(control);
         }
 
         private void OpenChildForm(Form childForm)

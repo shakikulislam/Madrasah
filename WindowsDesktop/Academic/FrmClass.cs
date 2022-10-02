@@ -16,7 +16,6 @@ namespace WindowsDesktop.Academic
             LoadClass();
             ThemeTemplate.LoadTheme(this);
             ThemeTemplate.LoadTheme(panelClassForm);
-            ThemeTemplate.SComboBox(panelClassForm, ComboBoxStyle.DropDownList);
         }
         
         private void LoadDepartment(Control control)
@@ -51,7 +50,7 @@ namespace WindowsDesktop.Academic
 
         private void LoadClass()
         {
-            var query = "select c.id, c.name, c.class_number as classNumber, d.name as department, " +
+            var query = "select c.id, c.name AS className, c.class_number as classNumber, d.name as department, " +
                         "e.name as teacher_name from s_classes c " +
                         "left join s_departments d on c.department_id = d.id " +
                         "left join s_employees e on c.teacher_id = e.id " +
@@ -138,32 +137,26 @@ namespace WindowsDesktop.Academic
                 {
                     textBoxClassName.Text = dataGridViewClass.SelectedRows[0].Cells["ColumnClassName"].Value.ToString();
                     textBoxClassName.Tag = dataGridViewClass.SelectedRows[0].Cells["ColumnClassId"].Value.ToString();
-                    textBoxClassName.Enabled = true;
-
-                    comboBoxClassDepartment.Enabled = true;
+                    
                     comboBoxClassDepartment.Text = dataGridViewClass.SelectedRows[0].Cells["ColumnClassDepartment"].Value.ToString();
 
-                    numericUpDownClassNumber.Enabled = true;
                     numericUpDownClassNumber.Text = dataGridViewClass.SelectedRows[0].Cells["ColumnClassNumber"].Value.ToString();
 
-                    comboBoxTeacher.Enabled = true;
                     comboBoxTeacher.Text = dataGridViewClass.SelectedRows[0].Cells["teacher_name"].Value.ToString();
 
                     buttonAddNewClass.Text = "Cancel";
                     buttonClassUpdate.Text = "Update";
                     buttonClassUpdate.Visible = true;
+                    panelClassForm.Visible = true;
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 buttonAddNewClass.Text = "Add Class";
-                comboBoxClassDepartment.Enabled = false;
-                textBoxClassName.Enabled = false;
                 textBoxClassName.Clear();
-                numericUpDownClassNumber.Enabled = false;
                 numericUpDownClassNumber.Text = "0";
-                comboBoxTeacher.Enabled = false;
                 buttonClassUpdate.Visible = false;
+                panelClassForm.Visible = false;
             }
         }
     }

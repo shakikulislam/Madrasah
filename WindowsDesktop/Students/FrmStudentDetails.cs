@@ -48,10 +48,7 @@ namespace WindowsDesktop.Students
 
         private void LoadTheme(Control control)
         {
-            ThemeTemplate.SButton(control);
-            ThemeTemplate.SDateTimePicker(control);
-            ThemeTemplate.STabControl(control);
-            ThemeTemplate.SComboBox(control,ComboBoxStyle.DropDownList);
+            ThemeTemplate.LoadTheme(control);
         }
 
         private void LoadData()
