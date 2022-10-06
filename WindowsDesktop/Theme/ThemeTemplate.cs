@@ -76,7 +76,7 @@ namespace WindowsDesktop.Theme
         {
             foreach (var linkLabel in control.Controls.OfType<LinkLabel>())
             {
-                linkLabel.ForeColor = STheme.SColor.ForColor;
+                linkLabel.ForeColor = STheme.SColor.LinkForColor;
                 linkLabel.BackColor = STheme.SColor.BackColor;
                 linkLabel.Font = new Font(STheme.SFont.Font, linkLabel.Font.Size - 2 <= 0 ? linkLabel.Font.Size : linkLabel.Font.Size - 2);
             }
@@ -186,6 +186,14 @@ namespace WindowsDesktop.Theme
                 gridView.ColumnHeadersDefaultCellStyle.ForeColor = STheme.SColor.ActiveForColor;
                 gridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = STheme.SColor.HoverBackColor;
                 gridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = STheme.SColor.ForColor;
+
+                //var lnk=new DataGridViewLinkColumn();
+                //lnk.LinkColor = STheme.SColor.LinkForColor;
+                //lnk.Text = "dsd";
+                //lnk.UseColumnTextForLinkValue = true;
+                
+                //gridView.Columns.Add(lnk);
+
 
                 gridView.BorderStyle = borderStyle;
 

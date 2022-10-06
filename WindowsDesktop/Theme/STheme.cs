@@ -18,6 +18,9 @@ namespace WindowsDesktop.Theme
             public static Color ActiveForColor = Color.White;
             public static Color ActiveBackColor = Color.FromArgb(134, 138, 201);
             public static Color HoverBackColor = Color.FromArgb(89, 92, 134);
+
+            public static Color LinkForColor = Color.Maroon;
+                
             //---------------------------
             public static Color ForColor = Color.Black;
             public static Color BackColor = Color.White;
