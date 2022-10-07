@@ -23,6 +23,7 @@ namespace WindowsDesktop
             LoadThemeTemplate(panelAddress);
             LoadThemeTemplate(flowLayoutPanelAddress);
             LoadThemeTemplate(groupBoxAdd);
+            ThemeTemplate.SPictureBox(panelAddress, BorderStyle.None);
         }
 
         // Method

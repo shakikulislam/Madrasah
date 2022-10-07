@@ -12,6 +12,7 @@ namespace WindowsDesktop.Students
             InitializeComponent();
             LoadTheme(this);
             LoadStudentList();
+            ThemeTemplate.SIconButton(this, 0);
         }
 
         private void LoadTheme(Control control)

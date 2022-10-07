@@ -11,7 +11,9 @@ namespace WindowsDesktop.Staff
         {
             InitializeComponent();
             LoadTheme(this);
+            
             LoadStaffList();
+            ThemeTemplate.SIconButton(this, 0);
         }
 
         private void LoadTheme(Control control)

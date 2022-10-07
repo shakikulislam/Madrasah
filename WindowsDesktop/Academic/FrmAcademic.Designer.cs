@@ -45,7 +45,7 @@ namespace WindowsDesktop.Academic
             this.panelTopMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTopMenu.Location = new System.Drawing.Point(0, 0);
             this.panelTopMenu.Name = "panelTopMenu";
-            this.panelTopMenu.Size = new System.Drawing.Size(800, 80);
+            this.panelTopMenu.Size = new System.Drawing.Size(800, 74);
             this.panelTopMenu.TabIndex = 0;
             // 
             // buttonSubject
@@ -57,6 +57,7 @@ namespace WindowsDesktop.Academic
             this.buttonSubject.TabIndex = 35;
             this.buttonSubject.Text = "Subject";
             this.buttonSubject.UseVisualStyleBackColor = true;
+            this.buttonSubject.Click += new System.EventHandler(this.buttonSubject_Click);
             // 
             // buttonDepartment
             // 
@@ -83,9 +84,9 @@ namespace WindowsDesktop.Academic
             // panelAcademicBody
             // 
             this.panelAcademicBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAcademicBody.Location = new System.Drawing.Point(0, 80);
+            this.panelAcademicBody.Location = new System.Drawing.Point(0, 74);
             this.panelAcademicBody.Name = "panelAcademicBody";
-            this.panelAcademicBody.Size = new System.Drawing.Size(800, 370);
+            this.panelAcademicBody.Size = new System.Drawing.Size(800, 376);
             this.panelAcademicBody.TabIndex = 3;
             // 
             // FrmAcademic

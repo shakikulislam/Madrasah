@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
@@ -18,10 +19,12 @@ namespace WindowsDesktop
             Application.SetCompatibleTextRenderingDefault(false);
             frmWaiting waiting = new frmWaiting();
             waiting.Show();
+            Application.DoEvents();
             try
             {
-                //GlobalSettings.Server = File.ReadAllText("host.txt");
+                //var server = string.Concat(new string[] {File.ReadAllText("host.txt")});
                 GlobalSettings.Server = "localhost";
+                //GlobalSettings.Server = "192.168.0.247;Port:3306";
             }
             catch { }
             if (string.IsNullOrEmpty(GlobalSettings.Server))
