@@ -24,6 +24,12 @@ namespace WindowsDesktop.Staff
             LoadTheme(panelBody);
         }
 
+        private void ClearField()
+        {
+            tabControlProfile.Visible = false;
+            panelSubjectList.Visible = false;
+        }
+
         private void LoadDesignation()
         {
             try
@@ -190,6 +196,7 @@ namespace WindowsDesktop.Staff
         {
             try
             {
+                ClearField();
                 ActiveButton(sender);
                 foreach (Control control in tabControlProfile.Controls)
                 {
@@ -456,6 +463,35 @@ namespace WindowsDesktop.Staff
                 pictureBoxStaff.Image = Resources.no_person_image;
                 MessageBox.Show(ex.Message);
             }
+        }
+        
+        private void buttonAssignedSubject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClearField();
+                ActiveButton(sender);
+                LoadTheme(panelSubjectList);
+                panelSubjectList.Dock = DockStyle.Fill;
+                panelSubjectList.Visible = true;
+
+                var query = "SELECT sb.id, sb.name AS subject, sb.mark, c.name as class, d.name AS department " +
+                            "FROM s_subjects AS sb " +
+                            "LEFT JOIN s_classes AS c ON sb.class_id = c.id " +
+                            "LEFT JOIN s_departments AS d ON c.department_id = d.id " +
+                            "WHERE sb.teacher_id = " + _staffId + "";
+                var dt = Db.GetDataTable(query);
+                dataGridViewSubjectList.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridViewSubjectList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            dataGridViewSubjectList.Rows[e.RowIndex].Cells[ColumnSl.Index].Value = (e.RowIndex + 1).ToString();
         }
     }
 }
