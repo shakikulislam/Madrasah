@@ -104,6 +104,12 @@
     <Compile Include="Academic\FrmDepartment.Designer.cs">
       <DependentUpon>FrmDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Academic\FrmExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Academic\FrmExam.Designer.cs">
+      <DependentUpon>FrmExam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Academic\FrmSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Academic\FrmDepartment.resx">
       <DependentUpon>FrmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Academic\FrmExam.resx">
+      <DependentUpon>FrmExam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Academic\FrmSubject.resx">
       <DependentUpon>FrmSubject.cs</DependentUpon>

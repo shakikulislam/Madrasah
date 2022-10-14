@@ -601,7 +601,7 @@ namespace WindowsDesktop.Students
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxStudentPhone);
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxPersonalInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(-12, 50);
+            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(15, 50);
             this.groupBoxPersonalInformation.Name = "groupBoxPersonalInformation";
             this.groupBoxPersonalInformation.Size = new System.Drawing.Size(594, 257);
             this.groupBoxPersonalInformation.TabIndex = 0;
@@ -678,14 +678,14 @@ namespace WindowsDesktop.Students
             this.textBoxNid.CausesValidation = false;
             this.textBoxNid.Location = new System.Drawing.Point(134, 121);
             this.textBoxNid.Name = "textBoxNid";
-            this.textBoxNid.Size = new System.Drawing.Size(336, 23);
+            this.textBoxNid.Size = new System.Drawing.Size(323, 23);
             this.textBoxNid.TabIndex = 3;
             // 
             // textBoxBirthCert
             // 
             this.textBoxBirthCert.Location = new System.Drawing.Point(134, 92);
             this.textBoxBirthCert.Name = "textBoxBirthCert";
-            this.textBoxBirthCert.Size = new System.Drawing.Size(336, 23);
+            this.textBoxBirthCert.Size = new System.Drawing.Size(323, 23);
             this.textBoxBirthCert.TabIndex = 2;
             // 
             // label30
@@ -711,14 +711,14 @@ namespace WindowsDesktop.Students
             this.textBoxStudentPhone.CausesValidation = false;
             this.textBoxStudentPhone.Location = new System.Drawing.Point(134, 63);
             this.textBoxStudentPhone.Name = "textBoxStudentPhone";
-            this.textBoxStudentPhone.Size = new System.Drawing.Size(336, 23);
+            this.textBoxStudentPhone.Size = new System.Drawing.Size(323, 23);
             this.textBoxStudentPhone.TabIndex = 1;
             // 
             // textBoxFullName
             // 
             this.textBoxFullName.Location = new System.Drawing.Point(134, 34);
             this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(336, 23);
+            this.textBoxFullName.Size = new System.Drawing.Size(323, 23);
             this.textBoxFullName.TabIndex = 0;
             // 
             // groupBoxAcademicInformation
@@ -787,7 +787,7 @@ namespace WindowsDesktop.Students
             // 
             this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentName.Location = new System.Drawing.Point(-6, 13);
+            this.labelStudentName.Location = new System.Drawing.Point(-14, 13);
             this.labelStudentName.Name = "labelStudentName";
             this.labelStudentName.Size = new System.Drawing.Size(582, 33);
             this.labelStudentName.TabIndex = 35;
@@ -826,7 +826,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(-9, 106);
+            this.groupBoxAddress.Location = new System.Drawing.Point(24, 106);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;

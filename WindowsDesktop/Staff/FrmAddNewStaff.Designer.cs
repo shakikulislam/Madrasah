@@ -160,7 +160,7 @@ namespace WindowsDesktop.Staff
             this.groupBoxStaffInformation.Controls.Add(this.textBoxPhone);
             this.groupBoxStaffInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxStaffInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxStaffInformation.Location = new System.Drawing.Point(4, 60);
+            this.groupBoxStaffInformation.Location = new System.Drawing.Point(-5, 60);
             this.groupBoxStaffInformation.Name = "groupBoxStaffInformation";
             this.groupBoxStaffInformation.Size = new System.Drawing.Size(594, 304);
             this.groupBoxStaffInformation.TabIndex = 0;
@@ -320,7 +320,7 @@ namespace WindowsDesktop.Staff
             this.labelFullName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelFullName.BackColor = System.Drawing.SystemColors.Control;
             this.labelFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFullName.Location = new System.Drawing.Point(-39, 13);
+            this.labelFullName.Location = new System.Drawing.Point(-48, 13);
             this.labelFullName.Name = "labelFullName";
             this.labelFullName.Size = new System.Drawing.Size(582, 33);
             this.labelFullName.TabIndex = 35;
@@ -359,7 +359,7 @@ namespace WindowsDesktop.Staff
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(43, 312);
+            this.groupBoxAddress.Location = new System.Drawing.Point(34, 312);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
