@@ -472,6 +472,7 @@ namespace WindowsDesktop.Staff
                 ClearField();
                 ActiveButton(sender);
                 LoadTheme(panelSubjectList);
+                ThemeTemplate.SDataGridView(panelSubjectList, BorderStyle.FixedSingle);
                 panelSubjectList.Dock = DockStyle.Fill;
                 panelSubjectList.Visible = true;
 

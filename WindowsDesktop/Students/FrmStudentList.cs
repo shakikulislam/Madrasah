@@ -18,7 +18,7 @@ namespace WindowsDesktop.Students
         private void LoadTheme(Control control)
         {
             ThemeTemplate.LoadTheme(control);
-            ThemeTemplate.SDataGridView(control, DataGridViewCellBorderStyle.Single);
+            ThemeTemplate.SDataGridView(control);
         }
 
         private void LoadStudentList(string filter="")

@@ -170,13 +170,15 @@ namespace WindowsDesktop.Theme
             }
         }
 
-        public static void SDataGridView(Control control, DataGridViewCellBorderStyle cellBorderStyle= DataGridViewCellBorderStyle.None)
+        public static void SDataGridView(Control control, BorderStyle borderStyle = BorderStyle.None)
         {
             // DataGridView
             foreach (var gridView in control.Controls.OfType<DataGridView>())
             {
-                var dividerHeight = cellBorderStyle == DataGridViewCellBorderStyle.None ? 1 : 0;
-                var borderStyle = cellBorderStyle == DataGridViewCellBorderStyle.None ? BorderStyle.FixedSingle : BorderStyle.None;
+                var dividerHeight = borderStyle == BorderStyle.None ? 0 : 1;
+                var cellBorder = borderStyle==BorderStyle.None ? DataGridViewCellBorderStyle.Single : DataGridViewCellBorderStyle.None;
+
+                //var borderStyle = cellBorderStyle == DataGridViewCellBorderStyle.None ? BorderStyle.FixedSingle : BorderStyle.None;
 
                 gridView.BackgroundColor = STheme.SColor.BackColor;
                 gridView.RowsDefaultCellStyle.BackColor = STheme.SColor.BackColor;
@@ -212,7 +214,7 @@ namespace WindowsDesktop.Theme
                 gridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 gridView.ColumnHeadersHeight = 30;
                 gridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-                gridView.CellBorderStyle = cellBorderStyle;
+                gridView.CellBorderStyle = cellBorder;
                 gridView.RowTemplate.Resizable = DataGridViewTriState.False;
                 gridView.RowTemplate.DividerHeight = dividerHeight;
                 gridView.RowTemplate.Height = 25;

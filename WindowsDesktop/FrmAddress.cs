@@ -24,6 +24,7 @@ namespace WindowsDesktop
             LoadThemeTemplate(flowLayoutPanelAddress);
             LoadThemeTemplate(groupBoxAdd);
             ThemeTemplate.SPictureBox(panelAddress, BorderStyle.None);
+            ThemeTemplate.SDataGridView(flowLayoutPanelAddress,BorderStyle.FixedSingle);
         }
 
         // Method
