@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -242,7 +243,7 @@ namespace WindowsDesktop.Staff
                         var imgConv = new ImageConverter();
                         var bytes = (byte[]) imgConv.ConvertTo(pictureBoxStaff.Image, Type.GetType("System.Byte[]"));
 
-                        var cmd = new MySqlCommand
+                        var cmd = new SqlCommand
                         {
                             CommandText =
                                 "insert into s_employees (emp_id, name, phone, nid, desig_id,joining_date,image) values ('" +
@@ -608,7 +609,7 @@ namespace WindowsDesktop.Staff
                 var imgCon=new ImageConverter();
                 var bytes = (byte[]) imgCon.ConvertTo(pictureBoxReviewStaffImg.Image, Type.GetType("System.Byte[]"));
 
-                var cmd=new MySqlCommand();
+                var cmd=new SqlCommand();
 
                 cmd.CommandText = "UPDATE s_employees SET " +
                             "emp_id = '" + textBoxReviewEmpId.Text.Trim() +

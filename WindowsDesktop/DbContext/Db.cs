@@ -1,24 +1,24 @@
 ﻿using System.Data;
+using System.Data.SqlClient;
 using WindowsDesktop.Common;
-using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.DbContext
 {
     public class Db
     {
         // SQL connection
-        //private static string _server = "localhost";
-        private static string _databaseName = "madrasah_db";
-        private static string _userId = "shakikul";
-        //private static string _password = "";
-        private static string _password = "Shakikul@77";
+        private static string _databaseName = "MadrasahDb";
+        private static string _userId = "sa";
+        private static string _password = "bkbabu";
+        private static string _connectionString = @"Data Source=" + GlobalSettings.Server +
+                                                  "; Initial Catalog=" + _databaseName +
+                                                  "; User ID=" + _userId +
+                                                  "; Password=" + _password + "";
 
-        private static string _connectionString = "Server=" + GlobalSettings.Server + ";Database=" + _databaseName + ";Uid=" + _userId + ";Pwd=" + _password;
-
-        private static MySqlConnection conn = new MySqlConnection(_connectionString);
-        private static MySqlCommand cmd = new MySqlCommand("", conn);
-        private static MySqlDataReader dr;
-        private static MySqlDataAdapter da;
+        private static SqlConnection conn = new SqlConnection(_connectionString);
+        private static SqlCommand cmd = new SqlCommand("", conn);
+        private static SqlDataReader dr;
+        private static SqlDataAdapter da;
         private static DataTable dt;
 
         //Method
@@ -27,7 +27,7 @@ namespace WindowsDesktop.DbContext
         {
             GetConnection();
             cmd.CommandText = query;
-            da = new MySqlDataAdapter(cmd);
+            da = new SqlDataAdapter(cmd);
             dt = new DataTable();
             da.Fill(dt);
             return dt.Rows.Count>0;
@@ -55,19 +55,19 @@ namespace WindowsDesktop.DbContext
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        public static bool QueryExecute(MySqlCommand mySqlCommand)
+        public static bool QueryExecute(SqlCommand mySqlCommand)
         {
             GetConnection();
             cmd.Parameters.Clear();
             cmd.CommandText = mySqlCommand.CommandText;
-            foreach (MySqlParameter parameter in mySqlCommand.Parameters)
+            foreach (SqlParameter parameter in mySqlCommand.Parameters)
             {
                 cmd.Parameters.Add(parameter);
             }
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        public static MySqlDataReader GetDataReader(string query)
+        public static SqlDataReader GetDataReader(string query)
         {
             GetConnection();
 
@@ -80,7 +80,7 @@ namespace WindowsDesktop.DbContext
         {
             GetConnection();
             cmd.CommandText = query;
-            da = new MySqlDataAdapter(cmd);
+            da = new SqlDataAdapter(cmd);
             dt = new DataTable();
             da.Fill(dt);
             return dt;

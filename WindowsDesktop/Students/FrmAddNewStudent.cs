@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -6,12 +7,13 @@ using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Properties;
 using WindowsDesktop.Theme;
-using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.Students
 {
     public partial class FrmAddNewStudent : Form
     {
+        ClassDb _classDb = new ClassDb();
+
         public FrmAddNewStudent()
         {
             InitializeComponent();
@@ -181,12 +183,7 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                var query = "SELECT c.id, CONCAT(d.name, ' (', c.name, ')') AS name " +
-                            "FROM s_classes c " +
-                            "left join s_departments d on c.department_id=d.id " +
-                            "ORDER BY d.name, c.class_number ASC";
-
-                var dt = Db.GetDataTable(query);
+                var dt = new ClassDb().ClassList();
 
                 comboBoxClass.DataSource = null;
                 comboBoxClass.DisplayMember = "name";
@@ -203,71 +200,61 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_divisions ORDER BY name ASC";
-                
-                var dtPreAddressDivision = Db.GetDataTable(query);
+                var dtPreAddressDivision = new DivisionDb().DivisionList();
                 comboBoxPreAddressDivision.DataSource = null;
                 comboBoxPreAddressDivision.DisplayMember = "name";
                 comboBoxPreAddressDivision.ValueMember = "id";
                 comboBoxPreAddressDivision.DataSource = dtPreAddressDivision;
 
-                var dtPerAddressDivision = Db.GetDataTable(query);
+                var dtPerAddressDivision = new DivisionDb().DivisionList();
                 comboBoxPerAddressDivision.DataSource = null;
                 comboBoxPerAddressDivision.DisplayMember = "name";
                 comboBoxPerAddressDivision.ValueMember = "id";
                 comboBoxPerAddressDivision.DataSource = dtPerAddressDivision;
 
-                var dtGrdAddressDivision = Db.GetDataTable(query);
+                var dtGrdAddressDivision = new DivisionDb().DivisionList();
                 comboBoxGrdAddressDivision.DataSource = null;
                 comboBoxGrdAddressDivision.DisplayMember = "name";
                 comboBoxGrdAddressDivision.ValueMember = "id";
                 comboBoxGrdAddressDivision.DataSource = dtGrdAddressDivision;
 
             }
-            catch
+            catch (Exception ex)
             {
-                //
+                throw new Exception(ex.Message);
             }
         }
 
         private void LoadDistrict(ComboBox comboBox, string divisionId)
         {
-            var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_districts where division_id=" + divisionId + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = new DistrictDb().DistrictListByDivisionId(divisionId);
         }
 
         private void LoadUpazila(ComboBox comboBox, string districtId)
         {
-            var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_upazilas where district_id=" + districtId + " ORDER BY name ASC";
-            comboBox.DataSource = null;
+           comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = new DistrictDb().DistrictListByDivisionId(districtId);
         }
 
         private void LoadUnion(ComboBox comboBox, string upazilaId)
         {
-            var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_unions where upazila_id=" + upazilaId + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = new UnionDb().UnionListByUpazilaId(upazilaId);
         }
 
         private void LoadVillage(ComboBox comboBox, string unionId)
         {
-            var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_villages where union_id=" + unionId + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = new VillageDb().VillageListByUnionId(unionId);
         }
 
         private void buttonSavePersonalInfo_Click(object sender, EventArgs e)
@@ -844,7 +831,7 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                var cmd = new MySqlCommand
+                var cmd = new SqlCommand
                 {
                     CommandText = "UPDATE s_students SET " +
                                   "form_number = '" + textBoxReviewFormNo.Text.Trim() +

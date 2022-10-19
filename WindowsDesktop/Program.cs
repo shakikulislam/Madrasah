@@ -23,7 +23,7 @@ namespace WindowsDesktop
             try
             {
                 //var server = string.Concat(new string[] {File.ReadAllText("host.txt")});
-                GlobalSettings.Server = "localhost";
+                GlobalSettings.Server = "SHAKIKUL\\SQLEXPRESS";
                 //GlobalSettings.Server = "192.168.0.247;Port:3306";
             }
             catch { }
@@ -36,7 +36,7 @@ namespace WindowsDesktop
             {
                 try
                 {
-                    GlobalSettings.OfficeInfo = Db.GetDataTable("SELECT * FROM s_offices WHERE status='A'");
+                    GlobalSettings.OfficeInfo = Db.GetDataTable("SELECT * FROM s_office WHERE status='A'");
                 }
                 catch (Exception ex)
                 {

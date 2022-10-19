@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -385,7 +386,7 @@ namespace WindowsDesktop.Staff
                 var isValid = ThemeTemplate.SValidate(tabPagePersonalInformation, errorProviderDetails);
                 if (isValid)
                 {
-                    var cmd = new MySqlCommand();
+                    var cmd = new SqlCommand();
                     cmd.CommandText = "UPDATE s_employees SET emp_id='" + textBoxEmpId.Text.Trim() +
                                       "', name='" + textBoxFullName.Text.Trim() +
                                       "', phone='" + textBoxPhone.Text.Trim() +

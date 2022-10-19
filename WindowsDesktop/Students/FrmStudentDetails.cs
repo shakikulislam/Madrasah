@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -6,7 +7,6 @@ using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Properties;
 using WindowsDesktop.Theme;
-using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.Students
 {
@@ -469,7 +469,7 @@ namespace WindowsDesktop.Students
                 var isValid = ThemeTemplate.SValidate(tabPagePersonalInformation, errorProviderDetails);
                 if (isValid)
                 {
-                    var cmd = new MySqlCommand
+                    var cmd = new SqlCommand
                     {
                         CommandText = "UPDATE s_students SET name='" + textBoxReviewFullName.Text.Trim() +
                                       "', phone='" + textBoxReviewPhone.Text.Trim() +
