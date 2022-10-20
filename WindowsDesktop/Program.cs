@@ -22,8 +22,8 @@ namespace WindowsDesktop
             Application.DoEvents();
             try
             {
-                //var server = string.Concat(new string[] {File.ReadAllText("host.txt")});
-                GlobalSettings.Server = "SHAKIKUL\\SQLEXPRESS";
+                var server = string.Concat(new string[] {File.ReadAllText("host.txt")});
+                GlobalSettings.Server = server;
                 //GlobalSettings.Server = "192.168.0.247;Port:3306";
             }
             catch { }

@@ -21,19 +21,17 @@ namespace WindowsDesktop.Students
             ThemeTemplate.SDataGridView(control);
         }
 
-        private void LoadStudentList(string filter="")
+        private void LoadStudentList()
         {
-            var query = "";
-            if (string.IsNullOrEmpty(filter))
+            try
             {
-                query = "SELECT st.*, concat(dp.name,' (',cs.name,')') AS class_name " +
-                        "FROM s_students AS st " +
-                        "LEFT JOIN s_classes AS cs ON st.class_id=cs.id " +
-                        "LEFT JOIN s_departments AS dp ON cs.department_id=dp.id " +
-                        "WHERE roll <> 0";
+                var studentSet = new StudentDb().List();
+                dataGridViewStudentList.DataSource = studentSet;
             }
-            var studentSet = Db.GetDataTable(query);
-            dataGridViewStudentList.DataSource = studentSet;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
