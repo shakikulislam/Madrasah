@@ -15,7 +15,7 @@ namespace WindowsDesktop.Academic
         
         private void LoadDepartment(Control control)
         {
-            var query = "select id, name from s_departments";
+            var query = "select id, name from s_department";
             var departmentList = Db.GetDataTable(query);
 
             switch (control)
@@ -76,11 +76,11 @@ namespace WindowsDesktop.Academic
 
                     if (buttonAddDepartment.Text == "Add")
                     {
-                        query = "insert into s_departments (name) values ('" + textBoxDepartmentName.Text.Trim() + "')";
+                        query = "insert into s_department (Id, Name) values ((SELECT ISNULL(MAX(Id)+1,1) AS Id FROM S_Department),'" + textBoxDepartmentName.Text.Trim() + "')";
                     }
                     else if (buttonAddDepartment.Text == "Update")
                     {
-                        query = "update s_departments set name='" + textBoxDepartmentName.Text.Trim() +
+                        query = "update s_department set name='" + textBoxDepartmentName.Text.Trim() +
                                 "' where id='" + textBoxDepartmentName.Tag + "'";
                     }
 

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
@@ -27,12 +25,12 @@ namespace WindowsDesktop.Academic
 
         private void LoadTime()
         {
-            var classList = Db.GetDataTable("SELECT id, name FROM s_classes WHERE NAME <> '' ORDER BY class_number");
+            var classList = Db.GetDataTable("SELECT id, name FROM s_class WHERE NAME <> '' ORDER BY class_number");
             comboBoxClass.ValueMember = "id";
             comboBoxClass.DisplayMember = "name";
             comboBoxClass.DataSource = classList;
 
-            var teacherList = Db.GetDataTable("SELECT id, name FROM s_employees WHERE status='A'");
+            var teacherList = Db.GetDataTable("SELECT id, name FROM s_employee WHERE status='A'");
             comboBoxTeacher.ValueMember = "id";
             comboBoxTeacher.DisplayMember = "name";
             comboBoxTeacher.DataSource = teacherList;
@@ -44,9 +42,9 @@ namespace WindowsDesktop.Academic
         {
             var subjectList = Db.GetDataTable(query: "SELECT s.id, s.code, s.name, s.mark, s.class_id, " +
                                                      "c.name AS class_name, s.teacher_id, e.name AS teacher_name " +
-                                                     "FROM s_subjects s " +
-                                                     "LEFT JOIN s_classes c ON s.class_id = c.id " +
-                                                     "LEFT JOIN s_employees e ON s.teacher_id = e.id");
+                                                     "FROM s_subject s " +
+                                                     "LEFT JOIN s_class c ON s.class_id = c.id " +
+                                                     "LEFT JOIN s_employee e ON s.teacher_id = e.id");
 
             dataGridViewSubjectList.Columns[ColumnCode.Index].DataPropertyName = "code";
             dataGridViewSubjectList.Columns[ColumnName.Index].DataPropertyName = "name";
@@ -82,16 +80,18 @@ namespace WindowsDesktop.Academic
                 switch (buttonSubmit.Text)
                 {
                     case "Add":
-                        query = "INSERT INTO s_subjects (class_id, code, name, mark, teacher_id, create_by)" +
-                                "VALUES(" + comboBoxClass.SelectedValue + ",'" + textBoxSubjectCode.Text.Trim() +
+                        query = "INSERT INTO s_subject (id, class_id, code, name, mark, teacher_id, create_by, create_date, status)" +
+                                "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_SUBJECT)," 
+                                + comboBoxClass.SelectedValue + ",'" + textBoxSubjectCode.Text.Trim() +
                                 "','" + textBoxSubjectName.Text.Trim() + "'," + numericUpDownMark.Text + "," +
-                                comboBoxTeacher.SelectedValue + ",'" + GlobalSettings.UserName + "' )";
+                                comboBoxTeacher.SelectedValue + ",'" + GlobalSettings.UserName + "', '" + 
+                                DateTime.Now.ToString(GlobalSettings.DateFormatSave) + "','A' )";
                         break;
                     case "Update":
-                        query = "UPDATE s_subjects SET class_id=" + comboBoxClass.SelectedValue + ", name='" +
+                        query = "UPDATE s_subject SET class_id=" + comboBoxClass.SelectedValue + ", name='" +
                                 textBoxSubjectName.Text.Trim() + "', mark=" + numericUpDownMark.Text + ", teacher_id=" +
                                 comboBoxTeacher.SelectedValue + ", update_by='" + GlobalSettings.UserName +
-                                "', update_date=current_timestamp() " +
+                                "', update_date='"+DateTime.Now.ToString(GlobalSettings.DateFormatSave)+"' " +
                                 "WHERE id=" + textBoxSubjectCode.Tag + "";
                         break;
                 }

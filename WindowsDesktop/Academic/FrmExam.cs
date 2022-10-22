@@ -27,7 +27,7 @@ namespace WindowsDesktop.Academic
 
         private void LoadExam()
         {
-            var dt = Db.GetDataTable("SELECT * FROM s_exams");
+            var dt = Db.GetDataTable("SELECT * FROM s_exam");
             dataGridViewExamList.DataSource = dt;
         }
 
@@ -44,12 +44,14 @@ namespace WindowsDesktop.Academic
                         switch (buttonAdd.Text)
                         {
                             case "Add":
-                                query="INSERT INTO s_exams (name, effect_on_final, effect_percent) VALUES('" +
-                                      textBoxExamName.Text.Trim() + "'," + checkBoxEffectOnFinal.Checked + "," + numericUpDownEffectPersent.Text + ")";
+                                query="INSERT INTO s_exam (id, name, effect_on_final, effect_percent) " +
+                                      "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_EXAM),'" +
+                                      textBoxExamName.Text.Trim() + "','" + checkBoxEffectOnFinal.Checked + "'," + 
+                                      numericUpDownEffectPersent.Text + ")";
                                 break;
                             case "Update":
-                                query = "UPDATE s_exams SET name='" + textBoxExamName.Text.Trim() + "', effect_on_final=" +
-                                        checkBoxEffectOnFinal.Checked + ", effect_percent=" + numericUpDownEffectPersent.Text 
+                                query = "UPDATE s_exam SET name='" + textBoxExamName.Text.Trim() + "', effect_on_final='" +
+                                        checkBoxEffectOnFinal.Checked + "', effect_percent=" + numericUpDownEffectPersent.Text 
                                         + " WHERE id=" + textBoxExamName.Tag + "";
                                 break;
                         }

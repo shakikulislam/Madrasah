@@ -28,8 +28,8 @@ namespace WindowsDesktop.Staff
             if (string.IsNullOrEmpty(filter))
             {
                 query = "SELECT emp.id, emp.emp_id, emp.name, emp.phone, d.name AS designation " +
-                        "FROM s_employees emp " +
-                        "LEFT JOIN s_employee_designations d ON emp.desig_id = d.id";
+                        "FROM s_employee emp " +
+                        "LEFT JOIN s_employee_designation d ON emp.desig_id = d.id";
             }
             var studentSet = Db.GetDataTable(query);
             dataGridViewStaffList.DataSource = studentSet;

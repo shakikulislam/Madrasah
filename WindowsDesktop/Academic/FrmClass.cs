@@ -20,7 +20,7 @@ namespace WindowsDesktop.Academic
         
         private void LoadDepartment(Control control)
         {
-            var query = "select id, name from s_departments";
+            var query = "select id, name from s_department";
             var departmentList = Db.GetDataTable(query);
 
             switch (control)
@@ -40,7 +40,7 @@ namespace WindowsDesktop.Academic
 
         private void LoadTeacher(ComboBox comboBox)
         {
-            var query = "select id, name from s_employees WHERE status='A'";
+            var query = "select id, name from s_employee WHERE status='A'";
             var staffList = Db.GetDataTable(query);
 
             comboBox.DisplayMember = "name";
@@ -51,9 +51,9 @@ namespace WindowsDesktop.Academic
         private void LoadClass()
         {
             var query = "select c.id, c.name AS className, c.class_number as classNumber, d.name as department, " +
-                        "e.name as teacher_name from s_classes c " +
-                        "left join s_departments d on c.department_id = d.id " +
-                        "left join s_employees e on c.teacher_id = e.id " +
+                        "e.name as teacher_name from s_class c " +
+                        "left join s_department d on c.department_id = d.id " +
+                        "left join s_employee e on c.teacher_id = e.id " +
                         "order by c.department_id, c.class_number asc";
             var classList = Db.GetDataTable(query);
             dataGridViewClass.DataSource = classList;
@@ -91,18 +91,20 @@ namespace WindowsDesktop.Academic
 
                     if (buttonClassUpdate.Text == "Add")
                     {
-                        query = "insert into s_classes (name,class_number,department_id,teacher_id) values ('" +
+                        query = "insert into s_class (id, name,class_number,department_id,teacher_id) values " +
+                                "((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_CLASS),'" +
                                 textBoxClassName.Text.Trim() + "','" + numericUpDownClassNumber.Text.Trim() +
                                 "','" + comboBoxClassDepartment.SelectedValue + "','" + comboBoxTeacher.SelectedValue + "')";
                     }
                     else if (buttonClassUpdate.Text == "Update")
                     {
-                        query = "update s_classes set name='" + textBoxClassName.Text.Trim() +
+                        query = "update s_class set name='" + textBoxClassName.Text.Trim() +
                                 "', class_number='" + numericUpDownClassNumber.Text.Trim() +
                                 "', department_id='" + comboBoxClassDepartment.SelectedValue +
                                 "', teacher_id='" + comboBoxTeacher.SelectedValue +
                                 "', update_by = '" + GlobalSettings.UserName +
-                                "', update_date=CURRENT_TIMESTAMP() where id = '" + textBoxClassName.Tag + "'";
+                                "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
+                                "' where id = '" + textBoxClassName.Tag + "'";
                     }
 
                     var isExecute = Db.QueryExecute(query);

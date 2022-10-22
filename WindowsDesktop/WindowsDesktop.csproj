@@ -123,7 +123,6 @@
       <DependentUpon>frmWaiting.cs</DependentUpon>
     </Compile>
     <Compile Include="DbContext\AddressDb.cs" />
-    <Compile Include="DbContext\ClassDb.cs" />
     <Compile Include="DbContext\Db.cs" />
     <Compile Include="Common\GlobalSettings.cs" />
     <Compile Include="Academic\FrmAcademic.cs">

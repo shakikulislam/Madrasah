@@ -7,7 +7,6 @@ using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Properties;
 using WindowsDesktop.Theme;
-using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.Staff
 {
@@ -35,7 +34,7 @@ namespace WindowsDesktop.Staff
         {
             try
             {
-                var query = "SELECT id, name FROM s_employee_designations WHERE name <> 'SA' ORDER BY number ASC";
+                var query = "SELECT id, name FROM s_employee_designation WHERE name <> 'SA' ORDER BY number ASC";
                 var desigList = Db.GetDataTable(query);
 
                 comboBoxDesignation.ValueMember = "id";
@@ -90,7 +89,7 @@ namespace WindowsDesktop.Staff
         {
             try
             {
-                var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_divisions ORDER BY name ASC";
+                var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_division ORDER BY name ASC";
 
                 var dtPreDivision = Db.GetDataTable(query);
                 comboBoxReviewPreDivision.DataSource = null;
@@ -119,7 +118,7 @@ namespace WindowsDesktop.Staff
                 : cmdBox.SelectedValue.ToString();
 
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_districts where division_id=" + id + " ORDER BY name ASC";
+                        "FROM s_district where division_id=" + id + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -134,7 +133,7 @@ namespace WindowsDesktop.Staff
                 : cmdBox.SelectedValue.ToString();
 
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_upazilas where district_id=" + id + " ORDER BY name ASC";
+                        "FROM s_upazila where district_id=" + id + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -149,7 +148,7 @@ namespace WindowsDesktop.Staff
                 : cmdBox.SelectedValue.ToString();
 
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_unions where upazila_id=" + id + " ORDER BY name ASC";
+                        "FROM s_union where upazila_id=" + id + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -164,7 +163,7 @@ namespace WindowsDesktop.Staff
                 : cmdBox.SelectedValue.ToString();
 
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_villages where union_id=" + id + " ORDER BY name ASC";
+                        "FROM s_village where union_id=" + id + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -228,7 +227,7 @@ namespace WindowsDesktop.Staff
                         ? DateTime.Now.Date
                         : Convert.ToDateTime(dr["joining_date"].ToString());
 
-                    pictureBoxStaff.Image = GlobalSettings.ByteToImage(dr["image"], Resources.no_person_image);
+                    pictureBoxStaff.Image = GlobalSettings.ByteToImage(dr["PICTURE"], Resources.no_person_image);
 
                     // Present and Permanent Address
 
@@ -387,7 +386,7 @@ namespace WindowsDesktop.Staff
                 if (isValid)
                 {
                     var cmd = new SqlCommand();
-                    cmd.CommandText = "UPDATE s_employees SET emp_id='" + textBoxEmpId.Text.Trim() +
+                    cmd.CommandText = "UPDATE s_employee SET emp_id='" + textBoxEmpId.Text.Trim() +
                                       "', name='" + textBoxFullName.Text.Trim() +
                                       "', phone='" + textBoxPhone.Text.Trim() +
                                       "', nid='" + textBoxNid.Text.Trim() +
@@ -395,10 +394,11 @@ namespace WindowsDesktop.Staff
                                       "', dob='" + dateTimePickerDob.Value.ToString(GlobalSettings.DateFormatSave) +
                                       "', joining_date='" +
                                       dateTimePickerJoiningDate.Value.ToString(GlobalSettings.DateFormatSave) +
-                                      "', image=@img" +
+                                      "', PICTURE=@img" +
                                       ", update_by='" + GlobalSettings.UserName +
-                                      "', update_date=current_timestamp() " +
+                                      "', update_date=current_timestamp " +
                                       "WHERE id='" + _staffId + "'";
+                    
                     cmd.Parameters.AddWithValue("@img", GlobalSettings.ImageToByte(pictureBoxStaff.Image));
                     var isUpdate = Db.QueryExecute(cmd);
                     MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
@@ -406,7 +406,7 @@ namespace WindowsDesktop.Staff
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -416,7 +416,7 @@ namespace WindowsDesktop.Staff
             {
                 var isValid = ThemeTemplate.SValidate(tabPageAddress, errorProviderDetails);
                 if (!isValid) return;
-                var query = "UPDATE s_addresses SET p_division_id='" + comboBoxReviewPerDivision.SelectedValue +
+                var query = "UPDATE s_address SET p_division_id='" + comboBoxReviewPerDivision.SelectedValue +
                          "', p_district_id='" + comboBoxReviewPerDistrict.SelectedValue +
                          "', p_upazila_id='" + comboBoxReviewPerUpazila.SelectedValue +
                          "', p_union_id='" + comboBoxReviewPerUnion.SelectedValue +
@@ -478,9 +478,9 @@ namespace WindowsDesktop.Staff
                 panelSubjectList.Visible = true;
 
                 var query = "SELECT sb.id, sb.name AS subject, sb.mark, c.name as class, d.name AS department " +
-                            "FROM s_subjects AS sb " +
-                            "LEFT JOIN s_classes AS c ON sb.class_id = c.id " +
-                            "LEFT JOIN s_departments AS d ON c.department_id = d.id " +
+                            "FROM s_subject AS sb " +
+                            "LEFT JOIN s_class AS c ON sb.class_id = c.id " +
+                            "LEFT JOIN s_department AS d ON c.department_id = d.id " +
                             "WHERE sb.teacher_id = " + _staffId + "";
                 var dt = Db.GetDataTable(query);
                 dataGridViewSubjectList.DataSource = dt;

@@ -7,7 +7,6 @@ using WindowsDesktop.Common;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Properties;
 using WindowsDesktop.Theme;
-using MySql.Data.MySqlClient;
 
 namespace WindowsDesktop.Staff
 {
@@ -31,7 +30,7 @@ namespace WindowsDesktop.Staff
         {
             try
             {
-                var query = "SELECT id, name FROM s_employee_designations WHERE name <> 'SA' ORDER BY number ASC";
+                var query = "SELECT id, name FROM s_employee_designation WHERE name <> 'SA' ORDER BY number ASC";
                 var desigList = Db.GetDataTable(query);
 
                 comboBoxDesignation.ValueMember = "id";
@@ -139,7 +138,7 @@ namespace WindowsDesktop.Staff
         {
             try
             {
-                var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_divisions ORDER BY name ASC";
+                var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_division ORDER BY name ASC";
                 
                 var dtPreAddressDivision = Db.GetDataTable(query);
                 comboBoxPreAddressDivision.DataSource = null;
@@ -162,7 +161,7 @@ namespace WindowsDesktop.Staff
         private void LoadDistrict(ComboBox comboBox, string divisionId)
         {
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_districts where division_id=" + divisionId + " ORDER BY name ASC";
+                        "FROM s_district where division_id=" + divisionId + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -172,7 +171,7 @@ namespace WindowsDesktop.Staff
         private void LoadUpazila(ComboBox comboBox, string districtId)
         {
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_upazilas where district_id=" + districtId + " ORDER BY name ASC";
+                        "FROM s_upazila where district_id=" + districtId + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -182,7 +181,7 @@ namespace WindowsDesktop.Staff
         private void LoadUnion(ComboBox comboBox, string upazilaId)
         {
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_unions where upazila_id=" + upazilaId + " ORDER BY name ASC";
+                        "FROM s_union where upazila_id=" + upazilaId + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -192,7 +191,7 @@ namespace WindowsDesktop.Staff
         private void LoadVillage(ComboBox comboBox, string unionId)
         {
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_villages where union_id=" + unionId + " ORDER BY name ASC";
+                        "FROM s_village where union_id=" + unionId + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -217,7 +216,7 @@ namespace WindowsDesktop.Staff
                 if (isValid)
                 {
                     var already = false;
-                    var query = "select * from s_employees where nid='" + textBoxNid.Text.Trim() + "' ";
+                    var query = "select * from s_employee where nid='" + textBoxNid.Text.Trim() + "' ";
                     var staffInfo = Db.GetDataReader(query);
 
                     if (staffInfo.HasRows)
@@ -246,7 +245,8 @@ namespace WindowsDesktop.Staff
                         var cmd = new SqlCommand
                         {
                             CommandText =
-                                "insert into s_employees (emp_id, name, phone, nid, desig_id,joining_date,image) values ('" +
+                                "insert into s_employee (id, emp_id, name, phone, nid, desig_id,joining_date,image) " +
+                                "values ((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_EMPLOYEE),'" +
                                 textBoxEmpId.Text.Trim() +
                                 "', '" + textBoxFullName.Text.Trim() + "', '" + textBoxPhone.Text.Trim() + "', '" +
                                 textBoxNid.Text.Trim() +
@@ -259,7 +259,7 @@ namespace WindowsDesktop.Staff
 
                         if (isSaved)
                         {
-                            query = "select * from s_employees where nid='" + textBoxNid.Text.Trim() + "' ";
+                            query = "select * from s_employee where nid='" + textBoxNid.Text.Trim() + "' ";
                             staffInfo = Db.GetDataReader(query);
                             if (staffInfo.HasRows)
                             {
@@ -611,20 +611,20 @@ namespace WindowsDesktop.Staff
 
                 var cmd=new SqlCommand();
 
-                cmd.CommandText = "UPDATE s_employees SET " +
+                cmd.CommandText = "UPDATE s_employee SET " +
                             "emp_id = '" + textBoxReviewEmpId.Text.Trim() +
                             "',name = '" + textBoxReviewFullName.Text.Trim() +
                             "',phone = '" + textBoxReviewPhone.Text.Trim() +
                             "',nid = '" + textBoxReviewNid.Text.Trim() +
                             "',desig_id  = '" + comboBoxReviewDesignation.SelectedValue +
                             "',joining_date = '" + dateTimePickerReviewJoiningDate.Value.ToString(GlobalSettings.DateFormatSave) +
-                            "',image = @img" +
+                            "',PICTURE = @img" +
                             ",create_by = '" + GlobalSettings.UserName +
-                            "',create_date = current_timestamp() " +
+                            "',create_date = current_timestamp " +
                             "WHERE id='" + labelFullName.Tag + "' ";
                 cmd.Parameters.AddWithValue("@img", bytes);
 
-                var queryAddress = "INSERT INTO s_addresses(person_id" +
+                var queryAddress = "INSERT INTO s_address(ID, person_id" +
                          ",p_division_id," +
                          "p_district_id," +
                          "p_upazila_id," +
@@ -638,7 +638,7 @@ namespace WindowsDesktop.Staff
                          "m_village_id," +
                          "m_details," +
                          "who)" +
-                         "VALUES('" + labelFullName.Tag +
+                         "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_ADDRESS),'" + labelFullName.Tag +
                          "','" + comboBoxReviewPerDivision.SelectedValue +
                          "','" + comboBoxReviewPerDistrict.SelectedValue +
                          "','" + comboBoxReviewPerUpazila.SelectedValue +

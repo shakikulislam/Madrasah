@@ -12,7 +12,7 @@ namespace WindowsDesktop.Students
 {
     public partial class FrmAddNewStudent : Form
     {
-        ClassDb _classDb = new ClassDb();
+        //ClassDb _classDb = new ClassDb();
 
         public FrmAddNewStudent()
         {
@@ -183,12 +183,12 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                var dt = new ClassDb().ClassList();
+                //var dt = new ClassDb().ClassList();
 
-                comboBoxClass.DataSource = null;
-                comboBoxClass.DisplayMember = "name";
-                comboBoxClass.ValueMember = "id";
-                comboBoxClass.DataSource = dt;
+                //comboBoxClass.DataSource = null;
+                //comboBoxClass.DisplayMember = "name";
+                //comboBoxClass.ValueMember = "id";
+                //comboBoxClass.DataSource = dt;
             }
             catch
             {

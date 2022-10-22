@@ -55,16 +55,16 @@ namespace WindowsDesktop.DbContext
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        public static bool QueryExecute(SqlCommand mySqlCommand)
+        public static bool QueryExecute(SqlCommand sqlCommand)
         {
             GetConnection();
-            cmd.Parameters.Clear();
-            cmd.CommandText = mySqlCommand.CommandText;
-            foreach (SqlParameter parameter in mySqlCommand.Parameters)
+            var cmd1 = new SqlCommand(sqlCommand.CommandText, conn);
+            cmd1.Parameters.Clear();
+            foreach (SqlParameter parameter in sqlCommand.Parameters)
             {
-                cmd.Parameters.Add(parameter);
+                cmd1.Parameters.Add(parameter);
             }
-            return cmd.ExecuteNonQuery() > 0;
+            return cmd1.ExecuteNonQuery() > 0;
         }
 
         public static SqlDataReader GetDataReader(string query)

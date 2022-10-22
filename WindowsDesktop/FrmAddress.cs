@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using WindowsDesktop.DbContext;
 using WindowsDesktop.Theme;
@@ -73,7 +71,7 @@ namespace WindowsDesktop
         {
             try
             {
-                var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn FROM s_divisions ORDER BY name ASC";
+                var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn FROM s_division ORDER BY name ASC";
                 
                 dataGridViewDivision.DataSource = Db.GetDataTable(query);
             }
@@ -104,7 +102,7 @@ namespace WindowsDesktop
                 textBoxDivision.Text = dataGridViewDivision.SelectedRows[0].Cells["ColumnDivisionName"].Value.ToString();
 
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn " +
-                            "FROM s_districts where division_id=" + dataGridViewDivision.Tag + " ORDER BY name ASC";
+                            "FROM s_district where division_id=" + dataGridViewDivision.Tag + " ORDER BY name ASC";
 
                 dataGridViewDistrict.DataSource = Db.GetDataTable(query);
             }
@@ -145,7 +143,7 @@ namespace WindowsDesktop
                 textBoxDistrict.Text = dataGridViewDistrict.SelectedRows[0].Cells["ColumnDistrictName"].Value.ToString();
 
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn " +
-                            "FROM s_upazilas where district_id=" + dataGridViewDistrict.Tag + " ORDER BY name ASC";
+                            "FROM s_upazila where district_id=" + dataGridViewDistrict.Tag + " ORDER BY name ASC";
 
                 dataGridViewUpazila.DataSource = Db.GetDataTable(query);
             }
@@ -180,7 +178,7 @@ namespace WindowsDesktop
                 textBoxUpazila.Text = dataGridViewUpazila.SelectedRows[0].Cells["ColumnUpazilaName"].Value.ToString();
 
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn " +
-                            "FROM s_unions where upazila_id=" + dataGridViewUpazila.Tag + " ORDER BY name ASC";
+                            "FROM s_union where upazila_id=" + dataGridViewUpazila.Tag + " ORDER BY name ASC";
 
                 dataGridViewUnion.DataSource = Db.GetDataTable(query);
             }
@@ -211,7 +209,7 @@ namespace WindowsDesktop
                 textBoxUnion.Text = dataGridViewUnion.SelectedRows[0].Cells["ColumnUnionName"].Value.ToString();
 
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn " +
-                            "FROM s_villages where union_id=" + dataGridViewUnion.Tag + " ORDER BY name ASC";
+                            "FROM s_village where union_id=" + dataGridViewUnion.Tag + " ORDER BY name ASC";
 
                 dataGridViewVillage.DataSource = Db.GetDataTable(query);
             }
@@ -269,7 +267,7 @@ namespace WindowsDesktop
             ClearField();
             groupBoxAdd.Text = "Add Upazila Under " + textBoxDistrict.Text + " District";
             buttonAdd.Text = "Add";
-            groupBoxAdd.Tag = "s_upazilas";
+            groupBoxAdd.Tag = "s_upazila";
             _foreignKeyColumn = "district_id";
             _foreignKeyValue = dataGridViewDistrict.Tag.ToString();
             groupBoxAdd.Visible = true;
@@ -280,7 +278,7 @@ namespace WindowsDesktop
             ClearField();
             groupBoxAdd.Text = "Add Union Under " + textBoxUpazila.Text + " Upazila";
             buttonAdd.Text = "Add";
-            groupBoxAdd.Tag = "s_unions";
+            groupBoxAdd.Tag = "s_union";
             _foreignKeyColumn = "upazila_id";
             _foreignKeyValue = dataGridViewUpazila.Tag.ToString();
             groupBoxAdd.Visible = true;
@@ -291,7 +289,7 @@ namespace WindowsDesktop
             ClearField();
             groupBoxAdd.Text = "Add Village Under " + textBoxUnion.Text + " Union";
             buttonAdd.Text = "Add";
-            groupBoxAdd.Tag = "s_villages";
+            groupBoxAdd.Tag = "s_village";
             _foreignKeyColumn = "union_id";
             _foreignKeyValue = dataGridViewUnion.Tag.ToString();
             groupBoxAdd.Visible = true;
@@ -302,12 +300,12 @@ namespace WindowsDesktop
             ClearField();
             groupBoxAdd.Text = "Update District";
             buttonAdd.Text = "Update";
-            groupBoxAdd.Tag = "s_divisions";
+            groupBoxAdd.Tag = "s_division";
             _foreignKeyColumn = "";
             _foreignKeyValue = "";
             groupBoxAdd.Visible = true;
 
-            ViewForEdit("s_divisions", dataGridViewDivision.Tag.ToString());
+            ViewForEdit("s_division", dataGridViewDivision.Tag.ToString());
         }
 
         private void iconPictureBoxUpdateDistrict_Click(object sender, EventArgs e)
@@ -315,12 +313,12 @@ namespace WindowsDesktop
             ClearField();
             groupBoxAdd.Text = "Update District";
             buttonAdd.Text = "Update";
-            groupBoxAdd.Tag = "s_districts";
+            groupBoxAdd.Tag = "s_district";
             _foreignKeyColumn = "division_id";
             _foreignKeyValue = dataGridViewDivision.Tag.ToString();
             groupBoxAdd.Visible = true;
 
-            ViewForEdit("s_districts", dataGridViewDistrict.Tag.ToString());
+            ViewForEdit("s_district", dataGridViewDistrict.Tag.ToString());
         }
 
         private void iconPictureBoxUpdateUpazila_Click(object sender, EventArgs e)
@@ -328,12 +326,12 @@ namespace WindowsDesktop
             ClearField();
             groupBoxAdd.Text = "Update Upazila";
             buttonAdd.Text = "Update";
-            groupBoxAdd.Tag = "s_upazilas";
+            groupBoxAdd.Tag = "s_upazila";
             _foreignKeyColumn = "district_id";
             _foreignKeyValue = dataGridViewDistrict.Tag.ToString();
             groupBoxAdd.Visible = true;
 
-            ViewForEdit("s_upazilas", dataGridViewUpazila.Tag.ToString());
+            ViewForEdit("s_upazila", dataGridViewUpazila.Tag.ToString());
         }
 
         private void iconPictureBoxUpdateUnion_Click(object sender, EventArgs e)
@@ -341,12 +339,12 @@ namespace WindowsDesktop
             ClearField();
             groupBoxAdd.Text = "Update Union";
             buttonAdd.Text = "Update";
-            groupBoxAdd.Tag = "s_unions";
+            groupBoxAdd.Tag = "s_union";
             _foreignKeyColumn = "upazila_id";
             _foreignKeyValue = dataGridViewUpazila.Tag.ToString();
             groupBoxAdd.Visible = true;
 
-            ViewForEdit("s_unions", dataGridViewUnion.Tag.ToString());
+            ViewForEdit("s_union", dataGridViewUnion.Tag.ToString());
         }
 
         private void iconPictureBoxUpdateVillage_Click(object sender, EventArgs e)
@@ -354,12 +352,12 @@ namespace WindowsDesktop
             ClearField();
             groupBoxAdd.Text = "Update Village";
             buttonAdd.Text = "Update";
-            groupBoxAdd.Tag = "s_villages";
+            groupBoxAdd.Tag = "s_village";
             _foreignKeyColumn = "union_id";
             _foreignKeyValue = dataGridViewUnion.Tag.ToString();
             groupBoxAdd.Visible = true;
 
-            ViewForEdit("s_villages", dataGridViewVillage.Tag.ToString());
+            ViewForEdit("s_village", dataGridViewVillage.Tag.ToString());
         }
 
         private void iconPictureBoxClose_Click(object sender, EventArgs e)
@@ -384,13 +382,14 @@ namespace WindowsDesktop
                     switch (buttonAdd.Text)
                     {
                         case "Add":
-                            query = "INSERT INTO " + groupBoxAdd.Tag + " (" + fkn + "name, name_bn) VALUES (" + fkv + "'" +
-                                    textBoxNameEnglish.Text.Trim() + "','" + textBoxNameBangla.Text + "')";
+                            query = "INSERT INTO " + groupBoxAdd.Tag + " (id, " + fkn + "name, name_bn) VALUES " +
+                                    "((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM "+groupBoxAdd.Tag+")," + fkv + "'" +
+                                    textBoxNameEnglish.Text.Trim() + "',N'" + textBoxNameBangla.Text + "')";
                             break;
 
                         case "Update":
                             query = "UPDATE " + groupBoxAdd.Tag + " SET " + fknu + fkv + " name='" + textBoxNameEnglish.Text.Trim() +
-                                    "', name_bn='" + textBoxNameBangla.Text + "' WHERE id='" + buttonAdd.Tag + "'";
+                                    "', name_bn=N'" + textBoxNameBangla.Text + "' WHERE id='" + buttonAdd.Tag + "'";
                             break;
                     }
 
