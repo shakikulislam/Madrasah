@@ -6,7 +6,7 @@ namespace WindowsDesktop.Models
 {
     public class Student
     {
-        public int Id { get; set; }
+        public double Id { get; set; }
         public string FORM_NUMBER { get; set; }
         public int Roll { get; set; }
         public int Reg { get; set; }
@@ -23,7 +23,7 @@ namespace WindowsDesktop.Models
         public string Mother_Nid { get; set; }
         public string Guardian_Name { get; set; }
         public string Guardian_Phone { get; set; }
-        public int Class_Id { get; set; }
+        public double Class_Id { get; set; }
         public string Remark { get; set; }
         public Image Picture { get; set; }
         public string Status { get; set; }
@@ -31,5 +31,7 @@ namespace WindowsDesktop.Models
         public DateTime Create_Date { get; set; }
         public string Update_By { get; set; }
         public DateTime Update_Date { get; set; }
+
+        public Address Address { get; set; }
     }
 }

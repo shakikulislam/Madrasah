@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
+using WindowsDesktop.Common;
 using WindowsDesktop.Models;
+using WindowsDesktop.Properties;
 
 namespace WindowsDesktop.DbContext
 {
@@ -28,51 +31,49 @@ namespace WindowsDesktop.DbContext
             }
         }
 
-        private Student GetById(string id)
+        public Student GetById(string id)
         {
-            var student_info=new Student();
+            var studentInfo=new Student();
 
             var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + id + "'";
             var dr = Db.GetDataReader(query);
             if (dr.HasRows)
             {
                 dr.Read();
-                student_info.Id = Convert.ToInt32(dr["ID"].ToString());
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Roll = Convert.ToInt32(dr["ROLL"].ToString());
-                student_info.Reg = Convert.ToInt32(dr["REG"].ToString());
-                student_info.FORM_NUMBER = dr["FORM_NUMBER"].ToString();
-                student_info.Phone = dr["PHONE"].ToString();
-                student_info.Dob = Convert.ToDateTime(dr["DOB"].ToString());
-                student_info.Birth_Certificate = dr["BIRTH_CERTIFICATE"].ToString();
-                student_info.Nid = dr["NID"].ToString();
-                student_info.Father_Name = dr["FATHER_NAME"].ToString();
-                student_info.Father_Phone = dr["FATHER_PHONE"].ToString();
-                student_info.Father_Nid = dr["FATHER_NID"].ToString();
-                student_info.Mother_Name = dr["MOTHER_NAME"].ToString();
-                student_info.Mother_Phone = dr["MOTHER_PHONE"].ToString();
-                student_info.Mother_Nid = dr["MOTHER_NID"].ToString();
-                student_info.Guardian_Name = dr["GUARDIAN_NAME"].ToString();
-                student_info.Guardian_Phone = dr["GUARDIAN_PHONE"].ToString();
-                student_info.Name= dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
-                student_info.Name = dr["NAME"].ToString();
+                studentInfo.Id = Convert.ToDouble(dr["ID"].ToString());
+                studentInfo.Name = dr["NAME"].ToString();
+                studentInfo.Roll = Convert.ToInt32(dr["ROLL"].ToString());
+                studentInfo.Reg = Convert.ToInt32(dr["REG"].ToString());
+                studentInfo.FORM_NUMBER = dr["FORM_NUMBER"].ToString();
+                studentInfo.Phone = dr["PHONE"].ToString();
+                studentInfo.Dob = Convert.ToDateTime(dr["DOB"].ToString());
+                studentInfo.Birth_Certificate = dr["BIRTH_CERTIFICATE"].ToString();
+                studentInfo.Nid = dr["NID"].ToString();
+                studentInfo.Father_Name = dr["FATHER_NAME"].ToString();
+                studentInfo.Father_Phone = dr["FATHER_PHONE"].ToString();
+                studentInfo.Father_Nid = dr["FATHER_NID"].ToString();
+                studentInfo.Mother_Name = dr["MOTHER_NAME"].ToString();
+                studentInfo.Mother_Phone = dr["MOTHER_PHONE"].ToString();
+                studentInfo.Mother_Nid = dr["MOTHER_NID"].ToString();
+                studentInfo.Guardian_Name = dr["GUARDIAN_NAME"].ToString();
+                studentInfo.Guardian_Phone = dr["GUARDIAN_PHONE"].ToString();
+                studentInfo.Class_Id= Convert.ToDouble(dr["CLASS_ID"].ToString());
+                studentInfo.Remark = dr["REMARK"].ToString();
+                studentInfo.Picture = GlobalSettings.ByteToImage(dr["PICTURE"], Resources.no_person_image);
+                studentInfo.Status = dr["STATUS"].ToString();
+                studentInfo.Create_By = dr["CREATE_BY"].ToString();
+                studentInfo.Create_Date = Convert.ToDateTime(dr["CREATE_DATE"].ToString());
+                studentInfo.Update_By = dr["UPDATE_BY"].ToString();
+                studentInfo.Update_Date = Convert.ToDateTime(dr["UPDATE_DATE"].ToString());
+                
+                
             }
+            else
+            {
+                studentInfo = null;
+            }
+
+            return studentInfo;
         }
     }
 }

@@ -122,6 +122,7 @@
     <Compile Include="Common\frmWaiting.Designer.cs">
       <DependentUpon>frmWaiting.cs</DependentUpon>
     </Compile>
+    <Compile Include="DbContext\AddressDb.cs" />
     <Compile Include="DbContext\ClassDb.cs" />
     <Compile Include="DbContext\Db.cs" />
     <Compile Include="Common\GlobalSettings.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

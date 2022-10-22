@@ -211,91 +211,174 @@ namespace WindowsDesktop.Students
                 tabControlProfile.Dock = DockStyle.Fill;
                 tabControlProfile.Visible = true;
 
-                var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _studentId + "'";
-                var dr = Db.GetDataReader(query);
-                if (dr.HasRows)
-                {
-                    dr.Read();
+                //var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _studentId + "'";
+                var student = new StudentDb().GetById(_studentId);
 
+                if (student!=null)
+                {
                     // Personal Information
-                    textBoxReviewFullName.Text = dr["name"].ToString();
-                    textBoxReviewPhone.Text = dr["phone"].ToString();
-                    textBoxReviewBirthCertificeate.Text = dr["birth_certificate"].ToString();
-                    textBoxReviewNid.Text = dr["nid"].ToString();
-                    dateTimePickerReviewDob.Value = Convert.ToDateTime(dr["dob"].ToString());
-                    pictureBoxStudent.Image = GlobalSettings.ByteToImage(dr["image"], Resources.no_person_image);
+                    textBoxReviewFullName.Text = student.Name;
+                    textBoxReviewPhone.Text = student.Phone;
+                    textBoxReviewBirthCertificeate.Text = student.Birth_Certificate;
+                    textBoxReviewNid.Text = student.Nid;
+                    dateTimePickerReviewDob.Value = student.Dob;
+                    pictureBoxStudent.Image = student.Picture;
 
                     // Parent Information
-                    textBoxReviewFatherName.Text = dr["father_name"].ToString();
-                    textBoxReviewFatherPhone.Text = dr["father_phone"].ToString();
-                    textBoxReviewFatherNid.Text = dr["father_nid"].ToString();
-                    textBoxReviewMotherName.Text = dr["mother_name"].ToString();
-                    textBoxReviewMotherPhone.Text = dr["mother_phone"].ToString();
-                    textBoxReviewMotherNid.Text = dr["mother_nid"].ToString();
+                    textBoxReviewFatherName.Text = student.Father_Name;
+                    textBoxReviewFatherPhone.Text = student.Father_Phone;
+                    textBoxReviewFatherNid.Text = student.Father_Nid;
+                    textBoxReviewMotherName.Text = student.Mother_Name;
+                    textBoxReviewMotherPhone.Text = student.Mother_Phone;
+                    textBoxReviewMotherNid.Text = student.Mother_Nid;
 
                     // Guardian information
-                    textBoxReviewGrdName.Text = dr["guardian_name"].ToString();
-                    textBoxReviewGrdPhone.Text = dr["guardian_phone"].ToString();
+                    textBoxReviewGrdName.Text = student.Guardian_Name;
+                    textBoxReviewGrdPhone.Text = student.Guardian_Phone;
 
                     // Present and Permanent Address
 
 
-                    // ---------------- Address ---------------------
+                    //// ---------------- Address ---------------------
 
-                    // Guardian
-                    var gDivisionId = dr["g_division_id"].ToString();
-                    var gDistrictId = dr["g_district_id"].ToString();
-                    var dUpazilaId = dr["g_upazila_id"].ToString();
-                    var gUnionId = dr["g_union_id"].ToString();
-                    var gVillageId = dr["g_village_id"].ToString();
-                    textBoxReviewGrdDetails.Text = dr["g_details"].ToString();
+                    //// Guardian
+                    //var gDivisionId = dr["g_division_id"].ToString();
+                    //var gDistrictId = dr["g_district_id"].ToString();
+                    //var dUpazilaId = dr["g_upazila_id"].ToString();
+                    //var gUnionId = dr["g_union_id"].ToString();
+                    //var gVillageId = dr["g_village_id"].ToString();
+                    //textBoxReviewGrdDetails.Text = dr["g_details"].ToString();
 
-                    // Permanent
-                    var pDivisionId = dr["p_division_id"].ToString();
-                    var pDistrictId = dr["p_district_id"].ToString();
-                    var pUpazilaId = dr["p_upazila_id"].ToString();
-                    var pUnionId = dr["p_union_id"].ToString();
-                    var pVillageId = dr["p_village_id"].ToString();
-                    textBoxReviewPerDetails.Text = dr["p_details"].ToString();
+                    //// Permanent
+                    //var pDivisionId = dr["p_division_id"].ToString();
+                    //var pDistrictId = dr["p_district_id"].ToString();
+                    //var pUpazilaId = dr["p_upazila_id"].ToString();
+                    //var pUnionId = dr["p_union_id"].ToString();
+                    //var pVillageId = dr["p_village_id"].ToString();
+                    //textBoxReviewPerDetails.Text = dr["p_details"].ToString();
 
-                    // Present/Mailing
-                    var mDivisionId = dr["m_division_id"].ToString();
-                    var mDistrictId = dr["m_district_id"].ToString();
-                    var mUpazilaId = dr["m_upazila_id"].ToString();
-                    var mUnionId = dr["m_union_id"].ToString();
-                    var mVillageId = dr["m_village_id"].ToString();
-                    textBoxReviewPreDetails.Text = dr["m_details"].ToString();
+                    //// Present/Mailing
+                    //var mDivisionId = dr["m_division_id"].ToString();
+                    //var mDistrictId = dr["m_district_id"].ToString();
+                    //var mUpazilaId = dr["m_upazila_id"].ToString();
+                    //var mUnionId = dr["m_union_id"].ToString();
+                    //var mVillageId = dr["m_village_id"].ToString();
+                    //textBoxReviewPreDetails.Text = dr["m_details"].ToString();
 
-                    // Class
-                    var classId = dr["class_id"].ToString();
-                    textBoxReviewFormNo.Text = dr["form_number"].ToString();
-                    textBoxReviewRoll.Text = dr["roll"].ToString();
-                    textBoxReviewReg.Text = dr["reg"].ToString();
+                    //// Class
+                    //var classId = dr["class_id"].ToString();
+                    //textBoxReviewFormNo.Text = dr["form_number"].ToString();
+                    //textBoxReviewRoll.Text = dr["roll"].ToString();
+                    //textBoxReviewReg.Text = dr["reg"].ToString();
 
-                    // Guardian
-                    comboBoxReviewGrdDivision.SelectedValue = gDivisionId;
-                    comboBoxReviewGrdDistrict.SelectedValue = gDistrictId;
-                    comboBoxReviewGrdUpazila.SelectedValue = dUpazilaId;
-                    comboBoxReviewGrdUnion.SelectedValue = gUnionId;
-                    comboBoxReviewGrdVillage.SelectedValue = gVillageId;
+                    //// Guardian
+                    //comboBoxReviewGrdDivision.SelectedValue = gDivisionId;
+                    //comboBoxReviewGrdDistrict.SelectedValue = gDistrictId;
+                    //comboBoxReviewGrdUpazila.SelectedValue = dUpazilaId;
+                    //comboBoxReviewGrdUnion.SelectedValue = gUnionId;
+                    //comboBoxReviewGrdVillage.SelectedValue = gVillageId;
 
-                    // Permanent
-                    comboBoxReviewPerDivision.SelectedValue = pDivisionId;
-                    comboBoxReviewPerDistrict.SelectedValue = pDistrictId;
-                    comboBoxReviewPerUpazila.SelectedValue = pUpazilaId;
-                    comboBoxReviewPerUnion.SelectedValue = pUnionId;
-                    comboBoxReviewPerVillage.SelectedValue = pVillageId;
+                    //// Permanent
+                    //comboBoxReviewPerDivision.SelectedValue = pDivisionId;
+                    //comboBoxReviewPerDistrict.SelectedValue = pDistrictId;
+                    //comboBoxReviewPerUpazila.SelectedValue = pUpazilaId;
+                    //comboBoxReviewPerUnion.SelectedValue = pUnionId;
+                    //comboBoxReviewPerVillage.SelectedValue = pVillageId;
 
-                    // Present/Mailing
-                    comboBoxReviewPreDivision.SelectedValue = mDivisionId;
-                    comboBoxReviewPreDistrict.SelectedValue = mDistrictId;
-                    comboBoxReviewPreUpazila.SelectedValue = mUpazilaId;
-                    comboBoxReviewPreUnion.SelectedValue = mUnionId;
-                    comboBoxReviewPreVillage.SelectedValue = mVillageId;
+                    //// Present/Mailing
+                    //comboBoxReviewPreDivision.SelectedValue = mDivisionId;
+                    //comboBoxReviewPreDistrict.SelectedValue = mDistrictId;
+                    //comboBoxReviewPreUpazila.SelectedValue = mUpazilaId;
+                    //comboBoxReviewPreUnion.SelectedValue = mUnionId;
+                    //comboBoxReviewPreVillage.SelectedValue = mVillageId;
 
-                    // Class
-                    comboBoxReviewClass.SelectedValue = classId;
+                    //// Class
+                    //comboBoxReviewClass.SelectedValue = classId;
                 }
+
+                //if (dr.HasRows)
+                //{
+                //    dr.Read();
+
+                //    // Personal Information
+                //    textBoxReviewFullName.Text = dr["name"].ToString();
+                //    textBoxReviewPhone.Text = dr["phone"].ToString();
+                //    textBoxReviewBirthCertificeate.Text = dr["birth_certificate"].ToString();
+                //    textBoxReviewNid.Text = dr["nid"].ToString();
+                //    dateTimePickerReviewDob.Value = Convert.ToDateTime(dr["dob"].ToString());
+                //    pictureBoxStudent.Image = GlobalSettings.ByteToImage(dr["image"], Resources.no_person_image);
+
+                //    // Parent Information
+                //    textBoxReviewFatherName.Text = dr["father_name"].ToString();
+                //    textBoxReviewFatherPhone.Text = dr["father_phone"].ToString();
+                //    textBoxReviewFatherNid.Text = dr["father_nid"].ToString();
+                //    textBoxReviewMotherName.Text = dr["mother_name"].ToString();
+                //    textBoxReviewMotherPhone.Text = dr["mother_phone"].ToString();
+                //    textBoxReviewMotherNid.Text = dr["mother_nid"].ToString();
+
+                //    // Guardian information
+                //    textBoxReviewGrdName.Text = dr["guardian_name"].ToString();
+                //    textBoxReviewGrdPhone.Text = dr["guardian_phone"].ToString();
+
+                //    // Present and Permanent Address
+
+
+                //    // ---------------- Address ---------------------
+
+                //    // Guardian
+                //    var gDivisionId = dr["g_division_id"].ToString();
+                //    var gDistrictId = dr["g_district_id"].ToString();
+                //    var dUpazilaId = dr["g_upazila_id"].ToString();
+                //    var gUnionId = dr["g_union_id"].ToString();
+                //    var gVillageId = dr["g_village_id"].ToString();
+                //    textBoxReviewGrdDetails.Text = dr["g_details"].ToString();
+
+                //    // Permanent
+                //    var pDivisionId = dr["p_division_id"].ToString();
+                //    var pDistrictId = dr["p_district_id"].ToString();
+                //    var pUpazilaId = dr["p_upazila_id"].ToString();
+                //    var pUnionId = dr["p_union_id"].ToString();
+                //    var pVillageId = dr["p_village_id"].ToString();
+                //    textBoxReviewPerDetails.Text = dr["p_details"].ToString();
+
+                //    // Present/Mailing
+                //    var mDivisionId = dr["m_division_id"].ToString();
+                //    var mDistrictId = dr["m_district_id"].ToString();
+                //    var mUpazilaId = dr["m_upazila_id"].ToString();
+                //    var mUnionId = dr["m_union_id"].ToString();
+                //    var mVillageId = dr["m_village_id"].ToString();
+                //    textBoxReviewPreDetails.Text = dr["m_details"].ToString();
+
+                //    // Class
+                //    var classId = dr["class_id"].ToString();
+                //    textBoxReviewFormNo.Text = dr["form_number"].ToString();
+                //    textBoxReviewRoll.Text = dr["roll"].ToString();
+                //    textBoxReviewReg.Text = dr["reg"].ToString();
+
+                //    // Guardian
+                //    comboBoxReviewGrdDivision.SelectedValue = gDivisionId;
+                //    comboBoxReviewGrdDistrict.SelectedValue = gDistrictId;
+                //    comboBoxReviewGrdUpazila.SelectedValue = dUpazilaId;
+                //    comboBoxReviewGrdUnion.SelectedValue = gUnionId;
+                //    comboBoxReviewGrdVillage.SelectedValue = gVillageId;
+
+                //    // Permanent
+                //    comboBoxReviewPerDivision.SelectedValue = pDivisionId;
+                //    comboBoxReviewPerDistrict.SelectedValue = pDistrictId;
+                //    comboBoxReviewPerUpazila.SelectedValue = pUpazilaId;
+                //    comboBoxReviewPerUnion.SelectedValue = pUnionId;
+                //    comboBoxReviewPerVillage.SelectedValue = pVillageId;
+
+                //    // Present/Mailing
+                //    comboBoxReviewPreDivision.SelectedValue = mDivisionId;
+                //    comboBoxReviewPreDistrict.SelectedValue = mDistrictId;
+                //    comboBoxReviewPreUpazila.SelectedValue = mUpazilaId;
+                //    comboBoxReviewPreUnion.SelectedValue = mUnionId;
+                //    comboBoxReviewPreVillage.SelectedValue = mVillageId;
+
+                //    // Class
+                //    comboBoxReviewClass.SelectedValue = classId;
+                //}
             }
             catch (Exception ex)
             {
