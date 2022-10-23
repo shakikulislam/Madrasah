@@ -58,13 +58,14 @@ namespace WindowsDesktop.DbContext
         public static bool QueryExecute(SqlCommand sqlCommand)
         {
             GetConnection();
-            var cmd1 = new SqlCommand(sqlCommand.CommandText, conn);
-            cmd1.Parameters.Clear();
-            foreach (SqlParameter parameter in sqlCommand.Parameters)
-            {
-                cmd1.Parameters.Add(parameter);
-            }
-            return cmd1.ExecuteNonQuery() > 0;
+            //var cmd1 = new SqlCommand(sqlCommand.CommandText, conn);
+            //cmd1.Parameters.Clear();
+            //foreach (SqlParameter parameter in sqlCommand.Parameters)
+            //{
+            //    cmd1.Parameters.Add(parameter);
+            //}
+            sqlCommand.Connection = conn;
+            return sqlCommand.ExecuteNonQuery() > 0;
         }
 
         public static SqlDataReader GetDataReader(string query)

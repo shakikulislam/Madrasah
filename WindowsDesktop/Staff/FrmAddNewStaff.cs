@@ -245,7 +245,7 @@ namespace WindowsDesktop.Staff
                         var cmd = new SqlCommand
                         {
                             CommandText =
-                                "insert into s_employee (id, emp_id, name, phone, nid, desig_id,joining_date,image) " +
+                                "insert into s_employee (id, emp_id, name, phone, nid, desig_id,joining_date,PICTURE) " +
                                 "values ((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_EMPLOYEE),'" +
                                 textBoxEmpId.Text.Trim() +
                                 "', '" + textBoxFullName.Text.Trim() + "', '" + textBoxPhone.Text.Trim() + "', '" +
