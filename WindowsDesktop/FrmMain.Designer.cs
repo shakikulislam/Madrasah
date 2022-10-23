@@ -48,6 +48,7 @@ namespace WindowsDesktop
             this.labelOfficeName = new System.Windows.Forms.Label();
             this.panelRight = new System.Windows.Forms.Panel();
             this.panelTopDivider = new System.Windows.Forms.Panel();
+            this.iconButtonMarksEntry = new FontAwesome.Sharp.IconButton();
             this.panelSideMenu.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxCurrentChild)).BeginInit();
@@ -56,6 +57,7 @@ namespace WindowsDesktop
             // 
             // panelSideMenu
             // 
+            this.panelSideMenu.Controls.Add(this.iconButtonMarksEntry);
             this.panelSideMenu.Controls.Add(this.iconButtonAddress);
             this.panelSideMenu.Controls.Add(this.iconButtonAcademic);
             this.panelSideMenu.Controls.Add(this.iconButtonStaff);
@@ -306,6 +308,28 @@ namespace WindowsDesktop
             this.panelTopDivider.Size = new System.Drawing.Size(772, 5);
             this.panelTopDivider.TabIndex = 0;
             // 
+            // iconButtonMarksEntry
+            // 
+            this.iconButtonMarksEntry.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonMarksEntry.FlatAppearance.BorderSize = 0;
+            this.iconButtonMarksEntry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonMarksEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonMarksEntry.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.iconButtonMarksEntry.IconColor = System.Drawing.Color.Black;
+            this.iconButtonMarksEntry.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonMarksEntry.IconSize = 32;
+            this.iconButtonMarksEntry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonMarksEntry.Location = new System.Drawing.Point(0, 223);
+            this.iconButtonMarksEntry.Name = "iconButtonMarksEntry";
+            this.iconButtonMarksEntry.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.iconButtonMarksEntry.Size = new System.Drawing.Size(160, 40);
+            this.iconButtonMarksEntry.TabIndex = 6;
+            this.iconButtonMarksEntry.Text = "Marks Entry";
+            this.iconButtonMarksEntry.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonMarksEntry.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonMarksEntry.UseVisualStyleBackColor = true;
+            this.iconButtonMarksEntry.Click += new System.EventHandler(this.iconButtonMarksEntry_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,6 +377,7 @@ namespace WindowsDesktop
         private FontAwesome.Sharp.IconButton iconButtonAcademic;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Panel panelTopDivider;
+        private FontAwesome.Sharp.IconButton iconButtonMarksEntry;
     }
 }
 

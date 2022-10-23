@@ -80,6 +80,7 @@ namespace WindowsDesktop.Staff
             // Personal Information
             textBoxReviewFullName.Clear();
             textBoxReviewPhone.Clear();
+            textBoxReviewEmpId.Clear();
             //textBoxReviewBirthCertificeate.Clear();
             textBoxReviewNid.Clear();
             dateTimePickerReviewDob.Value = DateTime.Now;
@@ -306,6 +307,8 @@ namespace WindowsDesktop.Staff
                 dateTimePickerReviewDob.Value = dateTimePickerDob.Value;
                 dateTimePickerReviewJoiningDate.Value = dateTimePickerJoiningDate.Value;
                 pictureBoxReviewStaffImg.Image = pictureBoxStaff.Image;
+
+                textBoxReviewEmpId.Text = textBoxEmpId.Text;
 
                 comboBoxReviewDesignation.DisplayMember = comboBoxDesignation.DisplayMember;
                 comboBoxReviewDesignation.ValueMember = comboBoxDesignation.ValueMember;

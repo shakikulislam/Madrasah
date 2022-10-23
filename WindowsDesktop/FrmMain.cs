@@ -3,7 +3,6 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Windows;
 using System.Windows.Forms;
 using WindowsDesktop.Academic;
 using WindowsDesktop.Common;
@@ -11,10 +10,10 @@ using WindowsDesktop.Staff;
 using WindowsDesktop.Students;
 using WindowsDesktop.Theme;
 using Hospital_MS_SSC.Common;
-using Application = System.Windows.Forms.Application;
-using FontStyle = System.Drawing.FontStyle;
-using Point = System.Drawing.Point;
-using Size = System.Drawing.Size;
+//using Application = System.Windows.Forms.Application;
+//using FontStyle = System.Drawing.FontStyle;
+//using Point = System.Drawing.Point;
+//using Size = System.Drawing.Size;
 
 namespace WindowsDesktop
 {
@@ -303,6 +302,12 @@ namespace WindowsDesktop
         {
             ActiveButton(sender);
             OpenChildForm(new FrmStaff());
+        }
+
+        private void iconButtonMarksEntry_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            OpenChildForm(new FrmMarksEntry());
         }
     }
 }
