@@ -183,12 +183,13 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                //var dt = new ClassDb().ClassList();
 
-                //comboBoxClass.DataSource = null;
-                //comboBoxClass.DisplayMember = "name";
-                //comboBoxClass.ValueMember = "id";
-                //comboBoxClass.DataSource = dt;
+                var dt = Db.GetDataTable("SELECT ID, NAME FROM S_CLASS ORDER BY CLASS_NUMBER ASC");
+
+                comboBoxClass.DataSource = null;
+                comboBoxClass.DisplayMember = "name";
+                comboBoxClass.ValueMember = "id";
+                comboBoxClass.DataSource = dt;
             }
             catch
             {
@@ -200,19 +201,21 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                var dtPreAddressDivision = new DivisionDb().DivisionList();
+                var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_division ORDER BY name ASC";
+                
+                var dtPreAddressDivision = Db.GetDataTable(query);
                 comboBoxPreAddressDivision.DataSource = null;
                 comboBoxPreAddressDivision.DisplayMember = "name";
                 comboBoxPreAddressDivision.ValueMember = "id";
                 comboBoxPreAddressDivision.DataSource = dtPreAddressDivision;
 
-                var dtPerAddressDivision = new DivisionDb().DivisionList();
+                var dtPerAddressDivision = Db.GetDataTable(query);
                 comboBoxPerAddressDivision.DataSource = null;
                 comboBoxPerAddressDivision.DisplayMember = "name";
                 comboBoxPerAddressDivision.ValueMember = "id";
                 comboBoxPerAddressDivision.DataSource = dtPerAddressDivision;
 
-                var dtGrdAddressDivision = new DivisionDb().DivisionList();
+                var dtGrdAddressDivision = Db.GetDataTable(query);
                 comboBoxGrdAddressDivision.DataSource = null;
                 comboBoxGrdAddressDivision.DisplayMember = "name";
                 comboBoxGrdAddressDivision.ValueMember = "id";
@@ -227,34 +230,46 @@ namespace WindowsDesktop.Students
 
         private void LoadDistrict(ComboBox comboBox, string divisionId)
         {
+            var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
+                        "FROM s_district where division_id=" + divisionId + " ORDER BY name ASC";
+            
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = new DistrictDb().DistrictListByDivisionId(divisionId);
+            comboBox.DataSource = Db.GetDataTable(query);
         }
 
         private void LoadUpazila(ComboBox comboBox, string districtId)
         {
-           comboBox.DataSource = null;
+            var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
+                        "FROM s_upazila where district_id=" + districtId + " ORDER BY name ASC";
+            
+            comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = new DistrictDb().DistrictListByDivisionId(districtId);
+            comboBox.DataSource = Db.GetDataTable(query);
         }
 
         private void LoadUnion(ComboBox comboBox, string upazilaId)
         {
+            var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
+                        "FROM s_union where upazila_id=" + upazilaId + " ORDER BY name ASC";
+            
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = new UnionDb().UnionListByUpazilaId(upazilaId);
+            comboBox.DataSource = Db.GetDataTable(query);
         }
 
         private void LoadVillage(ComboBox comboBox, string unionId)
         {
+            var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
+                               "FROM s_village where union_id=" + unionId + " ORDER BY name ASC";
+            
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = new VillageDb().VillageListByUnionId(unionId);
+            comboBox.DataSource = Db.GetDataTable(query);
         }
 
         private void buttonSavePersonalInfo_Click(object sender, EventArgs e)
@@ -277,7 +292,7 @@ namespace WindowsDesktop.Students
                     //groupBoxPersonalInformation.Visible = false;
 
                     // Check already added
-                    var query = "SELECT * FROM s_students WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
+                    var query = "SELECT * FROM s_student WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
                     var studentInfo = Db.GetDataReader(query);
 
                     if (studentInfo.HasRows)
@@ -302,14 +317,15 @@ namespace WindowsDesktop.Students
                     else
                     {
                         // Insert student basic information
-                        query = "INSERT INTO s_students (name, phone, birth_certificate, nid, dob) VALUES ('" + textBoxFullName.Text.Trim() +
+                        query = "INSERT INTO s_student (id, name, phone, birth_certificate, nid, dob) VALUES " +
+                                "((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_STUDENT),'" + textBoxFullName.Text.Trim() +
                                 "', '" + textBoxStudentPhone.Text.Trim() + "', '" + textBoxBirthCert.Text.Trim() + "', '" + textBoxNid.Text.Trim() +
                                 "', '" + dateTimePickerDob.Value.ToString(GlobalSettings.DateFormatSave) + "') ";
 
                         var isSaved = Db.QueryExecute(query);
                         if (isSaved)
                         {
-                            query = "SELECT * FROM s_students WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
+                            query = "SELECT * FROM s_student WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
                             studentInfo = Db.GetDataReader(query);
                             if (studentInfo.HasRows)
                             {
@@ -833,7 +849,7 @@ namespace WindowsDesktop.Students
             {
                 var cmd = new SqlCommand
                 {
-                    CommandText = "UPDATE s_students SET " +
+                    CommandText = "UPDATE s_student SET " +
                                   "form_number = '" + textBoxReviewFormNo.Text.Trim() +
                                   "',roll = '" + textBoxReviewRoll.Text.Trim() +
                                   "',reg = '" + textBoxReviewReg.Text.Trim() +
@@ -851,13 +867,13 @@ namespace WindowsDesktop.Students
                                   "',guardian_name = '" + textBoxReviewGrdName.Text.Trim() +
                                   "',guardian_phone = '" + textBoxReviewGrdPhone.Text.Trim() +
                                   "',class_id = '" + comboBoxReviewClass.SelectedValue +
-                                  "',image=@img,status = 'A'," +
+                                  "',PICTURE=@img,status = 'A'," +
                                   "create_by = '" + GlobalSettings.UserName +
                                   "' WHERE id='" + labelStudentName.Tag + "' "
                 };
                 cmd.Parameters.AddWithValue("@img", GlobalSettings.ImageToByte(pictureBoxReviewStudent.Image));
 
-                var queryAddress = "INSERT INTO s_addresses(person_id" +
+                var queryAddress = "INSERT INTO s_address(ID, person_id" +
                          ",p_division_id," +
                          "p_district_id," +
                          "p_upazila_id," +
@@ -877,7 +893,7 @@ namespace WindowsDesktop.Students
                          "g_village_id," +
                          "g_details," +
                          "who)" +
-                         "VALUES('"+labelStudentName.Tag+
+                         "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_ADDRESS),'"+labelStudentName.Tag+
                          "','"+comboBoxReviewPerDivision.SelectedValue+
                          "','"+comboBoxReviewPerDistrict.SelectedValue+
                          "','"+comboBoxReviewPerUpazila.SelectedValue+

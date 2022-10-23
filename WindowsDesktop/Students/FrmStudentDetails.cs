@@ -53,7 +53,7 @@ namespace WindowsDesktop.Students
 
         private void LoadData()
         {
-            var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _studentId + "'";
+            var query = "SELECT name FROM vw_s_full_student_info WHERE id='" + _studentId + "'";
             var studentDetails = Db.GetDataReader(query);
             if (studentDetails.HasRows)
             {
@@ -67,8 +67,8 @@ namespace WindowsDesktop.Students
             try
             {
                 var query = "SELECT c.id, CONCAT(d.name, ' (', c.name, ')') AS name " +
-                            "FROM s_classes c " +
-                            "left join s_departments d on c.department_id=d.id " +
+                            "FROM s_class c " +
+                            "left join s_department d on c.department_id=d.id " +
                             "ORDER BY d.name, c.class_number ASC";
 
                 var dt = Db.GetDataTable(query);
@@ -88,7 +88,7 @@ namespace WindowsDesktop.Students
         {
             try
             {
-                var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_divisions ORDER BY name ASC";
+                var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_division ORDER BY name ASC";
 
                 var dtPreDivision = Db.GetDataTable(query);
                 comboBoxReviewPreDivision.DataSource = null;
@@ -123,7 +123,7 @@ namespace WindowsDesktop.Students
                 : cmdBox.SelectedValue.ToString();
 
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_districts where division_id=" + id + " ORDER BY name ASC";
+                        "FROM s_district where division_id=" + id + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -138,7 +138,7 @@ namespace WindowsDesktop.Students
                 : cmdBox.SelectedValue.ToString();
 
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_upazilas where district_id=" + id + " ORDER BY name ASC";
+                        "FROM s_upazila where district_id=" + id + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -153,7 +153,7 @@ namespace WindowsDesktop.Students
                 : cmdBox.SelectedValue.ToString();
 
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_unions where upazila_id=" + id + " ORDER BY name ASC";
+                        "FROM s_union where upazila_id=" + id + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -168,7 +168,7 @@ namespace WindowsDesktop.Students
                 : cmdBox.SelectedValue.ToString();
 
             var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name " +
-                        "FROM s_villages where union_id=" + id + " ORDER BY name ASC";
+                        "FROM s_village where union_id=" + id + " ORDER BY name ASC";
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -211,174 +211,92 @@ namespace WindowsDesktop.Students
                 tabControlProfile.Dock = DockStyle.Fill;
                 tabControlProfile.Visible = true;
 
-                //var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _studentId + "'";
-                var student = new StudentDb().GetById(_studentId);
+                var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _studentId + "'";
+                var dr = Db.GetDataReader(query);
 
-                if (student!=null)
+                if (dr.HasRows)
                 {
+                    dr.Read();
+
                     // Personal Information
-                    textBoxReviewFullName.Text = student.Name;
-                    textBoxReviewPhone.Text = student.Phone;
-                    textBoxReviewBirthCertificeate.Text = student.Birth_Certificate;
-                    textBoxReviewNid.Text = student.Nid;
-                    dateTimePickerReviewDob.Value = student.Dob;
-                    pictureBoxStudent.Image = student.Picture;
+                    textBoxReviewFullName.Text = dr["name"].ToString();
+                    textBoxReviewPhone.Text = dr["phone"].ToString();
+                    textBoxReviewBirthCertificeate.Text = dr["birth_certificate"].ToString();
+                    textBoxReviewNid.Text = dr["nid"].ToString();
+                    dateTimePickerReviewDob.Value = Convert.ToDateTime(dr["dob"].ToString());
+                    pictureBoxStudent.Image = GlobalSettings.ByteToImage(dr["PICTURE"], Resources.no_person_image);
 
                     // Parent Information
-                    textBoxReviewFatherName.Text = student.Father_Name;
-                    textBoxReviewFatherPhone.Text = student.Father_Phone;
-                    textBoxReviewFatherNid.Text = student.Father_Nid;
-                    textBoxReviewMotherName.Text = student.Mother_Name;
-                    textBoxReviewMotherPhone.Text = student.Mother_Phone;
-                    textBoxReviewMotherNid.Text = student.Mother_Nid;
+                    textBoxReviewFatherName.Text = dr["father_name"].ToString();
+                    textBoxReviewFatherPhone.Text = dr["father_phone"].ToString();
+                    textBoxReviewFatherNid.Text = dr["father_nid"].ToString();
+                    textBoxReviewMotherName.Text = dr["mother_name"].ToString();
+                    textBoxReviewMotherPhone.Text = dr["mother_phone"].ToString();
+                    textBoxReviewMotherNid.Text = dr["mother_nid"].ToString();
 
                     // Guardian information
-                    textBoxReviewGrdName.Text = student.Guardian_Name;
-                    textBoxReviewGrdPhone.Text = student.Guardian_Phone;
+                    textBoxReviewGrdName.Text = dr["guardian_name"].ToString();
+                    textBoxReviewGrdPhone.Text = dr["guardian_phone"].ToString();
 
                     // Present and Permanent Address
 
 
-                    //// ---------------- Address ---------------------
+                    // ---------------- Address ---------------------
 
-                    //// Guardian
-                    //var gDivisionId = dr["g_division_id"].ToString();
-                    //var gDistrictId = dr["g_district_id"].ToString();
-                    //var dUpazilaId = dr["g_upazila_id"].ToString();
-                    //var gUnionId = dr["g_union_id"].ToString();
-                    //var gVillageId = dr["g_village_id"].ToString();
-                    //textBoxReviewGrdDetails.Text = dr["g_details"].ToString();
+                    // Guardian
+                    var gDivisionId = dr["g_division_id"].ToString();
+                    var gDistrictId = dr["g_district_id"].ToString();
+                    var dUpazilaId = dr["g_upazila_id"].ToString();
+                    var gUnionId = dr["g_union_id"].ToString();
+                    var gVillageId = dr["g_village_id"].ToString();
+                    textBoxReviewGrdDetails.Text = dr["g_details"].ToString();
 
-                    //// Permanent
-                    //var pDivisionId = dr["p_division_id"].ToString();
-                    //var pDistrictId = dr["p_district_id"].ToString();
-                    //var pUpazilaId = dr["p_upazila_id"].ToString();
-                    //var pUnionId = dr["p_union_id"].ToString();
-                    //var pVillageId = dr["p_village_id"].ToString();
-                    //textBoxReviewPerDetails.Text = dr["p_details"].ToString();
+                    // Permanent
+                    var pDivisionId = dr["p_division_id"].ToString();
+                    var pDistrictId = dr["p_district_id"].ToString();
+                    var pUpazilaId = dr["p_upazila_id"].ToString();
+                    var pUnionId = dr["p_union_id"].ToString();
+                    var pVillageId = dr["p_village_id"].ToString();
+                    textBoxReviewPerDetails.Text = dr["p_details"].ToString();
 
-                    //// Present/Mailing
-                    //var mDivisionId = dr["m_division_id"].ToString();
-                    //var mDistrictId = dr["m_district_id"].ToString();
-                    //var mUpazilaId = dr["m_upazila_id"].ToString();
-                    //var mUnionId = dr["m_union_id"].ToString();
-                    //var mVillageId = dr["m_village_id"].ToString();
-                    //textBoxReviewPreDetails.Text = dr["m_details"].ToString();
+                    // Present/Mailing
+                    var mDivisionId = dr["m_division_id"].ToString();
+                    var mDistrictId = dr["m_district_id"].ToString();
+                    var mUpazilaId = dr["m_upazila_id"].ToString();
+                    var mUnionId = dr["m_union_id"].ToString();
+                    var mVillageId = dr["m_village_id"].ToString();
+                    textBoxReviewPreDetails.Text = dr["m_details"].ToString();
 
-                    //// Class
-                    //var classId = dr["class_id"].ToString();
-                    //textBoxReviewFormNo.Text = dr["form_number"].ToString();
-                    //textBoxReviewRoll.Text = dr["roll"].ToString();
-                    //textBoxReviewReg.Text = dr["reg"].ToString();
+                    // Class
+                    var classId = dr["class_id"].ToString();
+                    textBoxReviewFormNo.Text = dr["form_number"].ToString();
+                    textBoxReviewRoll.Text = dr["roll"].ToString();
+                    textBoxReviewReg.Text = dr["reg"].ToString();
 
-                    //// Guardian
-                    //comboBoxReviewGrdDivision.SelectedValue = gDivisionId;
-                    //comboBoxReviewGrdDistrict.SelectedValue = gDistrictId;
-                    //comboBoxReviewGrdUpazila.SelectedValue = dUpazilaId;
-                    //comboBoxReviewGrdUnion.SelectedValue = gUnionId;
-                    //comboBoxReviewGrdVillage.SelectedValue = gVillageId;
+                    // Guardian
+                    comboBoxReviewGrdDivision.SelectedValue = gDivisionId;
+                    comboBoxReviewGrdDistrict.SelectedValue = gDistrictId;
+                    comboBoxReviewGrdUpazila.SelectedValue = dUpazilaId;
+                    comboBoxReviewGrdUnion.SelectedValue = gUnionId;
+                    comboBoxReviewGrdVillage.SelectedValue = gVillageId;
 
-                    //// Permanent
-                    //comboBoxReviewPerDivision.SelectedValue = pDivisionId;
-                    //comboBoxReviewPerDistrict.SelectedValue = pDistrictId;
-                    //comboBoxReviewPerUpazila.SelectedValue = pUpazilaId;
-                    //comboBoxReviewPerUnion.SelectedValue = pUnionId;
-                    //comboBoxReviewPerVillage.SelectedValue = pVillageId;
+                    // Permanent
+                    comboBoxReviewPerDivision.SelectedValue = pDivisionId;
+                    comboBoxReviewPerDistrict.SelectedValue = pDistrictId;
+                    comboBoxReviewPerUpazila.SelectedValue = pUpazilaId;
+                    comboBoxReviewPerUnion.SelectedValue = pUnionId;
+                    comboBoxReviewPerVillage.SelectedValue = pVillageId;
 
-                    //// Present/Mailing
-                    //comboBoxReviewPreDivision.SelectedValue = mDivisionId;
-                    //comboBoxReviewPreDistrict.SelectedValue = mDistrictId;
-                    //comboBoxReviewPreUpazila.SelectedValue = mUpazilaId;
-                    //comboBoxReviewPreUnion.SelectedValue = mUnionId;
-                    //comboBoxReviewPreVillage.SelectedValue = mVillageId;
+                    // Present/Mailing
+                    comboBoxReviewPreDivision.SelectedValue = mDivisionId;
+                    comboBoxReviewPreDistrict.SelectedValue = mDistrictId;
+                    comboBoxReviewPreUpazila.SelectedValue = mUpazilaId;
+                    comboBoxReviewPreUnion.SelectedValue = mUnionId;
+                    comboBoxReviewPreVillage.SelectedValue = mVillageId;
 
-                    //// Class
-                    //comboBoxReviewClass.SelectedValue = classId;
+                    // Class
+                    comboBoxReviewClass.SelectedValue = classId;
                 }
-
-                //if (dr.HasRows)
-                //{
-                //    dr.Read();
-
-                //    // Personal Information
-                //    textBoxReviewFullName.Text = dr["name"].ToString();
-                //    textBoxReviewPhone.Text = dr["phone"].ToString();
-                //    textBoxReviewBirthCertificeate.Text = dr["birth_certificate"].ToString();
-                //    textBoxReviewNid.Text = dr["nid"].ToString();
-                //    dateTimePickerReviewDob.Value = Convert.ToDateTime(dr["dob"].ToString());
-                //    pictureBoxStudent.Image = GlobalSettings.ByteToImage(dr["image"], Resources.no_person_image);
-
-                //    // Parent Information
-                //    textBoxReviewFatherName.Text = dr["father_name"].ToString();
-                //    textBoxReviewFatherPhone.Text = dr["father_phone"].ToString();
-                //    textBoxReviewFatherNid.Text = dr["father_nid"].ToString();
-                //    textBoxReviewMotherName.Text = dr["mother_name"].ToString();
-                //    textBoxReviewMotherPhone.Text = dr["mother_phone"].ToString();
-                //    textBoxReviewMotherNid.Text = dr["mother_nid"].ToString();
-
-                //    // Guardian information
-                //    textBoxReviewGrdName.Text = dr["guardian_name"].ToString();
-                //    textBoxReviewGrdPhone.Text = dr["guardian_phone"].ToString();
-
-                //    // Present and Permanent Address
-
-
-                //    // ---------------- Address ---------------------
-
-                //    // Guardian
-                //    var gDivisionId = dr["g_division_id"].ToString();
-                //    var gDistrictId = dr["g_district_id"].ToString();
-                //    var dUpazilaId = dr["g_upazila_id"].ToString();
-                //    var gUnionId = dr["g_union_id"].ToString();
-                //    var gVillageId = dr["g_village_id"].ToString();
-                //    textBoxReviewGrdDetails.Text = dr["g_details"].ToString();
-
-                //    // Permanent
-                //    var pDivisionId = dr["p_division_id"].ToString();
-                //    var pDistrictId = dr["p_district_id"].ToString();
-                //    var pUpazilaId = dr["p_upazila_id"].ToString();
-                //    var pUnionId = dr["p_union_id"].ToString();
-                //    var pVillageId = dr["p_village_id"].ToString();
-                //    textBoxReviewPerDetails.Text = dr["p_details"].ToString();
-
-                //    // Present/Mailing
-                //    var mDivisionId = dr["m_division_id"].ToString();
-                //    var mDistrictId = dr["m_district_id"].ToString();
-                //    var mUpazilaId = dr["m_upazila_id"].ToString();
-                //    var mUnionId = dr["m_union_id"].ToString();
-                //    var mVillageId = dr["m_village_id"].ToString();
-                //    textBoxReviewPreDetails.Text = dr["m_details"].ToString();
-
-                //    // Class
-                //    var classId = dr["class_id"].ToString();
-                //    textBoxReviewFormNo.Text = dr["form_number"].ToString();
-                //    textBoxReviewRoll.Text = dr["roll"].ToString();
-                //    textBoxReviewReg.Text = dr["reg"].ToString();
-
-                //    // Guardian
-                //    comboBoxReviewGrdDivision.SelectedValue = gDivisionId;
-                //    comboBoxReviewGrdDistrict.SelectedValue = gDistrictId;
-                //    comboBoxReviewGrdUpazila.SelectedValue = dUpazilaId;
-                //    comboBoxReviewGrdUnion.SelectedValue = gUnionId;
-                //    comboBoxReviewGrdVillage.SelectedValue = gVillageId;
-
-                //    // Permanent
-                //    comboBoxReviewPerDivision.SelectedValue = pDivisionId;
-                //    comboBoxReviewPerDistrict.SelectedValue = pDistrictId;
-                //    comboBoxReviewPerUpazila.SelectedValue = pUpazilaId;
-                //    comboBoxReviewPerUnion.SelectedValue = pUnionId;
-                //    comboBoxReviewPerVillage.SelectedValue = pVillageId;
-
-                //    // Present/Mailing
-                //    comboBoxReviewPreDivision.SelectedValue = mDivisionId;
-                //    comboBoxReviewPreDistrict.SelectedValue = mDistrictId;
-                //    comboBoxReviewPreUpazila.SelectedValue = mUpazilaId;
-                //    comboBoxReviewPreUnion.SelectedValue = mUnionId;
-                //    comboBoxReviewPreVillage.SelectedValue = mVillageId;
-
-                //    // Class
-                //    comboBoxReviewClass.SelectedValue = classId;
-                //}
             }
             catch (Exception ex)
             {
@@ -554,14 +472,14 @@ namespace WindowsDesktop.Students
                 {
                     var cmd = new SqlCommand
                     {
-                        CommandText = "UPDATE s_students SET name='" + textBoxReviewFullName.Text.Trim() +
+                        CommandText = "UPDATE s_student SET name='" + textBoxReviewFullName.Text.Trim() +
                                       "', phone='" + textBoxReviewPhone.Text.Trim() +
                                       "', birth_certificate='" + textBoxReviewBirthCertificeate.Text.Trim() +
                                       "', nid='" + textBoxReviewNid.Text.Trim() +
                                       "', dob='" +
                                       dateTimePickerReviewDob.Value.ToString(GlobalSettings.DateFormatSave) +
-                                      "',image=@img, update_by='" + GlobalSettings.UserName +
-                                      "', update_date=current_timestamp() WHERE id='" + _studentId + "'"
+                                      "',PICTURE=@img, update_by='" + GlobalSettings.UserName +
+                                      "', update_date=current_timestamp WHERE id='" + _studentId + "'"
                     };
                     cmd.Parameters.AddWithValue("@img", GlobalSettings.ImageToByte(pictureBoxStudent.Image));
                     var isUpdate = Db.QueryExecute(cmd);
@@ -580,14 +498,14 @@ namespace WindowsDesktop.Students
             {
                 var isValid = ThemeTemplate.SValidate(tabPageParentInfo, errorProviderDetails);
                 if (!isValid) return;
-                var query = "UPDATE s_students SET father_name='" + textBoxReviewFatherName.Text.Trim() +
+                var query = "UPDATE s_student SET father_name='" + textBoxReviewFatherName.Text.Trim() +
                             "', father_phone='" + textBoxReviewFatherPhone.Text.Trim() +
                             "', father_nid='" + textBoxReviewFatherNid.Text.Trim() +
                             "', mother_name='" + textBoxReviewMotherName.Text.Trim() +
                             "', mother_phone='" + textBoxReviewMotherPhone.Text.Trim() +
                             "', mother_nid='" + textBoxReviewMotherNid.Text.Trim() +
                             "', update_by='" + GlobalSettings.UserName +
-                            "', update_date=current_timestamp() WHERE id='" + _studentId + "'";
+                            "', update_date=current_timestamp WHERE id='" + _studentId + "'";
                 var isUpdate = Db.QueryExecute(query);
                 MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
             }
@@ -603,19 +521,19 @@ namespace WindowsDesktop.Students
             {
                 var isValid = ThemeTemplate.SValidate(tabPageGuardianInfo, errorProviderDetails);
                 if (!isValid) return;
-                var query = "UPDATE s_students SET guardian_name='" + textBoxReviewGrdName.Text.Trim() +
+                var query = "UPDATE s_student SET guardian_name='" + textBoxReviewGrdName.Text.Trim() +
                             "', guardian_phone='" + textBoxReviewGrdPhone.Text.Trim() +
                             "', update_by='" + GlobalSettings.UserName +
-                            "', update_date=current_timestamp() WHERE id='" + _studentId + "'; ";
+                            "', update_date=current_timestamp WHERE id='" + _studentId + "'; ";
 
-                query += "UPDATE s_addresses SET g_division_id='" + comboBoxReviewGrdDivision.SelectedValue +
+                query += "UPDATE s_address SET g_division_id='" + comboBoxReviewGrdDivision.SelectedValue +
                          "', g_district_id='" + comboBoxReviewGrdDistrict.SelectedValue +
                          "', g_upazila_id='" + comboBoxReviewGrdUpazila.SelectedValue +
                          "', g_union_id='" + comboBoxReviewGrdUnion.SelectedValue +
                          "', g_village_id='" + comboBoxReviewGrdVillage.SelectedValue +
                          "', g_details='" + textBoxReviewGrdDetails.Text.Trim() +
                          "', update_by='" + GlobalSettings.UserName +
-                         "', update_date=current_timestamp() WHERE person_id='" + _studentId + "' AND who='ST';";
+                         "', update_date=current_timestamp WHERE person_id='" + _studentId + "' AND who='ST';";
 
                 var isUpdate = Db.QueryExecute(query);
                 MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
@@ -632,7 +550,7 @@ namespace WindowsDesktop.Students
             {
                 var isValid = ThemeTemplate.SValidate(tabPageAddress, errorProviderDetails);
                 if (!isValid) return;
-                var query = "UPDATE s_addresses SET p_division_id='" + comboBoxReviewPerDivision.SelectedValue +
+                var query = "UPDATE s_address SET p_division_id='" + comboBoxReviewPerDivision.SelectedValue +
                          "', p_district_id='" + comboBoxReviewPerDistrict.SelectedValue +
                          "', p_upazila_id='" + comboBoxReviewPerUpazila.SelectedValue +
                          "', p_union_id='" + comboBoxReviewPerUnion.SelectedValue +
@@ -645,7 +563,7 @@ namespace WindowsDesktop.Students
                          "', m_village_id='" + comboBoxReviewPreVillage.SelectedValue +
                          "', m_details='" + textBoxReviewPreDetails.Text.Trim() +
                          "', update_by='" + GlobalSettings.UserName +
-                         "', update_date=current_timestamp() WHERE person_id='" + _studentId + "' AND who='ST'";
+                         "', update_date=current_timestamp WHERE person_id='" + _studentId + "' AND who='ST'";
 
                 var isUpdate = Db.QueryExecute(query);
                 MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
@@ -662,12 +580,12 @@ namespace WindowsDesktop.Students
             {
                 var isValid = ThemeTemplate.SValidate(tabPageAcademic, errorProviderDetails);
                 if (!isValid) return;
-                var query = "UPDATE s_students SET form_number='"+textBoxReviewFormNo.Text.Trim()+
+                var query = "UPDATE s_student SET form_number='"+textBoxReviewFormNo.Text.Trim()+
                             "', roll='" + textBoxReviewRoll.Text.Trim() +
                             "', reg='" + textBoxReviewReg.Text.Trim() +
                             "', class_id='" + comboBoxReviewClass.SelectedValue +
                             "', update_by='" + GlobalSettings.UserName +
-                            "', update_date=current_timestamp() WHERE id='" + _studentId + "'";
+                            "', update_date=current_timestamp WHERE id='" + _studentId + "'";
                 var isUpdate = Db.QueryExecute(query);
                 MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
             }
