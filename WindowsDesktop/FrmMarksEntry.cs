@@ -27,7 +27,7 @@ namespace WindowsDesktop
             {
                 comboBoxClass.DisplayMember = "NAME";
                 comboBoxClass.ValueMember = "ID";
-                comboBoxClass.DataSource = new ClassDb().GetWithDepartment();
+                comboBoxClass.DataSource = new ClassDb().Get();
 
                 comboBoxExam.DisplayMember = "NAME";
                 comboBoxExam.ValueMember = "ID";

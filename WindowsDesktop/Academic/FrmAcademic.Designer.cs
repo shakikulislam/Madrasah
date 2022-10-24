@@ -30,11 +30,10 @@ namespace WindowsDesktop.Academic
         private void InitializeComponent()
         {
             this.panelTopMenu = new System.Windows.Forms.Panel();
+            this.buttonExam = new System.Windows.Forms.Button();
             this.buttonSubject = new System.Windows.Forms.Button();
-            this.buttonDepartment = new System.Windows.Forms.Button();
             this.buttonClass = new System.Windows.Forms.Button();
             this.panelAcademicBody = new System.Windows.Forms.Panel();
-            this.buttonExam = new System.Windows.Forms.Button();
             this.panelTopMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +41,6 @@ namespace WindowsDesktop.Academic
             // 
             this.panelTopMenu.Controls.Add(this.buttonExam);
             this.panelTopMenu.Controls.Add(this.buttonSubject);
-            this.panelTopMenu.Controls.Add(this.buttonDepartment);
             this.panelTopMenu.Controls.Add(this.buttonClass);
             this.panelTopMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTopMenu.Location = new System.Drawing.Point(0, 0);
@@ -50,10 +48,21 @@ namespace WindowsDesktop.Academic
             this.panelTopMenu.Size = new System.Drawing.Size(800, 70);
             this.panelTopMenu.TabIndex = 0;
             // 
+            // buttonExam
+            // 
+            this.buttonExam.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonExam.Location = new System.Drawing.Point(469, 12);
+            this.buttonExam.Name = "buttonExam";
+            this.buttonExam.Size = new System.Drawing.Size(126, 38);
+            this.buttonExam.TabIndex = 36;
+            this.buttonExam.Text = "Exam";
+            this.buttonExam.UseVisualStyleBackColor = true;
+            this.buttonExam.Click += new System.EventHandler(this.buttonExam_Click);
+            // 
             // buttonSubject
             // 
             this.buttonSubject.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonSubject.Location = new System.Drawing.Point(403, 12);
+            this.buttonSubject.Location = new System.Drawing.Point(337, 12);
             this.buttonSubject.Name = "buttonSubject";
             this.buttonSubject.Size = new System.Drawing.Size(126, 38);
             this.buttonSubject.TabIndex = 35;
@@ -61,21 +70,10 @@ namespace WindowsDesktop.Academic
             this.buttonSubject.UseVisualStyleBackColor = true;
             this.buttonSubject.Click += new System.EventHandler(this.buttonSubject_Click);
             // 
-            // buttonDepartment
-            // 
-            this.buttonDepartment.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonDepartment.Location = new System.Drawing.Point(139, 12);
-            this.buttonDepartment.Name = "buttonDepartment";
-            this.buttonDepartment.Size = new System.Drawing.Size(126, 38);
-            this.buttonDepartment.TabIndex = 34;
-            this.buttonDepartment.Text = "Department";
-            this.buttonDepartment.UseVisualStyleBackColor = true;
-            this.buttonDepartment.Click += new System.EventHandler(this.buttonDepartment_Click);
-            // 
             // buttonClass
             // 
             this.buttonClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonClass.Location = new System.Drawing.Point(271, 12);
+            this.buttonClass.Location = new System.Drawing.Point(205, 12);
             this.buttonClass.Name = "buttonClass";
             this.buttonClass.Size = new System.Drawing.Size(126, 38);
             this.buttonClass.TabIndex = 33;
@@ -90,17 +88,6 @@ namespace WindowsDesktop.Academic
             this.panelAcademicBody.Name = "panelAcademicBody";
             this.panelAcademicBody.Size = new System.Drawing.Size(800, 380);
             this.panelAcademicBody.TabIndex = 3;
-            // 
-            // buttonExam
-            // 
-            this.buttonExam.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonExam.Location = new System.Drawing.Point(535, 12);
-            this.buttonExam.Name = "buttonExam";
-            this.buttonExam.Size = new System.Drawing.Size(126, 38);
-            this.buttonExam.TabIndex = 36;
-            this.buttonExam.Text = "Exam";
-            this.buttonExam.UseVisualStyleBackColor = true;
-            this.buttonExam.Click += new System.EventHandler(this.buttonExam_Click);
             // 
             // FrmAcademic
             // 
@@ -123,7 +110,6 @@ namespace WindowsDesktop.Academic
 
         private System.Windows.Forms.Panel panelTopMenu;
         private System.Windows.Forms.Button buttonClass;
-        private System.Windows.Forms.Button buttonDepartment;
         private System.Windows.Forms.Button buttonSubject;
         private System.Windows.Forms.Panel panelAcademicBody;
         private System.Windows.Forms.Button buttonExam;

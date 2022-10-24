@@ -4,12 +4,9 @@ namespace WindowsDesktop.DbContext
 {
     public class ClassDb
     {
-        public DataTable GetWithDepartment()
+        public DataTable Get()
         {
-            var query = "SELECT C.ID, CONCAT( D.NAME,' (', C.NAME, ')') AS NAME " +
-                        "FROM S_CLASS AS C " +
-                        "LEFT JOIN S_Department AS D ON C.DEPARTMENT_ID=D.Id " +
-                        "ORDER BY D.Name ASC";
+            var query = "SELECT ID, NAME FROM S_CLASS ORDER BY CLASS_NUMBER ASC";
             return Db.GetDataTable(query);
         }
     }
