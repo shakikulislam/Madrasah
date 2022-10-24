@@ -73,7 +73,7 @@ namespace WindowsDesktop.Academic
         private void buttonExam_Click(object sender, EventArgs e)
         {
             ActiveButton(sender);
-            _currentChildForm = GlobalSettings.OpenChildForm(new FrmExam(), _currentChildForm, panelAcademicBody);
+            _currentChildForm = GlobalSettings.OpenChildForm(new FrmAddExam(), _currentChildForm, panelAcademicBody);
         }
     }
 }

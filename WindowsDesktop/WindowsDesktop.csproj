@@ -104,11 +104,11 @@
     <Compile Include="Academic\FrmDepartment.Designer.cs">
       <DependentUpon>FrmDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Academic\FrmExam.cs">
+    <Compile Include="Academic\FrmAddExam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Academic\FrmExam.Designer.cs">
-      <DependentUpon>FrmExam.cs</DependentUpon>
+    <Compile Include="Academic\FrmAddExam.Designer.cs">
+      <DependentUpon>FrmAddExam.cs</DependentUpon>
     </Compile>
     <Compile Include="Academic\FrmSubject.cs">
       <SubType>Form</SubType>
@@ -133,6 +133,12 @@
     </Compile>
     <Compile Include="DbContext\ExamDb.cs" />
     <Compile Include="DbContext\SubjectDb.cs" />
+    <Compile Include="Exam\FrmExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Exam\FrmExam.Designer.cs">
+      <DependentUpon>FrmExam.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAddress.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,8 +215,8 @@
     <EmbeddedResource Include="Academic\FrmDepartment.resx">
       <DependentUpon>FrmDepartment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Academic\FrmExam.resx">
-      <DependentUpon>FrmExam.cs</DependentUpon>
+    <EmbeddedResource Include="Academic\FrmAddExam.resx">
+      <DependentUpon>FrmAddExam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Academic\FrmSubject.resx">
       <DependentUpon>FrmSubject.cs</DependentUpon>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Academic\FrmAcademic.resx">
       <DependentUpon>FrmAcademic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exam\FrmExam.resx">
+      <DependentUpon>FrmExam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAddress.resx">
       <DependentUpon>FrmAddress.cs</DependentUpon>

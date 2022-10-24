@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WindowsDesktop.Academic;
 using WindowsDesktop.Common;
+using WindowsDesktop.Exam;
 using WindowsDesktop.Staff;
 using WindowsDesktop.Students;
 using WindowsDesktop.Theme;
@@ -308,6 +309,12 @@ namespace WindowsDesktop
         {
             ActiveButton(sender);
             OpenChildForm(new FrmMarksEntry());
+        }
+
+        private void iconButtonExam_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            OpenChildForm(new FrmExam());
         }
     }
 }

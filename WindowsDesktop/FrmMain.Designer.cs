@@ -31,6 +31,7 @@ namespace WindowsDesktop
         {
             this.components = new System.ComponentModel.Container();
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.iconButtonMarksEntry = new FontAwesome.Sharp.IconButton();
             this.iconButtonAddress = new FontAwesome.Sharp.IconButton();
             this.iconButtonAcademic = new FontAwesome.Sharp.IconButton();
             this.iconButtonStaff = new FontAwesome.Sharp.IconButton();
@@ -48,7 +49,7 @@ namespace WindowsDesktop
             this.labelOfficeName = new System.Windows.Forms.Label();
             this.panelRight = new System.Windows.Forms.Panel();
             this.panelTopDivider = new System.Windows.Forms.Panel();
-            this.iconButtonMarksEntry = new FontAwesome.Sharp.IconButton();
+            this.iconButtonExam = new FontAwesome.Sharp.IconButton();
             this.panelSideMenu.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxCurrentChild)).BeginInit();
@@ -57,6 +58,7 @@ namespace WindowsDesktop
             // 
             // panelSideMenu
             // 
+            this.panelSideMenu.Controls.Add(this.iconButtonExam);
             this.panelSideMenu.Controls.Add(this.iconButtonMarksEntry);
             this.panelSideMenu.Controls.Add(this.iconButtonAddress);
             this.panelSideMenu.Controls.Add(this.iconButtonAcademic);
@@ -68,6 +70,28 @@ namespace WindowsDesktop
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(160, 655);
             this.panelSideMenu.TabIndex = 0;
+            // 
+            // iconButtonMarksEntry
+            // 
+            this.iconButtonMarksEntry.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonMarksEntry.FlatAppearance.BorderSize = 0;
+            this.iconButtonMarksEntry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonMarksEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonMarksEntry.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.iconButtonMarksEntry.IconColor = System.Drawing.Color.Black;
+            this.iconButtonMarksEntry.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonMarksEntry.IconSize = 32;
+            this.iconButtonMarksEntry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonMarksEntry.Location = new System.Drawing.Point(0, 223);
+            this.iconButtonMarksEntry.Name = "iconButtonMarksEntry";
+            this.iconButtonMarksEntry.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.iconButtonMarksEntry.Size = new System.Drawing.Size(160, 40);
+            this.iconButtonMarksEntry.TabIndex = 6;
+            this.iconButtonMarksEntry.Text = "Marks Entry";
+            this.iconButtonMarksEntry.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonMarksEntry.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonMarksEntry.UseVisualStyleBackColor = true;
+            this.iconButtonMarksEntry.Click += new System.EventHandler(this.iconButtonMarksEntry_Click);
             // 
             // iconButtonAddress
             // 
@@ -308,27 +332,27 @@ namespace WindowsDesktop
             this.panelTopDivider.Size = new System.Drawing.Size(772, 5);
             this.panelTopDivider.TabIndex = 0;
             // 
-            // iconButtonMarksEntry
+            // iconButtonExam
             // 
-            this.iconButtonMarksEntry.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonMarksEntry.FlatAppearance.BorderSize = 0;
-            this.iconButtonMarksEntry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonMarksEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonMarksEntry.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.iconButtonMarksEntry.IconColor = System.Drawing.Color.Black;
-            this.iconButtonMarksEntry.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonMarksEntry.IconSize = 32;
-            this.iconButtonMarksEntry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonMarksEntry.Location = new System.Drawing.Point(0, 223);
-            this.iconButtonMarksEntry.Name = "iconButtonMarksEntry";
-            this.iconButtonMarksEntry.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.iconButtonMarksEntry.Size = new System.Drawing.Size(160, 40);
-            this.iconButtonMarksEntry.TabIndex = 6;
-            this.iconButtonMarksEntry.Text = "Marks Entry";
-            this.iconButtonMarksEntry.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonMarksEntry.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonMarksEntry.UseVisualStyleBackColor = true;
-            this.iconButtonMarksEntry.Click += new System.EventHandler(this.iconButtonMarksEntry_Click);
+            this.iconButtonExam.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonExam.FlatAppearance.BorderSize = 0;
+            this.iconButtonExam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonExam.IconChar = FontAwesome.Sharp.IconChar.Ring;
+            this.iconButtonExam.IconColor = System.Drawing.Color.Black;
+            this.iconButtonExam.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonExam.IconSize = 32;
+            this.iconButtonExam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonExam.Location = new System.Drawing.Point(0, 263);
+            this.iconButtonExam.Name = "iconButtonExam";
+            this.iconButtonExam.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.iconButtonExam.Size = new System.Drawing.Size(160, 40);
+            this.iconButtonExam.TabIndex = 7;
+            this.iconButtonExam.Text = "Exam";
+            this.iconButtonExam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonExam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonExam.UseVisualStyleBackColor = true;
+            this.iconButtonExam.Click += new System.EventHandler(this.iconButtonExam_Click);
             // 
             // FrmMain
             // 
@@ -378,6 +402,7 @@ namespace WindowsDesktop
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Panel panelTopDivider;
         private FontAwesome.Sharp.IconButton iconButtonMarksEntry;
+        private FontAwesome.Sharp.IconButton iconButtonExam;
     }
 }
 

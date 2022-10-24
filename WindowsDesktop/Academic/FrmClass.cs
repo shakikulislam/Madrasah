@@ -11,33 +11,12 @@ namespace WindowsDesktop.Academic
         public FrmClass()
         {
             InitializeComponent();
-            LoadDepartment(comboBoxClassDepartment);
             LoadTeacher(comboBoxTeacher);
             LoadClass();
             ThemeTemplate.LoadTheme(this);
             ThemeTemplate.LoadTheme(panelClassForm);
         }
         
-        private void LoadDepartment(Control control)
-        {
-            var query = "select id, name from s_department";
-            var departmentList = Db.GetDataTable(query);
-
-            switch (control)
-            {
-                case ComboBox comboBox:
-                    comboBox.DataSource = null;
-                    comboBox.DisplayMember = "name";
-                    comboBox.ValueMember = "id";
-                    comboBox.DataSource = departmentList;
-                    break;
-
-                case DataGridView dataGridView:
-                    dataGridView.DataSource = departmentList;
-                    break;
-            }
-        }
-
         private void LoadTeacher(ComboBox comboBox)
         {
             var query = "select id, name from s_employee WHERE status='A'";
@@ -50,11 +29,10 @@ namespace WindowsDesktop.Academic
 
         private void LoadClass()
         {
-            var query = "select c.id, c.name AS className, c.class_number as classNumber, d.name as department, " +
+            var query = "select c.id, c.name AS className, c.class_number as classNumber, " +
                         "e.name as teacher_name from s_class c " +
-                        "left join s_department d on c.department_id = d.id " +
                         "left join s_employee e on c.teacher_id = e.id " +
-                        "order by c.department_id, c.class_number asc";
+                        "order by c.class_number asc";
             var classList = Db.GetDataTable(query);
             dataGridViewClass.DataSource = classList;
         }
@@ -91,16 +69,15 @@ namespace WindowsDesktop.Academic
 
                     if (buttonClassUpdate.Text == "Add")
                     {
-                        query = "insert into s_class (id, name,class_number,department_id,teacher_id) values " +
+                        query = "insert into s_class (id, name,class_number,teacher_id) values " +
                                 "((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_CLASS),'" +
                                 textBoxClassName.Text.Trim() + "','" + numericUpDownClassNumber.Text.Trim() +
-                                "','" + comboBoxClassDepartment.SelectedValue + "','" + comboBoxTeacher.SelectedValue + "')";
+                                "','" + comboBoxTeacher.SelectedValue + "')";
                     }
                     else if (buttonClassUpdate.Text == "Update")
                     {
                         query = "update s_class set name='" + textBoxClassName.Text.Trim() +
                                 "', class_number='" + numericUpDownClassNumber.Text.Trim() +
-                                "', department_id='" + comboBoxClassDepartment.SelectedValue +
                                 "', teacher_id='" + comboBoxTeacher.SelectedValue +
                                 "', update_by = '" + GlobalSettings.UserName +
                                 "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
@@ -140,8 +117,6 @@ namespace WindowsDesktop.Academic
                     textBoxClassName.Text = dataGridViewClass.SelectedRows[0].Cells["ColumnClassName"].Value.ToString();
                     textBoxClassName.Tag = dataGridViewClass.SelectedRows[0].Cells["ColumnClassId"].Value.ToString();
                     
-                    comboBoxClassDepartment.Text = dataGridViewClass.SelectedRows[0].Cells["ColumnClassDepartment"].Value.ToString();
-
                     numericUpDownClassNumber.Text = dataGridViewClass.SelectedRows[0].Cells["ColumnClassNumber"].Value.ToString();
 
                     comboBoxTeacher.Text = dataGridViewClass.SelectedRows[0].Cells["teacher_name"].Value.ToString();

@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsDesktop.Academic
 {
-    partial class FrmExam
+    partial class FrmAddExam
     {
         /// <summary>
         /// Required designer variable.

@@ -5,9 +5,9 @@ using WindowsDesktop.Theme;
 
 namespace WindowsDesktop.Academic
 {
-    public partial class FrmExam : Form
+    public partial class FrmAddExam : Form
     {
-        public FrmExam()
+        public FrmAddExam()
         {
             InitializeComponent();
             ThemeTemplate.LoadTheme(this);
