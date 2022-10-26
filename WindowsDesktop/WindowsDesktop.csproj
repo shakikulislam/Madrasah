@@ -139,11 +139,11 @@
     <Compile Include="Exam\FrmExam.Designer.cs">
       <DependentUpon>FrmExam.cs</DependentUpon>
     </Compile>
-    <Compile Include="Exam\FrmSeatPlan.cs">
+    <Compile Include="Exam\FrmExamSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Exam\FrmSeatPlan.Designer.cs">
-      <DependentUpon>FrmSeatPlan.cs</DependentUpon>
+    <Compile Include="Exam\FrmExamSchedule.Designer.cs">
+      <DependentUpon>FrmExamSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAddress.cs">
       <SubType>Form</SubType>
@@ -236,8 +236,8 @@
     <EmbeddedResource Include="Exam\FrmExam.resx">
       <DependentUpon>FrmExam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Exam\FrmSeatPlan.resx">
-      <DependentUpon>FrmSeatPlan.cs</DependentUpon>
+    <EmbeddedResource Include="Exam\FrmExamSchedule.resx">
+      <DependentUpon>FrmExamSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAddress.resx">
       <DependentUpon>FrmAddress.cs</DependentUpon>

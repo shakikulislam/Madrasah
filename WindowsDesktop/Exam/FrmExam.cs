@@ -17,7 +17,7 @@ namespace WindowsDesktop.Exam
         
         private void buttonExamSchedule_Click(object sender, System.EventArgs e)
         {
-            GlobalSettings.OpenChildForm(new FrmSeatPlan(), _currentChildForm, panelBody);
+            GlobalSettings.OpenChildForm(new FrmExamSchedule(), _currentChildForm, panelBody);
         }
     }
 }
