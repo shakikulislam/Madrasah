@@ -27,6 +27,42 @@ namespace WindowsDesktop.Exam
                 comboBoxClassList.DisplayMember = "NAME";
                 comboBoxClassList.ValueMember = "ID";
                 comboBoxClassList.DataSource = new ClassDb().Get();
+
+                for (var i = 1; i <= 12; i++)
+                {
+                    string hour;
+
+                    if (i<10)
+                    {
+                        hour = "0" + i;
+                    }
+                    else
+                    {
+                        hour = i.ToString();
+                    }
+
+                    comboBoxHour.Items.Add(hour);
+                }
+                
+                for (var i = 0; i < 60; i++)
+                {
+                    string min;
+
+                    if (i<10)
+                    {
+                        min = "0" + i;
+                    }
+                    else
+                    {
+                        min = i.ToString();
+                    }
+
+                    comboBoxMinutes.Items.Add(min);
+                }
+                
+                comboBoxAmPm.Items.Add("AM");
+                comboBoxAmPm.Items.Add("PM");
+
             }
             catch (Exception ex)
             {
