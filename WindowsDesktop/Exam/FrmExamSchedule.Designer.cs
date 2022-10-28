@@ -29,11 +29,11 @@ namespace WindowsDesktop.Exam
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxClassList = new System.Windows.Forms.ComboBox();
             this.buttonAddSchedule = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerExamDate = new System.Windows.Forms.DateTimePicker();
             this.comboBoxExamList = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxSubjectList = new System.Windows.Forms.ComboBox();
@@ -45,14 +45,17 @@ namespace WindowsDesktop.Exam
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.errorProviderExamSchedule = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridViewExamSchedule = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXAM_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLASS_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBJECT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXAM_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXAM_TIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderExamSchedule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExamSchedule)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(12, 105);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(690, 333);
-            this.panel1.TabIndex = 0;
             // 
             // label1
             // 
@@ -86,15 +89,16 @@ namespace WindowsDesktop.Exam
             this.buttonAddSchedule.TabIndex = 3;
             this.buttonAddSchedule.Text = "Add";
             this.buttonAddSchedule.UseVisualStyleBackColor = true;
+            this.buttonAddSchedule.Click += new System.EventHandler(this.buttonAddSchedule_Click);
             // 
-            // dateTimePicker1
+            // dateTimePickerExamDate
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(73, 75);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(140, 23);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePickerExamDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dateTimePickerExamDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerExamDate.Location = new System.Drawing.Point(73, 75);
+            this.dateTimePickerExamDate.Name = "dateTimePickerExamDate";
+            this.dateTimePickerExamDate.Size = new System.Drawing.Size(140, 23);
+            this.dateTimePickerExamDate.TabIndex = 4;
             // 
             // comboBoxExamList
             // 
@@ -212,11 +216,86 @@ namespace WindowsDesktop.Exam
             this.label7.TabIndex = 15;
             this.label7.Text = "Time";
             // 
+            // errorProviderExamSchedule
+            // 
+            this.errorProviderExamSchedule.ContainerControl = this;
+            // 
+            // dataGridViewExamSchedule
+            // 
+            this.dataGridViewExamSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewExamSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewExamSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.EXAM_NAME,
+            this.CLASS_NAME,
+            this.SUBJECT_NAME,
+            this.EXAM_DATE,
+            this.EXAM_TIME});
+            this.dataGridViewExamSchedule.Location = new System.Drawing.Point(12, 122);
+            this.dataGridViewExamSchedule.Name = "dataGridViewExamSchedule";
+            this.dataGridViewExamSchedule.Size = new System.Drawing.Size(690, 316);
+            this.dataGridViewExamSchedule.TabIndex = 16;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "ID";
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // EXAM_NAME
+            // 
+            this.EXAM_NAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.EXAM_NAME.DataPropertyName = "EXAM_NAME";
+            this.EXAM_NAME.HeaderText = "Exam";
+            this.EXAM_NAME.Name = "EXAM_NAME";
+            this.EXAM_NAME.ReadOnly = true;
+            this.EXAM_NAME.Width = 58;
+            // 
+            // CLASS_NAME
+            // 
+            this.CLASS_NAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CLASS_NAME.DataPropertyName = "CLASS_NAME";
+            this.CLASS_NAME.HeaderText = "Class";
+            this.CLASS_NAME.Name = "CLASS_NAME";
+            this.CLASS_NAME.ReadOnly = true;
+            this.CLASS_NAME.Width = 57;
+            // 
+            // SUBJECT_NAME
+            // 
+            this.SUBJECT_NAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SUBJECT_NAME.DataPropertyName = "SUBJECT_NAME";
+            this.SUBJECT_NAME.HeaderText = "Subject";
+            this.SUBJECT_NAME.Name = "SUBJECT_NAME";
+            this.SUBJECT_NAME.ReadOnly = true;
+            // 
+            // EXAM_DATE
+            // 
+            this.EXAM_DATE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.EXAM_DATE.DataPropertyName = "EXAM_DATE";
+            this.EXAM_DATE.HeaderText = "Date";
+            this.EXAM_DATE.Name = "EXAM_DATE";
+            this.EXAM_DATE.ReadOnly = true;
+            this.EXAM_DATE.Width = 55;
+            // 
+            // EXAM_TIME
+            // 
+            this.EXAM_TIME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.EXAM_TIME.DataPropertyName = "EXAM_TIME";
+            this.EXAM_TIME.HeaderText = "Time";
+            this.EXAM_TIME.Name = "EXAM_TIME";
+            this.EXAM_TIME.ReadOnly = true;
+            this.EXAM_TIME.Width = 55;
+            // 
             // FrmExamSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 450);
+            this.Controls.Add(this.dataGridViewExamSchedule);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -228,25 +307,24 @@ namespace WindowsDesktop.Exam
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBoxExamList);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerExamDate);
             this.Controls.Add(this.buttonAddSchedule);
             this.Controls.Add(this.comboBoxClassList);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
             this.Name = "FrmExamSchedule";
             this.Text = "Seat Plan";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderExamSchedule)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExamSchedule)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxClassList;
         private System.Windows.Forms.Button buttonAddSchedule;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerExamDate;
         private System.Windows.Forms.ComboBox comboBoxExamList;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxSubjectList;
@@ -258,5 +336,13 @@ namespace WindowsDesktop.Exam
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ErrorProvider errorProviderExamSchedule;
+        private System.Windows.Forms.DataGridView dataGridViewExamSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXAM_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CLASS_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUBJECT_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXAM_DATE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXAM_TIME;
     }
 }
