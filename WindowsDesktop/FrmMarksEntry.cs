@@ -31,7 +31,7 @@ namespace WindowsDesktop
 
                 comboBoxExam.DisplayMember = "NAME";
                 comboBoxExam.ValueMember = "ID";
-                comboBoxExam.DataSource = new ExamDb().Get();
+                comboBoxExam.DataSource = new ExamDb().GetWithoutResult();
             }
             catch (Exception ex)
             {
