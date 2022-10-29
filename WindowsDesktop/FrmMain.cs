@@ -11,10 +11,6 @@ using WindowsDesktop.Staff;
 using WindowsDesktop.Students;
 using WindowsDesktop.Theme;
 using Hospital_MS_SSC.Common;
-//using Application = System.Windows.Forms.Application;
-//using FontStyle = System.Drawing.FontStyle;
-//using Point = System.Drawing.Point;
-//using Size = System.Drawing.Size;
 
 namespace WindowsDesktop
 {
@@ -168,12 +164,6 @@ namespace WindowsDesktop
                 // Current Child
                 iconPictureBoxCurrentChild.IconChar = _currentBtn.IconChar;
                 iconPictureBoxCurrentChild.IconFont = _currentBtn.IconFont;
-
-                // Loading
-                _waiting = new frmWaiting();
-                _waiting.TopMost = true;
-                _waiting.Show();
-                Application.DoEvents();
             }
         }
 
@@ -193,7 +183,10 @@ namespace WindowsDesktop
 
         private void OpenChildForm(Form childForm)
         {
-            //_waiting.Show();
+            _waiting = new frmWaiting();
+            _waiting.TopMost = true;
+            _waiting.Show();
+            Application.DoEvents();
 
             CloseChildForm();
 

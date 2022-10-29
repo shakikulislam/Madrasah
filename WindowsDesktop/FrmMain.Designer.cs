@@ -31,6 +31,7 @@ namespace WindowsDesktop
         {
             this.components = new System.ComponentModel.Container();
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.iconButtonExam = new FontAwesome.Sharp.IconButton();
             this.iconButtonMarksEntry = new FontAwesome.Sharp.IconButton();
             this.iconButtonAddress = new FontAwesome.Sharp.IconButton();
             this.iconButtonAcademic = new FontAwesome.Sharp.IconButton();
@@ -49,7 +50,6 @@ namespace WindowsDesktop
             this.labelOfficeName = new System.Windows.Forms.Label();
             this.panelRight = new System.Windows.Forms.Panel();
             this.panelTopDivider = new System.Windows.Forms.Panel();
-            this.iconButtonExam = new FontAwesome.Sharp.IconButton();
             this.panelSideMenu.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxCurrentChild)).BeginInit();
@@ -70,6 +70,28 @@ namespace WindowsDesktop
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(160, 655);
             this.panelSideMenu.TabIndex = 0;
+            // 
+            // iconButtonExam
+            // 
+            this.iconButtonExam.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonExam.FlatAppearance.BorderSize = 0;
+            this.iconButtonExam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonExam.IconChar = FontAwesome.Sharp.IconChar.Ring;
+            this.iconButtonExam.IconColor = System.Drawing.Color.Black;
+            this.iconButtonExam.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonExam.IconSize = 32;
+            this.iconButtonExam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonExam.Location = new System.Drawing.Point(0, 263);
+            this.iconButtonExam.Name = "iconButtonExam";
+            this.iconButtonExam.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.iconButtonExam.Size = new System.Drawing.Size(160, 40);
+            this.iconButtonExam.TabIndex = 7;
+            this.iconButtonExam.Text = "Exam";
+            this.iconButtonExam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonExam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonExam.UseVisualStyleBackColor = true;
+            this.iconButtonExam.Click += new System.EventHandler(this.iconButtonExam_Click);
             // 
             // iconButtonMarksEntry
             // 
@@ -331,28 +353,6 @@ namespace WindowsDesktop
             this.panelTopDivider.Name = "panelTopDivider";
             this.panelTopDivider.Size = new System.Drawing.Size(772, 5);
             this.panelTopDivider.TabIndex = 0;
-            // 
-            // iconButtonExam
-            // 
-            this.iconButtonExam.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonExam.FlatAppearance.BorderSize = 0;
-            this.iconButtonExam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonExam.IconChar = FontAwesome.Sharp.IconChar.Ring;
-            this.iconButtonExam.IconColor = System.Drawing.Color.Black;
-            this.iconButtonExam.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonExam.IconSize = 32;
-            this.iconButtonExam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonExam.Location = new System.Drawing.Point(0, 263);
-            this.iconButtonExam.Name = "iconButtonExam";
-            this.iconButtonExam.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.iconButtonExam.Size = new System.Drawing.Size(160, 40);
-            this.iconButtonExam.TabIndex = 7;
-            this.iconButtonExam.Text = "Exam";
-            this.iconButtonExam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonExam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonExam.UseVisualStyleBackColor = true;
-            this.iconButtonExam.Click += new System.EventHandler(this.iconButtonExam_Click);
             // 
             // FrmMain
             // 
