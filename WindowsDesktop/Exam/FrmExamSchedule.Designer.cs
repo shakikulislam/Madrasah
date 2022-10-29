@@ -53,6 +53,7 @@ namespace WindowsDesktop.Exam
             this.SUBJECT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EXAM_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EXAM_TIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.linkLabelCancel = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderExamSchedule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExamSchedule)).BeginInit();
             this.SuspendLayout();
@@ -291,11 +292,27 @@ namespace WindowsDesktop.Exam
             this.EXAM_TIME.ReadOnly = true;
             this.EXAM_TIME.Width = 55;
             // 
+            // linkLabelCancel
+            // 
+            this.linkLabelCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.linkLabelCancel.AutoSize = true;
+            this.linkLabelCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelCancel.Location = new System.Drawing.Point(636, 78);
+            this.linkLabelCancel.Name = "linkLabelCancel";
+            this.linkLabelCancel.Size = new System.Drawing.Size(51, 17);
+            this.linkLabelCancel.TabIndex = 17;
+            this.linkLabelCancel.TabStop = true;
+            this.linkLabelCancel.Text = "Cancel";
+            this.linkLabelCancel.Visible = false;
+            this.linkLabelCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCancel_LinkClicked);
+            // 
             // FrmExamSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 450);
+            this.Controls.Add(this.buttonAddSchedule);
+            this.Controls.Add(this.linkLabelCancel);
             this.Controls.Add(this.dataGridViewExamSchedule);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -309,7 +326,6 @@ namespace WindowsDesktop.Exam
             this.Controls.Add(this.comboBoxExamList);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePickerExamDate);
-            this.Controls.Add(this.buttonAddSchedule);
             this.Controls.Add(this.comboBoxClassList);
             this.Controls.Add(this.label1);
             this.Name = "FrmExamSchedule";
@@ -345,5 +361,6 @@ namespace WindowsDesktop.Exam
         private System.Windows.Forms.DataGridViewTextBoxColumn SUBJECT_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn EXAM_DATE;
         private System.Windows.Forms.DataGridViewTextBoxColumn EXAM_TIME;
+        private System.Windows.Forms.LinkLabel linkLabelCancel;
     }
 }

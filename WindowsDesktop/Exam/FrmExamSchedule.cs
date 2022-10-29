@@ -8,6 +8,8 @@ namespace WindowsDesktop.Exam
 {
     public partial class FrmExamSchedule : Form
     {
+        private static string _scheduleId;
+
         public FrmExamSchedule()
         {
             InitializeComponent();
@@ -15,6 +17,20 @@ namespace WindowsDesktop.Exam
 
             LoadData();
             LoadExamSchedule();
+        }
+
+        private void ClearField()
+        {
+            _scheduleId = string.Empty;
+            linkLabelCancel.Visible = false;
+            buttonAddSchedule.Text = "Add";
+
+            comboBoxExamList.Text = string.Empty;
+            comboBoxClassList.Text = string.Empty;
+            comboBoxSubjectList.Text = string.Empty;
+
+            buttonAddSchedule.Width = 139;
+
         }
 
         private void LoadData()
@@ -124,29 +140,64 @@ namespace WindowsDesktop.Exam
                               "Are you sure create this schedule?";
                     if (MessageBox.Show(msg, "Schedule Confirmation", MessageBoxButtons.OK)==DialogResult.OK)
                     {
-                        var isExist = Db.HasExisted("SELECT * FROM S_EXAM_SCHEDULE WHERE EXAM_ID=" +
-                                                    comboBoxExamList.SelectedValue + " AND CLASS_ID=" +
-                                                    comboBoxClassList.SelectedValue + " AND SUBJECT_ID=" +
-                                                    comboBoxSubjectList.SelectedValue + " AND EXAM_DATE='" +
-                                                    dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "'");
-                        if (!isExist)
+                        if (buttonAddSchedule.Text=="Add")
                         {
-                            var query =
-                                "INSERT INTO S_EXAM_SCHEDULE (ID, EXAM_ID, CLASS_ID, SUBJECT_ID, EXAM_DATE, EXAM_TIME, CREATE_BY, " +
-                                "CREATE_DATE) VALUES ((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_EXAM_SCHEDULE)," +
-                                comboBoxExamList.SelectedValue + "," + comboBoxClassList.SelectedValue + "," +
-                                comboBoxSubjectList.SelectedValue + ",'" + 
-                                dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "','" +
-                                examTime + "','" + GlobalSettings.UserName + "',current_timestamp)";
-                            var isSave = Db.QueryExecute(query);
-                            if (isSave)
+                            var isExist = Db.HasExisted("SELECT * FROM S_EXAM_SCHEDULE WHERE EXAM_ID=" +
+                                                        comboBoxExamList.SelectedValue + " AND CLASS_ID=" +
+                                                        comboBoxClassList.SelectedValue + " AND SUBJECT_ID=" +
+                                                        comboBoxSubjectList.SelectedValue + " AND EXAM_DATE='" +
+                                                        dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "'");
+                            if (!isExist)
                             {
-                                LoadExamSchedule();
+                                var query =
+                                    "INSERT INTO S_EXAM_SCHEDULE (ID, EXAM_ID, CLASS_ID, SUBJECT_ID, EXAM_DATE, EXAM_TIME, CREATE_BY, " +
+                                    "CREATE_DATE) VALUES ((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_EXAM_SCHEDULE)," +
+                                    comboBoxExamList.SelectedValue + "," + comboBoxClassList.SelectedValue + "," +
+                                    comboBoxSubjectList.SelectedValue + ",'" + 
+                                    dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "','" +
+                                    examTime + "','" + GlobalSettings.UserName + "',current_timestamp)";
+                                var isSave = Db.QueryExecute(query);
+                                if (isSave)
+                                {
+                                    LoadExamSchedule();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("This schedule already exist.");
                             }
                         }
-                        else
+                        else if (buttonAddSchedule.Text=="Update")
                         {
-                            MessageBox.Show("This schedule already created\nPlease try another schedule.");
+                            var isExist = Db.HasExisted("SELECT * FROM S_EXAM_SCHEDULE WHERE EXAM_ID=" +
+                                                        comboBoxExamList.SelectedValue + " AND CLASS_ID=" +
+                                                        comboBoxClassList.SelectedValue + " AND SUBJECT_ID=" +
+                                                        comboBoxSubjectList.SelectedValue + " AND EXAM_DATE='" +
+                                                        dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave)
+                                                        + "' AND ID <> " + _scheduleId + "");
+                            if (!isExist)
+                            {
+                                var query =
+                                    "UPDATE S_EXAM_SCHEDULE SET EXAM_ID=" + comboBoxExamList.SelectedValue +
+                                    ", CLASS_ID=" + comboBoxClassList.SelectedValue +
+                                    ", SUBJECT_ID=" + comboBoxSubjectList.SelectedValue +
+                                    ", EXAM_DATE='" + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) +
+                                    "', EXAM_TIME='" + examTime +
+                                    "', UPDATE_BY='" + GlobalSettings.UserName +
+                                    "', UPDATE_DATE= current_timestamp " +
+                                    "WHERE ID=" + _scheduleId + "";
+
+                                var flag = Db.QueryExecute(query);
+                                if (flag)
+                                {
+                                    ClearField();
+                                    LoadExamSchedule();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("This schedule already exist.");
+                            }
                         }
                     }
                 }
@@ -164,6 +215,7 @@ namespace WindowsDesktop.Exam
                 var dg = dataGridViewExamSchedule;
                 if (dg.Rows.Count>0)
                 {
+                    _scheduleId = dg.Rows[e.RowIndex].Cells[Id.Index].Value.ToString();
                     comboBoxExamList.Text = dg.Rows[e.RowIndex].Cells[EXAM_NAME.Index].Value.ToString();
                     comboBoxClassList.Text = dg.Rows[e.RowIndex].Cells[CLASS_NAME.Index].Value.ToString();
                     comboBoxSubjectList.Text = dg.Rows[e.RowIndex].Cells[SUBJECT_NAME.Index].Value.ToString();
@@ -173,12 +225,22 @@ namespace WindowsDesktop.Exam
                     comboBoxMinutes.Text = time[1];
                     comboBoxAmPm.Text = time[2];
 
+                    buttonAddSchedule.Width = 82;
+                    buttonAddSchedule.Text = "Update";
+                    linkLabelCancel.Visible = true;
                 }
             }
             catch (Exception ex)
             {
+                ClearField();
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void linkLabelCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ClearField();
+        }
+
     }
 }
