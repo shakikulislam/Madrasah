@@ -156,5 +156,29 @@ namespace WindowsDesktop.Exam
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void dataGridViewExamSchedule_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var dg = dataGridViewExamSchedule;
+                if (dg.Rows.Count>0)
+                {
+                    comboBoxExamList.Text = dg.Rows[e.RowIndex].Cells[EXAM_NAME.Index].Value.ToString();
+                    comboBoxClassList.Text = dg.Rows[e.RowIndex].Cells[CLASS_NAME.Index].Value.ToString();
+                    comboBoxSubjectList.Text = dg.Rows[e.RowIndex].Cells[SUBJECT_NAME.Index].Value.ToString();
+                    dateTimePickerExamDate.Value = Convert.ToDateTime(dg.Rows[e.RowIndex].Cells[EXAM_DATE.Index].Value);
+                    var time = dg.Rows[e.RowIndex].Cells[EXAM_TIME.Index].Value.ToString().Split(new Char[] {':',' '});
+                    comboBoxHour.Text = time[0];
+                    comboBoxMinutes.Text = time[1];
+                    comboBoxAmPm.Text = time[2];
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

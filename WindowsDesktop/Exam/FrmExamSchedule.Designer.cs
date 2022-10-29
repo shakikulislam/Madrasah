@@ -237,6 +237,7 @@ namespace WindowsDesktop.Exam
             this.dataGridViewExamSchedule.Name = "dataGridViewExamSchedule";
             this.dataGridViewExamSchedule.Size = new System.Drawing.Size(690, 316);
             this.dataGridViewExamSchedule.TabIndex = 16;
+            this.dataGridViewExamSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewExamSchedule_CellDoubleClick);
             // 
             // Id
             // 
