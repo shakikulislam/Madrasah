@@ -22,6 +22,7 @@ namespace WindowsDesktop.Exam
         private void ClearField()
         {
             _scheduleId = string.Empty;
+
             linkLabelCancel.Visible = false;
             buttonAddSchedule.Text = "Add";
 

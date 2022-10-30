@@ -163,6 +163,12 @@
     <Compile Include="FrmMarksEntry.Designer.cs">
       <DependentUpon>FrmMarksEntry.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBackup.Designer.cs">
+      <DependentUpon>FrmBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Staff\FrmAddNewStaff.cs">
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMarksEntry.resx">
       <DependentUpon>FrmMarksEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBackup.resx">
+      <DependentUpon>FrmBackup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

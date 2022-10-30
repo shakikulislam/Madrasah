@@ -309,5 +309,10 @@ namespace WindowsDesktop
             ActiveButton(sender);
             OpenChildForm(new FrmExam());
         }
+
+        private void iconButtonBackup_Click(object sender, EventArgs e)
+        {
+            new FrmBackup().ShowDialog();
+        }
     }
 }

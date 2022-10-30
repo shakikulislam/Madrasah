@@ -50,6 +50,7 @@ namespace WindowsDesktop
             this.labelOfficeName = new System.Windows.Forms.Label();
             this.panelRight = new System.Windows.Forms.Panel();
             this.panelTopDivider = new System.Windows.Forms.Panel();
+            this.iconButtonBackup = new FontAwesome.Sharp.IconButton();
             this.panelSideMenu.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxCurrentChild)).BeginInit();
@@ -58,6 +59,7 @@ namespace WindowsDesktop
             // 
             // panelSideMenu
             // 
+            this.panelSideMenu.Controls.Add(this.iconButtonBackup);
             this.panelSideMenu.Controls.Add(this.iconButtonExam);
             this.panelSideMenu.Controls.Add(this.iconButtonMarksEntry);
             this.panelSideMenu.Controls.Add(this.iconButtonAddress);
@@ -354,6 +356,28 @@ namespace WindowsDesktop
             this.panelTopDivider.Size = new System.Drawing.Size(772, 5);
             this.panelTopDivider.TabIndex = 0;
             // 
+            // iconButtonBackup
+            // 
+            this.iconButtonBackup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonBackup.FlatAppearance.BorderSize = 0;
+            this.iconButtonBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonBackup.IconChar = FontAwesome.Sharp.IconChar.Download;
+            this.iconButtonBackup.IconColor = System.Drawing.Color.Black;
+            this.iconButtonBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonBackup.IconSize = 32;
+            this.iconButtonBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonBackup.Location = new System.Drawing.Point(0, 303);
+            this.iconButtonBackup.Name = "iconButtonBackup";
+            this.iconButtonBackup.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.iconButtonBackup.Size = new System.Drawing.Size(160, 40);
+            this.iconButtonBackup.TabIndex = 8;
+            this.iconButtonBackup.Text = "Backup";
+            this.iconButtonBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonBackup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonBackup.UseVisualStyleBackColor = true;
+            this.iconButtonBackup.Click += new System.EventHandler(this.iconButtonBackup_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,6 +427,7 @@ namespace WindowsDesktop
         private System.Windows.Forms.Panel panelTopDivider;
         private FontAwesome.Sharp.IconButton iconButtonMarksEntry;
         private FontAwesome.Sharp.IconButton iconButtonExam;
+        private FontAwesome.Sharp.IconButton iconButtonBackup;
     }
 }
 

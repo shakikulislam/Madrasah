@@ -21,6 +21,8 @@ namespace WindowsDesktop.DbContext
         private static SqlDataAdapter da;
         private static DataTable dt;
 
+        public static string DbName { get; } = _databaseName;
+
         //Method
 
         public static bool HasExisted(string query)
