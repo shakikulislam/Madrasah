@@ -10,10 +10,14 @@ namespace WindowsDesktop.DbContext
         private static string _databaseName = "MadrasahDb";
         private static string _userId = "sa";
         private static string _password = "bkbabu";
+        //private static string _connectionString = @"Data Source=" + GlobalSettings.Server +
+        //                                          "; Initial Catalog=" + _databaseName +
+        //                                          "; User ID=" + _userId +
+        //                                          "; Password=" + _password + "";
+
         private static string _connectionString = @"Data Source=" + GlobalSettings.Server +
                                                   "; Initial Catalog=" + _databaseName +
-                                                  "; User ID=" + _userId +
-                                                  "; Password=" + _password + "";
+                                                  "; Integrated Security = True";
 
         private static SqlConnection conn = new SqlConnection(_connectionString);
         private static SqlCommand cmd = new SqlCommand("", conn);

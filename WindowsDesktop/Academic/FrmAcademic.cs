@@ -58,12 +58,6 @@ namespace WindowsDesktop.Academic
             _currentChildForm = GlobalSettings.OpenChildForm(new FrmClass(), _currentChildForm, panelAcademicBody);
         }
         
-        private void buttonDepartment_Click(object sender, EventArgs e)
-        {
-            ActiveButton(sender);
-            _currentChildForm = GlobalSettings.OpenChildForm(new FrmDepartment(), _currentChildForm, panelAcademicBody);
-        }
-
         private void buttonSubject_Click(object sender, EventArgs e)
         {
             ActiveButton(sender);

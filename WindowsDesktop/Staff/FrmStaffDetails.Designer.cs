@@ -35,6 +35,7 @@ namespace WindowsDesktop.Staff
             this.iconButtonClose = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanelControl = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonProfile = new System.Windows.Forms.Button();
+            this.buttonAssignedSubject = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label57 = new System.Windows.Forms.Label();
             this.textBoxReviewPerDetails = new System.Windows.Forms.TextBox();
@@ -62,6 +63,8 @@ namespace WindowsDesktop.Staff
             this.label56 = new System.Windows.Forms.Label();
             this.comboBoxReviewPreDivision = new System.Windows.Forms.ComboBox();
             this.panelBody = new System.Windows.Forms.Panel();
+            this.panelSubjectList = new System.Windows.Forms.Panel();
+            this.dataGridViewSubjectList = new System.Windows.Forms.DataGridView();
             this.tabControlProfile = new System.Windows.Forms.TabControl();
             this.tabPagePersonalInformation = new System.Windows.Forms.TabPage();
             this.comboBoxDesignation = new System.Windows.Forms.ComboBox();
@@ -88,12 +91,8 @@ namespace WindowsDesktop.Staff
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.errorProviderDetails = new System.Windows.Forms.ErrorProvider(this.components);
-            this.buttonAssignedSubject = new System.Windows.Forms.Button();
-            this.panelSubjectList = new System.Windows.Forms.Panel();
-            this.dataGridViewSubjectList = new System.Windows.Forms.DataGridView();
             this.ColumnSl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,14 +100,14 @@ namespace WindowsDesktop.Staff
             this.flowLayoutPanelControl.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panelBody.SuspendLayout();
+            this.panelSubjectList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubjectList)).BeginInit();
             this.tabControlProfile.SuspendLayout();
             this.tabPagePersonalInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStaff)).BeginInit();
             this.tabPageAddress.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDetails)).BeginInit();
-            this.panelSubjectList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubjectList)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitleBar
@@ -176,11 +175,24 @@ namespace WindowsDesktop.Staff
             this.buttonProfile.UseVisualStyleBackColor = true;
             this.buttonProfile.Click += new System.EventHandler(this.buttonProfile_Click);
             // 
+            // buttonAssignedSubject
+            // 
+            this.buttonAssignedSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAssignedSubject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAssignedSubject.Location = new System.Drawing.Point(114, 0);
+            this.buttonAssignedSubject.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonAssignedSubject.Name = "buttonAssignedSubject";
+            this.buttonAssignedSubject.Size = new System.Drawing.Size(169, 35);
+            this.buttonAssignedSubject.TabIndex = 1;
+            this.buttonAssignedSubject.Text = "Assigned Subject";
+            this.buttonAssignedSubject.UseVisualStyleBackColor = true;
+            this.buttonAssignedSubject.Click += new System.EventHandler(this.buttonAssignedSubject_Click);
+            // 
             // panel5
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel5.Controls.Add(this.label57);
-            this.panel5.Location = new System.Drawing.Point(80, 280);
+            this.panel5.Location = new System.Drawing.Point(71, 280);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(172, 33);
             this.panel5.TabIndex = 147;
@@ -199,7 +211,7 @@ namespace WindowsDesktop.Staff
             // 
             this.textBoxReviewPerDetails.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxReviewPerDetails.CausesValidation = false;
-            this.textBoxReviewPerDetails.Location = new System.Drawing.Point(80, 476);
+            this.textBoxReviewPerDetails.Location = new System.Drawing.Point(71, 476);
             this.textBoxReviewPerDetails.Multiline = true;
             this.textBoxReviewPerDetails.Name = "textBoxReviewPerDetails";
             this.textBoxReviewPerDetails.Size = new System.Drawing.Size(428, 51);
@@ -209,7 +221,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label44.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(80, 456);
+            this.label44.Location = new System.Drawing.Point(71, 456);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(196, 17);
             this.label44.TabIndex = 106;
@@ -219,7 +231,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label45.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(80, 409);
+            this.label45.Location = new System.Drawing.Point(71, 409);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(50, 17);
             this.label45.TabIndex = 105;
@@ -230,7 +242,7 @@ namespace WindowsDesktop.Staff
             this.comboBoxReviewPerVillage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerVillage.DisplayMember = "name";
             this.comboBoxReviewPerVillage.FormattingEnabled = true;
-            this.comboBoxReviewPerVillage.Location = new System.Drawing.Point(80, 429);
+            this.comboBoxReviewPerVillage.Location = new System.Drawing.Point(71, 429);
             this.comboBoxReviewPerVillage.Name = "comboBoxReviewPerVillage";
             this.comboBoxReviewPerVillage.Size = new System.Drawing.Size(428, 24);
             this.comboBoxReviewPerVillage.TabIndex = 104;
@@ -241,7 +253,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label46.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(299, 362);
+            this.label46.Location = new System.Drawing.Point(290, 362);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(45, 17);
             this.label46.TabIndex = 103;
@@ -252,7 +264,7 @@ namespace WindowsDesktop.Staff
             this.comboBoxReviewPerUnion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerUnion.DisplayMember = "name";
             this.comboBoxReviewPerUnion.FormattingEnabled = true;
-            this.comboBoxReviewPerUnion.Location = new System.Drawing.Point(299, 382);
+            this.comboBoxReviewPerUnion.Location = new System.Drawing.Point(290, 382);
             this.comboBoxReviewPerUnion.Name = "comboBoxReviewPerUnion";
             this.comboBoxReviewPerUnion.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerUnion.TabIndex = 102;
@@ -263,7 +275,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label47.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(80, 362);
+            this.label47.Location = new System.Drawing.Point(71, 362);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(55, 17);
             this.label47.TabIndex = 101;
@@ -274,7 +286,7 @@ namespace WindowsDesktop.Staff
             this.comboBoxReviewPerUpazila.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerUpazila.DisplayMember = "name";
             this.comboBoxReviewPerUpazila.FormattingEnabled = true;
-            this.comboBoxReviewPerUpazila.Location = new System.Drawing.Point(80, 382);
+            this.comboBoxReviewPerUpazila.Location = new System.Drawing.Point(71, 382);
             this.comboBoxReviewPerUpazila.Name = "comboBoxReviewPerUpazila";
             this.comboBoxReviewPerUpazila.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerUpazila.TabIndex = 100;
@@ -285,7 +297,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label48.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(299, 315);
+            this.label48.Location = new System.Drawing.Point(290, 315);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(51, 17);
             this.label48.TabIndex = 99;
@@ -296,7 +308,7 @@ namespace WindowsDesktop.Staff
             this.comboBoxReviewPerDistrict.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerDistrict.DisplayMember = "name";
             this.comboBoxReviewPerDistrict.FormattingEnabled = true;
-            this.comboBoxReviewPerDistrict.Location = new System.Drawing.Point(299, 335);
+            this.comboBoxReviewPerDistrict.Location = new System.Drawing.Point(290, 335);
             this.comboBoxReviewPerDistrict.Name = "comboBoxReviewPerDistrict";
             this.comboBoxReviewPerDistrict.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerDistrict.TabIndex = 98;
@@ -307,7 +319,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label49.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(80, 315);
+            this.label49.Location = new System.Drawing.Point(71, 315);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(57, 17);
             this.label49.TabIndex = 97;
@@ -318,7 +330,7 @@ namespace WindowsDesktop.Staff
             this.comboBoxReviewPerDivision.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPerDivision.DisplayMember = "name";
             this.comboBoxReviewPerDivision.FormattingEnabled = true;
-            this.comboBoxReviewPerDivision.Location = new System.Drawing.Point(80, 335);
+            this.comboBoxReviewPerDivision.Location = new System.Drawing.Point(71, 335);
             this.comboBoxReviewPerDivision.Name = "comboBoxReviewPerDivision";
             this.comboBoxReviewPerDivision.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPerDivision.TabIndex = 95;
@@ -329,7 +341,7 @@ namespace WindowsDesktop.Staff
             // 
             this.textBoxReviewPreDetails.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxReviewPreDetails.CausesValidation = false;
-            this.textBoxReviewPreDetails.Location = new System.Drawing.Point(80, 212);
+            this.textBoxReviewPreDetails.Location = new System.Drawing.Point(71, 212);
             this.textBoxReviewPreDetails.Multiline = true;
             this.textBoxReviewPreDetails.Name = "textBoxReviewPreDetails";
             this.textBoxReviewPreDetails.Size = new System.Drawing.Size(428, 51);
@@ -339,7 +351,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label51.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(80, 192);
+            this.label51.Location = new System.Drawing.Point(71, 192);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(196, 17);
             this.label51.TabIndex = 93;
@@ -349,7 +361,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label52.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(80, 145);
+            this.label52.Location = new System.Drawing.Point(71, 145);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(50, 17);
             this.label52.TabIndex = 92;
@@ -360,7 +372,7 @@ namespace WindowsDesktop.Staff
             this.comboBoxReviewPreVillage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreVillage.DisplayMember = "name";
             this.comboBoxReviewPreVillage.FormattingEnabled = true;
-            this.comboBoxReviewPreVillage.Location = new System.Drawing.Point(80, 165);
+            this.comboBoxReviewPreVillage.Location = new System.Drawing.Point(71, 165);
             this.comboBoxReviewPreVillage.Name = "comboBoxReviewPreVillage";
             this.comboBoxReviewPreVillage.Size = new System.Drawing.Size(428, 24);
             this.comboBoxReviewPreVillage.TabIndex = 91;
@@ -371,7 +383,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label53.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(299, 98);
+            this.label53.Location = new System.Drawing.Point(290, 98);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(45, 17);
             this.label53.TabIndex = 90;
@@ -382,7 +394,7 @@ namespace WindowsDesktop.Staff
             this.comboBoxReviewPreUnion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreUnion.DisplayMember = "name";
             this.comboBoxReviewPreUnion.FormattingEnabled = true;
-            this.comboBoxReviewPreUnion.Location = new System.Drawing.Point(299, 118);
+            this.comboBoxReviewPreUnion.Location = new System.Drawing.Point(290, 118);
             this.comboBoxReviewPreUnion.Name = "comboBoxReviewPreUnion";
             this.comboBoxReviewPreUnion.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreUnion.TabIndex = 89;
@@ -393,7 +405,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label54.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(80, 98);
+            this.label54.Location = new System.Drawing.Point(71, 98);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(55, 17);
             this.label54.TabIndex = 88;
@@ -404,7 +416,7 @@ namespace WindowsDesktop.Staff
             this.comboBoxReviewPreUpazila.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreUpazila.DisplayMember = "name";
             this.comboBoxReviewPreUpazila.FormattingEnabled = true;
-            this.comboBoxReviewPreUpazila.Location = new System.Drawing.Point(80, 118);
+            this.comboBoxReviewPreUpazila.Location = new System.Drawing.Point(71, 118);
             this.comboBoxReviewPreUpazila.Name = "comboBoxReviewPreUpazila";
             this.comboBoxReviewPreUpazila.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreUpazila.TabIndex = 87;
@@ -415,7 +427,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label55.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(299, 51);
+            this.label55.Location = new System.Drawing.Point(290, 51);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(51, 17);
             this.label55.TabIndex = 86;
@@ -426,7 +438,7 @@ namespace WindowsDesktop.Staff
             this.comboBoxReviewPreDistrict.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreDistrict.DisplayMember = "name";
             this.comboBoxReviewPreDistrict.FormattingEnabled = true;
-            this.comboBoxReviewPreDistrict.Location = new System.Drawing.Point(299, 71);
+            this.comboBoxReviewPreDistrict.Location = new System.Drawing.Point(290, 71);
             this.comboBoxReviewPreDistrict.Name = "comboBoxReviewPreDistrict";
             this.comboBoxReviewPreDistrict.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreDistrict.TabIndex = 85;
@@ -437,7 +449,7 @@ namespace WindowsDesktop.Staff
             // 
             this.label56.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(80, 51);
+            this.label56.Location = new System.Drawing.Point(71, 51);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(57, 17);
             this.label56.TabIndex = 84;
@@ -448,7 +460,7 @@ namespace WindowsDesktop.Staff
             this.comboBoxReviewPreDivision.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxReviewPreDivision.DisplayMember = "name";
             this.comboBoxReviewPreDivision.FormattingEnabled = true;
-            this.comboBoxReviewPreDivision.Location = new System.Drawing.Point(80, 71);
+            this.comboBoxReviewPreDivision.Location = new System.Drawing.Point(71, 71);
             this.comboBoxReviewPreDivision.Name = "comboBoxReviewPreDivision";
             this.comboBoxReviewPreDivision.Size = new System.Drawing.Size(209, 24);
             this.comboBoxReviewPreDivision.TabIndex = 82;
@@ -465,6 +477,33 @@ namespace WindowsDesktop.Staff
             this.panelBody.Name = "panelBody";
             this.panelBody.Size = new System.Drawing.Size(802, 457);
             this.panelBody.TabIndex = 38;
+            // 
+            // panelSubjectList
+            // 
+            this.panelSubjectList.Controls.Add(this.dataGridViewSubjectList);
+            this.panelSubjectList.Location = new System.Drawing.Point(165, 23);
+            this.panelSubjectList.Name = "panelSubjectList";
+            this.panelSubjectList.Size = new System.Drawing.Size(537, 66);
+            this.panelSubjectList.TabIndex = 39;
+            this.panelSubjectList.Visible = false;
+            // 
+            // dataGridViewSubjectList
+            // 
+            this.dataGridViewSubjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewSubjectList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSubjectList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnSl,
+            this.ColumnId,
+            this.ColumnClass,
+            this.ColumnSubject,
+            this.ColumnMark});
+            this.dataGridViewSubjectList.Location = new System.Drawing.Point(3, 31);
+            this.dataGridViewSubjectList.Name = "dataGridViewSubjectList";
+            this.dataGridViewSubjectList.Size = new System.Drawing.Size(531, 32);
+            this.dataGridViewSubjectList.TabIndex = 0;
+            this.dataGridViewSubjectList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewSubjectList_RowPostPaint);
             // 
             // tabControlProfile
             // 
@@ -702,7 +741,7 @@ namespace WindowsDesktop.Staff
             this.tabPageAddress.Location = new System.Drawing.Point(4, 25);
             this.tabPageAddress.Name = "tabPageAddress";
             this.tabPageAddress.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddress.Size = new System.Drawing.Size(668, 415);
+            this.tabPageAddress.Size = new System.Drawing.Size(639, 21);
             this.tabPageAddress.TabIndex = 1;
             this.tabPageAddress.Text = "Address";
             this.tabPageAddress.UseVisualStyleBackColor = true;
@@ -710,7 +749,7 @@ namespace WindowsDesktop.Staff
             // buttonAddressUpdate
             // 
             this.buttonAddressUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonAddressUpdate.Location = new System.Drawing.Point(352, 533);
+            this.buttonAddressUpdate.Location = new System.Drawing.Point(343, 533);
             this.buttonAddressUpdate.Name = "buttonAddressUpdate";
             this.buttonAddressUpdate.Size = new System.Drawing.Size(156, 39);
             this.buttonAddressUpdate.TabIndex = 148;
@@ -722,7 +761,7 @@ namespace WindowsDesktop.Staff
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel3.Controls.Add(this.label58);
-            this.panel3.Location = new System.Drawing.Point(80, 16);
+            this.panel3.Location = new System.Drawing.Point(71, 16);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(172, 33);
             this.panel3.TabIndex = 147;
@@ -757,47 +796,6 @@ namespace WindowsDesktop.Staff
             // 
             this.errorProviderDetails.ContainerControl = this;
             // 
-            // buttonAssignedSubject
-            // 
-            this.buttonAssignedSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAssignedSubject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAssignedSubject.Location = new System.Drawing.Point(114, 0);
-            this.buttonAssignedSubject.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonAssignedSubject.Name = "buttonAssignedSubject";
-            this.buttonAssignedSubject.Size = new System.Drawing.Size(169, 35);
-            this.buttonAssignedSubject.TabIndex = 1;
-            this.buttonAssignedSubject.Text = "Assigned Subject";
-            this.buttonAssignedSubject.UseVisualStyleBackColor = true;
-            this.buttonAssignedSubject.Click += new System.EventHandler(this.buttonAssignedSubject_Click);
-            // 
-            // panelSubjectList
-            // 
-            this.panelSubjectList.Controls.Add(this.dataGridViewSubjectList);
-            this.panelSubjectList.Location = new System.Drawing.Point(165, 23);
-            this.panelSubjectList.Name = "panelSubjectList";
-            this.panelSubjectList.Size = new System.Drawing.Size(537, 66);
-            this.panelSubjectList.TabIndex = 39;
-            this.panelSubjectList.Visible = false;
-            // 
-            // dataGridViewSubjectList
-            // 
-            this.dataGridViewSubjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewSubjectList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSubjectList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnSl,
-            this.ColumnId,
-            this.ColumnDepartment,
-            this.ColumnClass,
-            this.ColumnSubject,
-            this.ColumnMark});
-            this.dataGridViewSubjectList.Location = new System.Drawing.Point(3, 31);
-            this.dataGridViewSubjectList.Name = "dataGridViewSubjectList";
-            this.dataGridViewSubjectList.Size = new System.Drawing.Size(531, 32);
-            this.dataGridViewSubjectList.TabIndex = 0;
-            this.dataGridViewSubjectList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewSubjectList_RowPostPaint);
-            // 
             // ColumnSl
             // 
             this.ColumnSl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -813,15 +811,6 @@ namespace WindowsDesktop.Staff
             this.ColumnId.Name = "ColumnId";
             this.ColumnId.ReadOnly = true;
             this.ColumnId.Visible = false;
-            // 
-            // ColumnDepartment
-            // 
-            this.ColumnDepartment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnDepartment.DataPropertyName = "department";
-            this.ColumnDepartment.HeaderText = "Department";
-            this.ColumnDepartment.Name = "ColumnDepartment";
-            this.ColumnDepartment.ReadOnly = true;
-            this.ColumnDepartment.Width = 87;
             // 
             // ColumnClass
             // 
@@ -870,6 +859,8 @@ namespace WindowsDesktop.Staff
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panelBody.ResumeLayout(false);
+            this.panelSubjectList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubjectList)).EndInit();
             this.tabControlProfile.ResumeLayout(false);
             this.tabPagePersonalInformation.ResumeLayout(false);
             this.tabPagePersonalInformation.PerformLayout();
@@ -879,8 +870,6 @@ namespace WindowsDesktop.Staff
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDetails)).EndInit();
-            this.panelSubjectList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubjectList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -951,7 +940,6 @@ namespace WindowsDesktop.Staff
         private System.Windows.Forms.DataGridView dataGridViewSubjectList;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSl;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClass;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubject;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMark;
