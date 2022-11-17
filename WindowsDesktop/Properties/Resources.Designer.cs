@@ -63,6 +63,16 @@ namespace WindowsDesktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Mosque {
+            get {
+                object obj = ResourceManager.GetObject("Mosque", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap no_person_image {
             get {
                 object obj = ResourceManager.GetObject("no_person_image", resourceCulture);

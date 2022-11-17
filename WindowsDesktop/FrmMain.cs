@@ -184,8 +184,8 @@ namespace WindowsDesktop
         private void OpenChildForm(Form childForm)
         {
             _waiting = new frmWaiting();
-            _waiting.TopMost = true;
             _waiting.Show();
+
             Application.DoEvents();
 
             CloseChildForm();
@@ -210,11 +210,7 @@ namespace WindowsDesktop
 
         private void CloseChildForm()
         {
-            if (_currentChildForm != null)
-            {
-                // Open only home
-                _currentChildForm.Close();
-            }
+            _currentChildForm?.Close();
         }
         
         private void LoadOfficeInfo()
@@ -312,6 +308,7 @@ namespace WindowsDesktop
 
         private void iconButtonBackup_Click(object sender, EventArgs e)
         {
+            ActiveButton(sender);
             new FrmBackup().ShowDialog();
         }
     }
