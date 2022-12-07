@@ -33,13 +33,13 @@ namespace WindowsDesktop
             this.comboBoxClass = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewStudentList = new System.Windows.Forms.DataGridView();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.numericUpDownMark = new System.Windows.Forms.NumericUpDown();
             this.ColumnRoll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnReg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.numericUpDownMark = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxExam = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,14 +52,14 @@ namespace WindowsDesktop
             this.textBoxReg = new System.Windows.Forms.TextBox();
             this.buttonOk = new System.Windows.Forms.Button();
             this.panelSearch = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dateTimePickerExamDate = new System.Windows.Forms.DateTimePicker();
             this.panelUpdate = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.labelTotalStudent = new System.Windows.Forms.Label();
             this.labelMarkEntry = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.labelTotalStudent = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.errorProviderMark = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dateTimePickerExamDate = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMark)).BeginInit();
             this.panelSearch.SuspendLayout();
@@ -71,7 +71,7 @@ namespace WindowsDesktop
             // 
             this.comboBoxClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxClass.FormattingEnabled = true;
-            this.comboBoxClass.Location = new System.Drawing.Point(68, 12);
+            this.comboBoxClass.Location = new System.Drawing.Point(361, 12);
             this.comboBoxClass.Name = "comboBoxClass";
             this.comboBoxClass.Size = new System.Drawing.Size(239, 24);
             this.comboBoxClass.TabIndex = 0;
@@ -81,7 +81,7 @@ namespace WindowsDesktop
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 16);
+            this.label1.Location = new System.Drawing.Point(314, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 17);
             this.label1.TabIndex = 1;
@@ -103,25 +103,6 @@ namespace WindowsDesktop
             this.dataGridViewStudentList.Name = "dataGridViewStudentList";
             this.dataGridViewStudentList.Size = new System.Drawing.Size(680, 247);
             this.dataGridViewStudentList.TabIndex = 2;
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdate.Location = new System.Drawing.Point(567, 42);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(100, 44);
-            this.buttonUpdate.TabIndex = 3;
-            this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDownMark
-            // 
-            this.numericUpDownMark.DecimalPlaces = 2;
-            this.numericUpDownMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownMark.Location = new System.Drawing.Point(567, 6);
-            this.numericUpDownMark.Name = "numericUpDownMark";
-            this.numericUpDownMark.Size = new System.Drawing.Size(100, 23);
-            this.numericUpDownMark.TabIndex = 4;
             // 
             // ColumnRoll
             // 
@@ -161,11 +142,30 @@ namespace WindowsDesktop
             this.ColumnId.ReadOnly = true;
             this.ColumnId.Visible = false;
             // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpdate.Location = new System.Drawing.Point(567, 42);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(100, 44);
+            this.buttonUpdate.TabIndex = 3;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownMark
+            // 
+            this.numericUpDownMark.DecimalPlaces = 2;
+            this.numericUpDownMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownMark.Location = new System.Drawing.Point(567, 6);
+            this.numericUpDownMark.Name = "numericUpDownMark";
+            this.numericUpDownMark.Size = new System.Drawing.Size(100, 23);
+            this.numericUpDownMark.TabIndex = 4;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(315, 16);
+            this.label2.Location = new System.Drawing.Point(22, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 17);
             this.label2.TabIndex = 6;
@@ -175,16 +175,17 @@ namespace WindowsDesktop
             // 
             this.comboBoxExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxExam.FormattingEnabled = true;
-            this.comboBoxExam.Location = new System.Drawing.Point(361, 12);
+            this.comboBoxExam.Location = new System.Drawing.Point(68, 12);
             this.comboBoxExam.Name = "comboBoxExam";
             this.comboBoxExam.Size = new System.Drawing.Size(239, 24);
             this.comboBoxExam.TabIndex = 5;
+            this.comboBoxExam.SelectedIndexChanged += new System.EventHandler(this.comboBoxExam_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 46);
+            this.label3.Location = new System.Drawing.Point(9, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 17);
             this.label3.TabIndex = 8;
@@ -271,19 +272,40 @@ namespace WindowsDesktop
             // panelSearch
             // 
             this.panelSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelSearch.Controls.Add(this.comboBoxClass);
+            this.panelSearch.Controls.Add(this.label1);
             this.panelSearch.Controls.Add(this.label8);
             this.panelSearch.Controls.Add(this.dateTimePickerExamDate);
             this.panelSearch.Controls.Add(this.comboBoxExam);
             this.panelSearch.Controls.Add(this.buttonOk);
             this.panelSearch.Controls.Add(this.label2);
             this.panelSearch.Controls.Add(this.comboBoxSubject);
-            this.panelSearch.Controls.Add(this.comboBoxClass);
-            this.panelSearch.Controls.Add(this.label1);
             this.panelSearch.Controls.Add(this.label3);
             this.panelSearch.Location = new System.Drawing.Point(12, 3);
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(680, 78);
             this.panelSearch.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(401, 46);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 17);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Exam Date";
+            // 
+            // dateTimePickerExamDate
+            // 
+            this.dateTimePickerExamDate.CustomFormat = "dd-MMM-yyyy";
+            this.dateTimePickerExamDate.Enabled = false;
+            this.dateTimePickerExamDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerExamDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerExamDate.Location = new System.Drawing.Point(483, 43);
+            this.dateTimePickerExamDate.Name = "dateTimePickerExamDate";
+            this.dateTimePickerExamDate.Size = new System.Drawing.Size(117, 23);
+            this.dateTimePickerExamDate.TabIndex = 16;
             // 
             // panelUpdate
             // 
@@ -306,26 +328,6 @@ namespace WindowsDesktop
             this.panelUpdate.Size = new System.Drawing.Size(680, 98);
             this.panelUpdate.TabIndex = 16;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(23, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 17);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Total Student";
-            // 
-            // labelTotalStudent
-            // 
-            this.labelTotalStudent.AutoSize = true;
-            this.labelTotalStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalStudent.Location = new System.Drawing.Point(122, 6);
-            this.labelTotalStudent.Name = "labelTotalStudent";
-            this.labelTotalStudent.Size = new System.Drawing.Size(16, 17);
-            this.labelTotalStudent.TabIndex = 16;
-            this.labelTotalStudent.Text = "0";
-            // 
             // labelMarkEntry
             // 
             this.labelMarkEntry.AutoSize = true;
@@ -346,29 +348,29 @@ namespace WindowsDesktop
             this.label9.TabIndex = 17;
             this.label9.Text = "Mark Entry";
             // 
+            // labelTotalStudent
+            // 
+            this.labelTotalStudent.AutoSize = true;
+            this.labelTotalStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalStudent.Location = new System.Drawing.Point(122, 6);
+            this.labelTotalStudent.Name = "labelTotalStudent";
+            this.labelTotalStudent.Size = new System.Drawing.Size(16, 17);
+            this.labelTotalStudent.TabIndex = 16;
+            this.labelTotalStudent.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(23, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 17);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Total Student";
+            // 
             // errorProviderMark
             // 
             this.errorProviderMark.ContainerControl = this;
-            // 
-            // dateTimePickerExamDate
-            // 
-            this.dateTimePickerExamDate.CustomFormat = "dd-MMM-yyyy";
-            this.dateTimePickerExamDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerExamDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerExamDate.Location = new System.Drawing.Point(483, 43);
-            this.dateTimePickerExamDate.Name = "dateTimePickerExamDate";
-            this.dateTimePickerExamDate.Size = new System.Drawing.Size(117, 23);
-            this.dateTimePickerExamDate.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(401, 46);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 17);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Exam Date";
             // 
             // FrmMarksEntry
             // 

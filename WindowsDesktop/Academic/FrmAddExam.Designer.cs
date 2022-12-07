@@ -34,15 +34,15 @@ namespace WindowsDesktop.Academic
             this.textBoxExamName = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewExamList = new System.Windows.Forms.DataGridView();
-            this.numericUpDownEffectPersent = new System.Windows.Forms.NumericUpDown();
-            this.errorProviderExam = new System.Windows.Forms.ErrorProvider(this.components);
-            this.checkBoxEffectOnFinal = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.ColumnSl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEffectFinal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnEffectPercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numericUpDownEffectPersent = new System.Windows.Forms.NumericUpDown();
+            this.errorProviderExam = new System.Windows.Forms.ErrorProvider(this.components);
+            this.checkBoxEffectOnFinal = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExamList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEffectPersent)).BeginInit();
@@ -83,7 +83,9 @@ namespace WindowsDesktop.Academic
             // 
             // dataGridViewExamList
             // 
-            this.dataGridViewExamList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dataGridViewExamList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewExamList.CausesValidation = false;
             this.dataGridViewExamList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewExamList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -92,50 +94,12 @@ namespace WindowsDesktop.Academic
             this.ColumnEffectFinal,
             this.ColumnEffectPercent,
             this.ColumnId});
-            this.dataGridViewExamList.Location = new System.Drawing.Point(54, 126);
+            this.dataGridViewExamList.Location = new System.Drawing.Point(12, 126);
             this.dataGridViewExamList.Name = "dataGridViewExamList";
-            this.dataGridViewExamList.Size = new System.Drawing.Size(692, 312);
+            this.dataGridViewExamList.Size = new System.Drawing.Size(776, 312);
             this.dataGridViewExamList.TabIndex = 3;
             this.dataGridViewExamList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewExamList_RowPostPaint);
             this.dataGridViewExamList.DoubleClick += new System.EventHandler(this.dataGridViewExamList_DoubleClick);
-            // 
-            // numericUpDownEffectPersent
-            // 
-            this.numericUpDownEffectPersent.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.numericUpDownEffectPersent.Enabled = false;
-            this.numericUpDownEffectPersent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownEffectPersent.Location = new System.Drawing.Point(339, 76);
-            this.numericUpDownEffectPersent.Name = "numericUpDownEffectPersent";
-            this.numericUpDownEffectPersent.Size = new System.Drawing.Size(76, 23);
-            this.numericUpDownEffectPersent.TabIndex = 5;
-            // 
-            // errorProviderExam
-            // 
-            this.errorProviderExam.ContainerControl = this;
-            // 
-            // checkBoxEffectOnFinal
-            // 
-            this.checkBoxEffectOnFinal.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.checkBoxEffectOnFinal.AutoSize = true;
-            this.checkBoxEffectOnFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxEffectOnFinal.Location = new System.Drawing.Point(167, 77);
-            this.checkBoxEffectOnFinal.Name = "checkBoxEffectOnFinal";
-            this.checkBoxEffectOnFinal.Size = new System.Drawing.Size(155, 21);
-            this.checkBoxEffectOnFinal.TabIndex = 6;
-            this.checkBoxEffectOnFinal.Text = "Effect on Final Exam";
-            this.checkBoxEffectOnFinal.UseVisualStyleBackColor = true;
-            this.checkBoxEffectOnFinal.CheckedChanged += new System.EventHandler(this.checkBoxEffectOnFinal_CheckedChanged);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(417, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 17);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "%";
             // 
             // ColumnSl
             // 
@@ -181,6 +145,44 @@ namespace WindowsDesktop.Academic
             this.ColumnId.ReadOnly = true;
             this.ColumnId.Visible = false;
             // 
+            // numericUpDownEffectPersent
+            // 
+            this.numericUpDownEffectPersent.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.numericUpDownEffectPersent.Enabled = false;
+            this.numericUpDownEffectPersent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownEffectPersent.Location = new System.Drawing.Point(339, 76);
+            this.numericUpDownEffectPersent.Name = "numericUpDownEffectPersent";
+            this.numericUpDownEffectPersent.Size = new System.Drawing.Size(76, 23);
+            this.numericUpDownEffectPersent.TabIndex = 5;
+            // 
+            // errorProviderExam
+            // 
+            this.errorProviderExam.ContainerControl = this;
+            // 
+            // checkBoxEffectOnFinal
+            // 
+            this.checkBoxEffectOnFinal.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.checkBoxEffectOnFinal.AutoSize = true;
+            this.checkBoxEffectOnFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxEffectOnFinal.Location = new System.Drawing.Point(167, 77);
+            this.checkBoxEffectOnFinal.Name = "checkBoxEffectOnFinal";
+            this.checkBoxEffectOnFinal.Size = new System.Drawing.Size(155, 21);
+            this.checkBoxEffectOnFinal.TabIndex = 6;
+            this.checkBoxEffectOnFinal.Text = "Effect on Final Exam";
+            this.checkBoxEffectOnFinal.UseVisualStyleBackColor = true;
+            this.checkBoxEffectOnFinal.CheckedChanged += new System.EventHandler(this.checkBoxEffectOnFinal_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(417, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(20, 17);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "%";
+            // 
             // buttonCancel
             // 
             this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -194,7 +196,7 @@ namespace WindowsDesktop.Academic
             this.buttonCancel.Visible = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // FrmExam
+            // FrmAddExam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -207,7 +209,7 @@ namespace WindowsDesktop.Academic
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.textBoxExamName);
             this.Controls.Add(this.label1);
-            this.Name = "FrmExam";
+            this.Name = "FrmAddExam";
             this.Text = "FrmExam";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExamList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEffectPersent)).EndInit();

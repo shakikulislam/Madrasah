@@ -21,6 +21,29 @@ namespace WindowsDesktop
             LoadData();
         }
 
+        private bool LoadExamDate()
+        {
+            if (string.IsNullOrEmpty(comboBoxClass.Text)) return false;
+            if (string.IsNullOrEmpty(comboBoxExam.Text)) return false;
+            if (string.IsNullOrEmpty(comboBoxSubject.Text)) return false;
+
+            var date = new ExamDb().GetExamDate(
+                comboBoxExam.SelectedValue.ToString(), comboBoxClass.SelectedValue.ToString(),
+                comboBoxSubject.SelectedValue.ToString());
+
+            if (string.IsNullOrEmpty(date))
+            {
+                MessageBox.Show("Exam schedule not found\nPlease create exam schedule and try again.");
+                return false;
+            }
+            else
+            {
+                dateTimePickerExamDate.Value = Convert.ToDateTime(date);
+                return true;
+            }
+
+        }
+
         private void LoadData()
         {
             try
@@ -41,7 +64,7 @@ namespace WindowsDesktop
 
         private void comboBoxSubject_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-
+            
         }
 
         private void comboBoxClass_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -51,6 +74,7 @@ namespace WindowsDesktop
                 comboBoxSubject.DisplayMember = "NAME";
                 comboBoxSubject.ValueMember = "ID";
                 comboBoxSubject.DataSource = new SubjectDb().GetByClassId(comboBoxClass.SelectedValue.ToString());
+
             }
             catch (Exception ex)
             {
@@ -65,6 +89,12 @@ namespace WindowsDesktop
                 var isValid = ThemeTemplate.SValidate(panelSearch, errorProviderMark);
                 if (isValid)
                 {
+                    if (!LoadExamDate())
+                    {
+                        panelSearch.Enabled = true;
+                        return;
+                    }
+
                     panelSearch.Enabled = false;
 
                     var query = "SELECT S.ID, S.ROLL, S.REG, S.NAME " +
@@ -107,6 +137,11 @@ namespace WindowsDesktop
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void comboBoxExam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

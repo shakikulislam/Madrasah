@@ -39,13 +39,13 @@ namespace WindowsDesktop.Academic
             this.textBoxClassName = new System.Windows.Forms.TextBox();
             this.buttonAddNewClass = new System.Windows.Forms.Button();
             this.dataGridViewClass = new System.Windows.Forms.DataGridView();
-            this.errorProviderClass = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panelClassForm = new System.Windows.Forms.Panel();
             this.ColumnClassSl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacher_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClassNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProviderClass = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panelClassForm = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClassNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderClass)).BeginInit();
@@ -138,7 +138,9 @@ namespace WindowsDesktop.Academic
             // 
             // dataGridViewClass
             // 
-            this.dataGridViewClass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dataGridViewClass.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnClassSl,
@@ -146,31 +148,12 @@ namespace WindowsDesktop.Academic
             this.ColumnClassName,
             this.ColumnClassId,
             this.ColumnClassNumber});
-            this.dataGridViewClass.Location = new System.Drawing.Point(26, 125);
+            this.dataGridViewClass.Location = new System.Drawing.Point(12, 125);
             this.dataGridViewClass.Name = "dataGridViewClass";
-            this.dataGridViewClass.Size = new System.Drawing.Size(654, 182);
+            this.dataGridViewClass.Size = new System.Drawing.Size(683, 182);
             this.dataGridViewClass.TabIndex = 0;
             this.dataGridViewClass.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewClass_RowPostPaint);
             this.dataGridViewClass.DoubleClick += new System.EventHandler(this.dataGridViewClass_DoubleClick);
-            // 
-            // errorProviderClass
-            // 
-            this.errorProviderClass.ContainerControl = this;
-            // 
-            // panelClassForm
-            // 
-            this.panelClassForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panelClassForm.Controls.Add(this.label2);
-            this.panelClassForm.Controls.Add(this.comboBoxTeacher);
-            this.panelClassForm.Controls.Add(this.label1);
-            this.panelClassForm.Controls.Add(this.label4);
-            this.panelClassForm.Controls.Add(this.textBoxClassName);
-            this.panelClassForm.Controls.Add(this.numericUpDownClassNumber);
-            this.panelClassForm.Location = new System.Drawing.Point(26, 7);
-            this.panelClassForm.Name = "panelClassForm";
-            this.panelClassForm.Size = new System.Drawing.Size(494, 107);
-            this.panelClassForm.TabIndex = 44;
-            this.panelClassForm.Visible = false;
             // 
             // ColumnClassSl
             // 
@@ -212,6 +195,25 @@ namespace WindowsDesktop.Academic
             this.ColumnClassNumber.Name = "ColumnClassNumber";
             this.ColumnClassNumber.ReadOnly = true;
             this.ColumnClassNumber.Visible = false;
+            // 
+            // errorProviderClass
+            // 
+            this.errorProviderClass.ContainerControl = this;
+            // 
+            // panelClassForm
+            // 
+            this.panelClassForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelClassForm.Controls.Add(this.label2);
+            this.panelClassForm.Controls.Add(this.comboBoxTeacher);
+            this.panelClassForm.Controls.Add(this.label1);
+            this.panelClassForm.Controls.Add(this.label4);
+            this.panelClassForm.Controls.Add(this.textBoxClassName);
+            this.panelClassForm.Controls.Add(this.numericUpDownClassNumber);
+            this.panelClassForm.Location = new System.Drawing.Point(26, 7);
+            this.panelClassForm.Name = "panelClassForm";
+            this.panelClassForm.Size = new System.Drawing.Size(494, 107);
+            this.panelClassForm.TabIndex = 44;
+            this.panelClassForm.Visible = false;
             // 
             // FrmClass
             // 

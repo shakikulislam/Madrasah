@@ -92,15 +92,7 @@ namespace WindowsDesktop.Exam
         {
             try
             {
-                var query = "SELECT ES.ID, ES.EXAM_DATE, ES.EXAM_TIME, E.NAME AS EXAM_NAME, " +
-                            "C.NAME AS CLASS_NAME, S.NAME AS SUBJECT_NAME " +
-                            "FROM S_EXAM_SCHEDULE AS ES " +
-                            "LEFT JOIN S_EXAM AS E ON ES.EXAM_ID = E.ID " +
-                            "LEFT JOIN S_CLASS AS C ON ES.CLASS_ID = C.ID " +
-                            "LEFT JOIN S_SUBJECT AS S ON ES.SUBJECT_ID = S.ID " +
-                            "WHERE ES.EXAM_STATUS IS NULL OR ES.EXAM_STATUS = ''";
-
-                dataGridViewExamSchedule.DataSource = Db.GetDataTable(query);
+                dataGridViewExamSchedule.DataSource = new ExamDb().GetExamSchedule();
                 dataGridViewExamSchedule.Columns[EXAM_DATE.Index].DefaultCellStyle.Format = GlobalSettings.DateFormatShortView;
             }
             catch (Exception ex)
