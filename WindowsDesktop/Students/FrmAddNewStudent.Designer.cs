@@ -206,6 +206,13 @@ namespace WindowsDesktop.Students
             this.textBoxReviewFullName = new System.Windows.Forms.TextBox();
             this.buttonReviewBack = new System.Windows.Forms.Button();
             this.buttonSubmit = new System.Windows.Forms.Button();
+            this.dataGridViewPendingStudentList = new System.Windows.Forms.DataGridView();
+            this.groupBoxPendingStudentList = new System.Windows.Forms.GroupBox();
+            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBirthNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDob = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxGuardianInformation.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
@@ -220,6 +227,8 @@ namespace WindowsDesktop.Students
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPendingStudentList)).BeginInit();
+            this.groupBoxPendingStudentList.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxGuardianInformation
@@ -601,7 +610,7 @@ namespace WindowsDesktop.Students
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxStudentPhone);
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxFullName);
             this.groupBoxPersonalInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(25, 50);
+            this.groupBoxPersonalInformation.Location = new System.Drawing.Point(0, 50);
             this.groupBoxPersonalInformation.Name = "groupBoxPersonalInformation";
             this.groupBoxPersonalInformation.Size = new System.Drawing.Size(594, 257);
             this.groupBoxPersonalInformation.TabIndex = 0;
@@ -788,7 +797,7 @@ namespace WindowsDesktop.Students
             // 
             this.labelStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentName.Location = new System.Drawing.Point(-38, 13);
+            this.labelStudentName.Location = new System.Drawing.Point(-63, 13);
             this.labelStudentName.Name = "labelStudentName";
             this.labelStudentName.Size = new System.Drawing.Size(582, 33);
             this.labelStudentName.TabIndex = 35;
@@ -827,7 +836,7 @@ namespace WindowsDesktop.Students
             this.groupBoxAddress.Controls.Add(this.label25);
             this.groupBoxAddress.Controls.Add(this.comboBoxPreAddressDivision);
             this.groupBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxAddress.Location = new System.Drawing.Point(8, 106);
+            this.groupBoxAddress.Location = new System.Drawing.Point(-17, 106);
             this.groupBoxAddress.Name = "groupBoxAddress";
             this.groupBoxAddress.Size = new System.Drawing.Size(594, 591);
             this.groupBoxAddress.TabIndex = 3;
@@ -2022,12 +2031,84 @@ namespace WindowsDesktop.Students
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
+            // dataGridViewPendingStudentList
+            // 
+            this.dataGridViewPendingStudentList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewPendingStudentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPendingStudentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sl,
+            this.ColumnId,
+            this.name,
+            this.ColumnBirthNumber,
+            this.ColumnDob});
+            this.dataGridViewPendingStudentList.Location = new System.Drawing.Point(3, 26);
+            this.dataGridViewPendingStudentList.Name = "dataGridViewPendingStudentList";
+            this.dataGridViewPendingStudentList.Size = new System.Drawing.Size(588, 228);
+            this.dataGridViewPendingStudentList.TabIndex = 37;
+            this.dataGridViewPendingStudentList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPendingStudentList_CellDoubleClick);
+            this.dataGridViewPendingStudentList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewPendingStudentList_RowPostPaint);
+            // 
+            // groupBoxPendingStudentList
+            // 
+            this.groupBoxPendingStudentList.Controls.Add(this.dataGridViewPendingStudentList);
+            this.groupBoxPendingStudentList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxPendingStudentList.Location = new System.Drawing.Point(46, 308);
+            this.groupBoxPendingStudentList.Name = "groupBoxPendingStudentList";
+            this.groupBoxPendingStudentList.Size = new System.Drawing.Size(594, 257);
+            this.groupBoxPendingStudentList.TabIndex = 38;
+            this.groupBoxPendingStudentList.TabStop = false;
+            this.groupBoxPendingStudentList.Text = "Pending Student List";
+            // 
+            // sl
+            // 
+            this.sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.sl.HeaderText = "#";
+            this.sl.Name = "sl";
+            this.sl.ReadOnly = true;
+            this.sl.Width = 41;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.DataPropertyName = "ID";
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            this.ColumnId.Visible = false;
+            this.ColumnId.Width = 5;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.DataPropertyName = "NAME";
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // ColumnBirthNumber
+            // 
+            this.ColumnBirthNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnBirthNumber.DataPropertyName = "BIRTH_CERTIFICATE";
+            this.ColumnBirthNumber.HeaderText = "Birth Certificate Number";
+            this.ColumnBirthNumber.Name = "ColumnBirthNumber";
+            this.ColumnBirthNumber.Width = 167;
+            // 
+            // ColumnDob
+            // 
+            this.ColumnDob.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnDob.DataPropertyName = "DOB";
+            this.ColumnDob.HeaderText = "Date of Birth";
+            this.ColumnDob.Name = "ColumnDob";
+            this.ColumnDob.Width = 103;
+            // 
             // FrmAddNewStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(721, 749);
+            this.ClientSize = new System.Drawing.Size(738, 749);
+            this.Controls.Add(this.groupBoxPendingStudentList);
             this.Controls.Add(this.groupBoxPersonalInformation);
             this.Controls.Add(this.groupBoxAddress);
             this.Controls.Add(this.groupBoxReview);
@@ -2061,6 +2142,8 @@ namespace WindowsDesktop.Students
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPendingStudentList)).EndInit();
+            this.groupBoxPendingStudentList.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2243,5 +2326,12 @@ namespace WindowsDesktop.Students
         private System.Windows.Forms.Button buttonBrowse;
         private System.Windows.Forms.PictureBox pictureBoxStudent;
         private System.Windows.Forms.PictureBox pictureBoxReviewStudent;
+        private System.Windows.Forms.GroupBox groupBoxPendingStudentList;
+        private System.Windows.Forms.DataGridView dataGridViewPendingStudentList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBirthNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDob;
     }
 }

@@ -21,21 +21,55 @@ namespace WindowsDesktop.Students
             dateTimePickerDob.MaxDate=DateTime.Now;
 
             LoadTheme(groupBoxPersonalInformation);
+            LoadTheme(groupBoxPendingStudentList);
             //LoadTheme(this);
 
+            LoadPendingStudentList();
             LoadDivision();
 
             LoadClass();
 
             SetLocation(labelStudentName, 0);
             SetLocation(groupBoxPersonalInformation);
+            
+            groupBoxPendingStudentList.Width = this.Width - 57;
+            groupBoxPendingStudentList.Height =
+                this.Height - (groupBoxPersonalInformation.Location.X + groupBoxPersonalInformation.Height);
+            SetLocation(groupBoxPendingStudentList,
+                groupBoxPersonalInformation.Location.X + groupBoxPersonalInformation.Height, false);
+            groupBoxPendingStudentList.Anchor =
+                ((AnchorStyles.Top | AnchorStyles.Bottom) | AnchorStyles.Left) | AnchorStyles.Right;
+
+
         }
 
-        private void SetLocation(Control control, int y = 50)
+        private void LoadPendingStudentList()
         {
-            foreach (var box in Controls.OfType<GroupBox>())
+            try
             {
-                box.Visible = false;
+                var query = "SELECT S.ID, S.NAME, S.BIRTH_CERTIFICATE, S.DOB " +
+                            "FROM S_STUDENT AS S " +
+                            "WHERE S.GUARDIAN_NAME IS NULL OR S.GUARDIAN_NAME = '' " +
+                            "ORDER BY S.ID DESC";
+                var studentSet = Db.GetDataTable(query);
+
+                dataGridViewPendingStudentList.Columns[ColumnDob.Index].DefaultCellStyle.Format = GlobalSettings.DateFormatShortView;
+                dataGridViewPendingStudentList.DataSource = studentSet;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void SetLocation(Control control, int y = 50, bool hideAll = true)
+        {
+            if (hideAll)
+            {
+                foreach (var box in Controls.OfType<GroupBox>())
+                {
+                    box.Visible = false;
+                }
             }
 
             var x = (this.Width / 2) - (control.Width / 2);
@@ -47,6 +81,7 @@ namespace WindowsDesktop.Students
         private static void LoadTheme(Control control)
         {
             ThemeTemplate.LoadTheme(control);
+            ThemeTemplate.SDataGridView(control);
         }
 
         private void ClearAllField()
@@ -292,8 +327,11 @@ namespace WindowsDesktop.Students
                     //groupBoxPersonalInformation.Visible = false;
 
                     // Check already added
-                    var query = "SELECT * FROM s_student WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
+                    var query = "SELECT * FROM S_STUDENT WHERE NAME='" + textBoxFullName.Text.Trim() +
+                                "' AND BIRTH_CERTIFICATE='" + textBoxBirthCert.Text.Trim() + "' ";
                     var studentInfo = Db.GetDataReader(query);
+
+                    labelStudentName.Tag = string.Empty;
 
                     if (studentInfo.HasRows)
                     {
@@ -306,10 +344,12 @@ namespace WindowsDesktop.Students
                             labelStudentName.Tag = studentInfo["id"].ToString();
 
                             groupBoxPersonalInformation.Visible = false;
+                            groupBoxPendingStudentList.Visible = false;
                             groupBoxAddress.Visible = true;
                         }
                         else
                         {
+                            labelStudentName.Tag = string.Empty;
                             MessageBox.Show("Already added this student\n\nStudent Name: " + studentInfo["name"] + "\nRoll No: " +
                                         studentInfo["roll"], @"Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                         }
@@ -318,14 +358,15 @@ namespace WindowsDesktop.Students
                     {
                         // Insert student basic information
                         query = "INSERT INTO s_student (id, name, phone, birth_certificate, nid, dob) VALUES " +
-                                "((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_STUDENT),'" + textBoxFullName.Text.Trim() +
+                                "((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_STUDENT),N'" + textBoxFullName.Text.Trim() +
                                 "', '" + textBoxStudentPhone.Text.Trim() + "', '" + textBoxBirthCert.Text.Trim() + "', '" + textBoxNid.Text.Trim() +
                                 "', '" + dateTimePickerDob.Value.ToString(GlobalSettings.DateFormatSave) + "') ";
 
                         var isSaved = Db.QueryExecute(query);
                         if (isSaved)
                         {
-                            query = "SELECT * FROM s_student WHERE birth_certificate='" + textBoxBirthCert.Text.Trim() + "' ";
+                            query = "SELECT * FROM S_STUDENT WHERE NAME='" + textBoxFullName.Text.Trim() +
+                                    "' AND BIRTH_CERTIFICATE='" + textBoxBirthCert.Text.Trim() + "' ";
                             studentInfo = Db.GetDataReader(query);
                             if (studentInfo.HasRows)
                             {
@@ -334,6 +375,7 @@ namespace WindowsDesktop.Students
                                 labelStudentName.Tag = studentInfo["id"].ToString();
 
                                 groupBoxPersonalInformation.Visible = false;
+                                groupBoxPendingStudentList.Visible = false;
                                 groupBoxAddress.Visible = true;
                             }
                         }
@@ -853,18 +895,18 @@ namespace WindowsDesktop.Students
                                   "form_number = '" + textBoxReviewFormNo.Text.Trim() +
                                   "',roll = '" + textBoxReviewRoll.Text.Trim() +
                                   "',reg = '" + textBoxReviewReg.Text.Trim() +
-                                  "',name = '" + textBoxReviewFullName.Text.Trim() +
+                                  "',name = N'" + textBoxReviewFullName.Text.Trim() +
                                   "',phone = '" + textBoxReviewPhone.Text.Trim() +
                                   "',dob = '" + dateTimePickerReviewDob.Value.ToString(GlobalSettings.DateFormatSave) +
                                   "',birth_certificate = '" + textBoxReviewBirthCertificeate.Text.Trim() +
                                   "',nid = '" + textBoxReviewNid.Text.Trim() +
-                                  "',father_name = '" + textBoxReviewFatherName.Text.Trim() +
+                                  "',father_name = N'" + textBoxReviewFatherName.Text.Trim() +
                                   "',father_phone = '" + textBoxReviewFatherPhone.Text.Trim() +
                                   "',father_nid = '" + textBoxReviewFatherNid.Text.Trim() +
-                                  "',mother_name = '" + textBoxReviewMotherName.Text.Trim() +
+                                  "',mother_name = N'" + textBoxReviewMotherName.Text.Trim() +
                                   "',mother_phone = '" + textBoxReviewMotherPhone.Text.Trim() +
                                   "',mother_nid = '" + textBoxReviewMotherNid.Text.Trim() +
-                                  "',guardian_name = '" + textBoxReviewGrdName.Text.Trim() +
+                                  "',guardian_name = N'" + textBoxReviewGrdName.Text.Trim() +
                                   "',guardian_phone = '" + textBoxReviewGrdPhone.Text.Trim() +
                                   "',class_id = '" + comboBoxReviewClass.SelectedValue +
                                   "',PICTURE=@img,status = 'A'," +
@@ -956,6 +998,35 @@ namespace WindowsDesktop.Students
             {
                 pictureBoxStudent.Image = Resources.no_person_image;
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridViewPendingStudentList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            dataGridViewPendingStudentList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void dataGridViewPendingStudentList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridViewPendingStudentList.Rows.Count > 0)
+                {
+                    var query = "SELECT * FROM S_STUDENT WHERE ID='" +
+                                dataGridViewPendingStudentList.SelectedRows[0].Cells[ColumnId.Index].Value + "'";
+                    var studentInfo = Db.GetDataReader(query);
+                    if (studentInfo.HasRows)
+                    {
+                        studentInfo.Read();
+                        textBoxFullName.Text = studentInfo["NAME"].ToString();
+                        textBoxBirthCert.Text = studentInfo["BIRTH_CERTIFICATE"].ToString();
+                        dateTimePickerDob.Value = Convert.ToDateTime(studentInfo["DOB"].ToString());
+                    }
+                }
+            }
+            catch
+            {
+
             }
         }
     }

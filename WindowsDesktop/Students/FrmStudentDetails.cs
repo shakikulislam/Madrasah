@@ -466,7 +466,7 @@ namespace WindowsDesktop.Students
                 {
                     var cmd = new SqlCommand
                     {
-                        CommandText = "UPDATE s_student SET name='" + textBoxReviewFullName.Text.Trim() +
+                        CommandText = "UPDATE s_student SET name=N'" + textBoxReviewFullName.Text.Trim() +
                                       "', phone='" + textBoxReviewPhone.Text.Trim() +
                                       "', birth_certificate='" + textBoxReviewBirthCertificeate.Text.Trim() +
                                       "', nid='" + textBoxReviewNid.Text.Trim() +
@@ -492,10 +492,10 @@ namespace WindowsDesktop.Students
             {
                 var isValid = ThemeTemplate.SValidate(tabPageParentInfo, errorProviderDetails);
                 if (!isValid) return;
-                var query = "UPDATE s_student SET father_name='" + textBoxReviewFatherName.Text.Trim() +
+                var query = "UPDATE s_student SET father_name=N'" + textBoxReviewFatherName.Text.Trim() +
                             "', father_phone='" + textBoxReviewFatherPhone.Text.Trim() +
                             "', father_nid='" + textBoxReviewFatherNid.Text.Trim() +
-                            "', mother_name='" + textBoxReviewMotherName.Text.Trim() +
+                            "', mother_name=N'" + textBoxReviewMotherName.Text.Trim() +
                             "', mother_phone='" + textBoxReviewMotherPhone.Text.Trim() +
                             "', mother_nid='" + textBoxReviewMotherNid.Text.Trim() +
                             "', update_by='" + GlobalSettings.UserName +
@@ -515,7 +515,7 @@ namespace WindowsDesktop.Students
             {
                 var isValid = ThemeTemplate.SValidate(tabPageGuardianInfo, errorProviderDetails);
                 if (!isValid) return;
-                var query = "UPDATE s_student SET guardian_name='" + textBoxReviewGrdName.Text.Trim() +
+                var query = "UPDATE s_student SET guardian_name=N'" + textBoxReviewGrdName.Text.Trim() +
                             "', guardian_phone='" + textBoxReviewGrdPhone.Text.Trim() +
                             "', update_by='" + GlobalSettings.UserName +
                             "', update_date=current_timestamp WHERE id='" + _studentId + "'; ";

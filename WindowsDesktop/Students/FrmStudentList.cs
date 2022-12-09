@@ -28,7 +28,7 @@ namespace WindowsDesktop.Students
                 var query = "SELECT ID, FORM_NUMBER, ROLL, REG, NAME, PHONE, DOB, BIRTH_CERTIFICATE, NID, FATHER_NAME, FATHER_PHONE, FATHER_NID, " +
                             "MOTHER_NAME, MOTHER_PHONE, MOTHER_NID, GUARDIAN_NAME, GUARDIAN_PHONE, CLASS_ID, REMARK, PICTURE, STATUS, CREATE_BY, " +
                             "CREATE_DATE, UPDATE_BY, UPDATE_DATE, CLASS AS CLASS_NAME " +
-                            "FROM vw_s_full_student_info WHERE roll<> 0";
+                            "FROM vw_s_full_student_info WHERE roll<> 0 ORDER BY CLASS_ID ASC";
                 
                 var studentSet = Db.GetDataTable(query);
                 dataGridViewStudentList.DataSource = studentSet;
