@@ -88,10 +88,11 @@ namespace WindowsDesktop.Academic
                                 DateTime.Now.ToString(GlobalSettings.DateFormatSave) + "','A' )";
                         break;
                     case "Update":
-                        query = "UPDATE s_subject SET class_id=" + comboBoxClass.SelectedValue + ", name='" +
+                        query = "UPDATE s_subject SET class_id=" + comboBoxClass.SelectedValue + ", CODE='" +
+                                textBoxSubjectCode.Text.Trim() + "', name='" +
                                 textBoxSubjectName.Text.Trim() + "', mark=" + numericUpDownMark.Text + ", teacher_id=" +
                                 comboBoxTeacher.SelectedValue + ", update_by='" + GlobalSettings.UserName +
-                                "', update_date='"+DateTime.Now.ToString(GlobalSettings.DateFormatSave)+"' " +
+                                "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) + "' " +
                                 "WHERE id=" + textBoxSubjectCode.Tag + "";
                         break;
                 }
@@ -126,7 +127,7 @@ namespace WindowsDesktop.Academic
                 comboBoxClass.SelectedValue = dgv.Cells[ColumnClassId.Index].Value;
                 comboBoxTeacher.SelectedValue = dgv.Cells[ColumnTeacherId.Index].Value;
 
-                textBoxSubjectCode.Enabled = false;
+                //textBoxSubjectCode.Enabled = false;
                 buttonSubmit.Text = "Update";
                 buttonSubmit.Height = 39;
             }

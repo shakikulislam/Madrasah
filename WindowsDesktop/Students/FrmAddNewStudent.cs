@@ -327,7 +327,7 @@ namespace WindowsDesktop.Students
                     //groupBoxPersonalInformation.Visible = false;
 
                     // Check already added
-                    var query = "SELECT * FROM S_STUDENT WHERE NAME='" + textBoxFullName.Text.Trim() +
+                    var query = "SELECT * FROM S_STUDENT WHERE NAME=N'" + textBoxFullName.Text.Trim() +
                                 "' AND BIRTH_CERTIFICATE='" + textBoxBirthCert.Text.Trim() + "' ";
                     var studentInfo = Db.GetDataReader(query);
 
@@ -1019,6 +1019,7 @@ namespace WindowsDesktop.Students
                     {
                         studentInfo.Read();
                         textBoxFullName.Text = studentInfo["NAME"].ToString();
+                        labelStudentName.Tag = studentInfo["id"].ToString();
                         textBoxBirthCert.Text = studentInfo["BIRTH_CERTIFICATE"].ToString();
                         dateTimePickerDob.Value = Convert.ToDateTime(studentInfo["DOB"].ToString());
                     }
@@ -1029,5 +1030,6 @@ namespace WindowsDesktop.Students
 
             }
         }
+
     }
 }
