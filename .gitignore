@@ -2,6 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+MadrasahSMS/bin/Debug
+MadrasahSMS/obj/Debug
 /MadrasahSMS/bin/Debug
 /MadrasahSMS/obj/Debug
 /.vs/Madrasah/v16/.suo

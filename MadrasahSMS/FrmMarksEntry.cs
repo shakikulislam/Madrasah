@@ -84,54 +84,61 @@ namespace MadrasahSMS
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            try
+            var isValid = ThemeTemplate.SValidate(panelSearch, errorProviderMark);
+            if (isValid)
             {
-                var isValid = ThemeTemplate.SValidate(panelSearch, errorProviderMark);
-                if (isValid)
-                {
-                    if (!LoadExamDate())
-                    {
-                        panelSearch.Enabled = true;
-                        return;
-                    }
-
-                    panelSearch.Enabled = false;
-
-                    var query = "SELECT S.ID, S.ROLL, S.REG, S.NAME " +
-                                "FROM VW_S_FULL_STUDENT_INFO AS S " +
-                                "WHERE S.CLASS_ID = " + comboBoxClass.SelectedValue + "";
-                    var dt = Db.GetDataTable(query);
-
-                    var insertQuery = "";
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        insertQuery += "INSERT INTO S_MARK (ID, " +
-                                       "EXAM_ID, " +
-                                       "EXAM_DATE, " +
-                                       "STUDENT_ID, " +
-                                       "CLASS_ID, " +
-                                       "SUBJECT_ID, " +
-                                       "CREATE_BY, " +
-                                       "CREATE_DATE) " +
-                                       "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_MARK), "
-                                       + comboBoxExam.SelectedValue + ", '"
-                                       + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "',"
-                                       + row["ID"] + "," + comboBoxClass.SelectedValue + ","
-                                       + comboBoxSubject.SelectedValue + ",'"
-                                       + GlobalSettings.UserName + "',current_timestamp); ";
-                    }
-
-                    panelUpdate.Enabled = true;
-                }
-                else
+                if (!LoadExamDate())
                 {
                     panelSearch.Enabled = true;
-                    panelUpdate.Enabled = false;
+                    return;
                 }
+
+                panelSearch.Enabled = false;
+
+                var query = "SELECT ID, ROLL, REG, NAME " +
+                            "FROM S_STUDENT " +
+                            "WHERE CLASS_ID = " + comboBoxClass.SelectedValue + " ORDER BY ROLL ASC";
+                var dt = Db.GetDataTable(query);
+
+                var insertQuery = "";
+                foreach (DataRow row in dt.Rows)
+                {
+                    insertQuery += "INSERT INTO S_MARK (ID, " +
+                                   "EXAM_ID, " +
+                                   "EXAM_DATE, " +
+                                   "STUDENT_ID, " +
+                                   "CLASS_ID, " +
+                                   "SUBJECT_ID, " +
+                                   "CREATE_BY, " +
+                                   "CREATE_DATE) " +
+                                   "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_MARK), "
+                                   + comboBoxExam.SelectedValue + ", '"
+                                   + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "',"
+                                   + row["ID"] + "," + comboBoxClass.SelectedValue + ","
+                                   + comboBoxSubject.SelectedValue + ",'"
+                                   + GlobalSettings.UserName + "',current_timestamp); ";
+                }
+
+                try
+                {
+                    Db.QueryExecute(insertQuery);
+                }
+                catch { }
+
+                var markForEntry = "SELECT * FROM S_MARK WHERE EXAM_ID=" + comboBoxExam.SelectedValue +
+                                   " AND EXAM_DATE='"
+                                   + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "' " +
+                                   "AND CLASS_ID=" + comboBoxClass.SelectedValue + " AND SUBJECT_ID=" +
+                                   comboBoxSubject.SelectedValue;
+                var dtMark = Db.GetDataTable(markForEntry);
+
+
+                panelUpdate.Enabled = true;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                panelSearch.Enabled = true;
+                panelUpdate.Enabled = false;
             }
         }
 
