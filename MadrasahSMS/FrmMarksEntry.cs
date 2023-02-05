@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using MadrasahSMS.Common;
 using MadrasahSMS.DbContext;
+using MadrasahSMS.Properties;
 using MadrasahSMS.Theme;
 
 namespace MadrasahSMS
@@ -19,6 +21,20 @@ namespace MadrasahSMS
             ThemeTemplate.SDataGridView(this, BorderStyle.FixedSingle);
 
             LoadData();
+        }
+
+        private void CalculateTotalEntry()
+        {
+            var entryCount = dataGridViewStudentList.Rows.Cast<DataGridViewRow>()
+                .Where(row => row.Cells[ColumnStatus.Index].Value != null)
+                .Count(row => row.Cells[ColumnStatus.Index].Value.ToString() == "E");
+
+            int total = dataGridViewStudentList.RowCount;
+            int dueEntry = total - entryCount;
+
+            labelTotalStudent.Text = total.ToString();
+            labelMarkEntry.Text = entryCount.ToString();
+            labelDueEntry.Text = dueEntry.ToString();
         }
 
         private bool LoadExamDate()
@@ -39,6 +55,7 @@ namespace MadrasahSMS
             else
             {
                 dateTimePickerExamDate.Value = Convert.ToDateTime(date);
+                dateTimePickerExamDate.Refresh();
                 return true;
             }
 
@@ -95,8 +112,7 @@ namespace MadrasahSMS
 
                 panelSearch.Enabled = false;
 
-                var query = "SELECT ID, ROLL, REG, NAME " +
-                            "FROM S_STUDENT " +
+                var query = "SELECT ID, ROLL, REG, NAME FROM S_STUDENT " +
                             "WHERE CLASS_ID = " + comboBoxClass.SelectedValue + " ORDER BY ROLL ASC";
                 var dt = Db.GetDataTable(query);
 
@@ -109,8 +125,8 @@ namespace MadrasahSMS
                                    "STUDENT_ID, " +
                                    "CLASS_ID, " +
                                    "SUBJECT_ID, " +
-                                   "CREATE_BY, " +
-                                   "CREATE_DATE) " +
+                                   "UPDATE_BY, " +
+                                   "UPDATE_DATE) " +
                                    "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_MARK), "
                                    + comboBoxExam.SelectedValue + ", '"
                                    + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "',"
@@ -125,14 +141,35 @@ namespace MadrasahSMS
                 }
                 catch { }
 
-                var markForEntry = "SELECT * FROM S_MARK WHERE EXAM_ID=" + comboBoxExam.SelectedValue +
-                                   " AND EXAM_DATE='"
-                                   + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "' " +
-                                   "AND CLASS_ID=" + comboBoxClass.SelectedValue + " AND SUBJECT_ID=" +
-                                   comboBoxSubject.SelectedValue;
+                var markForEntry = "SELECT M.ID, M.EXAM_ID, M.EXAM_DATE, M.STUDENT_ID, M.CLASS_ID, " +
+                                   "M.SUBJECT_ID, M.MARKS, M.OBTAINED_MARKS, M.OBTAINED_MARKS_PCT, M.STATUS, " +
+                                   "S.ROLL, S.REG, S.NAME " +
+                                   "FROM S_MARK M " +
+                                   "LEFT JOIN S_STUDENT S ON M.STUDENT_ID = S.ID " +
+                                   "WHERE M.EXAM_ID=" + comboBoxExam.SelectedValue +
+                                   " AND M.EXAM_DATE='" + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) +
+                                   "' AND M.CLASS_ID=" + comboBoxClass.SelectedValue +
+                                   " AND M.SUBJECT_ID=" + comboBoxSubject.SelectedValue;
                 var dtMark = Db.GetDataTable(markForEntry);
+                foreach (DataRow row in dtMark.Rows)
+                {
+                    var dr = dataGridViewStudentList.Rows.Add();
+                    dataGridViewStudentList.Rows[dr].Cells[ColumnId.Index].Value = row["ID"].ToString();
+                    dataGridViewStudentList.Rows[dr].Cells[ColumnRoll.Index].Value = row["ROLL"].ToString();
+                    dataGridViewStudentList.Rows[dr].Cells[ColumnReg.Index].Value = row["REG"].ToString();
+                    dataGridViewStudentList.Rows[dr].Cells[ColumnName.Index].Value = row["NAME"].ToString();
+                    dataGridViewStudentList.Rows[dr].Cells[ColumnMark.Index].Value = row["MARKS"].ToString();
+                    
+                    var status = row["STATUS"].ToString();
+                    dataGridViewStudentList.Rows[dr].Cells[ColumnStatus.Index].Value = status;
+                    dataGridViewStudentList.Rows[dr].Cells[ColumnCheck.Index].Value = status == "E"
+                        ? Resources.check_mark
+                        : new Bitmap(1, 1);
+                    
+                    dataGridViewStudentList.Refresh();
+                }
 
-
+                CalculateTotalEntry();
                 panelUpdate.Enabled = true;
             }
             else
@@ -143,6 +180,16 @@ namespace MadrasahSMS
         }
 
         private void comboBoxExam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dataGridViewStudentList_SelectionChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dataGridViewStudentList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
         }
