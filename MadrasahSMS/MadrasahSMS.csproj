@@ -92,6 +92,7 @@
     <Compile Include="Academic\FrmSubject.Designer.cs">
       <DependentUpon>FrmSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\ContentText.cs" />
     <Compile Include="Common\frmWaiting.cs">
       <SubType>Form</SubType>
     </Compile>

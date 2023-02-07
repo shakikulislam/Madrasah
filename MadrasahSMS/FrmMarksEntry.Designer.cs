@@ -34,7 +34,6 @@ namespace MadrasahSMS
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewStudentList = new System.Windows.Forms.DataGridView();
             this.buttonUpdate = new System.Windows.Forms.Button();
-            this.numericUpDownMark = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxExam = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,22 +49,24 @@ namespace MadrasahSMS
             this.label8 = new System.Windows.Forms.Label();
             this.dateTimePickerExamDate = new System.Windows.Forms.DateTimePicker();
             this.panelUpdate = new System.Windows.Forms.Panel();
+            this.textBoxMark = new System.Windows.Forms.TextBox();
+            this.labelDueEntry = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.labelMarkEntry = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.labelTotalStudent = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.errorProviderMark = new System.Windows.Forms.ErrorProvider(this.components);
-            this.labelDueEntry = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.labelSubjectMark = new System.Windows.Forms.Label();
             this.ColumnCheck = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnRoll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnReg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSubjectMarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMark)).BeginInit();
             this.panelSearch.SuspendLayout();
             this.panelUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMark)).BeginInit();
@@ -102,6 +103,7 @@ namespace MadrasahSMS
             this.ColumnRoll,
             this.ColumnReg,
             this.ColumnName,
+            this.ColumnSubjectMarks,
             this.ColumnMark,
             this.ColumnId,
             this.ColumnStatus});
@@ -109,27 +111,18 @@ namespace MadrasahSMS
             this.dataGridViewStudentList.Name = "dataGridViewStudentList";
             this.dataGridViewStudentList.Size = new System.Drawing.Size(680, 247);
             this.dataGridViewStudentList.TabIndex = 2;
-            this.dataGridViewStudentList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudentList_CellClick);
             this.dataGridViewStudentList.SelectionChanged += new System.EventHandler(this.dataGridViewStudentList_SelectionChanged);
             // 
             // buttonUpdate
             // 
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdate.Location = new System.Drawing.Point(567, 42);
+            this.buttonUpdate.Location = new System.Drawing.Point(567, 46);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(100, 44);
+            this.buttonUpdate.Size = new System.Drawing.Size(100, 37);
             this.buttonUpdate.TabIndex = 3;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDownMark
-            // 
-            this.numericUpDownMark.DecimalPlaces = 2;
-            this.numericUpDownMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownMark.Location = new System.Drawing.Point(567, 6);
-            this.numericUpDownMark.Name = "numericUpDownMark";
-            this.numericUpDownMark.Size = new System.Drawing.Size(100, 23);
-            this.numericUpDownMark.TabIndex = 4;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // label2
             // 
@@ -149,7 +142,6 @@ namespace MadrasahSMS
             this.comboBoxExam.Name = "comboBoxExam";
             this.comboBoxExam.Size = new System.Drawing.Size(239, 24);
             this.comboBoxExam.TabIndex = 5;
-            this.comboBoxExam.SelectedIndexChanged += new System.EventHandler(this.comboBoxExam_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -280,6 +272,8 @@ namespace MadrasahSMS
             // panelUpdate
             // 
             this.panelUpdate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panelUpdate.Controls.Add(this.labelSubjectMark);
+            this.panelUpdate.Controls.Add(this.textBoxMark);
             this.panelUpdate.Controls.Add(this.labelDueEntry);
             this.panelUpdate.Controls.Add(this.label11);
             this.panelUpdate.Controls.Add(this.labelMarkEntry);
@@ -289,7 +283,6 @@ namespace MadrasahSMS
             this.panelUpdate.Controls.Add(this.textBoxName);
             this.panelUpdate.Controls.Add(this.buttonUpdate);
             this.panelUpdate.Controls.Add(this.label6);
-            this.panelUpdate.Controls.Add(this.numericUpDownMark);
             this.panelUpdate.Controls.Add(this.textBoxReg);
             this.panelUpdate.Controls.Add(this.label4);
             this.panelUpdate.Controls.Add(this.label5);
@@ -299,6 +292,38 @@ namespace MadrasahSMS
             this.panelUpdate.Name = "panelUpdate";
             this.panelUpdate.Size = new System.Drawing.Size(680, 98);
             this.panelUpdate.TabIndex = 16;
+            // 
+            // textBoxMark
+            // 
+            this.textBoxMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMark.Location = new System.Drawing.Point(567, 21);
+            this.textBoxMark.Name = "textBoxMark";
+            this.textBoxMark.Size = new System.Drawing.Size(100, 23);
+            this.textBoxMark.TabIndex = 21;
+            this.textBoxMark.Text = "0";
+            this.textBoxMark.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxMark.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMark_KeyDown);
+            this.textBoxMark.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMark_KeyUp);
+            // 
+            // labelDueEntry
+            // 
+            this.labelDueEntry.AutoSize = true;
+            this.labelDueEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDueEntry.Location = new System.Drawing.Point(476, 2);
+            this.labelDueEntry.Name = "labelDueEntry";
+            this.labelDueEntry.Size = new System.Drawing.Size(16, 17);
+            this.labelDueEntry.TabIndex = 20;
+            this.labelDueEntry.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(401, 2);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 17);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Due Entry";
             // 
             // labelMarkEntry
             // 
@@ -344,25 +369,16 @@ namespace MadrasahSMS
             // 
             this.errorProviderMark.ContainerControl = this;
             // 
-            // labelDueEntry
+            // labelSubjectMark
             // 
-            this.labelDueEntry.AutoSize = true;
-            this.labelDueEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDueEntry.Location = new System.Drawing.Point(476, 2);
-            this.labelDueEntry.Name = "labelDueEntry";
-            this.labelDueEntry.Size = new System.Drawing.Size(16, 17);
-            this.labelDueEntry.TabIndex = 20;
-            this.labelDueEntry.Text = "0";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(401, 2);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 17);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "Due Entry";
+            this.labelSubjectMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubjectMark.ForeColor = System.Drawing.Color.Red;
+            this.labelSubjectMark.Location = new System.Drawing.Point(542, 0);
+            this.labelSubjectMark.Name = "labelSubjectMark";
+            this.labelSubjectMark.Size = new System.Drawing.Size(125, 17);
+            this.labelSubjectMark.TabIndex = 22;
+            this.labelSubjectMark.Text = "Max Mark: 0";
+            this.labelSubjectMark.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ColumnCheck
             // 
@@ -395,6 +411,13 @@ namespace MadrasahSMS
             this.ColumnName.HeaderText = "Name";
             this.ColumnName.Name = "ColumnName";
             this.ColumnName.ReadOnly = true;
+            // 
+            // ColumnSubjectMarks
+            // 
+            this.ColumnSubjectMarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnSubjectMarks.HeaderText = "Subject Marks";
+            this.ColumnSubjectMarks.Name = "ColumnSubjectMarks";
+            this.ColumnSubjectMarks.ReadOnly = true;
             // 
             // ColumnMark
             // 
@@ -429,7 +452,6 @@ namespace MadrasahSMS
             this.Name = "FrmMarksEntry";
             this.Text = "Marks Entry";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMark)).EndInit();
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();
             this.panelUpdate.ResumeLayout(false);
@@ -445,7 +467,6 @@ namespace MadrasahSMS
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewStudentList;
         private System.Windows.Forms.Button buttonUpdate;
-        private System.Windows.Forms.NumericUpDown numericUpDownMark;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxExam;
         private System.Windows.Forms.Label label3;
@@ -468,10 +489,13 @@ namespace MadrasahSMS
         private System.Windows.Forms.DateTimePicker dateTimePickerExamDate;
         private System.Windows.Forms.Label labelDueEntry;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBoxMark;
+        private System.Windows.Forms.Label labelSubjectMark;
         private System.Windows.Forms.DataGridViewImageColumn ColumnCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRoll;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReg;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubjectMarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMark;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;

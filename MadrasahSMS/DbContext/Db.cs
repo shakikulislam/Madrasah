@@ -92,6 +92,16 @@ namespace MadrasahSMS.DbContext
             da.Fill(dt);
             return dt;
         }
+
+        public static string GetSingleValue(string query)
+        {
+            GetConnection();
+            cmd.CommandText = query;
+            da = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            da.Fill(dt);
+            return dt.Rows[0][0].ToString();
+        }
         
     }
 }
