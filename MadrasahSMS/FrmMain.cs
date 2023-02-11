@@ -311,5 +311,11 @@ namespace MadrasahSMS
             ActiveButton(sender);
             new FrmBackup().ShowDialog();
         }
+
+        private void iconButtonResultProcess_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            OpenChildForm(new FrmResultProcess());
+        }
     }
 }

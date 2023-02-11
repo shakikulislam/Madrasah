@@ -21,6 +21,7 @@ namespace MadrasahSMS
             ThemeTemplate.SDataGridView(this, BorderStyle.FixedSingle);
 
             LoadData();
+            labelSubjectMark.ForeColor = Color.Red;
         }
 
         private void LoadDetails()
@@ -32,6 +33,7 @@ namespace MadrasahSMS
                 textBoxRoll.Text = dg.Cells[ColumnRoll.Index].Value.ToString();
                 textBoxReg.Text = dg.Cells[ColumnReg.Index].Value.ToString();
                 textBoxMark.Text = dg.Cells[ColumnMark.Index].Value.ToString();
+                textBoxMark.Tag = dg.Cells[ColumnId.Index].Value.ToString();
                 labelSubjectMark.Text = "Sub. Mark= " + dg.Cells[ColumnSubjectMarks.Index].Value;
                 textBoxMark.Focus();
                 textBoxMark.SelectAll();
@@ -68,7 +70,7 @@ namespace MadrasahSMS
 
             if (string.IsNullOrEmpty(date))
             {
-                MessageBox.Show("Exam schedule not found\nPlease create exam schedule and try again.");
+                MessageBox.Show(ContentText.ExamScheduleNotFound + "\n" + ContentText.CreateExamSchedule);
                 return false;
             }
 
@@ -238,9 +240,25 @@ namespace MadrasahSMS
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            dataGridViewStudentList.SelectedRows[0].Cells[ColumnStatus.Index].Value = "E";
-            dataGridViewStudentList.SelectedRows[0].Cells[ColumnCheck.Index].Value = Resources.check_mark;
-            CalculateTotalEntry();
+
+            try
+            {
+                var dg = dataGridViewStudentList.SelectedRows[0];
+                var query = "UPDATE S_MARK SET OBTAINED_MARKS=" + textBoxMark.Text + 
+                            ", STATUS='E' WHERE ID=" + textBoxMark.Tag;
+                var isUpdate = Db.QueryExecute(query);
+                if (isUpdate)
+                {
+                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnStatus.Index].Value = "E";
+                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnCheck.Index].Value = Resources.check_mark;
+                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnMark.Index].Value = textBoxMark.Text;
+                    CalculateTotalEntry();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         
         private void textBoxMark_KeyUp(object sender, KeyEventArgs e)

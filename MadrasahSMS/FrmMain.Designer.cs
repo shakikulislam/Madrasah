@@ -31,8 +31,9 @@ namespace MadrasahSMS
         {
             this.components = new System.ComponentModel.Container();
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.iconButtonSettings = new FontAwesome.Sharp.IconButton();
             this.iconButtonBackup = new FontAwesome.Sharp.IconButton();
+            this.iconButtonResultProcess = new FontAwesome.Sharp.IconButton();
+            this.iconButtonSettings = new FontAwesome.Sharp.IconButton();
             this.iconButtonExam = new FontAwesome.Sharp.IconButton();
             this.iconButtonMarksEntry = new FontAwesome.Sharp.IconButton();
             this.iconButtonAddress = new FontAwesome.Sharp.IconButton();
@@ -60,8 +61,9 @@ namespace MadrasahSMS
             // 
             // panelSideMenu
             // 
-            this.panelSideMenu.Controls.Add(this.iconButtonSettings);
             this.panelSideMenu.Controls.Add(this.iconButtonBackup);
+            this.panelSideMenu.Controls.Add(this.iconButtonResultProcess);
+            this.panelSideMenu.Controls.Add(this.iconButtonSettings);
             this.panelSideMenu.Controls.Add(this.iconButtonExam);
             this.panelSideMenu.Controls.Add(this.iconButtonMarksEntry);
             this.panelSideMenu.Controls.Add(this.iconButtonAddress);
@@ -74,6 +76,50 @@ namespace MadrasahSMS
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(160, 655);
             this.panelSideMenu.TabIndex = 0;
+            // 
+            // iconButtonBackup
+            // 
+            this.iconButtonBackup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonBackup.FlatAppearance.BorderSize = 0;
+            this.iconButtonBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonBackup.IconChar = FontAwesome.Sharp.IconChar.Download;
+            this.iconButtonBackup.IconColor = System.Drawing.Color.Black;
+            this.iconButtonBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonBackup.IconSize = 32;
+            this.iconButtonBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonBackup.Location = new System.Drawing.Point(0, 343);
+            this.iconButtonBackup.Name = "iconButtonBackup";
+            this.iconButtonBackup.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.iconButtonBackup.Size = new System.Drawing.Size(160, 40);
+            this.iconButtonBackup.TabIndex = 8;
+            this.iconButtonBackup.Text = "Backup";
+            this.iconButtonBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonBackup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonBackup.UseVisualStyleBackColor = true;
+            this.iconButtonBackup.Click += new System.EventHandler(this.iconButtonBackup_Click);
+            // 
+            // iconButtonResultProcess
+            // 
+            this.iconButtonResultProcess.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonResultProcess.FlatAppearance.BorderSize = 0;
+            this.iconButtonResultProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonResultProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonResultProcess.IconChar = FontAwesome.Sharp.IconChar.ArrowTrendUp;
+            this.iconButtonResultProcess.IconColor = System.Drawing.Color.Black;
+            this.iconButtonResultProcess.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonResultProcess.IconSize = 32;
+            this.iconButtonResultProcess.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonResultProcess.Location = new System.Drawing.Point(0, 303);
+            this.iconButtonResultProcess.Name = "iconButtonResultProcess";
+            this.iconButtonResultProcess.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.iconButtonResultProcess.Size = new System.Drawing.Size(160, 40);
+            this.iconButtonResultProcess.TabIndex = 10;
+            this.iconButtonResultProcess.Text = "Process";
+            this.iconButtonResultProcess.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonResultProcess.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonResultProcess.UseVisualStyleBackColor = true;
+            this.iconButtonResultProcess.Click += new System.EventHandler(this.iconButtonResultProcess_Click);
             // 
             // iconButtonSettings
             // 
@@ -95,28 +141,6 @@ namespace MadrasahSMS
             this.iconButtonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButtonSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButtonSettings.UseVisualStyleBackColor = true;
-            // 
-            // iconButtonBackup
-            // 
-            this.iconButtonBackup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonBackup.FlatAppearance.BorderSize = 0;
-            this.iconButtonBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonBackup.IconChar = FontAwesome.Sharp.IconChar.Download;
-            this.iconButtonBackup.IconColor = System.Drawing.Color.Black;
-            this.iconButtonBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonBackup.IconSize = 32;
-            this.iconButtonBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonBackup.Location = new System.Drawing.Point(0, 303);
-            this.iconButtonBackup.Name = "iconButtonBackup";
-            this.iconButtonBackup.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.iconButtonBackup.Size = new System.Drawing.Size(160, 40);
-            this.iconButtonBackup.TabIndex = 8;
-            this.iconButtonBackup.Text = "Backup";
-            this.iconButtonBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonBackup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonBackup.UseVisualStyleBackColor = true;
-            this.iconButtonBackup.Click += new System.EventHandler(this.iconButtonBackup_Click);
             // 
             // iconButtonExam
             // 
@@ -454,6 +478,7 @@ namespace MadrasahSMS
         private FontAwesome.Sharp.IconButton iconButtonExam;
         private FontAwesome.Sharp.IconButton iconButtonBackup;
         private FontAwesome.Sharp.IconButton iconButtonSettings;
+        private FontAwesome.Sharp.IconButton iconButtonResultProcess;
     }
 }
 

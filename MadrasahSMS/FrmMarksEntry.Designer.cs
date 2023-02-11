@@ -49,6 +49,7 @@ namespace MadrasahSMS
             this.label8 = new System.Windows.Forms.Label();
             this.dateTimePickerExamDate = new System.Windows.Forms.DateTimePicker();
             this.panelUpdate = new System.Windows.Forms.Panel();
+            this.labelSubjectMark = new System.Windows.Forms.Label();
             this.textBoxMark = new System.Windows.Forms.TextBox();
             this.labelDueEntry = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -57,14 +58,13 @@ namespace MadrasahSMS
             this.labelTotalStudent = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.errorProviderMark = new System.Windows.Forms.ErrorProvider(this.components);
-            this.labelSubjectMark = new System.Windows.Forms.Label();
             this.ColumnCheck = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnRoll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnReg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSubjectMarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSubjectMarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
             this.panelSearch.SuspendLayout();
@@ -103,9 +103,9 @@ namespace MadrasahSMS
             this.ColumnRoll,
             this.ColumnReg,
             this.ColumnName,
-            this.ColumnSubjectMarks,
             this.ColumnMark,
             this.ColumnId,
+            this.ColumnSubjectMarks,
             this.ColumnStatus});
             this.dataGridViewStudentList.Location = new System.Drawing.Point(12, 87);
             this.dataGridViewStudentList.Name = "dataGridViewStudentList";
@@ -293,6 +293,17 @@ namespace MadrasahSMS
             this.panelUpdate.Size = new System.Drawing.Size(680, 98);
             this.panelUpdate.TabIndex = 16;
             // 
+            // labelSubjectMark
+            // 
+            this.labelSubjectMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubjectMark.ForeColor = System.Drawing.Color.Red;
+            this.labelSubjectMark.Location = new System.Drawing.Point(542, 0);
+            this.labelSubjectMark.Name = "labelSubjectMark";
+            this.labelSubjectMark.Size = new System.Drawing.Size(125, 17);
+            this.labelSubjectMark.TabIndex = 22;
+            this.labelSubjectMark.Text = "Max Mark: 0";
+            this.labelSubjectMark.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // textBoxMark
             // 
             this.textBoxMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -369,17 +380,6 @@ namespace MadrasahSMS
             // 
             this.errorProviderMark.ContainerControl = this;
             // 
-            // labelSubjectMark
-            // 
-            this.labelSubjectMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubjectMark.ForeColor = System.Drawing.Color.Red;
-            this.labelSubjectMark.Location = new System.Drawing.Point(542, 0);
-            this.labelSubjectMark.Name = "labelSubjectMark";
-            this.labelSubjectMark.Size = new System.Drawing.Size(125, 17);
-            this.labelSubjectMark.TabIndex = 22;
-            this.labelSubjectMark.Text = "Max Mark: 0";
-            this.labelSubjectMark.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // ColumnCheck
             // 
             this.ColumnCheck.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -412,13 +412,6 @@ namespace MadrasahSMS
             this.ColumnName.Name = "ColumnName";
             this.ColumnName.ReadOnly = true;
             // 
-            // ColumnSubjectMarks
-            // 
-            this.ColumnSubjectMarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnSubjectMarks.HeaderText = "Subject Marks";
-            this.ColumnSubjectMarks.Name = "ColumnSubjectMarks";
-            this.ColumnSubjectMarks.ReadOnly = true;
-            // 
             // ColumnMark
             // 
             this.ColumnMark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -433,6 +426,14 @@ namespace MadrasahSMS
             this.ColumnId.Name = "ColumnId";
             this.ColumnId.ReadOnly = true;
             this.ColumnId.Visible = false;
+            // 
+            // ColumnSubjectMarks
+            // 
+            this.ColumnSubjectMarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnSubjectMarks.HeaderText = "Subject Marks";
+            this.ColumnSubjectMarks.Name = "ColumnSubjectMarks";
+            this.ColumnSubjectMarks.ReadOnly = true;
+            this.ColumnSubjectMarks.Visible = false;
             // 
             // ColumnStatus
             // 
@@ -495,9 +496,9 @@ namespace MadrasahSMS
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRoll;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReg;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubjectMarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMark;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubjectMarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
     }
 }
