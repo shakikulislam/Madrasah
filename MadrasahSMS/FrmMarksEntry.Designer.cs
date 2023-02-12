@@ -63,6 +63,8 @@ namespace MadrasahSMS
             this.ColumnReg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnGradePoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLetterGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSubjectMarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,6 +106,8 @@ namespace MadrasahSMS
             this.ColumnReg,
             this.ColumnName,
             this.ColumnMark,
+            this.ColumnGradePoint,
+            this.ColumnLetterGrade,
             this.ColumnId,
             this.ColumnSubjectMarks,
             this.ColumnStatus});
@@ -420,6 +424,22 @@ namespace MadrasahSMS
             this.ColumnMark.ReadOnly = true;
             this.ColumnMark.Width = 56;
             // 
+            // ColumnGradePoint
+            // 
+            this.ColumnGradePoint.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnGradePoint.HeaderText = "Grade Point";
+            this.ColumnGradePoint.Name = "ColumnGradePoint";
+            this.ColumnGradePoint.ReadOnly = true;
+            this.ColumnGradePoint.Width = 88;
+            // 
+            // ColumnLetterGrade
+            // 
+            this.ColumnLetterGrade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnLetterGrade.HeaderText = "Letter Grade";
+            this.ColumnLetterGrade.Name = "ColumnLetterGrade";
+            this.ColumnLetterGrade.ReadOnly = true;
+            this.ColumnLetterGrade.Width = 91;
+            // 
             // ColumnId
             // 
             this.ColumnId.HeaderText = "ID";
@@ -497,6 +517,8 @@ namespace MadrasahSMS
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReg;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGradePoint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLetterGrade;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubjectMarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;

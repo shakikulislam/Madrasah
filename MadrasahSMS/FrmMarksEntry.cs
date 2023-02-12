@@ -35,6 +35,7 @@ namespace MadrasahSMS
                 textBoxMark.Text = dg.Cells[ColumnMark.Index].Value.ToString();
                 textBoxMark.Tag = dg.Cells[ColumnId.Index].Value.ToString();
                 labelSubjectMark.Text = "Sub. Mark= " + dg.Cells[ColumnSubjectMarks.Index].Value;
+                labelSubjectMark.Tag = dg.Cells[ColumnSubjectMarks.Index].Value.ToString();
                 textBoxMark.Focus();
                 textBoxMark.SelectAll();
             }
@@ -163,7 +164,8 @@ namespace MadrasahSMS
                 catch { }
 
                 var markForEntry = "SELECT M.ID, M.EXAM_ID, M.EXAM_DATE, M.STUDENT_ID, M.CLASS_ID, " +
-                                   "M.SUBJECT_ID, M.SUBJECT_MARKS, M.OBTAINED_MARKS, M.OBTAINED_MARKS_PCT, M.STATUS, " +
+                                   "M.SUBJECT_ID, M.SUBJECT_MARKS, M.OBTAINED_MARKS, M.OBTAINED_MARKS_PCT, " +
+                                   "M.GRADE_POINT, M.LETTER_GRADE, M.STATUS, " +
                                    "S.ROLL, S.REG, S.NAME " +
                                    "FROM S_MARK M " +
                                    "LEFT JOIN S_STUDENT S ON M.STUDENT_ID = S.ID " +
@@ -181,6 +183,8 @@ namespace MadrasahSMS
                     dataGridViewStudentList.Rows[dr].Cells[ColumnName.Index].Value = row["NAME"].ToString();
                     dataGridViewStudentList.Rows[dr].Cells[ColumnSubjectMarks.Index].Value = row["SUBJECT_MARKS"].ToString();
                     dataGridViewStudentList.Rows[dr].Cells[ColumnMark.Index].Value = row["OBTAINED_MARKS"].ToString();
+                    dataGridViewStudentList.Rows[dr].Cells[ColumnGradePoint.Index].Value = row["GRADE_POINT"].ToString();
+                    dataGridViewStudentList.Rows[dr].Cells[ColumnLetterGrade.Index].Value = row["LETTER_GRADE"].ToString();
                     
                     var status = row["STATUS"].ToString();
                     dataGridViewStudentList.Rows[dr].Cells[ColumnStatus.Index].Value = status;
@@ -244,14 +248,38 @@ namespace MadrasahSMS
             try
             {
                 var dg = dataGridViewStudentList.SelectedRows[0];
-                var query = "UPDATE S_MARK SET OBTAINED_MARKS=" + textBoxMark.Text + 
+                var obtainedMark = Convert.ToDouble(textBoxMark.Text);
+                var subjectMark = Convert.ToDouble(labelSubjectMark.Tag);
+                var markPct = ((subjectMark * obtainedMark) / 100);
+                int schoolYear = 2023;
+
+                var grade = Db.GetDataReader(
+                    "SELECT GRADE_POINT, LETTER_GRADE FROM S_GRADE WHERE SCHOOL_YEAR=" + schoolYear + " AND MIN_PCT<=" + markPct +
+                    " AND MAX_PCT>=" + markPct);
+
+                var gradePoint = string.Empty;
+                var letterGrade = string.Empty;
+
+                if (grade.HasRows)
+                {
+                    grade.Read();
+                    gradePoint = grade["GRADE_POINT"].ToString();
+                    letterGrade = grade["LETTER_GRADE"].ToString();
+                    grade.Close();
+                }
+
+                var query = "UPDATE S_MARK SET OBTAINED_MARKS=" + obtainedMark + ", OBTAINED_MARKS_PCT=" + markPct +
+                            ", LETTER_GRADE='" + letterGrade + "', GRADE_POINT=" + gradePoint +
                             ", STATUS='E' WHERE ID=" + textBoxMark.Tag;
+
                 var isUpdate = Db.QueryExecute(query);
                 if (isUpdate)
                 {
                     dataGridViewStudentList.SelectedRows[0].Cells[ColumnStatus.Index].Value = "E";
                     dataGridViewStudentList.SelectedRows[0].Cells[ColumnCheck.Index].Value = Resources.check_mark;
-                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnMark.Index].Value = textBoxMark.Text;
+                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnGradePoint.Index].Value = gradePoint;
+                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnLetterGrade.Index].Value = letterGrade;
+                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnMark.Index].Value = obtainedMark;
                     CalculateTotalEntry();
                 }
             }
