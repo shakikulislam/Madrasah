@@ -83,13 +83,13 @@ namespace MadrasahSMS.Academic
                         query = "INSERT INTO s_subject (id, class_id, code, name, mark, teacher_id, create_by, create_date, status)" +
                                 "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_SUBJECT)," 
                                 + comboBoxClass.SelectedValue + ",'" + textBoxSubjectCode.Text.Trim() +
-                                "','" + textBoxSubjectName.Text.Trim() + "'," + numericUpDownMark.Text + "," +
+                                "',N'" + textBoxSubjectName.Text.Trim() + "'," + numericUpDownMark.Text + "," +
                                 comboBoxTeacher.SelectedValue + ",'" + GlobalSettings.UserName + "', '" + 
                                 DateTime.Now.ToString(GlobalSettings.DateFormatSave) + "','A' )";
                         break;
                     case "Update":
                         query = "UPDATE s_subject SET class_id=" + comboBoxClass.SelectedValue + ", CODE='" +
-                                textBoxSubjectCode.Text.Trim() + "', name='" +
+                                textBoxSubjectCode.Text.Trim() + "', name=N'" +
                                 textBoxSubjectName.Text.Trim() + "', mark=" + numericUpDownMark.Text + ", teacher_id=" +
                                 comboBoxTeacher.SelectedValue + ", update_by='" + GlobalSettings.UserName +
                                 "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) + "' " +

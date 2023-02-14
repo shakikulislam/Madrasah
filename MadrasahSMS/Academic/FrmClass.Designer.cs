@@ -37,7 +37,6 @@ namespace MadrasahSMS.Academic
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxClassName = new System.Windows.Forms.TextBox();
-            this.buttonAddNewClass = new System.Windows.Forms.Button();
             this.dataGridViewClass = new System.Windows.Forms.DataGridView();
             this.ColumnClassSl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacher_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +45,7 @@ namespace MadrasahSMS.Academic
             this.ColumnClassNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errorProviderClass = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelClassForm = new System.Windows.Forms.Panel();
+            this.linkLabelCancel = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClassNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderClass)).BeginInit();
@@ -85,13 +85,12 @@ namespace MadrasahSMS.Academic
             // buttonClassUpdate
             // 
             this.buttonClassUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonClassUpdate.Location = new System.Drawing.Point(520, 71);
+            this.buttonClassUpdate.Location = new System.Drawing.Point(526, 39);
             this.buttonClassUpdate.Name = "buttonClassUpdate";
-            this.buttonClassUpdate.Size = new System.Drawing.Size(160, 36);
+            this.buttonClassUpdate.Size = new System.Drawing.Size(160, 40);
             this.buttonClassUpdate.TabIndex = 1;
             this.buttonClassUpdate.Text = "Add";
             this.buttonClassUpdate.UseVisualStyleBackColor = true;
-            this.buttonClassUpdate.Visible = false;
             this.buttonClassUpdate.Click += new System.EventHandler(this.buttonClassUpdate_Click);
             // 
             // label2
@@ -124,17 +123,6 @@ namespace MadrasahSMS.Academic
             this.textBoxClassName.Name = "textBoxClassName";
             this.textBoxClassName.Size = new System.Drawing.Size(473, 23);
             this.textBoxClassName.TabIndex = 3;
-            // 
-            // buttonAddNewClass
-            // 
-            this.buttonAddNewClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonAddNewClass.Location = new System.Drawing.Point(520, 34);
-            this.buttonAddNewClass.Name = "buttonAddNewClass";
-            this.buttonAddNewClass.Size = new System.Drawing.Size(160, 36);
-            this.buttonAddNewClass.TabIndex = 0;
-            this.buttonAddNewClass.Text = "Add Class";
-            this.buttonAddNewClass.UseVisualStyleBackColor = true;
-            this.buttonAddNewClass.Click += new System.EventHandler(this.buttonAddNewClass_Click);
             // 
             // dataGridViewClass
             // 
@@ -213,17 +201,28 @@ namespace MadrasahSMS.Academic
             this.panelClassForm.Name = "panelClassForm";
             this.panelClassForm.Size = new System.Drawing.Size(494, 107);
             this.panelClassForm.TabIndex = 44;
-            this.panelClassForm.Visible = false;
+            // 
+            // linkLabelCancel
+            // 
+            this.linkLabelCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.linkLabelCancel.AutoSize = true;
+            this.linkLabelCancel.Location = new System.Drawing.Point(586, 81);
+            this.linkLabelCancel.Name = "linkLabelCancel";
+            this.linkLabelCancel.Size = new System.Drawing.Size(40, 13);
+            this.linkLabelCancel.TabIndex = 45;
+            this.linkLabelCancel.TabStop = true;
+            this.linkLabelCancel.Text = "Cancel";
+            this.linkLabelCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCancel_LinkClicked);
             // 
             // FrmClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 329);
+            this.Controls.Add(this.buttonClassUpdate);
+            this.Controls.Add(this.linkLabelCancel);
             this.Controls.Add(this.panelClassForm);
             this.Controls.Add(this.dataGridViewClass);
-            this.Controls.Add(this.buttonClassUpdate);
-            this.Controls.Add(this.buttonAddNewClass);
             this.Name = "FrmClass";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -234,6 +233,7 @@ namespace MadrasahSMS.Academic
             this.panelClassForm.ResumeLayout(false);
             this.panelClassForm.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -246,7 +246,6 @@ namespace MadrasahSMS.Academic
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxClassName;
-        private System.Windows.Forms.Button buttonAddNewClass;
         private System.Windows.Forms.DataGridView dataGridViewClass;
         private System.Windows.Forms.ErrorProvider errorProviderClass;
         private System.Windows.Forms.Panel panelClassForm;
@@ -255,5 +254,6 @@ namespace MadrasahSMS.Academic
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassNumber;
+        private System.Windows.Forms.LinkLabel linkLabelCancel;
     }
 }

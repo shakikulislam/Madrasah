@@ -45,12 +45,12 @@ namespace MadrasahSMS.Academic
                         {
                             case "Add":
                                 query="INSERT INTO s_exam (id, name, effect_on_final, effect_percent) " +
-                                      "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_EXAM),'" +
+                                      "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_EXAM),N'" +
                                       textBoxExamName.Text.Trim() + "','" + checkBoxEffectOnFinal.Checked + "'," + 
                                       numericUpDownEffectPersent.Text + ")";
                                 break;
                             case "Update":
-                                query = "UPDATE s_exam SET name='" + textBoxExamName.Text.Trim() + "', effect_on_final='" +
+                                query = "UPDATE s_exam SET name=N'" + textBoxExamName.Text.Trim() + "', effect_on_final='" +
                                         checkBoxEffectOnFinal.Checked + "', effect_percent=" + numericUpDownEffectPersent.Text 
                                         + " WHERE id=" + textBoxExamName.Tag + "";
                                 break;

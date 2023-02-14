@@ -124,14 +124,14 @@ namespace MadrasahSMS
             var isValid = ThemeTemplate.SValidate(panelSearch, errorProviderMark);
             if (isValid)
             {
+                dataGridViewStudentList.Rows.Clear();
+
                 if (!LoadExamDate())
                 {
                     panelSearch.Enabled = true;
                     return;
                 }
-
-                panelSearch.Enabled = false;
-
+                
                 var query = "SELECT ID, ROLL, REG, NAME FROM S_STUDENT " +
                             "WHERE CLASS_ID = " + comboBoxClass.SelectedValue + " ORDER BY ROLL ASC";
                 var dt = Db.GetDataTable(query);
@@ -201,16 +201,21 @@ namespace MadrasahSMS
             }
             else
             {
-                panelSearch.Enabled = true;
                 panelUpdate.Enabled = false;
             }
         }
 
         private void dataGridViewStudentList_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridViewStudentList.SelectedRows[0].Cells[1].Value != null)
+            try
             {
-                LoadDetails();
+                if (dataGridViewStudentList.SelectedRows[0].Cells[1].Value != null)
+                {
+                    LoadDetails();
+                }
+            }
+            catch
+            {
             }
         }
 
@@ -247,10 +252,9 @@ namespace MadrasahSMS
 
             try
             {
-                var dg = dataGridViewStudentList.SelectedRows[0];
                 var obtainedMark = Convert.ToDouble(textBoxMark.Text);
                 var subjectMark = Convert.ToDouble(labelSubjectMark.Tag);
-                var markPct = ((subjectMark * obtainedMark) / 100);
+                var markPct = ((obtainedMark * 100) / subjectMark);
                 int schoolYear = 2023;
 
                 var grade = Db.GetDataReader(
@@ -294,7 +298,7 @@ namespace MadrasahSMS
             try
             {
                 double obtainedMark = Convert.ToDouble(textBoxMark.Text);
-                double subMaxMark = 100;
+                double subMaxMark = Convert.ToDouble(labelSubjectMark.Tag);
 
                 if (obtainedMark >= 0 && obtainedMark <= subMaxMark)
                 {

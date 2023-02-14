@@ -13,8 +13,17 @@ namespace MadrasahSMS.Academic
             InitializeComponent();
             LoadTeacher(comboBoxTeacher);
             LoadClass();
+            ClearField();
             ThemeTemplate.LoadTheme(this);
             ThemeTemplate.LoadTheme(panelClassForm);
+        }
+
+        private void ClearField()
+        {
+            buttonClassUpdate.Text = "Add";
+            buttonClassUpdate.Height = 60;
+            textBoxClassName.Clear();
+            numericUpDownClassNumber.Text = "0";
         }
         
         private void LoadTeacher(ComboBox comboBox)
@@ -37,27 +46,6 @@ namespace MadrasahSMS.Academic
             dataGridViewClass.DataSource = classList;
         }
 
-        private void buttonAddNewClass_Click(object sender, EventArgs e)
-        {
-            if (buttonAddNewClass.Text == "Add Class")
-            {
-                buttonAddNewClass.Text = "Cancel";
-                textBoxClassName.Clear();
-                numericUpDownClassNumber.Text = "0";
-                buttonClassUpdate.Text = "Add";
-                buttonClassUpdate.Visible = true;
-                panelClassForm.Visible = true;
-            }
-            else
-            {
-                buttonAddNewClass.Text = "Add Class";
-                textBoxClassName.Clear();
-                numericUpDownClassNumber.Text = "0";
-                buttonClassUpdate.Visible = false;
-                panelClassForm.Visible = false;
-            }
-        }
-
         private void buttonClassUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -70,13 +58,13 @@ namespace MadrasahSMS.Academic
                     if (buttonClassUpdate.Text == "Add")
                     {
                         query = "insert into s_class (id, name,class_number,teacher_id) values " +
-                                "((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_CLASS),'" +
+                                "((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_CLASS),N'" +
                                 textBoxClassName.Text.Trim() + "','" + numericUpDownClassNumber.Text.Trim() +
                                 "','" + comboBoxTeacher.SelectedValue + "')";
                     }
                     else if (buttonClassUpdate.Text == "Update")
                     {
-                        query = "update s_class set name='" + textBoxClassName.Text.Trim() +
+                        query = "update s_class set name=N'" + textBoxClassName.Text.Trim() +
                                 "', class_number='" + numericUpDownClassNumber.Text.Trim() +
                                 "', teacher_id='" + comboBoxTeacher.SelectedValue +
                                 "', update_by = '" + GlobalSettings.UserName +
@@ -87,11 +75,7 @@ namespace MadrasahSMS.Academic
                     var isExecute = Db.QueryExecute(query);
                     if (isExecute)
                     {
-                        buttonAddNewClass.Text = "Add Class";
-                        textBoxClassName.Clear();
-                        numericUpDownClassNumber.Text = "0";
-                        buttonClassUpdate.Visible = false;
-                        panelClassForm.Visible = false;
+                        ClearField();
                     }
 
                     LoadClass();
@@ -121,7 +105,7 @@ namespace MadrasahSMS.Academic
 
                     comboBoxTeacher.Text = dataGridViewClass.SelectedRows[0].Cells["teacher_name"].Value.ToString();
 
-                    buttonAddNewClass.Text = "Cancel";
+                    buttonClassUpdate.Height = 40;
                     buttonClassUpdate.Text = "Update";
                     buttonClassUpdate.Visible = true;
                     panelClassForm.Visible = true;
@@ -129,12 +113,13 @@ namespace MadrasahSMS.Academic
             }
             catch
             {
-                buttonAddNewClass.Text = "Add Class";
-                textBoxClassName.Clear();
-                numericUpDownClassNumber.Text = "0";
-                buttonClassUpdate.Visible = false;
-                panelClassForm.Visible = false;
+                ClearField();
             }
+        }
+
+        private void linkLabelCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ClearField();
         }
     }
 }
