@@ -3,7 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using MadrasahSMS.Common;
+using MadrasahSMS.DbContext;
 
 namespace MadrasahSMS.Common
 {
@@ -76,6 +76,36 @@ namespace MadrasahSMS.Common
             //    currentForm.Close();
             //}
             currentForm?.Close();
+        }
+
+        /// <summary>
+        /// This method is a Result Calculator System
+        /// </summary>
+        /// <param name="obtainedMark">Obtained marks</param>
+        /// <param name="subjectMark">Subject marks</param>
+        /// <returns></returns>
+        public static (double MarksPercentage, double GradePoint, string LetterGrade) ResultCalculate(double obtainedMarks, double subjectMarks)
+        {
+            var markPct = ((obtainedMarks * 100) / subjectMarks);
+            int schoolYear = 2023;
+
+            var grade = Db.GetDataReader(
+                "SELECT GRADE_POINT, LETTER_GRADE FROM S_GRADE WHERE SCHOOL_YEAR=" + schoolYear + " AND MIN_PCT<=" +
+                markPct +
+                " AND MAX_PCT>=" + markPct);
+
+            var gradePoint = string.Empty;
+            var letterGrade = string.Empty;
+
+            if (grade.HasRows)
+            {
+                grade.Read();
+                gradePoint = grade["GRADE_POINT"].ToString();
+                letterGrade = grade["LETTER_GRADE"].ToString();
+                grade.Close();
+            }
+
+            return (markPct, Convert.ToDouble(gradePoint), letterGrade);
         }
     }
 }

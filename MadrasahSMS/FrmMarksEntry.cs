@@ -249,40 +249,24 @@ namespace MadrasahSMS
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-
             try
             {
                 var obtainedMark = Convert.ToDouble(textBoxMark.Text);
                 var subjectMark = Convert.ToDouble(labelSubjectMark.Tag);
-                var markPct = ((obtainedMark * 100) / subjectMark);
-                int schoolYear = 2023;
 
-                var grade = Db.GetDataReader(
-                    "SELECT GRADE_POINT, LETTER_GRADE FROM S_GRADE WHERE SCHOOL_YEAR=" + schoolYear + " AND MIN_PCT<=" + markPct +
-                    " AND MAX_PCT>=" + markPct);
+                var result = GlobalSettings.ResultCalculate(obtainedMark, subjectMark);
 
-                var gradePoint = string.Empty;
-                var letterGrade = string.Empty;
-
-                if (grade.HasRows)
-                {
-                    grade.Read();
-                    gradePoint = grade["GRADE_POINT"].ToString();
-                    letterGrade = grade["LETTER_GRADE"].ToString();
-                    grade.Close();
-                }
-
-                var query = "UPDATE S_MARK SET OBTAINED_MARKS=" + obtainedMark + ", OBTAINED_MARKS_PCT=" + markPct +
-                            ", LETTER_GRADE='" + letterGrade + "', GRADE_POINT=" + gradePoint +
-                            ", STATUS='E' WHERE ID=" + textBoxMark.Tag;
+                var query = "UPDATE S_MARK SET OBTAINED_MARKS=" + obtainedMark + ", OBTAINED_MARKS_PCT=" +
+                            result.MarksPercentage + ", LETTER_GRADE='" + result.LetterGrade + "', GRADE_POINT=" +
+                            result.GradePoint + ", STATUS='E' WHERE ID=" + textBoxMark.Tag;
 
                 var isUpdate = Db.QueryExecute(query);
                 if (isUpdate)
                 {
                     dataGridViewStudentList.SelectedRows[0].Cells[ColumnStatus.Index].Value = "E";
                     dataGridViewStudentList.SelectedRows[0].Cells[ColumnCheck.Index].Value = Resources.check_mark;
-                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnGradePoint.Index].Value = gradePoint;
-                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnLetterGrade.Index].Value = letterGrade;
+                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnGradePoint.Index].Value = result.GradePoint;
+                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnLetterGrade.Index].Value = result.LetterGrade;
                     dataGridViewStudentList.SelectedRows[0].Cells[ColumnMark.Index].Value = obtainedMark;
                     CalculateTotalEntry();
                 }
