@@ -43,16 +43,18 @@ namespace MadrasahSMS.Academic
             this.comboBoxTeacher = new System.Windows.Forms.ComboBox();
             this.numericUpDownMark = new System.Windows.Forms.NumericUpDown();
             this.errorProviderSubject = new System.Windows.Forms.ErrorProvider(this.components);
+            this.linkLabelCancel = new System.Windows.Forms.LinkLabel();
+            this.checkBoxMandatory = new System.Windows.Forms.CheckBox();
             this.ColumnSl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMandatory = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSubjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTeacherId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.linkLabelCancel = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubjectList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSubject)).BeginInit();
@@ -74,9 +76,9 @@ namespace MadrasahSMS.Academic
             this.comboBoxClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxClass.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxClass.FormattingEnabled = true;
-            this.comboBoxClass.Location = new System.Drawing.Point(219, 43);
+            this.comboBoxClass.Location = new System.Drawing.Point(510, 11);
             this.comboBoxClass.Name = "comboBoxClass";
-            this.comboBoxClass.Size = new System.Drawing.Size(316, 25);
+            this.comboBoxClass.Size = new System.Drawing.Size(162, 25);
             this.comboBoxClass.TabIndex = 3;
             // 
             // label1
@@ -84,7 +86,7 @@ namespace MadrasahSMS.Academic
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(179, 47);
+            this.label1.Location = new System.Drawing.Point(470, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 17);
             this.label1.TabIndex = 2;
@@ -112,6 +114,7 @@ namespace MadrasahSMS.Academic
             this.ColumnSl,
             this.ColumnCode,
             this.ColumnName,
+            this.ColumnMandatory,
             this.ColumnMark,
             this.ColumnClass,
             this.ColumnTeacher,
@@ -130,7 +133,7 @@ namespace MadrasahSMS.Academic
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 15);
+            this.label2.Location = new System.Drawing.Point(8, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 17);
             this.label2.TabIndex = 5;
@@ -141,7 +144,7 @@ namespace MadrasahSMS.Academic
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(231, 15);
+            this.label3.Location = new System.Drawing.Point(4, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 17);
             this.label3.TabIndex = 7;
@@ -151,9 +154,9 @@ namespace MadrasahSMS.Academic
             // 
             this.textBoxSubjectName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxSubjectName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSubjectName.Location = new System.Drawing.Point(323, 12);
+            this.textBoxSubjectName.Location = new System.Drawing.Point(96, 43);
             this.textBoxSubjectName.Name = "textBoxSubjectName";
-            this.textBoxSubjectName.Size = new System.Drawing.Size(349, 25);
+            this.textBoxSubjectName.Size = new System.Drawing.Size(439, 25);
             this.textBoxSubjectName.TabIndex = 1;
             // 
             // label4
@@ -161,7 +164,7 @@ namespace MadrasahSMS.Academic
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(55, 47);
+            this.label4.Location = new System.Drawing.Point(238, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 17);
             this.label4.TabIndex = 9;
@@ -192,7 +195,7 @@ namespace MadrasahSMS.Academic
             // 
             this.numericUpDownMark.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.numericUpDownMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownMark.Location = new System.Drawing.Point(96, 44);
+            this.numericUpDownMark.Location = new System.Drawing.Point(279, 13);
             this.numericUpDownMark.Maximum = new decimal(new int[] {
             500,
             0,
@@ -205,6 +208,31 @@ namespace MadrasahSMS.Academic
             // errorProviderSubject
             // 
             this.errorProviderSubject.ContainerControl = this;
+            // 
+            // linkLabelCancel
+            // 
+            this.linkLabelCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.linkLabelCancel.AutoSize = true;
+            this.linkLabelCancel.Location = new System.Drawing.Point(591, 83);
+            this.linkLabelCancel.Name = "linkLabelCancel";
+            this.linkLabelCancel.Size = new System.Drawing.Size(40, 13);
+            this.linkLabelCancel.TabIndex = 12;
+            this.linkLabelCancel.TabStop = true;
+            this.linkLabelCancel.Text = "Cancel";
+            this.linkLabelCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCancel_LinkClicked);
+            // 
+            // checkBoxMandatory
+            // 
+            this.checkBoxMandatory.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.checkBoxMandatory.AutoSize = true;
+            this.checkBoxMandatory.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxMandatory.FlatAppearance.BorderSize = 0;
+            this.checkBoxMandatory.Location = new System.Drawing.Point(376, 16);
+            this.checkBoxMandatory.Name = "checkBoxMandatory";
+            this.checkBoxMandatory.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxMandatory.TabIndex = 13;
+            this.checkBoxMandatory.Text = "Mandatory";
+            this.checkBoxMandatory.UseVisualStyleBackColor = true;
             // 
             // ColumnSl
             // 
@@ -228,6 +256,14 @@ namespace MadrasahSMS.Academic
             this.ColumnName.HeaderText = "Name";
             this.ColumnName.Name = "ColumnName";
             this.ColumnName.ReadOnly = true;
+            // 
+            // ColumnMandatory
+            // 
+            this.ColumnMandatory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnMandatory.HeaderText = "Mandatory";
+            this.ColumnMandatory.Name = "ColumnMandatory";
+            this.ColumnMandatory.ReadOnly = true;
+            this.ColumnMandatory.Width = 63;
             // 
             // ColumnMark
             // 
@@ -274,23 +310,12 @@ namespace MadrasahSMS.Academic
             this.ColumnTeacherId.ReadOnly = true;
             this.ColumnTeacherId.Visible = false;
             // 
-            // linkLabelCancel
-            // 
-            this.linkLabelCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.linkLabelCancel.AutoSize = true;
-            this.linkLabelCancel.Location = new System.Drawing.Point(591, 83);
-            this.linkLabelCancel.Name = "linkLabelCancel";
-            this.linkLabelCancel.Size = new System.Drawing.Size(40, 13);
-            this.linkLabelCancel.TabIndex = 12;
-            this.linkLabelCancel.TabStop = true;
-            this.linkLabelCancel.Text = "Cancel";
-            this.linkLabelCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCancel_LinkClicked);
-            // 
             // FrmSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 450);
+            this.Controls.Add(this.checkBoxMandatory);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.linkLabelCancel);
             this.Controls.Add(this.numericUpDownMark);
@@ -329,15 +354,17 @@ namespace MadrasahSMS.Academic
         private System.Windows.Forms.ComboBox comboBoxTeacher;
         private System.Windows.Forms.NumericUpDown numericUpDownMark;
         private System.Windows.Forms.ErrorProvider errorProviderSubject;
+        private System.Windows.Forms.LinkLabel linkLabelCancel;
+        private System.Windows.Forms.CheckBox checkBoxMandatory;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSl;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnMandatory;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMark;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClass;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTeacher;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubjectId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTeacherId;
-        private System.Windows.Forms.LinkLabel linkLabelCancel;
     }
 }

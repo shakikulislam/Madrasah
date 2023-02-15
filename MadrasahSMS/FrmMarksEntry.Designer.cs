@@ -68,6 +68,7 @@ namespace MadrasahSMS
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSubjectMarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMandatory = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
             this.panelSearch.SuspendLayout();
             this.panelUpdate.SuspendLayout();
@@ -110,7 +111,8 @@ namespace MadrasahSMS
             this.ColumnLetterGrade,
             this.ColumnId,
             this.ColumnSubjectMarks,
-            this.ColumnStatus});
+            this.ColumnStatus,
+            this.ColumnMandatory});
             this.dataGridViewStudentList.Location = new System.Drawing.Point(12, 87);
             this.dataGridViewStudentList.Name = "dataGridViewStudentList";
             this.dataGridViewStudentList.Size = new System.Drawing.Size(680, 247);
@@ -462,6 +464,12 @@ namespace MadrasahSMS
             this.ColumnStatus.ReadOnly = true;
             this.ColumnStatus.Visible = false;
             // 
+            // ColumnMandatory
+            // 
+            this.ColumnMandatory.HeaderText = "Mandatory";
+            this.ColumnMandatory.Name = "ColumnMandatory";
+            this.ColumnMandatory.Visible = false;
+            // 
             // FrmMarksEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,5 +530,6 @@ namespace MadrasahSMS
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubjectMarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnMandatory;
     }
 }

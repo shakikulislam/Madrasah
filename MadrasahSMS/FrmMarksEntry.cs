@@ -135,7 +135,8 @@ namespace MadrasahSMS
                 var query = "SELECT ID, ROLL, REG, NAME FROM S_STUDENT " +
                             "WHERE CLASS_ID = " + comboBoxClass.SelectedValue + " ORDER BY ROLL ASC";
                 var dt = Db.GetDataTable(query);
-                var subjectMark = new SubjectDb().Mark(comboBoxSubject.SelectedValue.ToString());
+                var sub = new SubjectDb().GetById(comboBoxSubject.SelectedValue.ToString());
+                var mandatory = sub.Mandatory ? 1 : 0;
 
                 var insertQuery = "";
                 foreach (DataRow row in dt.Rows)
@@ -148,13 +149,14 @@ namespace MadrasahSMS
                                    "SUBJECT_ID, " +
                                    "SUBJECT_MARKS, " +
                                    "UPDATE_BY, " +
-                                   "UPDATE_DATE) " +
+                                   "UPDATE_DATE, " +
+                                   "MANDATORY) " +
                                    "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_MARK), "
                                    + comboBoxExam.SelectedValue + ", '"
                                    + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "',"
                                    + row["ID"] + "," + comboBoxClass.SelectedValue + ","
-                                   + comboBoxSubject.SelectedValue + ","+subjectMark+",'"
-                                   + GlobalSettings.UserName + "',current_timestamp); ";
+                                   + comboBoxSubject.SelectedValue + "," + sub.SubjectMark + ",'"
+                                   + GlobalSettings.UserName + "',current_timestamp, " + mandatory + "); ";
                 }
 
                 try

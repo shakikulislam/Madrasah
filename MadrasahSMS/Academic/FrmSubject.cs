@@ -21,6 +21,7 @@ namespace MadrasahSMS.Academic
         {
             ThemeTemplate.LoadTheme(control);
             ThemeTemplate.SDataGridView(control);
+            
         }
 
         private void LoadTime()
@@ -40,7 +41,7 @@ namespace MadrasahSMS.Academic
 
         private void LoadSubject()
         {
-            var subjectList = Db.GetDataTable(query: "SELECT s.id, s.code, s.name, s.mark, s.class_id, " +
+            var subjectList = Db.GetDataTable(query: "SELECT s.id, s.code, s.name, s.mark, s.class_id, S.MANDATORY, " +
                                                      "c.name AS class_name, s.teacher_id, e.name AS teacher_name " +
                                                      "FROM s_subject s " +
                                                      "LEFT JOIN s_class c ON s.class_id = c.id " +
@@ -50,6 +51,7 @@ namespace MadrasahSMS.Academic
             dataGridViewSubjectList.Columns[ColumnName.Index].DataPropertyName = "name";
             dataGridViewSubjectList.Columns[ColumnMark.Index].DataPropertyName = "mark";
             dataGridViewSubjectList.Columns[ColumnClass.Index].DataPropertyName = "class_name";
+            dataGridViewSubjectList.Columns[ColumnMandatory.Index].DataPropertyName = "MANDATORY";
             dataGridViewSubjectList.Columns[ColumnTeacher.Index].DataPropertyName = "teacher_name";
             dataGridViewSubjectList.Columns[ColumnSubjectId.Index].DataPropertyName = "id";
             dataGridViewSubjectList.Columns[ColumnClassId.Index].DataPropertyName = "class_id";
@@ -67,6 +69,8 @@ namespace MadrasahSMS.Academic
             textBoxSubjectCode.Tag = string.Empty;
             textBoxSubjectName.Clear();
             textBoxSubjectCode.Enabled = true;
+
+            checkBoxMandatory.Checked = false;
         }
 
         private void buttonSubmit_Click(object sender, System.EventArgs e)
@@ -76,24 +80,26 @@ namespace MadrasahSMS.Academic
                 var isValid = ThemeTemplate.SValidate(this, errorProviderSubject);
                 if (!isValid) return;
 
+                var mandatory = checkBoxMandatory.Checked ? 1 : 0;
+
                 var query = "";
                 switch (buttonSubmit.Text)
                 {
                     case "Add":
-                        query = "INSERT INTO s_subject (id, class_id, code, name, mark, teacher_id, create_by, create_date, status)" +
-                                "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_SUBJECT)," 
+                        query = "INSERT INTO s_subject (id, class_id, code, name, mark, teacher_id, create_by, create_date, status, MANDATORY)" +
+                                "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_SUBJECT),"
                                 + comboBoxClass.SelectedValue + ",'" + textBoxSubjectCode.Text.Trim() +
                                 "',N'" + textBoxSubjectName.Text.Trim() + "'," + numericUpDownMark.Text + "," +
-                                comboBoxTeacher.SelectedValue + ",'" + GlobalSettings.UserName + "', '" + 
-                                DateTime.Now.ToString(GlobalSettings.DateFormatSave) + "','A' )";
+                                comboBoxTeacher.SelectedValue + ",'" + GlobalSettings.UserName + "', '" +
+                                DateTime.Now.ToString(GlobalSettings.DateFormatSave) + "','A', " + mandatory + " )";
                         break;
                     case "Update":
                         query = "UPDATE s_subject SET class_id=" + comboBoxClass.SelectedValue + ", CODE='" +
                                 textBoxSubjectCode.Text.Trim() + "', name=N'" +
                                 textBoxSubjectName.Text.Trim() + "', mark=" + numericUpDownMark.Text + ", teacher_id=" +
                                 comboBoxTeacher.SelectedValue + ", update_by='" + GlobalSettings.UserName +
-                                "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) + "' " +
-                                "WHERE id=" + textBoxSubjectCode.Tag + "";
+                                "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
+                                "', MANDATORY=" + mandatory + " WHERE id=" + textBoxSubjectCode.Tag + "";
                         break;
                 }
                     
@@ -126,6 +132,7 @@ namespace MadrasahSMS.Academic
                 numericUpDownMark.Text = dgv.Cells[ColumnMark.Index].Value.ToString();
                 comboBoxClass.SelectedValue = dgv.Cells[ColumnClassId.Index].Value;
                 comboBoxTeacher.SelectedValue = dgv.Cells[ColumnTeacherId.Index].Value;
+                checkBoxMandatory.Checked = (bool) dgv.Cells[ColumnMandatory.Index].Value;
 
                 //textBoxSubjectCode.Enabled = false;
                 buttonSubmit.Text = "Update";

@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 
 namespace MadrasahSMS.DbContext
 {
@@ -10,10 +11,14 @@ namespace MadrasahSMS.DbContext
             return Db.GetDataTable(query);
         }
 
-        public string Mark(string id)
+        public (DataTable details, double SubjectMark, bool Mandatory) GetById(string id)
         {
-            var query = "SELECT MARK FROM S_SUBJECT WHERE ID=" + id;
-            return Db.GetSingleValue(query);
+            var query = "SELECT * FROM S_SUBJECT WHERE ID=" + id;
+            var sub = Db.GetDataTable(query);
+            var subMark = Convert.ToDouble(sub.Rows[0]["MARK"].ToString());
+            var mandatory = Convert.ToBoolean(sub.Rows[0]["MANDATORY"].ToString());
+            return (sub, subMark, mandatory);
         }
+
     }
 }
