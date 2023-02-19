@@ -35,8 +35,6 @@ namespace MadrasahSMS
             this.comboBoxExam = new System.Windows.Forms.ComboBox();
             this.buttonProcess = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxSubject = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.dataGridViewStudentList = new System.Windows.Forms.DataGridView();
             this.ColumnRoll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +43,8 @@ namespace MadrasahSMS
             this.ColumnGradePoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnLetterGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelClassTeacher = new System.Windows.Forms.Label();
             this.panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
             this.SuspendLayout();
@@ -53,13 +52,13 @@ namespace MadrasahSMS
             // panelSearch
             // 
             this.panelSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelSearch.Controls.Add(this.labelClassTeacher);
+            this.panelSearch.Controls.Add(this.label3);
             this.panelSearch.Controls.Add(this.comboBoxClass);
             this.panelSearch.Controls.Add(this.label1);
             this.panelSearch.Controls.Add(this.comboBoxExam);
             this.panelSearch.Controls.Add(this.buttonProcess);
             this.panelSearch.Controls.Add(this.label2);
-            this.panelSearch.Controls.Add(this.comboBoxSubject);
-            this.panelSearch.Controls.Add(this.label3);
             this.panelSearch.Location = new System.Drawing.Point(12, 11);
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(680, 78);
@@ -99,7 +98,7 @@ namespace MadrasahSMS
             this.buttonProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonProcess.Location = new System.Drawing.Point(564, 12);
             this.buttonProcess.Name = "buttonProcess";
-            this.buttonProcess.Size = new System.Drawing.Size(112, 54);
+            this.buttonProcess.Size = new System.Drawing.Size(112, 51);
             this.buttonProcess.TabIndex = 15;
             this.buttonProcess.Text = "Process";
             this.buttonProcess.UseVisualStyleBackColor = true;
@@ -115,25 +114,6 @@ namespace MadrasahSMS
             this.label2.TabIndex = 6;
             this.label2.Text = "Exam";
             // 
-            // comboBoxSubject
-            // 
-            this.comboBoxSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSubject.FormattingEnabled = true;
-            this.comboBoxSubject.Location = new System.Drawing.Point(68, 42);
-            this.comboBoxSubject.Name = "comboBoxSubject";
-            this.comboBoxSubject.Size = new System.Drawing.Size(490, 24);
-            this.comboBoxSubject.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 17);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Subject";
-            // 
             // dataGridViewStudentList
             // 
             this.dataGridViewStudentList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -147,8 +127,7 @@ namespace MadrasahSMS
             this.ColumnMark,
             this.ColumnGradePoint,
             this.ColumnLetterGrade,
-            this.ColumnId,
-            this.ColumnStatus});
+            this.ColumnId});
             this.dataGridViewStudentList.Location = new System.Drawing.Point(12, 95);
             this.dataGridViewStudentList.Name = "dataGridViewStudentList";
             this.dataGridViewStudentList.Size = new System.Drawing.Size(680, 343);
@@ -207,12 +186,25 @@ namespace MadrasahSMS
             this.ColumnId.ReadOnly = true;
             this.ColumnId.Visible = false;
             // 
-            // ColumnStatus
+            // label3
             // 
-            this.ColumnStatus.HeaderText = "Status";
-            this.ColumnStatus.Name = "ColumnStatus";
-            this.ColumnStatus.ReadOnly = true;
-            this.ColumnStatus.Visible = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(22, 46);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 17);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Class Teacher :";
+            // 
+            // labelClassTeacher
+            // 
+            this.labelClassTeacher.AutoSize = true;
+            this.labelClassTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClassTeacher.Location = new System.Drawing.Point(133, 46);
+            this.labelClassTeacher.Name = "labelClassTeacher";
+            this.labelClassTeacher.Size = new System.Drawing.Size(13, 17);
+            this.labelClassTeacher.TabIndex = 18;
+            this.labelClassTeacher.Text = "-";
             // 
             // FrmResultProcess
             // 
@@ -238,8 +230,6 @@ namespace MadrasahSMS
         private System.Windows.Forms.ComboBox comboBoxExam;
         private System.Windows.Forms.Button buttonProcess;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxSubject;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridViewStudentList;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRoll;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
@@ -248,6 +238,7 @@ namespace MadrasahSMS
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGradePoint;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLetterGrade;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelClassTeacher;
     }
 }

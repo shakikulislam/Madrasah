@@ -215,7 +215,7 @@ namespace MadrasahSMS
         
         private void LoadOfficeInfo()
         {
-            labelOfficeName.Text = GlobalSettings.OfficeInfo.Rows[0]["name"].ToString();
+            labelOfficeName.Text = GlobalSettings.Office().NameEnglish;
         }
         
         #endregion

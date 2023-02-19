@@ -9,18 +9,46 @@ namespace MadrasahSMS.Common
 {
     public class GlobalSettings
     {
-        //Property
+        #region Property
+        
         public static string DevUser { get; } = "DEVELOPER";
         public static string DevPass { get; } = "developer12345";
-        public static DataTable OfficeInfo { get; set; }
         public static string Server { get; set; }
         public static string EmployeeId { get; set; }
         public static string UserName { get; set; }
         public static string UserRole { get; set; }
         public static string DateFormatShortView { get; } = "dd-MMM-yy";
         public static string DateFormatSave { get; } = "yyyy-MM-dd";
+        public static DataTable OfficeInfo { get; set; }
 
-        //Method
+        #endregion Property
+
+        #region Method
+
+        /// <summary>
+        /// Office details Part to Part
+        /// </summary>
+        /// <returns></returns>
+        public static (DataTable Office, string NameBangla, string NameEnglish, string NameArabic, string SchoolYear, Image logo) Office()
+        {
+            var office = OfficeInfo;
+            var nameBl = string.Empty;
+            var nameEn = string.Empty;
+            var nameAr = string.Empty;
+            var schoolYear = string.Empty;
+            Image img = null;
+            if (office.Rows.Count > 0)
+            {
+                nameBl = office.Rows[0]["NAME_BN"].ToString();
+                nameEn = office.Rows[0]["NAME_EN"].ToString();
+                nameAr = office.Rows[0]["NAME_AR"].ToString();
+                schoolYear = office.Rows[0]["SCHOOL_YEAR"].ToString();
+                img = ByteToImage(office.Rows[0]["LOGO"], new Bitmap(1, 1));
+            }
+
+            return (office, nameBl, nameEn, nameAr, schoolYear, img);
+        }
+
         public static Image ByteToImage(object imageField, Bitmap defaultImage)
         {
             if (imageField == DBNull.Value) return defaultImage;
@@ -91,8 +119,7 @@ namespace MadrasahSMS.Common
 
             var grade = Db.GetDataReader(
                 "SELECT GRADE_POINT, LETTER_GRADE FROM S_GRADE WHERE SCHOOL_YEAR=" + schoolYear + " AND MIN_PCT<=" +
-                markPct +
-                " AND MAX_PCT>=" + markPct);
+                markPct + " AND MAX_PCT>=" + markPct);
 
             var gradePoint = string.Empty;
             var letterGrade = string.Empty;
@@ -107,5 +134,8 @@ namespace MadrasahSMS.Common
 
             return (markPct, Convert.ToDouble(gradePoint), letterGrade);
         }
+
+
+        #endregion Method
     }
 }
