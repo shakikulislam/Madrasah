@@ -62,7 +62,10 @@ namespace MadrasahSMS
         {
             try
             {
-                //var query="SELECT * FROM "
+                var query = "SELECT * FROM S_MARK WHERE SCHOOL_YEAR = " + GlobalSettings.SchoolYear +
+                            " AND EXAM_ID = " + comboBoxExam.SelectedValue +
+                            " AND CLASS_ID = " + comboBoxClass.SelectedValue;
+                var studentList = Db.GetDataTable(query);
             }
             catch (Exception ex)
             {

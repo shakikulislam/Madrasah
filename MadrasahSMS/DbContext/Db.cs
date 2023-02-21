@@ -100,7 +100,7 @@ namespace MadrasahSMS.DbContext
             da = new SqlDataAdapter(cmd);
             dt = new DataTable();
             da.Fill(dt);
-            return dt.Rows[0][0].ToString();
+            return dt.Rows.Count > 0 ? dt.Rows[0][0].ToString() : "";
         }
         
     }

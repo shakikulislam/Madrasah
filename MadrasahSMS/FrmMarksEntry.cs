@@ -22,6 +22,9 @@ namespace MadrasahSMS
 
             LoadData();
             labelSubjectMark.ForeColor = Color.Red;
+            labelTotalStudent.ForeColor= Color.Red;
+            labelDueEntry.ForeColor= Color.Red;
+            labelMarkEntry.ForeColor= Color.Red;
         }
 
         private void LoadDetails()
@@ -135,13 +138,22 @@ namespace MadrasahSMS
                 var query = "SELECT ID, ROLL, REG, NAME FROM S_STUDENT " +
                             "WHERE CLASS_ID = " + comboBoxClass.SelectedValue + " ORDER BY ROLL ASC";
                 var dt = Db.GetDataTable(query);
+
+                if (dt.Rows.Count<=0)
+                {
+                    MessageBox.Show(ContentText.StudentNotFound);
+                    return;
+                }
+
                 var sub = new SubjectDb().GetById(comboBoxSubject.SelectedValue.ToString());
                 var mandatory = sub.Mandatory ? 1 : 0;
+                var office_info=GlobalSettings.Office();
 
                 var insertQuery = "";
                 foreach (DataRow row in dt.Rows)
                 {
                     insertQuery += "INSERT INTO S_MARK (ID, " +
+                                   "SCHOOL_YEAR, " +
                                    "EXAM_ID, " +
                                    "EXAM_DATE, " +
                                    "STUDENT_ID, " +
@@ -151,7 +163,7 @@ namespace MadrasahSMS
                                    "UPDATE_BY, " +
                                    "UPDATE_DATE, " +
                                    "MANDATORY) " +
-                                   "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_MARK), "
+                                   "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_MARK), "+office_info.SchoolYear+", "
                                    + comboBoxExam.SelectedValue + ", '"
                                    + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "',"
                                    + row["ID"] + "," + comboBoxClass.SelectedValue + ","

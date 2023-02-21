@@ -16,7 +16,7 @@ namespace MadrasahSMS.DbContext
             var query = "SELECT DISTINCT E.ID, E.NAME " +
                         "FROM S_EXAM E " +
                         "RIGHT JOIN S_EXAM_SCHEDULE AS ES ON E.ID = ES.EXAM_ID " +
-                        "WHERE ES.EXAM_STATUS IS NULL OR ES.EXAM_STATUS = '' " +
+                        "WHERE ES.STATUS = 'N' " +
                         "ORDER BY E.NAME ASC";
             return Db.GetDataTable(query);
         }
@@ -29,22 +29,15 @@ namespace MadrasahSMS.DbContext
                         "LEFT JOIN S_EXAM AS E ON ES.EXAM_ID = E.ID " +
                         "LEFT JOIN S_CLASS AS C ON ES.CLASS_ID = C.ID " +
                         "LEFT JOIN S_SUBJECT AS S ON ES.SUBJECT_ID = S.ID " +
-                        "WHERE ES.EXAM_STATUS IS NULL OR ES.EXAM_STATUS = ''";
+                        "WHERE ES.STATUS = 'N'";
             return Db.GetDataTable(query);
         }
 
         public string GetExamDate(string examId, string classId, string subjectId)
         {
             var query = "SELECT EXAM_DATE FROM S_EXAM_SCHEDULE WHERE EXAM_ID='" + examId +
-                        "' AND CLASS_ID='" + classId + "' AND SUBJECT_ID='" + subjectId + "'";
-            var dr = Db.GetDataReader(query);
-            if (dr.HasRows)
-            {
-                dr.Read();
-                return dr["EXAM_DATE"].ToString();
-            }
-
-            return string.Empty;
+                        "' AND CLASS_ID='" + classId + "' AND SUBJECT_ID='" + subjectId + "' AND STATUS='N'";
+            return Db.GetSingleValue(query);
         }
  
     }

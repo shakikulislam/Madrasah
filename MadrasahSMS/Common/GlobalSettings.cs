@@ -20,6 +20,7 @@ namespace MadrasahSMS.Common
         public static string DateFormatShortView { get; } = "dd-MMM-yy";
         public static string DateFormatSave { get; } = "yyyy-MM-dd";
         public static DataTable OfficeInfo { get; set; }
+        public static string SchoolYear { get; set; }
 
         #endregion Property
 
@@ -45,6 +46,8 @@ namespace MadrasahSMS.Common
                 schoolYear = office.Rows[0]["SCHOOL_YEAR"].ToString();
                 img = ByteToImage(office.Rows[0]["LOGO"], new Bitmap(1, 1));
             }
+
+            SchoolYear = schoolYear;
 
             return (office, nameBl, nameEn, nameAr, schoolYear, img);
         }
