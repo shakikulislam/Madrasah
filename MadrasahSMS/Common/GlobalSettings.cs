@@ -115,13 +115,12 @@ namespace MadrasahSMS.Common
         /// <param name="obtainedMark">Obtained marks</param>
         /// <param name="subjectMark">Subject marks</param>
         /// <returns></returns>
-        public static (double MarksPercentage, double GradePoint, string LetterGrade) ResultCalculate(double obtainedMarks, double subjectMarks)
+        public static (double MarksPercentage, double GradePoint, string LetterGrade) ResultCalculate(double obtainedMarks, double subjectMarks, string year)
         {
             var markPct = ((obtainedMarks * 100) / subjectMarks);
-            int schoolYear = 2023;
 
             var grade = Db.GetDataReader(
-                "SELECT GRADE_POINT, LETTER_GRADE FROM S_GRADE WHERE SCHOOL_YEAR=" + schoolYear + " AND MIN_PCT<=" +
+                "SELECT GRADE_POINT, LETTER_GRADE FROM S_GRADE WHERE SCHOOL_YEAR=" + year + " AND MIN_PCT<=" +
                 markPct + " AND MAX_PCT>=" + markPct);
 
             var gradePoint = string.Empty;

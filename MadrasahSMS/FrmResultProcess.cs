@@ -40,8 +40,7 @@ namespace MadrasahSMS
                 MessageBox.Show(ex.Message);
             }
         }
-
-
+        
         private void comboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -62,10 +61,19 @@ namespace MadrasahSMS
         {
             try
             {
-                var query = "SELECT * FROM S_MARK WHERE SCHOOL_YEAR = " + GlobalSettings.SchoolYear +
-                            " AND EXAM_ID = " + comboBoxExam.SelectedValue +
-                            " AND CLASS_ID = " + comboBoxClass.SelectedValue;
+                //var query = "SELECT * FROM S_MARK WHERE SCHOOL_YEAR = " + GlobalSettings.SchoolYear +
+                //            " AND EXAM_ID = " + comboBoxExam.SelectedValue +
+                //            " AND CLASS_ID = " + comboBoxClass.SelectedValue;
+
+                var query = "SELECT * FROM S_STUDENT WHERE CLASS_ID=" + comboBoxClass.SelectedValue + " AND STATUS='A'";
                 var studentList = Db.GetDataTable(query);
+                
+                foreach (DataRow row in studentList.Rows)
+                {
+                    query = "SELECT * FROM S_RESULT_MST WHERE SCHOOL_YEAR=" + GlobalSettings.SchoolYear +
+                            " AND CLASS_ID=" + comboBoxClass.SelectedValue +
+                            " AND EXAM_ID=" + comboBoxExam.SelectedValue + " AND STUDENT_ID=" + row["ID"];
+                }
             }
             catch (Exception ex)
             {
