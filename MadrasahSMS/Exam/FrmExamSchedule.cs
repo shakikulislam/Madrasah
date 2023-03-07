@@ -143,10 +143,10 @@ namespace MadrasahSMS.Exam
                             if (!isExist)
                             {
                                 var query =
-                                    "INSERT INTO S_EXAM_SCHEDULE (ID, EXAM_ID, CLASS_ID, SUBJECT_ID, EXAM_DATE, EXAM_TIME, CREATE_BY, " +
-                                    "CREATE_DATE) VALUES ((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_EXAM_SCHEDULE)," +
-                                    comboBoxExamList.SelectedValue + "," + comboBoxClassList.SelectedValue + "," +
-                                    comboBoxSubjectList.SelectedValue + ",'" + 
+                                    "INSERT INTO S_EXAM_SCHEDULE (ID, SCHOOL_YEAR, EXAM_ID, CLASS_ID, SUBJECT_ID, EXAM_DATE, EXAM_TIME, CREATE_BY, " +
+                                    "CREATE_DATE) VALUES ((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_EXAM_SCHEDULE), " +
+                                    GlobalSettings.SchoolYear + "," + comboBoxExamList.SelectedValue + "," +
+                                    comboBoxClassList.SelectedValue + "," + comboBoxSubjectList.SelectedValue + ",'" +
                                     dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "','" +
                                     examTime + "','" + GlobalSettings.UserName + "',current_timestamp)";
                                 var isSave = Db.QueryExecute(query);

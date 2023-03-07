@@ -52,7 +52,7 @@ namespace MadrasahSMS
         {
             var entryCount = dataGridViewStudentList.Rows.Cast<DataGridViewRow>()
                 .Where(row => row.Cells[ColumnStatus.Index].Value != null)
-                .Count(row => row.Cells[ColumnStatus.Index].Value.ToString() == "E");
+                .Count(row => row.Cells[ColumnStatus.Index].Value.ToString() == "ME");
 
             int total = dataGridViewStudentList.RowCount;
             int dueEntry = total - entryCount;
@@ -134,12 +134,12 @@ namespace MadrasahSMS
                     panelSearch.Enabled = true;
                     return;
                 }
-                
+
                 var query = "SELECT ID, ROLL, REG, NAME FROM S_STUDENT " +
                             "WHERE CLASS_ID = " + comboBoxClass.SelectedValue + " ORDER BY ROLL ASC";
                 var dt = Db.GetDataTable(query);
 
-                if (dt.Rows.Count<=0)
+                if (dt.Rows.Count <= 0)
                 {
                     MessageBox.Show(ContentText.StudentNotFound);
                     return;
@@ -147,7 +147,7 @@ namespace MadrasahSMS
 
                 var sub = new SubjectDb().GetById(comboBoxSubject.SelectedValue.ToString());
                 var mandatory = sub.Mandatory ? 1 : 0;
-                var office_info=GlobalSettings.Office();
+                var office_info = GlobalSettings.Office();
 
                 var insertQuery = "";
                 foreach (DataRow row in dt.Rows)
@@ -163,7 +163,8 @@ namespace MadrasahSMS
                                    "UPDATE_BY, " +
                                    "UPDATE_DATE, " +
                                    "MANDATORY) " +
-                                   "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_MARK), "+office_info.SchoolYear+", "
+                                   "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_MARK), " + office_info.SchoolYear +
+                                   ", "
                                    + comboBoxExam.SelectedValue + ", '"
                                    + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "',"
                                    + row["ID"] + "," + comboBoxClass.SelectedValue + ","
@@ -175,7 +176,9 @@ namespace MadrasahSMS
                 {
                     Db.QueryExecute(insertQuery);
                 }
-                catch { }
+                catch
+                {
+                }
 
                 var markForEntry = "SELECT M.ID, M.EXAM_ID, M.EXAM_DATE, M.STUDENT_ID, M.CLASS_ID, " +
                                    "M.SUBJECT_ID, M.SUBJECT_MARKS, M.OBTAINED_MARKS, M.OBTAINED_MARKS_PCT, " +
@@ -184,9 +187,12 @@ namespace MadrasahSMS
                                    "FROM S_MARK M " +
                                    "LEFT JOIN S_STUDENT S ON M.STUDENT_ID = S.ID " +
                                    "WHERE M.EXAM_ID=" + comboBoxExam.SelectedValue +
-                                   " AND M.EXAM_DATE='" + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) +
+                                   " AND M.EXAM_DATE='" +
+                                   dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) +
                                    "' AND M.CLASS_ID=" + comboBoxClass.SelectedValue +
-                                   " AND M.SUBJECT_ID=" + comboBoxSubject.SelectedValue;
+                                   " AND M.SUBJECT_ID=" + comboBoxSubject.SelectedValue +
+                                   " AND IS_ABSENT=0 " +
+                                   "ORDER BY S.ROLL, S.REG ASC";
                 var dtMark = Db.GetDataTable(markForEntry);
                 foreach (DataRow row in dtMark.Rows)
                 {
@@ -199,13 +205,13 @@ namespace MadrasahSMS
                     dataGridViewStudentList.Rows[dr].Cells[ColumnMark.Index].Value = row["OBTAINED_MARKS"].ToString();
                     dataGridViewStudentList.Rows[dr].Cells[ColumnGradePoint.Index].Value = row["GRADE_POINT"].ToString();
                     dataGridViewStudentList.Rows[dr].Cells[ColumnLetterGrade.Index].Value = row["LETTER_GRADE"].ToString();
-                    
+
                     var status = row["STATUS"].ToString();
                     dataGridViewStudentList.Rows[dr].Cells[ColumnStatus.Index].Value = status;
-                    dataGridViewStudentList.Rows[dr].Cells[ColumnCheck.Index].Value = status == "E"
+                    dataGridViewStudentList.Rows[dr].Cells[ColumnCheck.Index].Value = status == "ME"
                         ? Resources.check_mark
                         : new Bitmap(1, 1);
-                    
+
                     dataGridViewStudentList.Refresh();
                 }
 
@@ -277,7 +283,7 @@ namespace MadrasahSMS
                 var isUpdate = Db.QueryExecute(query);
                 if (isUpdate)
                 {
-                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnStatus.Index].Value = "E";
+                    dataGridViewStudentList.SelectedRows[0].Cells[ColumnStatus.Index].Value = "ME";
                     dataGridViewStudentList.SelectedRows[0].Cells[ColumnCheck.Index].Value = Resources.check_mark;
                     dataGridViewStudentList.SelectedRows[0].Cells[ColumnGradePoint.Index].Value = result.GradePoint;
                     dataGridViewStudentList.SelectedRows[0].Cells[ColumnLetterGrade.Index].Value = result.LetterGrade;
@@ -312,6 +318,50 @@ namespace MadrasahSMS
             {
                 textBoxMark.Text = "0";
                 textBoxMark.SelectAll();
+            }
+        }
+
+        private void dataGridViewStudentList_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.KeyCode==Keys.Delete)
+            //{
+            //    e.SuppressKeyPress = true;
+            //    if (MessageBox.Show(ContentText.DeleteSelectionItem,"",MessageBoxButtons.YesNo)==DialogResult.Yes)
+            //    {
+            //        if (Db.QueryExecute("DELETE S_MARK WHERE ID="+textBoxMark.Tag))
+            //        {
+            //            dataGridViewStudentList.Rows.RemoveAt(dataGridViewStudentList.SelectedRows[0].Index);
+            //            CalculateTotalEntry();
+            //        }
+            //    }
+            //}
+        }
+
+        private void linkLabelAbsentList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (LoadExamDate())
+            {
+                new FrmAbsentExamination(
+                        GlobalSettings.SchoolYear,
+                        comboBoxExam.SelectedValue,
+                        comboBoxClass.SelectedValue)
+                    .ShowDialog();
+            }
+        }
+
+        private void linkLabelSetAbsent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (MessageBox.Show(ContentText.MakeAbsentMessage,textBoxName.Text,MessageBoxButtons.YesNo)==DialogResult.Yes)
+            {
+                var query = "UPDATE S_MARK SET OBTAINED_MARKS=0, OBTAINED_MARKS_PCT=0, " +
+                            "GRADE_POINT=0, LETTER_GRADE='', STATUS='I', IS_ABSENT=1 " +
+                            "WHERE ID=" + textBoxMark.Tag;
+                var isUpdate = Db.QueryExecute(query);
+                if (isUpdate)
+                {
+                    dataGridViewStudentList.Rows.RemoveAt(dataGridViewStudentList.SelectedRows[0].Index);
+                    CalculateTotalEntry();
+                }
             }
         }
     }

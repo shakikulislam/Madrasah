@@ -6,5 +6,10 @@
         public static string ExamScheduleNotFound = "Exam schedule not found";
         public static string CreateExamSchedule = "Please create exam schedule and try again";
         public static string StudentNotFound = "Student not found.";
+        public static string DeleteSelectionItem = "Are you sure you want to delete this selected item?";
+        public static string MarksMissing = "Marks missing";
+        public static string MakeAbsentMessage = "Are you sure? This student is absent?";
+        public static string MakeAttendMessage = "Are you sure? This student is attend?";
+
     }
 }

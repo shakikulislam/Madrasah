@@ -120,8 +120,8 @@ namespace MadrasahSMS.Common
             var markPct = ((obtainedMarks * 100) / subjectMarks);
 
             var grade = Db.GetDataReader(
-                "SELECT GRADE_POINT, LETTER_GRADE FROM S_GRADE WHERE SCHOOL_YEAR=" + year + " AND MIN_PCT<=" +
-                markPct + " AND MAX_PCT>=" + markPct);
+                "SELECT GRADE_POINT, LETTER_GRADE FROM S_GRADE WHERE SCHOOL_YEAR=" + year + " AND " +
+                markPct + ">=MIN_PCT AND " + markPct + "<MAX_PCT");
 
             var gradePoint = string.Empty;
             var letterGrade = string.Empty;

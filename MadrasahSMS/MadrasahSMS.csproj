@@ -99,6 +99,12 @@
       <DependentUpon>FrmSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\ContentText.cs" />
+    <Compile Include="Common\FrmViewList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\FrmViewList.Designer.cs">
+      <DependentUpon>FrmViewList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Common\frmWaiting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,12 @@
     </Compile>
     <Compile Include="FrmResultProcess.Designer.cs">
       <DependentUpon>FrmResultProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbsentExamination.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbsentExamination.Designer.cs">
+      <DependentUpon>FrmAbsentExamination.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -219,6 +231,9 @@
     <EmbeddedResource Include="Academic\FrmSubject.resx">
       <DependentUpon>FrmSubject.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Common\FrmViewList.resx">
+      <DependentUpon>FrmViewList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Common\frmWaiting.resx">
       <DependentUpon>frmWaiting.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmResultProcess.resx">
       <DependentUpon>FrmResultProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbsentExamination.resx">
+      <DependentUpon>FrmAbsentExamination.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

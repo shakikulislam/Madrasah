@@ -477,10 +477,9 @@ namespace MadrasahSMS.Staff
                 panelSubjectList.Dock = DockStyle.Fill;
                 panelSubjectList.Visible = true;
 
-                var query = "SELECT sb.id, sb.name AS subject, sb.mark, c.name as class, d.name AS department " +
+                var query = "SELECT sb.id, sb.name AS subject, sb.mark, c.name as class " +
                             "FROM s_subject AS sb " +
                             "LEFT JOIN s_class AS c ON sb.class_id = c.id " +
-                            "LEFT JOIN s_department AS d ON c.department_id = d.id " +
                             "WHERE sb.teacher_id = " + _staffId + "";
                 var dt = Db.GetDataTable(query);
                 dataGridViewSubjectList.DataSource = dt;
