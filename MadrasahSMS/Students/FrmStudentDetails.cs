@@ -54,7 +54,7 @@ namespace MadrasahSMS.Students
         private void LoadData()
         {
             var query = "SELECT name FROM vw_s_full_student_info WHERE id='" + _studentId + "'";
-            var studentDetails = Db.GetDataReader(query);
+            var studentDetails = Db.GetReader(query);
             if (studentDetails.HasRows)
             {
                 studentDetails.Read();
@@ -84,19 +84,19 @@ namespace MadrasahSMS.Students
             {
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_division ORDER BY name ASC";
 
-                var dtPreDivision = Db.GetDataTable(query);
+                var dtPreDivision = Db.GetTable(query);
                 comboBoxReviewPreDivision.DataSource = null;
                 comboBoxReviewPreDivision.DisplayMember = "name";
                 comboBoxReviewPreDivision.ValueMember = "id";
                 comboBoxReviewPreDivision.DataSource = dtPreDivision;
 
-                var dtPerDivision = Db.GetDataTable(query);
+                var dtPerDivision = Db.GetTable(query);
                 comboBoxReviewPerDivision.DataSource = null;
                 comboBoxReviewPerDivision.DisplayMember = "name";
                 comboBoxReviewPerDivision.ValueMember = "id";
                 comboBoxReviewPerDivision.DataSource = dtPerDivision;
 
-                var dtGrdDivision = Db.GetDataTable(query);
+                var dtGrdDivision = Db.GetTable(query);
                 comboBoxReviewGrdDivision.DataSource = null;
                 comboBoxReviewGrdDivision.DisplayMember = "name";
                 comboBoxReviewGrdDivision.ValueMember = "id";
@@ -121,7 +121,7 @@ namespace MadrasahSMS.Students
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadUpazila(object sender, ComboBox comboBox)
@@ -136,7 +136,7 @@ namespace MadrasahSMS.Students
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadUnion(object sender, ComboBox comboBox)
@@ -151,7 +151,7 @@ namespace MadrasahSMS.Students
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadVillage(object sender, ComboBox comboBox)
@@ -166,7 +166,7 @@ namespace MadrasahSMS.Students
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         // Drag Control
@@ -206,7 +206,7 @@ namespace MadrasahSMS.Students
                 tabControlProfile.Visible = true;
 
                 var query = "SELECT * FROM vw_s_full_student_info WHERE id='" + _studentId + "'";
-                var dr = Db.GetDataReader(query);
+                var dr = Db.GetReader(query);
 
                 if (dr.HasRows)
                 {

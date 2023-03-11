@@ -31,7 +31,7 @@ namespace MadrasahSMS.Staff
             try
             {
                 var query = "SELECT id, name FROM s_employee_designation WHERE name <> 'SA' ORDER BY number ASC";
-                var desigList = Db.GetDataTable(query);
+                var desigList = Db.GetTable(query);
 
                 comboBoxDesignation.ValueMember = "id";
                 comboBoxDesignation.DisplayMember = "name";
@@ -141,13 +141,13 @@ namespace MadrasahSMS.Staff
             {
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_division ORDER BY name ASC";
                 
-                var dtPreAddressDivision = Db.GetDataTable(query);
+                var dtPreAddressDivision = Db.GetTable(query);
                 comboBoxPreAddressDivision.DataSource = null;
                 comboBoxPreAddressDivision.DisplayMember = "name";
                 comboBoxPreAddressDivision.ValueMember = "id";
                 comboBoxPreAddressDivision.DataSource = dtPreAddressDivision;
 
-                var dtPerAddressDivision = Db.GetDataTable(query);
+                var dtPerAddressDivision = Db.GetTable(query);
                 comboBoxPerAddressDivision.DataSource = null;
                 comboBoxPerAddressDivision.DisplayMember = "name";
                 comboBoxPerAddressDivision.ValueMember = "id";
@@ -166,7 +166,7 @@ namespace MadrasahSMS.Staff
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadUpazila(ComboBox comboBox, string districtId)
@@ -176,7 +176,7 @@ namespace MadrasahSMS.Staff
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadUnion(ComboBox comboBox, string upazilaId)
@@ -186,7 +186,7 @@ namespace MadrasahSMS.Staff
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadVillage(ComboBox comboBox, string unionId)
@@ -196,7 +196,7 @@ namespace MadrasahSMS.Staff
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void buttonSavePersonalInfo_Click(object sender, EventArgs e)
@@ -218,7 +218,7 @@ namespace MadrasahSMS.Staff
                 {
                     var already = false;
                     var query = "select * from s_employee where nid='" + textBoxNid.Text.Trim() + "' ";
-                    var staffInfo = Db.GetDataReader(query);
+                    var staffInfo = Db.GetReader(query);
 
                     if (staffInfo.HasRows)
                     {
@@ -261,7 +261,7 @@ namespace MadrasahSMS.Staff
                         if (isSaved)
                         {
                             query = "select * from s_employee where nid='" + textBoxNid.Text.Trim() + "' ";
-                            staffInfo = Db.GetDataReader(query);
+                            staffInfo = Db.GetReader(query);
                             if (staffInfo.HasRows)
                             {
                                 staffInfo.Read();

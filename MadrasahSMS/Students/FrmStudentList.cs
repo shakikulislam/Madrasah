@@ -30,7 +30,7 @@ namespace MadrasahSMS.Students
                             "CREATE_DATE, UPDATE_BY, UPDATE_DATE, CLASS AS CLASS_NAME " +
                             "FROM vw_s_full_student_info WHERE roll<> 0 ORDER BY CLASS_ID ASC";
                 
-                var studentSet = Db.GetDataTable(query);
+                var studentSet = Db.GetTable(query);
                 dataGridViewStudentList.DataSource = studentSet;
             }
             catch (Exception ex)

@@ -32,7 +32,8 @@ namespace MadrasahSMS
                                " AND M.CLASS_ID=" + classId +
                                " AND IS_ABSENT=1 " +
                                " ORDER BY S.ROLL, M.SUBJECT_ID";
-            var dtMark = Db.GetDataTable(markForEntry);
+            var dtMark = Db.GetTable(markForEntry);
+            
             foreach (DataRow row in dtMark.Rows)
             {
                 var dr = dataGridViewExaminationAbsentList.Rows.Add();
@@ -74,8 +75,8 @@ namespace MadrasahSMS
             {
                 if (MessageBox.Show(ContentText.MakeAttendMessage, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    var query = "UPDATE S_MARK SET IS_ABSENT=0 " + "WHERE ID=" +
-                                dg.SelectedRows[0].Cells[ColumnId.Index].Value;
+                    var query = "UPDATE S_MARK SET IS_ABSENT=0 " +
+                                "WHERE ID=" + dg.SelectedRows[0].Cells[ColumnId.Index].Value;
                     var isUpdate = Db.QueryExecute(query);
                     if (isUpdate)
                     {

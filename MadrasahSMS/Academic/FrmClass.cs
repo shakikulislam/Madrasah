@@ -29,7 +29,7 @@ namespace MadrasahSMS.Academic
         private void LoadTeacher(ComboBox comboBox)
         {
             var query = "select id, name from s_employee WHERE status='A'";
-            var staffList = Db.GetDataTable(query);
+            var staffList = Db.GetTable(query);
 
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
@@ -42,7 +42,7 @@ namespace MadrasahSMS.Academic
                         "e.name as teacher_name from s_class c " +
                         "left join s_employee e on c.teacher_id = e.id " +
                         "order by c.class_number asc";
-            var classList = Db.GetDataTable(query);
+            var classList = Db.GetTable(query);
             dataGridViewClass.DataSource = classList;
         }
 

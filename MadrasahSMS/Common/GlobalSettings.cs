@@ -21,8 +21,17 @@ namespace MadrasahSMS.Common
         public static string DateFormatSave { get; } = "yyyy-MM-dd";
         public static DataTable OfficeInfo { get; set; }
         public static string SchoolYear { get; set; }
+        public static string Active { get; } = "A"; // Active
+        public static string DeActive { get; } = "DA"; // De-Active
+        public static string MarkEntry { get; } = "ME"; // Mark Entry
+        public static string InactiveAbsent { get; } = "I"; // Inactive/Absent
+        
 
         #endregion Property
+
+        #region Enum (enumeration) Constant
+
+        #endregion Enum
 
         #region Method
 
@@ -119,7 +128,7 @@ namespace MadrasahSMS.Common
         {
             var markPct = ((obtainedMarks * 100) / subjectMarks);
 
-            var grade = Db.GetDataReader(
+            var grade = Db.GetReader(
                 "SELECT GRADE_POINT, LETTER_GRADE FROM S_GRADE WHERE SCHOOL_YEAR=" + year + " AND " +
                 markPct + ">=MIN_PCT AND " + markPct + "<MAX_PCT");
 

@@ -35,7 +35,7 @@ namespace MadrasahSMS.Staff
             try
             {
                 var query = "SELECT id, name FROM s_employee_designation WHERE name <> 'SA' ORDER BY number ASC";
-                var desigList = Db.GetDataTable(query);
+                var desigList = Db.GetTable(query);
 
                 comboBoxDesignation.ValueMember = "id";
                 comboBoxDesignation.DisplayMember = "name";
@@ -77,7 +77,7 @@ namespace MadrasahSMS.Staff
         private void LoadData()
         {
             var query = "SELECT * FROM vw_s_full_employee_info WHERE id='" + _staffId + "'";
-            var staffDetails = Db.GetDataReader(query);
+            var staffDetails = Db.GetReader(query);
             if (staffDetails.HasRows)
             {
                 staffDetails.Read();
@@ -91,13 +91,13 @@ namespace MadrasahSMS.Staff
             {
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_division ORDER BY name ASC";
 
-                var dtPreDivision = Db.GetDataTable(query);
+                var dtPreDivision = Db.GetTable(query);
                 comboBoxReviewPreDivision.DataSource = null;
                 comboBoxReviewPreDivision.DisplayMember = "name";
                 comboBoxReviewPreDivision.ValueMember = "id";
                 comboBoxReviewPreDivision.DataSource = dtPreDivision;
 
-                var dtPerDivision = Db.GetDataTable(query);
+                var dtPerDivision = Db.GetTable(query);
                 comboBoxReviewPerDivision.DataSource = null;
                 comboBoxReviewPerDivision.DisplayMember = "name";
                 comboBoxReviewPerDivision.ValueMember = "id";
@@ -122,7 +122,7 @@ namespace MadrasahSMS.Staff
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadUpazila(object sender, ComboBox comboBox)
@@ -137,7 +137,7 @@ namespace MadrasahSMS.Staff
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadUnion(object sender, ComboBox comboBox)
@@ -152,7 +152,7 @@ namespace MadrasahSMS.Staff
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadVillage(object sender, ComboBox comboBox)
@@ -167,7 +167,7 @@ namespace MadrasahSMS.Staff
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         // Drag Control
@@ -209,7 +209,7 @@ namespace MadrasahSMS.Staff
                 tabControlProfile.Visible = true;
 
                 var query = "SELECT * FROM vw_s_full_employee_info WHERE id='" + _staffId + "'";
-                var dr = Db.GetDataReader(query);
+                var dr = Db.GetReader(query);
                 if (dr.HasRows)
                 {
                     dr.Read();
@@ -481,7 +481,7 @@ namespace MadrasahSMS.Staff
                             "FROM s_subject AS sb " +
                             "LEFT JOIN s_class AS c ON sb.class_id = c.id " +
                             "WHERE sb.teacher_id = " + _staffId + "";
-                var dt = Db.GetDataTable(query);
+                var dt = Db.GetTable(query);
                 dataGridViewSubjectList.DataSource = dt;
             }
             catch (Exception ex)

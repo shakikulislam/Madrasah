@@ -8,7 +8,7 @@ namespace MadrasahSMS.DbContext
         public DataTable Get()
         {
             var query = "SELECT * FROM S_EXAM ORDER BY NAME ASC";
-            return Db.GetDataTable(query);
+            return Db.GetTable(query);
         }
         
         public DataTable GetWithoutResult()
@@ -18,7 +18,7 @@ namespace MadrasahSMS.DbContext
                         "RIGHT JOIN S_EXAM_SCHEDULE AS ES ON E.ID = ES.EXAM_ID " +
                         "WHERE ES.STATUS = 'N' " +
                         "ORDER BY E.NAME ASC";
-            return Db.GetDataTable(query);
+            return Db.GetTable(query);
         }
 
         public DataTable GetExamSchedule()
@@ -30,7 +30,7 @@ namespace MadrasahSMS.DbContext
                         "LEFT JOIN S_CLASS AS C ON ES.CLASS_ID = C.ID " +
                         "LEFT JOIN S_SUBJECT AS S ON ES.SUBJECT_ID = S.ID " +
                         "WHERE ES.STATUS = 'N'";
-            return Db.GetDataTable(query);
+            return Db.GetTable(query);
         }
 
         public string GetExamDate(string examId, string classId, string subjectId)

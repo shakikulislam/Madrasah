@@ -31,7 +31,7 @@ namespace MadrasahSMS.Staff
                         "FROM s_employee emp " +
                         "LEFT JOIN s_employee_designation d ON emp.desig_id = d.id";
             }
-            var studentSet = Db.GetDataTable(query);
+            var studentSet = Db.GetTable(query);
             dataGridViewStaffList.DataSource = studentSet;
         }
 

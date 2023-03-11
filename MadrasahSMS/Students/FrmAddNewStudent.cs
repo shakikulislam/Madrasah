@@ -51,7 +51,7 @@ namespace MadrasahSMS.Students
                             "FROM S_STUDENT AS S " +
                             "WHERE S.GUARDIAN_NAME IS NULL OR S.GUARDIAN_NAME = '' " +
                             "ORDER BY S.ID DESC";
-                var studentSet = Db.GetDataTable(query);
+                var studentSet = Db.GetTable(query);
 
                 dataGridViewPendingStudentList.Columns[ColumnDob.Index].DefaultCellStyle.Format = GlobalSettings.DateFormatShortView;
                 dataGridViewPendingStudentList.DataSource = studentSet;
@@ -219,7 +219,7 @@ namespace MadrasahSMS.Students
             try
             {
 
-                var dt = Db.GetDataTable("SELECT ID, NAME FROM S_CLASS ORDER BY CLASS_NUMBER ASC");
+                var dt = Db.GetTable("SELECT ID, NAME FROM S_CLASS ORDER BY CLASS_NUMBER ASC");
 
                 comboBoxClass.DataSource = null;
                 comboBoxClass.DisplayMember = "name";
@@ -238,19 +238,19 @@ namespace MadrasahSMS.Students
             {
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS name FROM s_division ORDER BY name ASC";
                 
-                var dtPreAddressDivision = Db.GetDataTable(query);
+                var dtPreAddressDivision = Db.GetTable(query);
                 comboBoxPreAddressDivision.DataSource = null;
                 comboBoxPreAddressDivision.DisplayMember = "name";
                 comboBoxPreAddressDivision.ValueMember = "id";
                 comboBoxPreAddressDivision.DataSource = dtPreAddressDivision;
 
-                var dtPerAddressDivision = Db.GetDataTable(query);
+                var dtPerAddressDivision = Db.GetTable(query);
                 comboBoxPerAddressDivision.DataSource = null;
                 comboBoxPerAddressDivision.DisplayMember = "name";
                 comboBoxPerAddressDivision.ValueMember = "id";
                 comboBoxPerAddressDivision.DataSource = dtPerAddressDivision;
 
-                var dtGrdAddressDivision = Db.GetDataTable(query);
+                var dtGrdAddressDivision = Db.GetTable(query);
                 comboBoxGrdAddressDivision.DataSource = null;
                 comboBoxGrdAddressDivision.DisplayMember = "name";
                 comboBoxGrdAddressDivision.ValueMember = "id";
@@ -271,7 +271,7 @@ namespace MadrasahSMS.Students
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadUpazila(ComboBox comboBox, string districtId)
@@ -282,7 +282,7 @@ namespace MadrasahSMS.Students
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadUnion(ComboBox comboBox, string upazilaId)
@@ -293,7 +293,7 @@ namespace MadrasahSMS.Students
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void LoadVillage(ComboBox comboBox, string unionId)
@@ -304,7 +304,7 @@ namespace MadrasahSMS.Students
             comboBox.DataSource = null;
             comboBox.DisplayMember = "name";
             comboBox.ValueMember = "id";
-            comboBox.DataSource = Db.GetDataTable(query);
+            comboBox.DataSource = Db.GetTable(query);
         }
 
         private void buttonSavePersonalInfo_Click(object sender, EventArgs e)
@@ -329,7 +329,7 @@ namespace MadrasahSMS.Students
                     // Check already added
                     var query = "SELECT * FROM S_STUDENT WHERE NAME=N'" + textBoxFullName.Text.Trim() +
                                 "' AND BIRTH_CERTIFICATE='" + textBoxBirthCert.Text.Trim() + "' ";
-                    var studentInfo = Db.GetDataReader(query);
+                    var studentInfo = Db.GetReader(query);
 
                     labelStudentName.Tag = string.Empty;
 
@@ -367,7 +367,7 @@ namespace MadrasahSMS.Students
                         {
                             query = "SELECT * FROM S_STUDENT WHERE NAME='" + textBoxFullName.Text.Trim() +
                                     "' AND BIRTH_CERTIFICATE='" + textBoxBirthCert.Text.Trim() + "' ";
-                            studentInfo = Db.GetDataReader(query);
+                            studentInfo = Db.GetReader(query);
                             if (studentInfo.HasRows)
                             {
                                 studentInfo.Read();
@@ -1014,7 +1014,7 @@ namespace MadrasahSMS.Students
                 {
                     var query = "SELECT * FROM S_STUDENT WHERE ID='" +
                                 dataGridViewPendingStudentList.SelectedRows[0].Cells[ColumnId.Index].Value + "'";
-                    var studentInfo = Db.GetDataReader(query);
+                    var studentInfo = Db.GetReader(query);
                     if (studentInfo.HasRows)
                     {
                         studentInfo.Read();

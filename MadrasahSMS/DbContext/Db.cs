@@ -74,7 +74,7 @@ namespace MadrasahSMS.DbContext
             return sqlCommand.ExecuteNonQuery() > 0;
         }
 
-        public static SqlDataReader GetDataReader(string query)
+        public static SqlDataReader GetReader(string query)
         {
             GetConnection();
 
@@ -83,7 +83,7 @@ namespace MadrasahSMS.DbContext
             return dr;
         }
 
-        public static DataTable GetDataTable(string query)
+        public static DataTable GetTable(string query)
         {
             GetConnection();
             cmd.CommandText = query;

@@ -52,7 +52,7 @@ namespace MadrasahSMS
             try
             {
                 var query = "select * from " + tableName + " where id=" + id;
-                var hasData = Db.GetDataReader(query);
+                var hasData = Db.GetReader(query);
                 if (hasData.HasRows)
                 {
                     hasData.Read();
@@ -73,7 +73,7 @@ namespace MadrasahSMS
             {
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn FROM s_division ORDER BY name ASC";
                 
-                dataGridViewDivision.DataSource = Db.GetDataTable(query);
+                dataGridViewDivision.DataSource = Db.GetTable(query);
             }
             catch (Exception ex)
             {
@@ -104,7 +104,7 @@ namespace MadrasahSMS
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn " +
                             "FROM s_district where division_id=" + dataGridViewDivision.Tag + " ORDER BY name ASC";
 
-                dataGridViewDistrict.DataSource = Db.GetDataTable(query);
+                dataGridViewDistrict.DataSource = Db.GetTable(query);
             }
             catch
             {
@@ -145,7 +145,7 @@ namespace MadrasahSMS
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn " +
                             "FROM s_upazila where district_id=" + dataGridViewDistrict.Tag + " ORDER BY name ASC";
 
-                dataGridViewUpazila.DataSource = Db.GetDataTable(query);
+                dataGridViewUpazila.DataSource = Db.GetTable(query);
             }
             catch
             {
@@ -180,7 +180,7 @@ namespace MadrasahSMS
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn " +
                             "FROM s_union where upazila_id=" + dataGridViewUpazila.Tag + " ORDER BY name ASC";
 
-                dataGridViewUnion.DataSource = Db.GetDataTable(query);
+                dataGridViewUnion.DataSource = Db.GetTable(query);
             }
             catch
             {
@@ -211,7 +211,7 @@ namespace MadrasahSMS
                 var query = "SELECT id, CONCAT(name, ' (', name_bn, ')') AS bnen, name, name_bn " +
                             "FROM s_village where union_id=" + dataGridViewUnion.Tag + " ORDER BY name ASC";
 
-                dataGridViewVillage.DataSource = Db.GetDataTable(query);
+                dataGridViewVillage.DataSource = Db.GetTable(query);
             }
             catch
             {

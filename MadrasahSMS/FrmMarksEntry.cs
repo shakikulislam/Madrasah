@@ -137,7 +137,7 @@ namespace MadrasahSMS
 
                 var query = "SELECT ID, ROLL, REG, NAME FROM S_STUDENT " +
                             "WHERE CLASS_ID = " + comboBoxClass.SelectedValue + " ORDER BY ROLL ASC";
-                var dt = Db.GetDataTable(query);
+                var dt = Db.GetTable(query);
 
                 if (dt.Rows.Count <= 0)
                 {
@@ -193,7 +193,7 @@ namespace MadrasahSMS
                                    " AND M.SUBJECT_ID=" + comboBoxSubject.SelectedValue +
                                    " AND IS_ABSENT=0 " +
                                    "ORDER BY S.ROLL, S.REG ASC";
-                var dtMark = Db.GetDataTable(markForEntry);
+                var dtMark = Db.GetTable(markForEntry);
                 foreach (DataRow row in dtMark.Rows)
                 {
                     var dr = dataGridViewStudentList.Rows.Add();
@@ -276,9 +276,12 @@ namespace MadrasahSMS
 
                 var result = GlobalSettings.ResultCalculate(obtainedMark, subjectMark, GlobalSettings.SchoolYear);
 
-                var query = "UPDATE S_MARK SET OBTAINED_MARKS=" + obtainedMark + ", OBTAINED_MARKS_PCT=" +
-                            result.MarksPercentage + ", LETTER_GRADE='" + result.LetterGrade + "', GRADE_POINT=" +
-                            result.GradePoint + ", STATUS='E' WHERE ID=" + textBoxMark.Tag;
+                var query = "UPDATE S_MARK SET OBTAINED_MARKS=" + obtainedMark + 
+                            ", OBTAINED_MARKS_PCT=" + result.MarksPercentage + 
+                            ", LETTER_GRADE='" + result.LetterGrade + 
+                            "', GRADE_POINT=" + result.GradePoint + 
+                            ", STATUS='" + GlobalSettings.MarkEntry + 
+                            "' WHERE ID=" + textBoxMark.Tag;
 
                 var isUpdate = Db.QueryExecute(query);
                 if (isUpdate)

@@ -38,13 +38,14 @@ namespace MadrasahSMS
             this.buttonProcess = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewStudentList = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRoll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSubjectMarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnObtainedMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnObtainedPct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnGradePoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnLetterGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +60,7 @@ namespace MadrasahSMS
             this.panelSearch.Controls.Add(this.comboBoxExam);
             this.panelSearch.Controls.Add(this.buttonProcess);
             this.panelSearch.Controls.Add(this.label2);
-            this.panelSearch.Location = new System.Drawing.Point(12, 11);
+            this.panelSearch.Location = new System.Drawing.Point(110, 11);
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(680, 78);
             this.panelSearch.TabIndex = 18;
@@ -141,17 +142,25 @@ namespace MadrasahSMS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewStudentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStudentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnId,
             this.ColumnRoll,
             this.ColumnName,
             this.ColumnSubjectMarks,
-            this.ColumnMark,
+            this.ColumnObtainedMark,
+            this.ColumnObtainedPct,
             this.ColumnGradePoint,
-            this.ColumnLetterGrade,
-            this.ColumnId});
+            this.ColumnLetterGrade});
             this.dataGridViewStudentList.Location = new System.Drawing.Point(12, 95);
             this.dataGridViewStudentList.Name = "dataGridViewStudentList";
-            this.dataGridViewStudentList.Size = new System.Drawing.Size(680, 343);
+            this.dataGridViewStudentList.Size = new System.Drawing.Size(877, 411);
             this.dataGridViewStudentList.TabIndex = 17;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            this.ColumnId.Visible = false;
             // 
             // ColumnRoll
             // 
@@ -175,13 +184,21 @@ namespace MadrasahSMS
             this.ColumnSubjectMarks.Name = "ColumnSubjectMarks";
             this.ColumnSubjectMarks.ReadOnly = true;
             // 
-            // ColumnMark
+            // ColumnObtainedMark
             // 
-            this.ColumnMark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnMark.HeaderText = "Obtained Mark";
-            this.ColumnMark.Name = "ColumnMark";
-            this.ColumnMark.ReadOnly = true;
-            this.ColumnMark.Width = 102;
+            this.ColumnObtainedMark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnObtainedMark.HeaderText = "Obtained Mark";
+            this.ColumnObtainedMark.Name = "ColumnObtainedMark";
+            this.ColumnObtainedMark.ReadOnly = true;
+            this.ColumnObtainedMark.Width = 102;
+            // 
+            // ColumnObtainedPct
+            // 
+            this.ColumnObtainedPct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnObtainedPct.HeaderText = "Obtained PCT";
+            this.ColumnObtainedPct.Name = "ColumnObtainedPct";
+            this.ColumnObtainedPct.ReadOnly = true;
+            this.ColumnObtainedPct.Width = 99;
             // 
             // ColumnGradePoint
             // 
@@ -199,18 +216,11 @@ namespace MadrasahSMS
             this.ColumnLetterGrade.ReadOnly = true;
             this.ColumnLetterGrade.Width = 91;
             // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "ID";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.ReadOnly = true;
-            this.ColumnId.Visible = false;
-            // 
             // FrmResultProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 450);
+            this.ClientSize = new System.Drawing.Size(901, 518);
             this.Controls.Add(this.panelSearch);
             this.Controls.Add(this.dataGridViewStudentList);
             this.Name = "FrmResultProcess";
@@ -231,14 +241,15 @@ namespace MadrasahSMS
         private System.Windows.Forms.Button buttonProcess;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridViewStudentList;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelClassTeacher;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRoll;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubjectMarks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnObtainedMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnObtainedPct;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGradePoint;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLetterGrade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label labelClassTeacher;
     }
 }

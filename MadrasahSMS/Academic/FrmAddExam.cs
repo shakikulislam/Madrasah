@@ -27,7 +27,7 @@ namespace MadrasahSMS.Academic
 
         private void LoadExam()
         {
-            var dt = Db.GetDataTable("SELECT * FROM s_exam");
+            var dt = Db.GetTable("SELECT * FROM s_exam");
             dataGridViewExamList.DataSource = dt;
         }
 

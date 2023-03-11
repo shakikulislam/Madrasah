@@ -26,12 +26,12 @@ namespace MadrasahSMS.Academic
 
         private void LoadTime()
         {
-            var classList = Db.GetDataTable("SELECT id, name FROM s_class WHERE NAME <> '' ORDER BY class_number");
+            var classList = Db.GetTable("SELECT id, name FROM s_class WHERE NAME <> '' ORDER BY class_number");
             comboBoxClass.ValueMember = "id";
             comboBoxClass.DisplayMember = "name";
             comboBoxClass.DataSource = classList;
 
-            var teacherList = Db.GetDataTable("SELECT id, name FROM s_employee WHERE status='A'");
+            var teacherList = Db.GetTable("SELECT id, name FROM s_employee WHERE status='A'");
             comboBoxTeacher.ValueMember = "id";
             comboBoxTeacher.DisplayMember = "name";
             comboBoxTeacher.DataSource = teacherList;
@@ -41,7 +41,7 @@ namespace MadrasahSMS.Academic
 
         private void LoadSubject()
         {
-            var subjectList = Db.GetDataTable(query: "SELECT s.id, s.code, s.name, s.mark, s.class_id, S.MANDATORY, " +
+            var subjectList = Db.GetTable(query: "SELECT s.id, s.code, s.name, s.mark, s.class_id, S.MANDATORY, " +
                                                      "c.name AS class_name, s.teacher_id, e.name AS teacher_name " +
                                                      "FROM s_subject s " +
                                                      "LEFT JOIN s_class c ON s.class_id = c.id " +

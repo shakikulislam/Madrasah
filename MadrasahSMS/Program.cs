@@ -22,7 +22,7 @@ namespace MadrasahSMS
             Application.DoEvents();
             try
             {
-                var server = string.Concat(new string[] {File.ReadAllText("host.txt")});
+                var server = File.ReadAllText("host.txt");
                 GlobalSettings.Server = server;
                 //GlobalSettings.Server = "192.168.0.247;Port:3306";
             }
@@ -36,7 +36,7 @@ namespace MadrasahSMS
             {
                 try
                 {
-                    GlobalSettings.OfficeInfo = Db.GetDataTable("SELECT * FROM s_office WHERE status='A'");
+                    GlobalSettings.OfficeInfo = Db.GetTable("SELECT * FROM s_office WHERE status='A'");
                 }
                 catch (Exception ex)
                 {
