@@ -30,6 +30,7 @@ namespace MadrasahSMS
         private void InitializeComponent()
         {
             this.panelSearch = new System.Windows.Forms.Panel();
+            this.linkLabelMandatory = new System.Windows.Forms.LinkLabel();
             this.labelClassTeacher = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxClass = new System.Windows.Forms.ComboBox();
@@ -46,6 +47,7 @@ namespace MadrasahSMS
             this.ColumnObtainedPct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnGradePoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnLetterGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStudentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +55,7 @@ namespace MadrasahSMS
             // panelSearch
             // 
             this.panelSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelSearch.Controls.Add(this.linkLabelMandatory);
             this.panelSearch.Controls.Add(this.labelClassTeacher);
             this.panelSearch.Controls.Add(this.label3);
             this.panelSearch.Controls.Add(this.comboBoxClass);
@@ -65,11 +68,24 @@ namespace MadrasahSMS
             this.panelSearch.Size = new System.Drawing.Size(680, 78);
             this.panelSearch.TabIndex = 18;
             // 
+            // linkLabelMandatory
+            // 
+            this.linkLabelMandatory.AutoSize = true;
+            this.linkLabelMandatory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelMandatory.Location = new System.Drawing.Point(431, 40);
+            this.linkLabelMandatory.Name = "linkLabelMandatory";
+            this.linkLabelMandatory.Size = new System.Drawing.Size(109, 15);
+            this.linkLabelMandatory.TabIndex = 19;
+            this.linkLabelMandatory.TabStop = true;
+            this.linkLabelMandatory.Text = "Mandatory Subject";
+            this.linkLabelMandatory.Visible = false;
+            this.linkLabelMandatory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelMandatory_LinkClicked);
+            // 
             // labelClassTeacher
             // 
             this.labelClassTeacher.AutoSize = true;
             this.labelClassTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelClassTeacher.Location = new System.Drawing.Point(133, 46);
+            this.labelClassTeacher.Location = new System.Drawing.Point(125, 52);
             this.labelClassTeacher.Name = "labelClassTeacher";
             this.labelClassTeacher.Size = new System.Drawing.Size(13, 17);
             this.labelClassTeacher.TabIndex = 18;
@@ -79,7 +95,7 @@ namespace MadrasahSMS
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 46);
+            this.label3.Location = new System.Drawing.Point(22, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 17);
             this.label3.TabIndex = 17;
@@ -149,7 +165,8 @@ namespace MadrasahSMS
             this.ColumnObtainedMark,
             this.ColumnObtainedPct,
             this.ColumnGradePoint,
-            this.ColumnLetterGrade});
+            this.ColumnLetterGrade,
+            this.ColumnStudentId});
             this.dataGridViewStudentList.Location = new System.Drawing.Point(12, 95);
             this.dataGridViewStudentList.Name = "dataGridViewStudentList";
             this.dataGridViewStudentList.Size = new System.Drawing.Size(877, 411);
@@ -179,42 +196,40 @@ namespace MadrasahSMS
             // 
             // ColumnSubjectMarks
             // 
-            this.ColumnSubjectMarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColumnSubjectMarks.HeaderText = "Subject Marks";
             this.ColumnSubjectMarks.Name = "ColumnSubjectMarks";
             this.ColumnSubjectMarks.ReadOnly = true;
             // 
             // ColumnObtainedMark
             // 
-            this.ColumnObtainedMark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColumnObtainedMark.HeaderText = "Obtained Mark";
             this.ColumnObtainedMark.Name = "ColumnObtainedMark";
             this.ColumnObtainedMark.ReadOnly = true;
-            this.ColumnObtainedMark.Width = 102;
             // 
             // ColumnObtainedPct
             // 
-            this.ColumnObtainedPct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColumnObtainedPct.HeaderText = "Obtained PCT";
             this.ColumnObtainedPct.Name = "ColumnObtainedPct";
             this.ColumnObtainedPct.ReadOnly = true;
-            this.ColumnObtainedPct.Width = 99;
             // 
             // ColumnGradePoint
             // 
-            this.ColumnGradePoint.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColumnGradePoint.HeaderText = "Grade Point";
             this.ColumnGradePoint.Name = "ColumnGradePoint";
             this.ColumnGradePoint.ReadOnly = true;
-            this.ColumnGradePoint.Width = 88;
             // 
             // ColumnLetterGrade
             // 
-            this.ColumnLetterGrade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColumnLetterGrade.HeaderText = "Letter Grade";
             this.ColumnLetterGrade.Name = "ColumnLetterGrade";
             this.ColumnLetterGrade.ReadOnly = true;
-            this.ColumnLetterGrade.Width = 91;
+            // 
+            // ColumnStudentId
+            // 
+            this.ColumnStudentId.HeaderText = "Student ID";
+            this.ColumnStudentId.Name = "ColumnStudentId";
+            this.ColumnStudentId.ReadOnly = true;
+            this.ColumnStudentId.Visible = false;
             // 
             // FrmResultProcess
             // 
@@ -243,6 +258,7 @@ namespace MadrasahSMS
         private System.Windows.Forms.DataGridView dataGridViewStudentList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelClassTeacher;
+        private System.Windows.Forms.LinkLabel linkLabelMandatory;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRoll;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
@@ -251,5 +267,6 @@ namespace MadrasahSMS
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnObtainedPct;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGradePoint;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLetterGrade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStudentId;
     }
 }

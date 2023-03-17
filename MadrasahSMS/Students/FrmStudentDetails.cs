@@ -472,7 +472,7 @@ namespace MadrasahSMS.Students
                                       "', nid='" + textBoxReviewNid.Text.Trim() +
                                       "', dob='" +
                                       dateTimePickerReviewDob.Value.ToString(GlobalSettings.DateFormatSave) +
-                                      "',PICTURE=@img, update_by='" + GlobalSettings.UserName +
+                                      "',PICTURE=@img, update_by='" + GlobalSettings.LoggedEmployee.UserName +
                                       "', update_date=current_timestamp WHERE id='" + _studentId + "'"
                     };
                     cmd.Parameters.AddWithValue("@img", GlobalSettings.ImageToByte(pictureBoxStudent.Image));
@@ -498,7 +498,7 @@ namespace MadrasahSMS.Students
                             "', mother_name=N'" + textBoxReviewMotherName.Text.Trim() +
                             "', mother_phone='" + textBoxReviewMotherPhone.Text.Trim() +
                             "', mother_nid='" + textBoxReviewMotherNid.Text.Trim() +
-                            "', update_by='" + GlobalSettings.UserName +
+                            "', update_by='" + GlobalSettings.LoggedEmployee.UserName +
                             "', update_date=current_timestamp WHERE id='" + _studentId + "'";
                 var isUpdate = Db.QueryExecute(query);
                 MessageBox.Show(isUpdate ? "Update ok..." : "Failed");
@@ -517,7 +517,7 @@ namespace MadrasahSMS.Students
                 if (!isValid) return;
                 var query = "UPDATE s_student SET guardian_name=N'" + textBoxReviewGrdName.Text.Trim() +
                             "', guardian_phone='" + textBoxReviewGrdPhone.Text.Trim() +
-                            "', update_by='" + GlobalSettings.UserName +
+                            "', update_by='" + GlobalSettings.LoggedEmployee.UserName +
                             "', update_date=current_timestamp WHERE id='" + _studentId + "'; ";
 
                 query += "UPDATE s_address SET g_division_id='" + comboBoxReviewGrdDivision.SelectedValue +
@@ -526,7 +526,7 @@ namespace MadrasahSMS.Students
                          "', g_union_id='" + comboBoxReviewGrdUnion.SelectedValue +
                          "', g_village_id='" + comboBoxReviewGrdVillage.SelectedValue +
                          "', g_details='" + textBoxReviewGrdDetails.Text.Trim() +
-                         "', update_by='" + GlobalSettings.UserName +
+                         "', update_by='" + GlobalSettings.LoggedEmployee.UserName +
                          "', update_date=current_timestamp WHERE person_id='" + _studentId + "' AND who='ST';";
 
                 var isUpdate = Db.QueryExecute(query);
@@ -556,7 +556,7 @@ namespace MadrasahSMS.Students
                          "', m_union_id='" + comboBoxReviewPreUnion.SelectedValue +
                          "', m_village_id='" + comboBoxReviewPreVillage.SelectedValue +
                          "', m_details='" + textBoxReviewPreDetails.Text.Trim() +
-                         "', update_by='" + GlobalSettings.UserName +
+                         "', update_by='" + GlobalSettings.LoggedEmployee.UserName +
                          "', update_date=current_timestamp WHERE person_id='" + _studentId + "' AND who='ST'";
 
                 var isUpdate = Db.QueryExecute(query);
@@ -578,7 +578,7 @@ namespace MadrasahSMS.Students
                             "', roll='" + textBoxReviewRoll.Text.Trim() +
                             "', reg='" + textBoxReviewReg.Text.Trim() +
                             "', class_id='" + comboBoxReviewClass.SelectedValue +
-                            "', update_by='" + GlobalSettings.UserName +
+                            "', update_by='" + GlobalSettings.LoggedEmployee.UserName +
                             "', update_date=current_timestamp WHERE id='" + _studentId + "'";
                 var isUpdate = Db.QueryExecute(query);
                 MessageBox.Show(isUpdate ? "Update ok..." : "Failed");

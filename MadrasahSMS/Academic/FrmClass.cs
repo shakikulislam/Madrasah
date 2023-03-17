@@ -67,7 +67,7 @@ namespace MadrasahSMS.Academic
                         query = "update s_class set name=N'" + textBoxClassName.Text.Trim() +
                                 "', class_number='" + numericUpDownClassNumber.Text.Trim() +
                                 "', teacher_id='" + comboBoxTeacher.SelectedValue +
-                                "', update_by = '" + GlobalSettings.UserName +
+                                "', update_by = '" + GlobalSettings.LoggedEmployee.UserName +
                                 "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
                                 "' where id = '" + textBoxClassName.Tag + "'";
                     }

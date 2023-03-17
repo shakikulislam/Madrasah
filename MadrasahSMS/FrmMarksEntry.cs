@@ -147,8 +147,7 @@ namespace MadrasahSMS
 
                 var sub = new SubjectDb().GetById(comboBoxSubject.SelectedValue.ToString());
                 var mandatory = sub.Mandatory ? 1 : 0;
-                var office_info = GlobalSettings.Office();
-
+                
                 var insertQuery = "";
                 foreach (DataRow row in dt.Rows)
                 {
@@ -163,13 +162,13 @@ namespace MadrasahSMS
                                    "UPDATE_BY, " +
                                    "UPDATE_DATE, " +
                                    "MANDATORY) " +
-                                   "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_MARK), " + office_info.SchoolYear +
+                                   "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_MARK), " + GlobalSettings.OfficeInfo.SchoolYear +
                                    ", "
                                    + comboBoxExam.SelectedValue + ", '"
                                    + dateTimePickerExamDate.Value.ToString(GlobalSettings.DateFormatSave) + "',"
                                    + row["ID"] + "," + comboBoxClass.SelectedValue + ","
                                    + comboBoxSubject.SelectedValue + "," + sub.SubjectMark + ",'"
-                                   + GlobalSettings.UserName + "',current_timestamp, " + mandatory + "); ";
+                                   + GlobalSettings.LoggedEmployee.UserName + "',current_timestamp, " + mandatory + "); ";
                 }
 
                 try
@@ -274,7 +273,7 @@ namespace MadrasahSMS
                 var obtainedMark = Convert.ToDouble(textBoxMark.Text);
                 var subjectMark = Convert.ToDouble(labelSubjectMark.Tag);
 
-                var result = GlobalSettings.ResultCalculate(obtainedMark, subjectMark, GlobalSettings.SchoolYear);
+                var result = GlobalSettings.ResultCalculate(obtainedMark, subjectMark, GlobalSettings.OfficeInfo.SchoolYear);
 
                 var query = "UPDATE S_MARK SET OBTAINED_MARKS=" + obtainedMark + 
                             ", OBTAINED_MARKS_PCT=" + result.MarksPercentage + 
@@ -345,7 +344,7 @@ namespace MadrasahSMS
             if (LoadExamDate())
             {
                 new FrmAbsentExamination(
-                        GlobalSettings.SchoolYear,
+                        GlobalSettings.OfficeInfo.SchoolYear,
                         comboBoxExam.SelectedValue,
                         comboBoxClass.SelectedValue)
                     .ShowDialog();

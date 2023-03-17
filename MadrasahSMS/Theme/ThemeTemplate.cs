@@ -170,7 +170,7 @@ namespace MadrasahSMS.Theme
             }
         }
 
-        public static void SDataGridView(Control control, BorderStyle borderStyle = BorderStyle.None)
+        public static void SDataGridView(Control control, BorderStyle borderStyle = BorderStyle.None, bool doubleHeader=false)
         {
             // DataGridView
             foreach (var gridView in control.Controls.OfType<DataGridView>())
@@ -189,14 +189,6 @@ namespace MadrasahSMS.Theme
                 gridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = STheme.SColor.HoverBackColor;
                 gridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = STheme.SColor.ForColor;
 
-                //var lnk=new DataGridViewLinkColumn();
-                //lnk.LinkColor = STheme.SColor.LinkForColor;
-                //lnk.Text = "dsd";
-                //lnk.UseColumnTextForLinkValue = true;
-                
-                //gridView.Columns.Add(lnk);
-
-
                 gridView.BorderStyle = borderStyle;
 
                 gridView.ColumnHeadersDefaultCellStyle.Font = new Font(STheme.SFont.Font, STheme.SFont.Size+2, FontStyle.Bold);
@@ -212,7 +204,7 @@ namespace MadrasahSMS.Theme
                 gridView.RowHeadersVisible = false;
                 gridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
                 gridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                gridView.ColumnHeadersHeight = 30;
+                gridView.ColumnHeadersHeight = doubleHeader ? 43 : 30;
                 gridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
                 gridView.CellBorderStyle = cellBorder;
                 gridView.RowTemplate.Resizable = DataGridViewTriState.False;

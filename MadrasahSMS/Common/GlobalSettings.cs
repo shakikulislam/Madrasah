@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -14,13 +13,11 @@ namespace MadrasahSMS.Common
         public static string DevUser { get; } = "DEVELOPER";
         public static string DevPass { get; } = "developer12345";
         public static string Server { get; set; }
-        public static string EmployeeId { get; set; }
-        public static string UserName { get; set; }
+        public static EmployeeInfo LoggedEmployee { get; set; }
         public static string UserRole { get; set; }
         public static string DateFormatShortView { get; } = "dd-MMM-yy";
         public static string DateFormatSave { get; } = "yyyy-MM-dd";
-        public static DataTable OfficeInfo { get; set; }
-        public static string SchoolYear { get; set; }
+        public static OfficeInfo OfficeInfo { get; set; }
         public static string Active { get; } = "A"; // Active
         public static string DeActive { get; } = "DA"; // De-Active
         public static string MarkEntry { get; } = "ME"; // Mark Entry
@@ -34,33 +31,7 @@ namespace MadrasahSMS.Common
         #endregion Enum
 
         #region Method
-
-        /// <summary>
-        /// Office details Part to Part
-        /// </summary>
-        /// <returns></returns>
-        public static (DataTable Office, string NameBangla, string NameEnglish, string NameArabic, string SchoolYear, Image logo) Office()
-        {
-            var office = OfficeInfo;
-            var nameBl = string.Empty;
-            var nameEn = string.Empty;
-            var nameAr = string.Empty;
-            var schoolYear = string.Empty;
-            Image img = null;
-            if (office.Rows.Count > 0)
-            {
-                nameBl = office.Rows[0]["NAME_BN"].ToString();
-                nameEn = office.Rows[0]["NAME_EN"].ToString();
-                nameAr = office.Rows[0]["NAME_AR"].ToString();
-                schoolYear = office.Rows[0]["SCHOOL_YEAR"].ToString();
-                img = ByteToImage(office.Rows[0]["LOGO"], new Bitmap(1, 1));
-            }
-
-            SchoolYear = schoolYear;
-
-            return (office, nameBl, nameEn, nameAr, schoolYear, img);
-        }
-
+        
         public static Image ByteToImage(object imageField, Bitmap defaultImage)
         {
             if (imageField == DBNull.Value) return defaultImage;
@@ -124,7 +95,7 @@ namespace MadrasahSMS.Common
         /// <param name="obtainedMark">Obtained marks</param>
         /// <param name="subjectMark">Subject marks</param>
         /// <returns></returns>
-        public static (double MarksPercentage, double GradePoint, string LetterGrade) ResultCalculate(double obtainedMarks, double subjectMarks, string year)
+        public static (string MarksPercentage, string GradePoint, string LetterGrade) ResultCalculate(double obtainedMarks, double subjectMarks, string year)
         {
             var markPct = ((obtainedMarks * 100) / subjectMarks);
 
@@ -143,7 +114,7 @@ namespace MadrasahSMS.Common
                 grade.Close();
             }
 
-            return (markPct, Convert.ToDouble(gradePoint), letterGrade);
+            return (markPct.ToString("N"), gradePoint, letterGrade);
         }
 
 

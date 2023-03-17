@@ -910,7 +910,7 @@ namespace MadrasahSMS.Students
                                   "',guardian_phone = '" + textBoxReviewGrdPhone.Text.Trim() +
                                   "',class_id = '" + comboBoxReviewClass.SelectedValue +
                                   "',PICTURE=@img,status = 'A'," +
-                                  "create_by = '" + GlobalSettings.UserName +
+                                  "create_by = '" + GlobalSettings.LoggedEmployee.UserName +
                                   "' WHERE id='" + labelStudentName.Tag + "' "
                 };
                 cmd.Parameters.AddWithValue("@img", GlobalSettings.ImageToByte(pictureBoxReviewStudent.Image));

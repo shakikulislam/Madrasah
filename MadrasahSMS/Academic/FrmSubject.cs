@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using MadrasahSMS.Common;
 using MadrasahSMS.DbContext;
@@ -90,19 +91,19 @@ namespace MadrasahSMS.Academic
                                 "VALUES((SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_SUBJECT),"
                                 + comboBoxClass.SelectedValue + ",'" + textBoxSubjectCode.Text.Trim() +
                                 "',N'" + textBoxSubjectName.Text.Trim() + "'," + numericUpDownMark.Text + "," +
-                                comboBoxTeacher.SelectedValue + ",'" + GlobalSettings.UserName + "', '" +
+                                comboBoxTeacher.SelectedValue + ",'" + GlobalSettings.LoggedEmployee.UserName + "', '" +
                                 DateTime.Now.ToString(GlobalSettings.DateFormatSave) + "','A', " + mandatory + " )";
                         break;
                     case "Update":
                         query = "UPDATE s_subject SET class_id=" + comboBoxClass.SelectedValue + ", CODE='" +
                                 textBoxSubjectCode.Text.Trim() + "', name=N'" +
                                 textBoxSubjectName.Text.Trim() + "', mark=" + numericUpDownMark.Text + ", teacher_id=" +
-                                comboBoxTeacher.SelectedValue + ", update_by='" + GlobalSettings.UserName +
+                                comboBoxTeacher.SelectedValue + ", update_by='" + GlobalSettings.LoggedEmployee.UserName +
                                 "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
                                 "', MANDATORY=" + mandatory + " WHERE id=" + textBoxSubjectCode.Tag + "";
                         break;
                 }
-                    
+
                 var isSave = Db.QueryExecute(query);
                 if (!isSave) return;
 

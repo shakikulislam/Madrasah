@@ -395,7 +395,7 @@ namespace MadrasahSMS.Staff
                                       "', joining_date='" +
                                       dateTimePickerJoiningDate.Value.ToString(GlobalSettings.DateFormatSave) +
                                       "', PICTURE=@img" +
-                                      ", update_by='" + GlobalSettings.UserName +
+                                      ", update_by='" + GlobalSettings.LoggedEmployee.UserName +
                                       "', update_date=current_timestamp " +
                                       "WHERE id='" + _staffId + "'";
                     
@@ -428,7 +428,7 @@ namespace MadrasahSMS.Staff
                          "', m_union_id='" + comboBoxReviewPreUnion.SelectedValue +
                          "', m_village_id='" + comboBoxReviewPreVillage.SelectedValue +
                          "', m_details='" + textBoxReviewPreDetails.Text.Trim() +
-                         "', update_by='" + GlobalSettings.UserName +
+                         "', update_by='" + GlobalSettings.LoggedEmployee.UserName +
                          "', update_date='" + DateTime.Now.ToString(GlobalSettings.DateFormatSave) +
                          "' WHERE person_id='" + _staffId + "' AND who='STF'";
 

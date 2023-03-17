@@ -622,7 +622,7 @@ namespace MadrasahSMS.Staff
                             "',desig_id  = '" + comboBoxReviewDesignation.SelectedValue +
                             "',joining_date = '" + dateTimePickerReviewJoiningDate.Value.ToString(GlobalSettings.DateFormatSave) +
                             "',PICTURE = @img" +
-                            ",create_by = '" + GlobalSettings.UserName +
+                            ",create_by = '" + GlobalSettings.LoggedEmployee.UserName +
                             "',create_date = current_timestamp " +
                             "WHERE id='" + labelFullName.Tag + "' ";
                 cmd.Parameters.AddWithValue("@img", bytes);
