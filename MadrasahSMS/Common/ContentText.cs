@@ -16,6 +16,7 @@
         public static string MandatorySubjectList = "Mandatory Subject List";
         public static string ResultAlreadyProcessed = "Result Already Processed";
         public static string ReprocessResult = AreYouSure + "Reprocess this result";
+        public static string FinalExamAlreadyExist = "Final exam already exist";
 
     }
 }

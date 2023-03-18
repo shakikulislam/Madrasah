@@ -34,16 +34,18 @@ namespace MadrasahSMS.Academic
             this.textBoxExamName = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewExamList = new System.Windows.Forms.DataGridView();
-            this.ColumnSl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEffectFinal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnEffectPercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numericUpDownEffectPersent = new System.Windows.Forms.NumericUpDown();
             this.errorProviderExam = new System.Windows.Forms.ErrorProvider(this.components);
             this.checkBoxEffectOnFinal = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.checkBoxFinal = new System.Windows.Forms.CheckBox();
+            this.ColumnSl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEffectFinal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnEffectPercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnIsFinal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExamList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEffectPersent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderExam)).BeginInit();
@@ -93,6 +95,7 @@ namespace MadrasahSMS.Academic
             this.ColumnName,
             this.ColumnEffectFinal,
             this.ColumnEffectPercent,
+            this.ColumnIsFinal,
             this.ColumnId});
             this.dataGridViewExamList.Location = new System.Drawing.Point(12, 126);
             this.dataGridViewExamList.Name = "dataGridViewExamList";
@@ -100,50 +103,6 @@ namespace MadrasahSMS.Academic
             this.dataGridViewExamList.TabIndex = 3;
             this.dataGridViewExamList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewExamList_RowPostPaint);
             this.dataGridViewExamList.DoubleClick += new System.EventHandler(this.dataGridViewExamList_DoubleClick);
-            // 
-            // ColumnSl
-            // 
-            this.ColumnSl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnSl.HeaderText = "#";
-            this.ColumnSl.Name = "ColumnSl";
-            this.ColumnSl.ReadOnly = true;
-            this.ColumnSl.Width = 39;
-            // 
-            // ColumnName
-            // 
-            this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnName.DataPropertyName = "name";
-            this.ColumnName.HeaderText = "Exam Name";
-            this.ColumnName.Name = "ColumnName";
-            this.ColumnName.ReadOnly = true;
-            // 
-            // ColumnEffectFinal
-            // 
-            this.ColumnEffectFinal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnEffectFinal.DataPropertyName = "effect_on_final";
-            this.ColumnEffectFinal.HeaderText = "Effect Final";
-            this.ColumnEffectFinal.Name = "ColumnEffectFinal";
-            this.ColumnEffectFinal.ReadOnly = true;
-            this.ColumnEffectFinal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnEffectFinal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnEffectFinal.Width = 85;
-            // 
-            // ColumnEffectPercent
-            // 
-            this.ColumnEffectPercent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnEffectPercent.DataPropertyName = "effect_percent";
-            this.ColumnEffectPercent.HeaderText = "Percent";
-            this.ColumnEffectPercent.Name = "ColumnEffectPercent";
-            this.ColumnEffectPercent.ReadOnly = true;
-            this.ColumnEffectPercent.Width = 69;
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.DataPropertyName = "id";
-            this.ColumnId.HeaderText = "id";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.ReadOnly = true;
-            this.ColumnId.Visible = false;
             // 
             // numericUpDownEffectPersent
             // 
@@ -196,11 +155,80 @@ namespace MadrasahSMS.Academic
             this.buttonCancel.Visible = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // checkBoxFinal
+            // 
+            this.checkBoxFinal.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.checkBoxFinal.AutoSize = true;
+            this.checkBoxFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxFinal.Location = new System.Drawing.Point(529, 19);
+            this.checkBoxFinal.Name = "checkBoxFinal";
+            this.checkBoxFinal.Size = new System.Drawing.Size(95, 21);
+            this.checkBoxFinal.TabIndex = 9;
+            this.checkBoxFinal.Text = "Final Exam";
+            this.checkBoxFinal.UseVisualStyleBackColor = true;
+            this.checkBoxFinal.CheckedChanged += new System.EventHandler(this.checkBoxFinal_CheckedChanged);
+            // 
+            // ColumnSl
+            // 
+            this.ColumnSl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnSl.HeaderText = "#";
+            this.ColumnSl.Name = "ColumnSl";
+            this.ColumnSl.ReadOnly = true;
+            this.ColumnSl.Width = 39;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnName.DataPropertyName = "name";
+            this.ColumnName.HeaderText = "Exam Name";
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.ReadOnly = true;
+            // 
+            // ColumnEffectFinal
+            // 
+            this.ColumnEffectFinal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnEffectFinal.DataPropertyName = "effect_on_final";
+            this.ColumnEffectFinal.HeaderText = "Effect Final";
+            this.ColumnEffectFinal.Name = "ColumnEffectFinal";
+            this.ColumnEffectFinal.ReadOnly = true;
+            this.ColumnEffectFinal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnEffectFinal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnEffectFinal.Width = 85;
+            // 
+            // ColumnEffectPercent
+            // 
+            this.ColumnEffectPercent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnEffectPercent.DataPropertyName = "effect_percent";
+            this.ColumnEffectPercent.HeaderText = "Percent";
+            this.ColumnEffectPercent.Name = "ColumnEffectPercent";
+            this.ColumnEffectPercent.ReadOnly = true;
+            this.ColumnEffectPercent.Width = 69;
+            // 
+            // ColumnIsFinal
+            // 
+            this.ColumnIsFinal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnIsFinal.DataPropertyName = "IS_FINAL";
+            this.ColumnIsFinal.HeaderText = "Final";
+            this.ColumnIsFinal.Name = "ColumnIsFinal";
+            this.ColumnIsFinal.ReadOnly = true;
+            this.ColumnIsFinal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnIsFinal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnIsFinal.Width = 54;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.DataPropertyName = "id";
+            this.ColumnId.HeaderText = "id";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            this.ColumnId.Visible = false;
+            // 
             // FrmAddExam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxFinal);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkBoxEffectOnFinal);
@@ -229,11 +257,13 @@ namespace MadrasahSMS.Academic
         private System.Windows.Forms.ErrorProvider errorProviderExam;
         private System.Windows.Forms.CheckBox checkBoxEffectOnFinal;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.CheckBox checkBoxFinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSl;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnEffectFinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEffectPercent;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnIsFinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
-        private System.Windows.Forms.Button buttonCancel;
     }
 }
