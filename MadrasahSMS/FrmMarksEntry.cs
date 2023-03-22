@@ -273,7 +273,7 @@ namespace MadrasahSMS
                 var obtainedMark = Convert.ToDouble(textBoxMark.Text);
                 var subjectMark = Convert.ToDouble(labelSubjectMark.Tag);
 
-                var result = GlobalSettings.ResultCalculate(obtainedMark, subjectMark, GlobalSettings.OfficeInfo.SchoolYear);
+                var result = GlobalSettings.ResultCalculate(obtainedMark, subjectMark, GlobalSettings.MarkCalculateYear);
 
                 var query = "UPDATE S_MARK SET OBTAINED_MARKS=" + obtainedMark + 
                             ", OBTAINED_MARKS_PCT=" + result.MarksPercentage + 

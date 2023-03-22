@@ -11,8 +11,12 @@ namespace MadrasahSMS.Academic
         public FrmAddExam()
         {
             InitializeComponent();
+            panelEffectFinal.Visible = GlobalSettings.OfficeInfo.PreExamEffFinal;
+            dataGridViewExamList.Columns[ColumnEffectFinal.Index].Visible = GlobalSettings.OfficeInfo.PreExamEffFinal;
+            dataGridViewExamList.Columns[ColumnEffectPercent.Index].Visible = GlobalSettings.OfficeInfo.PreExamEffFinal;
             ThemeTemplate.LoadTheme(this);
             ThemeTemplate.SDataGridView(this);
+            ThemeTemplate.LoadTheme(panelEffectFinal);
             LoadExam();
         }
 

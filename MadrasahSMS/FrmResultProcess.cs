@@ -11,6 +11,7 @@ namespace MadrasahSMS
     public partial class FrmResultProcess : Form
     {
         private bool _isMandatory;
+        private bool _isFinal;
 
         public FrmResultProcess()
         {
@@ -73,19 +74,34 @@ namespace MadrasahSMS
             }
         }
 
+        private void comboBoxExam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var query = "SELECT * FROM S_EXAM WHERE ID=" + comboBoxExam.SelectedValue + " AND IS_FINAL=1";
+                _isFinal = Db.HasExisted(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
         private void buttonProcess_Click(object sender, EventArgs e)
         {
+            var loading = new frmWaiting();
             try
             {
                 var classId = comboBoxClass.SelectedValue.ToString();
                 var examId = comboBoxExam.SelectedValue.ToString();
-                
-                dataGridViewStudentList.Rows.Clear();
+
+                var dg = dataGridViewStudentList;
+                dg.Columns[ColumnPreExamMarks.Index].Visible = false;
+                dg.Rows.Clear();
 
                 string query;
                 DataTable dt;
 
-                var loading = new frmWaiting();
                 loading.Show();
                 Application.DoEvents();
 
@@ -125,7 +141,7 @@ namespace MadrasahSMS
                 {
                     loading.Close();
                     string[] columnHeaderText = { "Roll", "Student Name", "Subject" };
-                    var isProcess = FrmViewList.Show(ContentText.AbsentList, dt, columnHeaderText, 1, true);
+                    var isProcess = FrmViewList.Show(ContentText.AbsentList, dt, columnHeaderText, 1, true,"Process Result");
                     if (isProcess)
                     {
                         loading = new frmWaiting();
@@ -204,29 +220,14 @@ namespace MadrasahSMS
                     query = string.Empty;
                     foreach (DataRow row in dt.Rows)
                     {
-                        query += "INSERT INTO S_RESULT_MST (" +
-                                 "ID, " +
-                                 "SCHOOL_YEAR, " +
-                                 "CLASS_ID, " +
-                                 "EXAM_ID, " +
-                                 "STUDENT_ID, " +
-                                 "ROLL, " +
-                                 "REG, " +
-                                 "FORM_NUMBER, " +
-                                 "TOTAL_MARKS, " +
-                                 "TOTAL_OBTAINED_MARKS, " +
-                                 "CREATE_BY" +
+                        query += "INSERT INTO S_RESULT_MST (ID, SCHOOL_YEAR, CLASS_ID, EXAM_ID, STUDENT_ID, " +
+                                 "ROLL, REG, FORM_NUMBER, TOTAL_SUB_MARKS, OBTAINED_MARKS, CREATE_BY" +
                                  ") VALUES (" +
                                  "(SELECT ISNULL(MAX(ID)+1,1) AS ID FROM S_RESULT_MST), " +
-                                 row["SCHOOL_YEAR"] + ", " +
-                                 row["CLASS_ID"] + ", " +
-                                 row["EXAM_ID"] + ", " +
-                                 row["STUDENT_ID"] + ", " +
-                                 row["ROLL"] + ", " +
-                                 row["REG"] + ", " +
-                                 row["FORM_NUMBER"] + ", " +
-                                 row["TOTAL_MARKS"] + ", " +
-                                 row["TOTAL_OBTAINED_MARKS"] + ", '" + 
+                                 row["SCHOOL_YEAR"] + ", " + row["CLASS_ID"] + ", " +
+                                 row["EXAM_ID"] + ", " + row["STUDENT_ID"] + ", " +
+                                 row["ROLL"] + ", " + row["REG"] + ", " + row["FORM_NUMBER"] + ", " +
+                                 row["TOTAL_MARKS"] + ", " + row["TOTAL_OBTAINED_MARKS"] + ", '" + 
                                  GlobalSettings.LoggedEmployee.UserName + "') ";
                     }
 
@@ -239,15 +240,12 @@ namespace MadrasahSMS
                         //
                     }
 
-                    // Load data
-                    var dg = dataGridViewStudentList;
+                    // Load result data
 
-                    query = "SELECT M.*, S.NAME AS STUDENT_NAME " +
-                            "FROM S_RESULT_MST AS M " +
+                    query = "SELECT M.*, S.NAME AS STUDENT_NAME FROM S_RESULT_MST AS M " +
                             "LEFT JOIN S_STUDENT AS S ON M.STUDENT_ID=S.ID " +
                             "WHERE M.SCHOOL_YEAR = " + GlobalSettings.OfficeInfo.SchoolYear +
-                            " AND M.CLASS_ID = " + classId +
-                            " AND M.EXAM_ID = " + examId +
+                            " AND M.CLASS_ID = " + classId + " AND M.EXAM_ID = " + examId +
                             " ORDER BY M.ROLL";
                     dt = Db.GetTable(query);
 
@@ -259,56 +257,96 @@ namespace MadrasahSMS
                             dg.Rows[s].Cells[ColumnId.Index].Value = row["ID"].ToString();
                             dg.Rows[s].Cells[ColumnRoll.Index].Value = row["ROLL"].ToString();
                             dg.Rows[s].Cells[ColumnName.Index].Value = row["STUDENT_NAME"].ToString();
-                            dg.Rows[s].Cells[ColumnSubjectMarks.Index].Value = row["TOTAL_MARKS"].ToString();
-                            dg.Rows[s].Cells[ColumnObtainedMark.Index].Value = row["TOTAL_OBTAINED_MARKS"].ToString();
+                            dg.Rows[s].Cells[ColumnSubjectMarks.Index].Value = row["TOTAL_SUB_MARKS"].ToString();
+                            dg.Rows[s].Cells[ColumnObtainedMark.Index].Value = row["OBTAINED_MARKS"].ToString();
                             dg.Rows[s].Cells[ColumnObtainedPct.Index].Value = row["TOTAL_OBTAINED_PCT"].ToString();
                             dg.Rows[s].Cells[ColumnGradePoint.Index].Value = row["GRADE_POINT"].ToString();
                             dg.Rows[s].Cells[ColumnLetterGrade.Index].Value = row["LETTER_GRADE"].ToString();
                             dg.Rows[s].Cells[ColumnStudentId.Index].Value = row["STUDENT_ID"].ToString();
+                            dg.Rows[s].Cells[ColumnPreExamMarks.Index].Value = row["PRE_EXM_MARKS"].ToString();
                         }
 
                         dataGridViewStudentList.Refresh();
                     }
 
                     // Process result
-
                     if (dg.RowCount > 0)
                     {
                         bool isFail;
+                        string studentId;
 
                         for (var s = 0; s < dg.RowCount; s++)
                         {
                             isFail = false;
+                            studentId = dg.Rows[s].Cells[ColumnStudentId.Index].Value.ToString();
 
                             dg.Rows[s].Selected = true;
 
+                            // Check mandatory
                             if (_isMandatory)
                             {
                                 query = "SELECT * FROM S_MARK WHERE SCHOOL_YEAR = " + GlobalSettings.OfficeInfo.SchoolYear +
-                                        " AND EXAM_ID = " + comboBoxExam.SelectedValue +
-                                        " AND STUDENT_ID = " + dg.Rows[s].Cells[ColumnStudentId.Index].Value +
-                                        " AND CLASS_ID = " + comboBoxClass.SelectedValue +
+                                        " AND EXAM_ID = " + examId +
+                                        " AND STUDENT_ID = " + studentId +
+                                        " AND CLASS_ID = " + classId +
                                         " AND GRADE_POINT<=0 AND MANDATORY = 1";
                                 dt = Db.GetTable(query);
                                 isFail = dt.Rows.Count > 0;
                             }
 
-                            var totalMark = Convert.ToDouble(dg.Rows[s].Cells[ColumnSubjectMarks.Index].Value);
-                            var obtainedMark = Convert.ToDouble(dg.Rows[s].Cells[ColumnObtainedMark.Index].Value);
-                            var grade = GlobalSettings.ResultCalculate(isFail ? 0 : obtainedMark, totalMark, "2023");
+                            // Previous exam marks
 
+                            double preExamMark = 0;
+                            string preExamMarkDtl = "";
+
+                            if (_isFinal && GlobalSettings.OfficeInfo.PreExamEffFinal)
+                            {
+                                dg.Columns[ColumnPreExamMarks.Index].Visible = true;
+                                query = "SELECT R.EXAM_ID, R.TOTAL_OBTAINED_MARKS, E.EFFECT_PERCENT " +
+                                        ",((R.TOTAL_OBTAINED_MARKS * E.EFFECT_PERCENT) / 100) AS PRE_EXAM_MARKS " +
+                                        "FROM S_RESULT_MST AS R " +
+                                        "LEFT JOIN S_EXAM AS E ON R.EXAM_ID = E.ID " +
+                                        "WHERE R.SCHOOL_YEAR = " + GlobalSettings.OfficeInfo.SchoolYear +
+                                        " AND R.CLASS_ID = " + classId +
+                                        " AND R.STUDENT_ID = " + studentId +
+                                        " AND E.EFFECT_ON_FINAL = 1" +
+                                        " AND E.IS_FINAL = 0";
+                                dt = Db.GetTable(query);
+                                 if (dt.Rows.Count > 0)
+                                 {
+                                     foreach (DataRow row in dt.Rows)
+                                     {
+                                         preExamMark += Convert.ToDouble(row["PRE_EXAM_MARKS"].ToString());
+                                         preExamMarkDtl += string.IsNullOrEmpty(preExamMarkDtl)
+                                             ? "E" + row["EXAM_ID"] + "M" + row["TOTAL_OBTAINED_MARKS"] + "%" + row["EFFECT_PERCENT"] + "=" + row["PRE_EXAM_MARKS"]
+                                             : ",E" + row["EXAM_ID"] + "M" + row["TOTAL_OBTAINED_MARKS"] + "%" + row["EFFECT_PERCENT"] + "=" + row["PRE_EXAM_MARKS"];
+                                     }
+                                 }
+                            }
+
+                            // Calculate result
+                            var totalSubjectMark = Convert.ToDouble(dg.Rows[s].Cells[ColumnSubjectMarks.Index].Value);
+                            var obtainedTotalMark = Convert.ToDouble(dg.Rows[s].Cells[ColumnObtainedMark.Index].Value) + preExamMark;
+
+                            var obtainedFinalMark = obtainedTotalMark > totalSubjectMark ? totalSubjectMark : obtainedTotalMark;
+                            var grade = GlobalSettings.ResultCalculate(isFail ? 0 : obtainedFinalMark, totalSubjectMark, GlobalSettings.MarkCalculateYear);
+                            
                             var finalMarksPercentage = grade.MarksPercentage;
                             var finalGradePoint = grade.GradePoint;
                             var finalLetterGrade = grade.LetterGrade;
 
-                            query = "UPDATE S_RESULT_MST SET " +
-                                    "TOTAL_OBTAINED_PCT=" + finalMarksPercentage +
+                            // Update result PRE_EXM_MARKS, PRE_EXM_MARKS_DTL
+                            query = "UPDATE S_RESULT_MST SET PRE_EXM_MARKS=" + preExamMark + 
+                                    ", TOTAL_OBTAINED_MARKS="+obtainedFinalMark+
+                                    ", TOTAL_OBTAINED_PCT=" + finalMarksPercentage +
                                     ", GRADE_POINT=" + finalGradePoint +
                                     ", LETTER_GRADE='" + finalLetterGrade +
                                     "', CREATE_BY='" + GlobalSettings.LoggedEmployee.UserName +
+                                    "', PRE_EXM_MARKS_DTL='" + preExamMarkDtl +
                                     "' WHERE ID=" + dg.Rows[s].Cells[ColumnId.Index].Value;
                             if (Db.QueryExecute(query))
                             {
+                                dg.Rows[s].Cells[ColumnPreExamMarks.Index].Value = preExamMark;
                                 dg.Rows[s].Cells[ColumnObtainedPct.Index].Value = finalMarksPercentage;
                                 dg.Rows[s].Cells[ColumnGradePoint.Index].Value = finalGradePoint;
                                 dg.Rows[s].Cells[ColumnLetterGrade.Index].Value = finalLetterGrade;
@@ -317,6 +355,10 @@ namespace MadrasahSMS
                             dataGridViewStudentList.Refresh();
                         }
 
+                        loading.Close();
+                    }
+                    else
+                    {
                         loading.Close();
                     }
                 }
@@ -331,6 +373,7 @@ namespace MadrasahSMS
             }
             catch (Exception ex)
             {
+                loading.Close();
                 MessageBox.Show(ex.ToString());
             }
         }
@@ -342,5 +385,6 @@ namespace MadrasahSMS
 
             FrmViewList.Show(ContentText.MandatorySubjectList, subList, new[] {"Code", "Name", "Mark"}, 1);
         }
+
     }
 }

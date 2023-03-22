@@ -11,6 +11,7 @@ using MadrasahSMS.Staff;
 using MadrasahSMS.Students;
 using MadrasahSMS.Theme;
 using MadrasahSMS.Common;
+using MadrasahSMS.DbContext;
 
 namespace MadrasahSMS
 {
@@ -31,6 +32,7 @@ namespace MadrasahSMS
         public FrmMain()
         {
             InitializeComponent();
+            //base.FormClosing += this.AppClosing;
             //this.FormBorderStyle = FormBorderStyle.None;
             _leftMenuBtnBorder = new Panel {Size = new Size(3, 40)};
             panelSideMenu.Controls.Add(_leftMenuBtnBorder);
@@ -39,6 +41,12 @@ namespace MadrasahSMS
             LoadTheme();
             LoadOfficeInfo();
         }
+
+        //private void AppClosing(object sender, FormClosingEventArgs e)
+        //{
+        //    Db.CloseConnection();
+        //    Application.Exit();
+        //}
 
 
         // Drag Control
@@ -222,6 +230,7 @@ namespace MadrasahSMS
 
         private void iconButtonClose_Click(object sender, EventArgs e)
         {
+            Db.CloseConnection();
             Application.Exit();
         }
 

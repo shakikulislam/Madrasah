@@ -31,12 +31,12 @@ namespace MadrasahSMS.Common
         {
             this.components = new System.ComponentModel.Container();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.linkLabelAction = new System.Windows.Forms.LinkLabel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.iconButtonClose = new FontAwesome.Sharp.IconButton();
             this.panelBody = new System.Windows.Forms.Panel();
             this.dataGridViewList = new System.Windows.Forms.DataGridView();
             this.errorProviderDetails = new System.Windows.Forms.ErrorProvider(this.components);
-            this.linkLabelProcessResult = new System.Windows.Forms.LinkLabel();
             this.panelTitleBar.SuspendLayout();
             this.panelBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
@@ -45,7 +45,7 @@ namespace MadrasahSMS.Common
             // 
             // panelTitleBar
             // 
-            this.panelTitleBar.Controls.Add(this.linkLabelProcessResult);
+            this.panelTitleBar.Controls.Add(this.linkLabelAction);
             this.panelTitleBar.Controls.Add(this.labelTitle);
             this.panelTitleBar.Controls.Add(this.iconButtonClose);
             this.panelTitleBar.Cursor = System.Windows.Forms.Cursors.SizeAll;
@@ -55,6 +55,18 @@ namespace MadrasahSMS.Common
             this.panelTitleBar.Size = new System.Drawing.Size(555, 30);
             this.panelTitleBar.TabIndex = 2;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
+            // 
+            // linkLabelAction
+            // 
+            this.linkLabelAction.AutoSize = true;
+            this.linkLabelAction.Location = new System.Drawing.Point(414, 9);
+            this.linkLabelAction.Name = "linkLabelAction";
+            this.linkLabelAction.Size = new System.Drawing.Size(48, 13);
+            this.linkLabelAction.TabIndex = 2;
+            this.linkLabelAction.TabStop = true;
+            this.linkLabelAction.Text = "Decision";
+            this.linkLabelAction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.linkLabelAction.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAction_LinkClicked);
             // 
             // labelTitle
             // 
@@ -110,17 +122,6 @@ namespace MadrasahSMS.Common
             // 
             this.errorProviderDetails.ContainerControl = this;
             // 
-            // linkLabelProcessResult
-            // 
-            this.linkLabelProcessResult.AutoSize = true;
-            this.linkLabelProcessResult.Location = new System.Drawing.Point(438, 9);
-            this.linkLabelProcessResult.Name = "linkLabelProcessResult";
-            this.linkLabelProcessResult.Size = new System.Drawing.Size(78, 13);
-            this.linkLabelProcessResult.TabIndex = 2;
-            this.linkLabelProcessResult.TabStop = true;
-            this.linkLabelProcessResult.Text = "Process Result";
-            this.linkLabelProcessResult.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelProcessResult_LinkClicked);
-            // 
             // FrmViewList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +152,6 @@ namespace MadrasahSMS.Common
         private System.Windows.Forms.Panel panelBody;
         private System.Windows.Forms.ErrorProvider errorProviderDetails;
         private System.Windows.Forms.DataGridView dataGridViewList;
-        private System.Windows.Forms.LinkLabel linkLabelProcessResult;
+        private System.Windows.Forms.LinkLabel linkLabelAction;
     }
 }

@@ -44,10 +44,12 @@ namespace MadrasahSMS
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSubjectMarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnObtainedMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPreExamMarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnObtainedPct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnGradePoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnLetterGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStudentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPreExamMarksDtl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
             this.SuspendLayout();
@@ -129,6 +131,7 @@ namespace MadrasahSMS
             this.comboBoxExam.Name = "comboBoxExam";
             this.comboBoxExam.Size = new System.Drawing.Size(197, 24);
             this.comboBoxExam.TabIndex = 5;
+            this.comboBoxExam.SelectedIndexChanged += new System.EventHandler(this.comboBoxExam_SelectedIndexChanged);
             // 
             // buttonProcess
             // 
@@ -163,10 +166,12 @@ namespace MadrasahSMS
             this.ColumnName,
             this.ColumnSubjectMarks,
             this.ColumnObtainedMark,
+            this.ColumnPreExamMarks,
             this.ColumnObtainedPct,
             this.ColumnGradePoint,
             this.ColumnLetterGrade,
-            this.ColumnStudentId});
+            this.ColumnStudentId,
+            this.ColumnPreExamMarksDtl});
             this.dataGridViewStudentList.Location = new System.Drawing.Point(12, 95);
             this.dataGridViewStudentList.Name = "dataGridViewStudentList";
             this.dataGridViewStudentList.Size = new System.Drawing.Size(877, 411);
@@ -191,6 +196,7 @@ namespace MadrasahSMS
             // 
             this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnName.HeaderText = "Name";
+            this.ColumnName.MinimumWidth = 200;
             this.ColumnName.Name = "ColumnName";
             this.ColumnName.ReadOnly = true;
             // 
@@ -205,6 +211,15 @@ namespace MadrasahSMS
             this.ColumnObtainedMark.HeaderText = "Obtained Mark";
             this.ColumnObtainedMark.Name = "ColumnObtainedMark";
             this.ColumnObtainedMark.ReadOnly = true;
+            // 
+            // ColumnPreExamMarks
+            // 
+            this.ColumnPreExamMarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnPreExamMarks.HeaderText = "Pre Exam Marks";
+            this.ColumnPreExamMarks.Name = "ColumnPreExamMarks";
+            this.ColumnPreExamMarks.ReadOnly = true;
+            this.ColumnPreExamMarks.Visible = false;
+            this.ColumnPreExamMarks.Width = 109;
             // 
             // ColumnObtainedPct
             // 
@@ -230,6 +245,13 @@ namespace MadrasahSMS
             this.ColumnStudentId.Name = "ColumnStudentId";
             this.ColumnStudentId.ReadOnly = true;
             this.ColumnStudentId.Visible = false;
+            // 
+            // ColumnPreExamMarksDtl
+            // 
+            this.ColumnPreExamMarksDtl.HeaderText = "Pre Exam Marks Dtl";
+            this.ColumnPreExamMarksDtl.Name = "ColumnPreExamMarksDtl";
+            this.ColumnPreExamMarksDtl.ReadOnly = true;
+            this.ColumnPreExamMarksDtl.Visible = false;
             // 
             // FrmResultProcess
             // 
@@ -264,9 +286,11 @@ namespace MadrasahSMS
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubjectMarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnObtainedMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPreExamMarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnObtainedPct;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGradePoint;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLetterGrade;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStudentId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPreExamMarksDtl;
     }
 }

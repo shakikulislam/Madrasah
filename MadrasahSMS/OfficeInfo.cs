@@ -13,5 +13,6 @@ namespace MadrasahSMS
         public string CurrentVersion { get; set; }
         public string Status { get; set; }
         public Image Logo { get; set; }
+        public bool PreExamEffFinal { get; set; }
     }
 }

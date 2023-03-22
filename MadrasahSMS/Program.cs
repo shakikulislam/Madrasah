@@ -18,7 +18,7 @@ namespace MadrasahSMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            frmWaiting waiting = new frmWaiting();
+            var waiting = new frmWaiting();
             waiting.Show();
             Application.DoEvents();
             try
@@ -39,7 +39,7 @@ namespace MadrasahSMS
             {
                 try
                 {
-                    var officeInfo = Db.GetReader("SELECT * FROM s_office WHERE status='A'");
+                    var officeInfo = Db.GetReader("SELECT * FROM S_OFFICE WHERE STATUS='A'");
                     GlobalSettings.OfficeInfo = new OfficeInfo();
                     if (officeInfo.HasRows)
                     {
@@ -54,6 +54,7 @@ namespace MadrasahSMS
                         GlobalSettings.OfficeInfo.CurrentVersion = officeInfo["CURRENT_VERSION"].ToString();
                         GlobalSettings.OfficeInfo.Status = officeInfo["STATUS"].ToString();
                         GlobalSettings.OfficeInfo.Logo = GlobalSettings.ByteToImage(officeInfo["LOGO"], new Bitmap(1, 1));
+                        GlobalSettings.OfficeInfo.PreExamEffFinal = Convert.ToBoolean(officeInfo["PRE_EXAM_EFF_FINAL"]);
 
                         officeInfo.Close();
                     }
@@ -63,14 +64,7 @@ namespace MadrasahSMS
                     MessageBox.Show(ex.ToString());
                     Db.CloseConnection();
                     Application.Exit();
-                    return;
                 }
-                //catch
-                //{
-                //    MessageBox.Show("Could Not Connect To Server");
-                //    Application.Exit();
-                //    return;
-                //}
 
                 waiting.Close();
                 Application.Run(new FrmMain());

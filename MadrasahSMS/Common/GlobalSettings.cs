@@ -18,6 +18,7 @@ namespace MadrasahSMS.Common
         public static string DateFormatShortView { get; } = "dd-MMM-yy";
         public static string DateFormatSave { get; } = "yyyy-MM-dd";
         public static OfficeInfo OfficeInfo { get; set; }
+        public static string MarkCalculateYear { get; set; } = "2023";
         public static string Active { get; } = "A"; // Active
         public static string DeActive { get; } = "DA"; // De-Active
         public static string MarkEntry { get; } = "ME"; // Mark Entry
@@ -97,9 +98,13 @@ namespace MadrasahSMS.Common
         /// <returns></returns>
         public static (string MarksPercentage, string GradePoint, string LetterGrade) ResultCalculate(double obtainedMarks, double subjectMarks, string year)
         {
-            var markPct = ((obtainedMarks * 100) / subjectMarks);
+            var obtainedFinalMark = obtainedMarks > subjectMarks ? subjectMarks : obtainedMarks;
 
-            var query = "SELECT GRADE_POINT, LETTER_GRADE FROM S_GRADE WHERE SCHOOL_YEAR = " + year + " AND " + markPct + " >= MIN_PCT AND " + markPct;
+            var markPct = ((obtainedFinalMark * 100) / subjectMarks);
+
+            var query = "SELECT GRADE_POINT, LETTER_GRADE FROM S_GRADE WHERE SCHOOL_YEAR = " + year + 
+                        " AND " + markPct + " >= MIN_PCT AND " + markPct;
+
             query += markPct == 100 ? " <= MAX_PCT" : " < MAX_PCT";
 
             var grade = Db.GetReader(query);

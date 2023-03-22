@@ -18,7 +18,7 @@ namespace MadrasahSMS.Common
             ThemeTemplate.LoadTheme(panelBody);
         }
 
-        public static bool Show(string fromTitle, DataTable data, string[] columnHeader, int? fillColumnIndex = null, bool makeDecision = false)
+        public static bool Show(string fromTitle, DataTable data, string[] columnHeader, int? fillColumnIndex = null, bool makeDecision = false, string decisionButtonText="")
         {
             _viewList = new FrmViewList();
 
@@ -47,7 +47,8 @@ namespace MadrasahSMS.Common
                 _viewList.dataGridViewList.Columns[(int)fillColumnIndex].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
 
-            _viewList.linkLabelProcessResult.Visible = makeDecision;
+            _viewList.linkLabelAction.Text = decisionButtonText;
+            _viewList.linkLabelAction.Visible = makeDecision;
             _decision = false;
 
             _viewList.ShowDialog();
@@ -76,7 +77,7 @@ namespace MadrasahSMS.Common
             _viewList.Close();
         }
         
-        private void linkLabelProcessResult_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelAction_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (MessageBox.Show(ContentText.ProcessWithoutAbsentList, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
