@@ -10,8 +10,8 @@ using MadrasahSMS.Exam;
 using MadrasahSMS.Staff;
 using MadrasahSMS.Students;
 using MadrasahSMS.Theme;
-using MadrasahSMS.Common;
 using MadrasahSMS.DbContext;
+using MadrasahSMS.Settings;
 
 namespace MadrasahSMS
 {
@@ -186,6 +186,8 @@ namespace MadrasahSMS
                 _currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 _currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
                 _currentBtn.Font = new Font(_currentBtn.Font.FontFamily, _currentBtn.Font.Size, FontStyle.Regular);
+
+                _leftMenuBtnBorder.Visible = false;
             }
         }
 
@@ -224,6 +226,7 @@ namespace MadrasahSMS
         private void LoadOfficeInfo()
         {
             labelOfficeName.Text = GlobalSettings.OfficeInfo.NameEnglish;
+            pictureBoxLogo.Image = GlobalSettings.OfficeInfo.Logo;
         }
         
         #endregion
@@ -317,14 +320,25 @@ namespace MadrasahSMS
 
         private void iconButtonBackup_Click(object sender, EventArgs e)
         {
+            CloseChildForm();
             ActiveButton(sender);
-            new FrmBackup().ShowDialog();
+            var bk = new FrmBackup().ShowDialog()==DialogResult.Cancel;
+            if (bk)
+            {
+                DisableButton();
+            }
         }
 
         private void iconButtonResultProcess_Click(object sender, EventArgs e)
         {
             ActiveButton(sender);
             OpenChildForm(new FrmResultProcess());
+        }
+
+        private void iconButtonSettings_Click(object sender, EventArgs e)
+        {
+            //ActiveButton(sender);
+            new FrmSettings().ShowDialog();
         }
     }
 }

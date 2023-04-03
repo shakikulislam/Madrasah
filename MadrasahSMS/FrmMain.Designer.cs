@@ -53,10 +53,13 @@ namespace MadrasahSMS
             this.panelRight = new System.Windows.Forms.Panel();
             this.panelTopDivider = new System.Windows.Forms.Panel();
             this.panelBody = new System.Windows.Forms.Panel();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelSideMenu.SuspendLayout();
+            this.panelLeftMenuLogo.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxCurrentChild)).BeginInit();
             this.panelFooter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -88,7 +91,7 @@ namespace MadrasahSMS
             this.iconButtonBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonBackup.IconSize = 32;
             this.iconButtonBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonBackup.Location = new System.Drawing.Point(0, 343);
+            this.iconButtonBackup.Location = new System.Drawing.Point(0, 357);
             this.iconButtonBackup.Name = "iconButtonBackup";
             this.iconButtonBackup.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.iconButtonBackup.Size = new System.Drawing.Size(160, 40);
@@ -110,7 +113,7 @@ namespace MadrasahSMS
             this.iconButtonResultProcess.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonResultProcess.IconSize = 32;
             this.iconButtonResultProcess.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonResultProcess.Location = new System.Drawing.Point(0, 303);
+            this.iconButtonResultProcess.Location = new System.Drawing.Point(0, 317);
             this.iconButtonResultProcess.Name = "iconButtonResultProcess";
             this.iconButtonResultProcess.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.iconButtonResultProcess.Size = new System.Drawing.Size(160, 40);
@@ -141,6 +144,7 @@ namespace MadrasahSMS
             this.iconButtonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButtonSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButtonSettings.UseVisualStyleBackColor = true;
+            this.iconButtonSettings.Click += new System.EventHandler(this.iconButtonSettings_Click);
             // 
             // iconButtonExam
             // 
@@ -153,7 +157,7 @@ namespace MadrasahSMS
             this.iconButtonExam.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonExam.IconSize = 32;
             this.iconButtonExam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonExam.Location = new System.Drawing.Point(0, 263);
+            this.iconButtonExam.Location = new System.Drawing.Point(0, 277);
             this.iconButtonExam.Name = "iconButtonExam";
             this.iconButtonExam.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.iconButtonExam.Size = new System.Drawing.Size(160, 40);
@@ -175,7 +179,7 @@ namespace MadrasahSMS
             this.iconButtonMarksEntry.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonMarksEntry.IconSize = 32;
             this.iconButtonMarksEntry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonMarksEntry.Location = new System.Drawing.Point(0, 223);
+            this.iconButtonMarksEntry.Location = new System.Drawing.Point(0, 237);
             this.iconButtonMarksEntry.Name = "iconButtonMarksEntry";
             this.iconButtonMarksEntry.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.iconButtonMarksEntry.Size = new System.Drawing.Size(160, 40);
@@ -197,7 +201,7 @@ namespace MadrasahSMS
             this.iconButtonAddress.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.iconButtonAddress.IconSize = 32;
             this.iconButtonAddress.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonAddress.Location = new System.Drawing.Point(0, 183);
+            this.iconButtonAddress.Location = new System.Drawing.Point(0, 197);
             this.iconButtonAddress.Name = "iconButtonAddress";
             this.iconButtonAddress.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.iconButtonAddress.Size = new System.Drawing.Size(160, 40);
@@ -219,7 +223,7 @@ namespace MadrasahSMS
             this.iconButtonAcademic.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonAcademic.IconSize = 32;
             this.iconButtonAcademic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonAcademic.Location = new System.Drawing.Point(0, 143);
+            this.iconButtonAcademic.Location = new System.Drawing.Point(0, 157);
             this.iconButtonAcademic.Name = "iconButtonAcademic";
             this.iconButtonAcademic.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.iconButtonAcademic.Size = new System.Drawing.Size(160, 40);
@@ -241,7 +245,7 @@ namespace MadrasahSMS
             this.iconButtonStaff.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonStaff.IconSize = 32;
             this.iconButtonStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonStaff.Location = new System.Drawing.Point(0, 103);
+            this.iconButtonStaff.Location = new System.Drawing.Point(0, 117);
             this.iconButtonStaff.Name = "iconButtonStaff";
             this.iconButtonStaff.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.iconButtonStaff.Size = new System.Drawing.Size(160, 40);
@@ -263,7 +267,7 @@ namespace MadrasahSMS
             this.iconButtonStudent.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonStudent.IconSize = 32;
             this.iconButtonStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonStudent.Location = new System.Drawing.Point(0, 63);
+            this.iconButtonStudent.Location = new System.Drawing.Point(0, 77);
             this.iconButtonStudent.Name = "iconButtonStudent";
             this.iconButtonStudent.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.iconButtonStudent.Size = new System.Drawing.Size(160, 40);
@@ -276,10 +280,11 @@ namespace MadrasahSMS
             // 
             // panelLeftMenuLogo
             // 
+            this.panelLeftMenuLogo.Controls.Add(this.pictureBoxLogo);
             this.panelLeftMenuLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLeftMenuLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLeftMenuLogo.Name = "panelLeftMenuLogo";
-            this.panelLeftMenuLogo.Size = new System.Drawing.Size(160, 63);
+            this.panelLeftMenuLogo.Size = new System.Drawing.Size(160, 77);
             this.panelLeftMenuLogo.TabIndex = 1;
             // 
             // panelTitleBar
@@ -427,6 +432,15 @@ namespace MadrasahSMS
             this.panelBody.Size = new System.Drawing.Size(772, 590);
             this.panelBody.TabIndex = 3;
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Location = new System.Drawing.Point(45, 3);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(70, 70);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,11 +459,13 @@ namespace MadrasahSMS
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Resize += new System.EventHandler(this.FrmMain_Resize);
             this.panelSideMenu.ResumeLayout(false);
+            this.panelLeftMenuLogo.ResumeLayout(false);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxCurrentChild)).EndInit();
             this.panelFooter.ResumeLayout(false);
             this.panelFooter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -479,6 +495,7 @@ namespace MadrasahSMS
         private FontAwesome.Sharp.IconButton iconButtonBackup;
         private FontAwesome.Sharp.IconButton iconButtonSettings;
         private FontAwesome.Sharp.IconButton iconButtonResultProcess;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
     }
 }
 

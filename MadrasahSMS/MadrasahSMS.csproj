@@ -98,6 +98,7 @@
     <Compile Include="Academic\FrmSubject.Designer.cs">
       <DependentUpon>FrmSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppObject.cs" />
     <Compile Include="Common\ContentText.cs" />
     <Compile Include="Common\FrmViewList.cs">
       <SubType>Form</SubType>
@@ -174,6 +175,12 @@
     <Compile Include="OfficeInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\FrmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\FrmSettings.Designer.cs">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Staff\FrmAddNewStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +283,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Settings\FrmSettings.resx">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Staff\FrmAddNewStaff.resx">
       <DependentUpon>FrmAddNewStaff.cs</DependentUpon>
     </EmbeddedResource>
@@ -334,6 +344,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\check_mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -117,17 +117,45 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Mosque" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Mosque.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="errorProviderSetting.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>58</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBoxLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
   </data>
-  <data name="no_person_image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\no_person_image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="check_mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check_mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NoLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NoLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="toolTipSetting.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>179, 17</value>
+  </metadata>
 </root>

@@ -70,6 +70,7 @@ namespace MadrasahSMS
             // 
             this.iconButtonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconButtonClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButtonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.iconButtonClose.FlatAppearance.BorderSize = 0;
             this.iconButtonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButtonClose.IconChar = FontAwesome.Sharp.IconChar.XmarkSquare;

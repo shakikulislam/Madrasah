@@ -317,9 +317,8 @@ namespace MadrasahSMS
                                      foreach (DataRow row in dt.Rows)
                                      {
                                          preExamMark += Convert.ToDouble(row["PRE_EXAM_MARKS"].ToString());
-                                         preExamMarkDtl += string.IsNullOrEmpty(preExamMarkDtl)
-                                             ? "E" + row["EXAM_ID"] + "M" + row["TOTAL_OBTAINED_MARKS"] + "%" + row["EFFECT_PERCENT"] + "=" + row["PRE_EXAM_MARKS"]
-                                             : ",E" + row["EXAM_ID"] + "M" + row["TOTAL_OBTAINED_MARKS"] + "%" + row["EFFECT_PERCENT"] + "=" + row["PRE_EXAM_MARKS"];
+                                         var dtl = "E" + row["EXAM_ID"] + "M" + row["TOTAL_OBTAINED_MARKS"] + "%" + row["EFFECT_PERCENT"] + "=" + row["PRE_EXAM_MARKS"];
+                                         preExamMarkDtl += string.IsNullOrEmpty(preExamMarkDtl) ? dtl : "," + dtl;
                                      }
                                  }
                             }
