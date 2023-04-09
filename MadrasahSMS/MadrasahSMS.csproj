@@ -142,6 +142,12 @@
     <Compile Include="FrmAddress.Designer.cs">
       <DependentUpon>FrmAddress.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +264,9 @@
     <EmbeddedResource Include="FrmAddress.resx">
       <DependentUpon>FrmAddress.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -347,6 +356,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NoLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

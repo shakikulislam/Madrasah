@@ -24,7 +24,6 @@ namespace MadrasahSMS
             try
             {
                 GlobalSettings.Server = File.ReadAllText("host.txt");
-                GlobalSettings.LoggedEmployee = new EmployeeInfo();
             }
             catch
             {
@@ -49,7 +48,7 @@ namespace MadrasahSMS
                 }
 
                 waiting.Close();
-                Application.Run(new FrmMain());
+                Application.Run(new FrmLogin());
             }
         }
     }

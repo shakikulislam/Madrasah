@@ -17,7 +17,8 @@ namespace MadrasahSMS.DbContext
 
         private static string _connectionString = @"Data Source=" + GlobalSettings.Server +
                                                   "; Initial Catalog=" + _databaseName +
-                                                  "; Integrated Security = True";
+                                                  "; Integrated Security = True" +
+                                                  "; Connection Timeout=3600;";
 
         private static SqlConnection conn = new SqlConnection(_connectionString);
         private static SqlCommand cmd = new SqlCommand("", conn);
