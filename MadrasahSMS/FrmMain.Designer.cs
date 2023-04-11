@@ -41,6 +41,7 @@ namespace MadrasahSMS
             this.iconButtonStaff = new FontAwesome.Sharp.IconButton();
             this.iconButtonStudent = new FontAwesome.Sharp.IconButton();
             this.panelLeftMenuLogo = new System.Windows.Forms.Panel();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.iconButtonMinimize = new FontAwesome.Sharp.IconButton();
             this.labelCurrentChild = new System.Windows.Forms.Label();
@@ -53,13 +54,13 @@ namespace MadrasahSMS
             this.panelRight = new System.Windows.Forms.Panel();
             this.panelTopDivider = new System.Windows.Forms.Panel();
             this.panelBody = new System.Windows.Forms.Panel();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.linkLabelUserName = new System.Windows.Forms.LinkLabel();
             this.panelSideMenu.SuspendLayout();
             this.panelLeftMenuLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxCurrentChild)).BeginInit();
             this.panelFooter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -287,6 +288,15 @@ namespace MadrasahSMS
             this.panelLeftMenuLogo.Size = new System.Drawing.Size(160, 77);
             this.panelLeftMenuLogo.TabIndex = 1;
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Location = new System.Drawing.Point(45, 3);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(70, 70);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
+            // 
             // panelTitleBar
             // 
             this.panelTitleBar.Controls.Add(this.iconButtonMinimize);
@@ -386,6 +396,7 @@ namespace MadrasahSMS
             // 
             // panelFooter
             // 
+            this.panelFooter.Controls.Add(this.linkLabelUserName);
             this.panelFooter.Controls.Add(this.labelOfficeName);
             this.panelFooter.Cursor = System.Windows.Forms.Cursors.Default;
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -432,14 +443,16 @@ namespace MadrasahSMS
             this.panelBody.Size = new System.Drawing.Size(772, 590);
             this.panelBody.TabIndex = 3;
             // 
-            // pictureBoxLogo
+            // linkLabelUserName
             // 
-            this.pictureBoxLogo.Location = new System.Drawing.Point(45, 3);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(70, 70);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxLogo.TabIndex = 0;
-            this.pictureBoxLogo.TabStop = false;
+            this.linkLabelUserName.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabelUserName.Location = new System.Drawing.Point(530, 3);
+            this.linkLabelUserName.Name = "linkLabelUserName";
+            this.linkLabelUserName.Size = new System.Drawing.Size(244, 18);
+            this.linkLabelUserName.TabIndex = 5;
+            this.linkLabelUserName.TabStop = true;
+            this.linkLabelUserName.Text = "...";
+            this.linkLabelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmMain
             // 
@@ -460,12 +473,12 @@ namespace MadrasahSMS
             this.Resize += new System.EventHandler(this.FrmMain_Resize);
             this.panelSideMenu.ResumeLayout(false);
             this.panelLeftMenuLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxCurrentChild)).EndInit();
             this.panelFooter.ResumeLayout(false);
             this.panelFooter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -496,6 +509,7 @@ namespace MadrasahSMS
         private FontAwesome.Sharp.IconButton iconButtonSettings;
         private FontAwesome.Sharp.IconButton iconButtonResultProcess;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.LinkLabel linkLabelUserName;
     }
 }
 

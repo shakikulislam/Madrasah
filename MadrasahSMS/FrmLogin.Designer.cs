@@ -49,7 +49,7 @@ namespace MadrasahSMS
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(92, 255);
+            this.buttonLogin.Location = new System.Drawing.Point(92, 253);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(109, 25);
             this.buttonLogin.TabIndex = 2;
@@ -64,7 +64,7 @@ namespace MadrasahSMS
             this.labelClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelClose.ForeColor = System.Drawing.Color.White;
-            this.labelClose.Location = new System.Drawing.Point(260, 10);
+            this.labelClose.Location = new System.Drawing.Point(258, 12);
             this.labelClose.Name = "labelClose";
             this.labelClose.Size = new System.Drawing.Size(23, 22);
             this.labelClose.TabIndex = 6;
@@ -77,10 +77,10 @@ namespace MadrasahSMS
             // 
             this.textBoxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(47, 163);
+            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.Location = new System.Drawing.Point(47, 164);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(202, 22);
+            this.textBoxPassword.Size = new System.Drawing.Size(202, 20);
             this.textBoxPassword.TabIndex = 1;
             this.textBoxPassword.Text = "shakikul";
             this.textBoxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -91,10 +91,10 @@ namespace MadrasahSMS
             // 
             this.textBoxUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserName.Location = new System.Drawing.Point(47, 88);
+            this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUserName.Location = new System.Drawing.Point(47, 90);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(202, 22);
+            this.textBoxUserName.Size = new System.Drawing.Size(202, 20);
             this.textBoxUserName.TabIndex = 0;
             this.textBoxUserName.Text = "shakikul";
             this.textBoxUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -130,7 +130,7 @@ namespace MadrasahSMS
             this.checkBoxRememberMe.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxRememberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxRememberMe.ForeColor = System.Drawing.Color.White;
-            this.checkBoxRememberMe.Location = new System.Drawing.Point(47, 201);
+            this.checkBoxRememberMe.Location = new System.Drawing.Point(47, 199);
             this.checkBoxRememberMe.Name = "checkBoxRememberMe";
             this.checkBoxRememberMe.Size = new System.Drawing.Size(119, 21);
             this.checkBoxRememberMe.TabIndex = 12;

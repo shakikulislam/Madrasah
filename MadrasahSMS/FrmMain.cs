@@ -225,8 +225,15 @@ namespace MadrasahSMS
         
         private void LoadOfficeInfo()
         {
+            //Office Info
             labelOfficeName.Text = GlobalSettings.OfficeInfo.NameEnglish;
             pictureBoxLogo.Image = GlobalSettings.OfficeInfo.Logo;
+
+            //Employee Info
+            linkLabelUserName.Text = GlobalSettings.LoggedEmployee.UserName;
+            linkLabelUserName.Tag = GlobalSettings.LoggedEmployee.Id;
+
+            linkLabelUserName.ForeColor = STheme.SColor.ForColor;
         }
         
         #endregion

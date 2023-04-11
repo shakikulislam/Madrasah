@@ -8,13 +8,10 @@ namespace MadrasahSMS.Common
 {
     public class GlobalSettings
     {
-        #region Property
+        #region Property/Variable
         
-        public static string DevUser { get; } = "DEVELOPER";
-        public static string DevPass { get; } = "developer12345";
         public static string Server { get; set; }
         public static EmployeeInfo LoggedEmployee { get; set; }
-        public static string UserRole { get; set; }
         public static string DateFormatShortView { get; } = "dd-MMM-yy";
         public static string DateFormatSave { get; } = "yyyy-MM-dd";
         public static OfficeInfo OfficeInfo { get; set; }
@@ -23,16 +20,16 @@ namespace MadrasahSMS.Common
         public static string DeActive { get; } = "DA"; // De-Active
         public static string MarkEntry { get; } = "ME"; // Mark Entry
         public static string InactiveAbsent { get; } = "I"; // Inactive/Absent
-        
+        public static frmWaiting Waiting;
 
-        #endregion Property
+        #endregion Property/Variable
 
         #region Enum (enumeration) Constant
 
         #endregion Enum
 
         #region Method
-        
+
         public static Image ByteToImage(object imageField, Bitmap defaultImage)
         {
             if (imageField == DBNull.Value) return defaultImage;

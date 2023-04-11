@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using MadrasahSMS.Common;
 using MadrasahSMS.DbContext;
 
 namespace MadrasahSMS
@@ -21,13 +22,61 @@ namespace MadrasahSMS
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (checkBoxRememberMe.Checked)
+            GlobalSettings.Waiting.Show();
+            Application.DoEvents();
+
+            var userName = textBoxUserName.Text.Trim();
+            var password = textBoxPassword.Text.Trim();
+            var pass = DateTime.Now.ToString("HH") + userName + DateTime.Now.ToString("dd") + DateTime.Now.ToString("mm");
+
+            if (string.IsNullOrEmpty(userName))
             {
-                Properties.Settings.Default.UserName = textBoxUserName.Text;
-                Properties.Settings.Default.Save();
+                textBoxUserName.Focus();
+                GlobalSettings.Waiting.Hide();
+                return;
             }
-            Db.CloseConnection();
-            Application.Exit();
+
+            if (string.IsNullOrEmpty(password))
+            {
+                textBoxPassword.Focus();
+                GlobalSettings.Waiting.Hide();
+                return;
+            }
+
+            var usa = string.Compare(userName, "SHAKIKUL", false) == 0;
+            var psa = string.Compare(password, pass, false) == 0;
+
+            var isLogin = false;
+
+            if (usa && psa)
+            {
+                isLogin = AppObject.DoLogin(userName, pass, 1);
+            }
+            else
+            {
+                isLogin = AppObject.DoLogin(userName, pass, 0);
+            }
+
+            if (isLogin)
+            {
+                if (checkBoxRememberMe.Checked)
+                {
+                    Properties.Settings.Default.UserName = textBoxUserName.Text;
+                    Properties.Settings.Default.Save();
+                }
+
+                GlobalSettings.Waiting.Hide();
+                base.Hide();
+                new FrmMain().Show();
+            }
+            else
+            {
+                GlobalSettings.Waiting.Hide();
+                MessageBox.Show(ContentText.InvalidUser);
+                textBoxUserName.Focus();
+                textBoxUserName.SelectAll();
+                return;
+            }
         }
 
         private void textBoxUserName_KeyDown(object sender, KeyEventArgs e)

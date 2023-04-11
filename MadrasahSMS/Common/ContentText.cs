@@ -31,6 +31,8 @@
         public static string FinalExamAlreadyExist { get; set; } = "Final exam already exist";
         public static string UpdateSuccess { get; set; } = "Successfully Updated";
         public static string UpdateFailed { get; set; } = "Failed Updated";
+        public static string InvalidUser { get; set; } = "Invalid User";
+
 
 
     }

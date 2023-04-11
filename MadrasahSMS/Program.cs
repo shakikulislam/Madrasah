@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using MadrasahSMS.Common;
@@ -18,8 +17,8 @@ namespace MadrasahSMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var waiting = new frmWaiting();
-            waiting.Show();
+            GlobalSettings.Waiting = new frmWaiting();
+            GlobalSettings.Waiting.Show();
             Application.DoEvents();
             try
             {
@@ -47,7 +46,7 @@ namespace MadrasahSMS
                     Application.Exit();
                 }
 
-                waiting.Close();
+                GlobalSettings.Waiting.Hide();
                 Application.Run(new FrmLogin());
             }
         }
