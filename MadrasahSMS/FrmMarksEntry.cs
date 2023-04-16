@@ -279,7 +279,7 @@ namespace MadrasahSMS
                             ", OBTAINED_MARKS_PCT=" + result.MarksPercentage + 
                             ", LETTER_GRADE='" + result.LetterGrade + 
                             "', GRADE_POINT=" + result.GradePoint + 
-                            ", STATUS='" + GlobalSettings.MarkEntry + 
+                            ", STATUS='" + GlobalSettings.Status.ME + 
                             "' WHERE ID=" + textBoxMark.Tag;
 
                 var isUpdate = Db.QueryExecute(query);

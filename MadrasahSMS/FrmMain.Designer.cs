@@ -50,11 +50,11 @@ namespace MadrasahSMS
             this.iconPictureBoxCurrentChild = new FontAwesome.Sharp.IconPictureBox();
             this.toolTipMain = new System.Windows.Forms.ToolTip(this.components);
             this.panelFooter = new System.Windows.Forms.Panel();
+            this.linkLabelUserName = new System.Windows.Forms.LinkLabel();
             this.labelOfficeName = new System.Windows.Forms.Label();
             this.panelRight = new System.Windows.Forms.Panel();
             this.panelTopDivider = new System.Windows.Forms.Panel();
             this.panelBody = new System.Windows.Forms.Panel();
-            this.linkLabelUserName = new System.Windows.Forms.LinkLabel();
             this.panelSideMenu.SuspendLayout();
             this.panelLeftMenuLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
@@ -405,6 +405,18 @@ namespace MadrasahSMS
             this.panelFooter.Size = new System.Drawing.Size(787, 30);
             this.panelFooter.TabIndex = 4;
             // 
+            // linkLabelUserName
+            // 
+            this.linkLabelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelUserName.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabelUserName.Location = new System.Drawing.Point(535, 4);
+            this.linkLabelUserName.Name = "linkLabelUserName";
+            this.linkLabelUserName.Size = new System.Drawing.Size(244, 18);
+            this.linkLabelUserName.TabIndex = 5;
+            this.linkLabelUserName.TabStop = true;
+            this.linkLabelUserName.Text = "...";
+            this.linkLabelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // labelOfficeName
             // 
             this.labelOfficeName.AutoSize = true;
@@ -442,17 +454,6 @@ namespace MadrasahSMS
             this.panelBody.Name = "panelBody";
             this.panelBody.Size = new System.Drawing.Size(772, 590);
             this.panelBody.TabIndex = 3;
-            // 
-            // linkLabelUserName
-            // 
-            this.linkLabelUserName.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabelUserName.Location = new System.Drawing.Point(530, 3);
-            this.linkLabelUserName.Name = "linkLabelUserName";
-            this.linkLabelUserName.Size = new System.Drawing.Size(244, 18);
-            this.linkLabelUserName.TabIndex = 5;
-            this.linkLabelUserName.TabStop = true;
-            this.linkLabelUserName.Text = "...";
-            this.linkLabelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmMain
             // 

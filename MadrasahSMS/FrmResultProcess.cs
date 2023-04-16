@@ -113,7 +113,7 @@ namespace MadrasahSMS
                             "WHERE S.ID NOT IN(SELECT SUBJECT_ID FROM S_EXAM_SCHEDULE " +
                             "WHERE SCHOOL_YEAR = " + GlobalSettings.OfficeInfo.SchoolYear + " AND CLASS_ID = " +
                             classId + " AND EXAM_ID = " + examId + ") " +
-                            "AND S.CLASS_ID = " + classId + " AND S.STATUS = '" + GlobalSettings.Active + "'";
+                            "AND S.CLASS_ID = " + classId + " AND S.STATUS = '" + GlobalSettings.Status.A + "'";
                 dt = Db.GetTable(query);
                 if (dt.Rows.Count > 0)
                 {
@@ -164,7 +164,7 @@ namespace MadrasahSMS
                         "LEFT JOIN S_STUDENT AS ST ON M.STUDENT_ID = ST.ID " +
                         "WHERE M.SCHOOL_YEAR = " + GlobalSettings.OfficeInfo.SchoolYear +
                         " AND M.EXAM_ID = " + examId + " AND M.CLASS_ID = " + classId +
-                        " AND (M.STATUS IS NULL OR M.STATUS NOT IN('" + GlobalSettings.MarkEntry + "')) " +
+                        " AND (M.STATUS IS NULL OR M.STATUS NOT IN('" + GlobalSettings.Status.ME + "')) " +
                         "AND IS_ABSENT=0 " +
                         "ORDER BY ST.ROLL, S.NAME";
                 dt = Db.GetTable(query);

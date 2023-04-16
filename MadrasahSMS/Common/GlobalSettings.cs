@@ -16,15 +16,19 @@ namespace MadrasahSMS.Common
         public static string DateFormatSave { get; } = "yyyy-MM-dd";
         public static OfficeInfo OfficeInfo { get; set; }
         public static string MarkCalculateYear { get; set; } = "2023";
-        public static string Active { get; } = "A"; // Active
-        public static string DeActive { get; } = "DA"; // De-Active
-        public static string MarkEntry { get; } = "ME"; // Mark Entry
-        public static string InactiveAbsent { get; } = "I"; // Inactive/Absent
         public static frmWaiting Waiting;
 
         #endregion Property/Variable
 
         #region Enum (enumeration) Constant
+
+        public enum Status
+        {
+            A,  //Active
+            DA, //DeActive
+            ME, //MarkEntry
+            I   //In-Active/Absent
+        }
 
         #endregion Enum
 

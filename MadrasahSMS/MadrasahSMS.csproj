@@ -214,6 +214,12 @@
     <Compile Include="Staff\FrmStaffList.Designer.cs">
       <DependentUpon>FrmStaffList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Staff\FrmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\FrmUser.Designer.cs">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Students\FrmAddNewStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\FrmStaffList.resx">
       <DependentUpon>FrmStaffList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\FrmUser.resx">
+      <DependentUpon>FrmUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Students\FrmAddNewStudent.resx">
       <DependentUpon>FrmAddNewStudent.cs</DependentUpon>

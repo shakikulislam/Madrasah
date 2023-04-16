@@ -347,5 +347,6 @@ namespace MadrasahSMS
             //ActiveButton(sender);
             new FrmSettings().ShowDialog();
         }
+
     }
 }

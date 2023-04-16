@@ -9,13 +9,11 @@ namespace MadrasahSMS.Staff
     public partial class FrmStaff : Form
     {
         private Form _currentChildForm;
-        private IconButton _currentBtn;
+        private ToolStripMenuItem _currentBtn;
 
         public FrmStaff()
         {
             InitializeComponent();
-
-            LoadTheme(panelControl);
             LoadTheme(panelBody);
         }
 
@@ -58,11 +56,11 @@ namespace MadrasahSMS.Staff
                 DisableButton();
 
                 // Active button
-                _currentBtn = (IconButton)senderBtn;
+                _currentBtn = (ToolStripMenuItem)senderBtn;
                 _currentBtn.BackColor = STheme.SColor.ActiveBackColor;
                 _currentBtn.ForeColor = STheme.SColor.ActiveForColor;
                 //_currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                _currentBtn.IconColor = STheme.SColor.ActiveForColor;
+                //_currentBtn.IconColor = STheme.SColor.ActiveForColor;
                 //_currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 //_currentBtn.ImageAlign = ContentAlignment.MiddleRight;
             }
@@ -75,7 +73,7 @@ namespace MadrasahSMS.Staff
                 _currentBtn.BackColor = STheme.SColor.MenuPanelBackColor;
                 _currentBtn.ForeColor = STheme.SColor.ForColor;
                 //_currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                _currentBtn.IconColor = STheme.SColor.ForColor;
+             //   _currentBtn.IconColor = STheme.SColor.ForColor;
                 //_currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 //_currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
@@ -91,6 +89,29 @@ namespace MadrasahSMS.Staff
         {
             ActiveButton(sender);
             OpenChildForm(new FrmAddNewStaff());
+        }
+
+        private void iconButtonUserManage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void staffListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            OpenChildForm(new FrmStaffList());
+        }
+
+        private void addStaffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            OpenChildForm(new FrmAddNewStaff());
+        }
+
+        private void userManageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender);
+            OpenChildForm(new FrmUser());
         }
     }
 }

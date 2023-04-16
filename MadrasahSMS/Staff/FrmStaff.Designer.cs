@@ -29,92 +29,78 @@ namespace MadrasahSMS.Staff
         /// </summary>
         private void InitializeComponent()
         {
-            this.iconButtonAddStaff = new FontAwesome.Sharp.IconButton();
-            this.panelControl = new System.Windows.Forms.Panel();
-            this.iconButtonStaffList = new FontAwesome.Sharp.IconButton();
             this.panelBody = new System.Windows.Forms.Panel();
-            this.panelControl.SuspendLayout();
+            this.menuStripStaff = new System.Windows.Forms.MenuStrip();
+            this.staffListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addStaffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStripStaff.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // iconButtonAddStaff
-            // 
-            this.iconButtonAddStaff.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.iconButtonAddStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonAddStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonAddStaff.IconChar = FontAwesome.Sharp.IconChar.PersonCirclePlus;
-            this.iconButtonAddStaff.IconColor = System.Drawing.Color.Black;
-            this.iconButtonAddStaff.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonAddStaff.IconSize = 32;
-            this.iconButtonAddStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonAddStaff.Location = new System.Drawing.Point(403, 12);
-            this.iconButtonAddStaff.Name = "iconButtonAddStaff";
-            this.iconButtonAddStaff.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.iconButtonAddStaff.Size = new System.Drawing.Size(160, 40);
-            this.iconButtonAddStaff.TabIndex = 5;
-            this.iconButtonAddStaff.Text = "Add Staff";
-            this.iconButtonAddStaff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonAddStaff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonAddStaff.UseVisualStyleBackColor = true;
-            this.iconButtonAddStaff.Click += new System.EventHandler(this.iconButtonAddStaff_Click);
-            // 
-            // panelControl
-            // 
-            this.panelControl.Controls.Add(this.iconButtonStaffList);
-            this.panelControl.Controls.Add(this.iconButtonAddStaff);
-            this.panelControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl.Location = new System.Drawing.Point(0, 0);
-            this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(800, 75);
-            this.panelControl.TabIndex = 6;
-            // 
-            // iconButtonStaffList
-            // 
-            this.iconButtonStaffList.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.iconButtonStaffList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonStaffList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonStaffList.IconChar = FontAwesome.Sharp.IconChar.Person;
-            this.iconButtonStaffList.IconColor = System.Drawing.Color.Black;
-            this.iconButtonStaffList.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonStaffList.IconSize = 32;
-            this.iconButtonStaffList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonStaffList.Location = new System.Drawing.Point(237, 12);
-            this.iconButtonStaffList.Name = "iconButtonStaffList";
-            this.iconButtonStaffList.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.iconButtonStaffList.Size = new System.Drawing.Size(160, 40);
-            this.iconButtonStaffList.TabIndex = 6;
-            this.iconButtonStaffList.Text = "Staff List";
-            this.iconButtonStaffList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonStaffList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonStaffList.UseVisualStyleBackColor = true;
-            this.iconButtonStaffList.Click += new System.EventHandler(this.iconButtonStaffList_Click);
             // 
             // panelBody
             // 
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBody.Location = new System.Drawing.Point(0, 75);
+            this.panelBody.Location = new System.Drawing.Point(0, 24);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(800, 375);
+            this.panelBody.Size = new System.Drawing.Size(600, 358);
             this.panelBody.TabIndex = 7;
+            // 
+            // menuStripStaff
+            // 
+            this.menuStripStaff.BackColor = System.Drawing.Color.Transparent;
+            this.menuStripStaff.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.staffListToolStripMenuItem,
+            this.addStaffToolStripMenuItem,
+            this.userManageToolStripMenuItem});
+            this.menuStripStaff.Location = new System.Drawing.Point(0, 0);
+            this.menuStripStaff.Name = "menuStripStaff";
+            this.menuStripStaff.Size = new System.Drawing.Size(600, 24);
+            this.menuStripStaff.TabIndex = 8;
+            this.menuStripStaff.Text = "menuStrip1";
+            // 
+            // staffListToolStripMenuItem
+            // 
+            this.staffListToolStripMenuItem.Name = "staffListToolStripMenuItem";
+            this.staffListToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.staffListToolStripMenuItem.Text = "Staff List";
+            this.staffListToolStripMenuItem.Click += new System.EventHandler(this.staffListToolStripMenuItem_Click);
+            // 
+            // addStaffToolStripMenuItem
+            // 
+            this.addStaffToolStripMenuItem.Name = "addStaffToolStripMenuItem";
+            this.addStaffToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.addStaffToolStripMenuItem.Text = "Add Staff";
+            this.addStaffToolStripMenuItem.Click += new System.EventHandler(this.addStaffToolStripMenuItem_Click);
+            // 
+            // userManageToolStripMenuItem
+            // 
+            this.userManageToolStripMenuItem.Name = "userManageToolStripMenuItem";
+            this.userManageToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.userManageToolStripMenuItem.Text = "User Manage";
+            this.userManageToolStripMenuItem.Click += new System.EventHandler(this.userManageToolStripMenuItem_Click);
             // 
             // FrmStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 382);
             this.Controls.Add(this.panelBody);
-            this.Controls.Add(this.panelControl);
+            this.Controls.Add(this.menuStripStaff);
+            this.MainMenuStrip = this.menuStripStaff;
             this.Name = "FrmStaff";
             this.Text = "Staff";
-            this.panelControl.ResumeLayout(false);
+            this.menuStripStaff.ResumeLayout(false);
+            this.menuStripStaff.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private FontAwesome.Sharp.IconButton iconButtonAddStaff;
-        private System.Windows.Forms.Panel panelControl;
         private System.Windows.Forms.Panel panelBody;
-        private FontAwesome.Sharp.IconButton iconButtonStaffList;
+        private System.Windows.Forms.MenuStrip menuStripStaff;
+        private System.Windows.Forms.ToolStripMenuItem staffListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addStaffToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManageToolStripMenuItem;
     }
 }
